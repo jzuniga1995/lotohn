@@ -1,7 +1,7 @@
 name: Scraper Loto Honduras
 
 on:
-  # Ejecutar automáticamente 3 veces al día (10 minutos después de cada sorteo)
+  # Ejecutar automáticamente 3 veces al día (5 minutos después de cada sorteo)
   schedule:
     - cron: '05 17 * * *'  # 11:05 AM Honduras = 5:05 PM UTC
     - cron: '05 21 * * *'  # 3:05 PM Honduras = 9:05 PM UTC
@@ -40,11 +40,16 @@ jobs:
           python loto_scraper.py
           echo "✅ Scraper ejecutado exitosamente"
       
-      # 5. Verificar si hay cambios
+      # 5. Verificar si hay cambios o si es archivo nuevo
       - name: 📊 Check for changes
         id: verify_diff
         run: |
-          git diff --quiet resultados_hoy.json || echo "changed=true" >> $GITHUB_OUTPUT
+          git add resultados_hoy.json
+          if git diff --staged --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
       
       # 6. Commit y push de los cambios
       - name: 💾 Commit and push changes
@@ -52,11 +57,10 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions Bot"
-          git add resultados_hoy.json
           git commit -m "🎯 Actualizar resultados - $(date +'%Y-%m-%d %H:%M:%S')"
           git push
       
       # 7. Mensaje si no hay cambios
       - name: ℹ️ No changes detected
         if: steps.verify_diff.outputs.changed != 'true'
-        run: echo "No se detectaron cambios en los resultados"
+        run: echo "ℹ️ No se detectaron cambios en los resultados"
