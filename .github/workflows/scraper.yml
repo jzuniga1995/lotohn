@@ -1,14 +1,17 @@
 name: Scraper Loto Honduras
 
 on:
-  # Ejecutar automáticamente 3 veces al día (5 minutos después de cada sorteo)
+  # Ejecutar automáticamente 3 veces al día (10 minutos después de cada sorteo)
   schedule:
-    - cron: '05 17 * * *'  # 11:05 AM Honduras = 5:05 PM UTC
-    - cron: '05 21 * * *'  # 3:05 PM Honduras = 9:05 PM UTC
-    - cron: '05 3 * * *'   # 9:05 PM Honduras = 3:05 AM UTC (día siguiente)
+    - cron: '10 17 * * *'  # 11:10 AM Honduras = 5:10 PM UTC
+    - cron: '10 21 * * *'  # 3:10 PM Honduras = 9:10 PM UTC
+    - cron: '10 3 * * *'   # 9:10 PM Honduras = 3:10 AM UTC (día siguiente)
   
   # Permitir ejecución manual desde GitHub
   workflow_dispatch:
+
+permissions:
+  contents: write  # Permiso para hacer commit y push
 
 jobs:
   scrape:
@@ -38,7 +41,7 @@ jobs:
       - name: 🔄 Run scraper
         run: |
           python loto_scraper.py
-          echo "✅ Scraper ejecutado exitosamente"
+          echo "✅ Scraper ejecutado - $(date +'%Y-%m-%d %H:%M:%S UTC')"
       
       # 5. Verificar si hay cambios o si es archivo nuevo
       - name: 📊 Check for changes
