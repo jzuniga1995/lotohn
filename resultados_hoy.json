@@ -2,7 +2,7 @@
   "juga3_11am": {
     "juego": "juga3_11am",
     "nombre_juego": "Jugá 3 11:00 AM",
-    "fecha_consulta": "2026-01-03 03:10:20",
+    "fecha_consulta": "2026-01-03 04:00:48",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "11:00 AM",
     "numero_ganador": "836",
@@ -27,7 +27,7 @@
   "juga3_3pm": {
     "juego": "juga3_3pm",
     "nombre_juego": "Jugá 3 3:00 PM",
-    "fecha_consulta": "2026-01-03 03:10:21",
+    "fecha_consulta": "2026-01-03 04:00:49",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "3:00 PM",
     "numero_ganador": "201",
@@ -52,7 +52,7 @@
   "juga3_9pm": {
     "juego": "juga3_9pm",
     "nombre_juego": "Jugá 3 9:00 PM",
-    "fecha_consulta": "2026-01-03 03:10:23",
+    "fecha_consulta": "2026-01-03 04:00:51",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "9:00 PM",
     "numero_ganador": "059",
@@ -77,7 +77,7 @@
   "premia2_10am": {
     "juego": "premia2_10am",
     "nombre_juego": "Premia 2 10:00 AM",
-    "fecha_consulta": "2026-01-03 03:10:24",
+    "fecha_consulta": "2026-01-03 04:00:52",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "11:00 AM",
     "numero_ganador": "21",
@@ -102,7 +102,7 @@
   "premia2_2pm": {
     "juego": "premia2_2pm",
     "nombre_juego": "Premia 2 2:00 PM",
-    "fecha_consulta": "2026-01-03 03:10:26",
+    "fecha_consulta": "2026-01-03 04:00:54",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "3:00 PM",
     "numero_ganador": "61",
@@ -127,7 +127,7 @@
   "premia2_9pm": {
     "juego": "premia2_9pm",
     "nombre_juego": "Premia 2 9:00 PM",
-    "fecha_consulta": "2026-01-03 03:10:27",
+    "fecha_consulta": "2026-01-03 04:00:55",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "9:00 PM",
     "numero_ganador": "78",
@@ -152,7 +152,7 @@
   "pega3_10am": {
     "juego": "pega3_10am",
     "nombre_juego": "Pega 3 10:00 AM",
-    "fecha_consulta": "2026-01-03 03:10:28",
+    "fecha_consulta": "2026-01-03 04:00:57",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "11:00 AM",
     "numero_ganador": "31",
@@ -178,7 +178,7 @@
   "pega3_2pm": {
     "juego": "pega3_2pm",
     "nombre_juego": "Pega 3 2:00 PM",
-    "fecha_consulta": "2026-01-03 03:10:30",
+    "fecha_consulta": "2026-01-03 04:00:58",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "3:00 PM",
     "numero_ganador": "23",
@@ -204,7 +204,7 @@
   "pega3_9pm": {
     "juego": "pega3_9pm",
     "nombre_juego": "Pega 3 9:00 PM",
-    "fecha_consulta": "2026-01-03 03:10:31",
+    "fecha_consulta": "2026-01-03 04:01:00",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "9:00 PM",
     "numero_ganador": "17",
@@ -230,7 +230,7 @@
   "la_diaria_10am": {
     "juego": "la_diaria_10am",
     "nombre_juego": "La Diaria 10:00 AM",
-    "fecha_consulta": "2026-01-03 03:10:33",
+    "fecha_consulta": "2026-01-03 04:01:01",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "11:00 AM",
     "numero_ganador": "41",
@@ -257,7 +257,7 @@
   "la_diaria_2pm": {
     "juego": "la_diaria_2pm",
     "nombre_juego": "La Diaria 2:00 PM",
-    "fecha_consulta": "2026-01-03 03:10:34",
+    "fecha_consulta": "2026-01-03 04:01:03",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "3:00 PM",
     "numero_ganador": "39",
@@ -284,7 +284,7 @@
   "la_diaria_9pm": {
     "juego": "la_diaria_9pm",
     "nombre_juego": "La Diaria 9:00 PM",
-    "fecha_consulta": "2026-01-03 03:10:35",
+    "fecha_consulta": "2026-01-03 04:01:04",
     "fecha_sorteo": "02-01",
     "hora_sorteo": "9:00 PM",
     "numero_ganador": "02",
@@ -311,7 +311,7 @@
   "super_premio": {
     "juego": "super_premio",
     "nombre_juego": "Super Premio",
-    "fecha_consulta": "2026-01-03 03:10:37",
+    "fecha_consulta": "2026-01-03 04:01:06",
     "fecha_sorteo": "31-12",
     "hora_sorteo": null,
     "numero_ganador": "11",
