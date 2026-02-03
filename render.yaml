@@ -1,0 +1,90 @@
+services:
+  # ==========================================
+  # CRON JOB 1: Sorteo 11:10 AM Honduras
+  # ==========================================
+  - type: cron
+    name: loto-honduras-11am
+    runtime: python
+    plan: free
+    
+    # 11:10 AM Honduras = 17:10 UTC
+    schedule: "10 17 * * *"
+    
+    repo: https://github.com/jzuniga1995/lotohn
+    branch: main
+    
+    buildCommand: pip install -r requirements.txt
+    startCommand: python run_scraper.py
+    
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      
+      - key: TZ
+        value: America/Tegucigalpa
+      
+      - key: GITHUB_TOKEN
+        sync: false
+      
+      - key: GITHUB_REPO
+        value: jzuniga1995/lotohn
+  
+  # ==========================================
+  # CRON JOB 2: Sorteo 3:10 PM Honduras
+  # ==========================================
+  - type: cron
+    name: loto-honduras-3pm
+    runtime: python
+    plan: free
+    
+    # 3:10 PM Honduras = 21:10 UTC
+    schedule: "10 21 * * *"
+    
+    repo: https://github.com/jzuniga1995/lotohn
+    branch: main
+    
+    buildCommand: pip install -r requirements.txt
+    startCommand: python run_scraper.py
+    
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      
+      - key: TZ
+        value: America/Tegucigalpa
+      
+      - key: GITHUB_TOKEN
+        sync: false
+      
+      - key: GITHUB_REPO
+        value: jzuniga1995/lotohn
+  
+  # ==========================================
+  # CRON JOB 3: Sorteo 9:10 PM Honduras
+  # ==========================================
+  - type: cron
+    name: loto-honduras-9pm
+    runtime: python
+    plan: free
+    
+    # 9:10 PM Honduras = 3:10 AM UTC (día siguiente)
+    schedule: "10 3 * * *"
+    
+    repo: https://github.com/jzuniga1995/lotohn
+    branch: main
+    
+    buildCommand: pip install -r requirements.txt
+    startCommand: python run_scraper.py
+    
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      
+      - key: TZ
+        value: America/Tegucigalpa
+      
+      - key: GITHUB_TOKEN
+        sync: false
+      
+      - key: GITHUB_REPO
+        value: jzuniga1995/lotohn
