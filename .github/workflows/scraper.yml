@@ -1,12 +1,13 @@
 name: Scraper Loto Honduras
 
 on:
-  schedule:
-    # Horarios originales de producción
-    - cron: '10 17 * * *'  # 11:10 AM Honduras = 5:10 PM UTC
-    - cron: '10 21 * * *'  # 3:10 PM Honduras = 9:10 PM UTC
-    - cron: '10 3 * * *'   # 9:10 PM Honduras = 3:10 AM UTC (día siguiente)
+  # Schedule desactivado - scraper activado manualmente vía cron-job.org
+  # schedule:
+  #   - cron: '10 17 * * *'  # 11:10 AM Honduras = 5:10 PM UTC
+  #   - cron: '10 21 * * *'  # 3:10 PM Honduras = 9:10 PM UTC
+  #   - cron: '10 3 * * *'   # 9:10 PM Honduras = 3:10 AM UTC (día siguiente)
   
+  # Mantiene la ejecución manual desde GitHub Actions
   workflow_dispatch:
 
 permissions:
