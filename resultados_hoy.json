@@ -1,34 +1,34 @@
 {
-  "fecha_actualizacion": "2026-02-16 03:10:34",
+  "fecha_actualizacion": "2026-02-16 17:10:38",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-02-16 03:10:18",
-      "fecha_sorteo": "15-02",
+      "fecha_consulta": "2026-02-16 17:10:20",
+      "fecha_sorteo": "16-02",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "687",
+      "numero_ganador": "155",
       "numeros_individuales": [
-        "6",
-        "8",
-        "7"
+        "1",
+        "5",
+        "5"
       ],
       "numeros_adicionales": [
-        "687"
+        "155"
       ],
       "serie": null,
       "folio": null,
       "estado": "activo",
       "logo_url": "/logos/juga3.png",
       "extras": {
-        "info_adicional": "15-02                            \n                                                    \n\n\n\n\nJugá 3 11:00 AM"
+        "info_adicional": "16-02                            \n                                                    \n\n\n\n\nJugá 3 11:00 AM"
       }
     },
     "juga3_3pm": {
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-02-16 03:10:19",
+      "fecha_consulta": "2026-02-16 17:10:22",
       "fecha_sorteo": "15-02",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "002",
@@ -42,7 +42,7 @@
       ],
       "serie": null,
       "folio": null,
-      "estado": "activo",
+      "estado": "completado",
       "logo_url": "/logos/juga3.png",
       "extras": {
         "info_adicional": "15-02                            \n                                                    \n\n\n\n\nJugá 3 3:00 PM"
@@ -51,7 +51,7 @@
     "juga3_9pm": {
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-02-16 03:10:20",
+      "fecha_consulta": "2026-02-16 17:10:23",
       "fecha_sorteo": "15-02",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "500",
@@ -65,7 +65,7 @@
       ],
       "serie": null,
       "folio": null,
-      "estado": "activo",
+      "estado": "completado",
       "logo_url": "/logos/juga3.png",
       "extras": {
         "info_adicional": "15-02                            \n                                                    \n\n\n\n\nJugá 3 9:00 PM"
@@ -74,30 +74,30 @@
     "premia2_10am": {
       "juego": "premia2_10am",
       "nombre_juego": "Premia 2 10:00 AM",
-      "fecha_consulta": "2026-02-16 03:10:22",
-      "fecha_sorteo": "15-02",
+      "fecha_consulta": "2026-02-16 17:10:24",
+      "fecha_sorteo": "16-02",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "73",
+      "numero_ganador": "90",
       "numeros_individuales": [
-        "7",
-        "3"
+        "9",
+        "0"
       ],
       "numeros_adicionales": [
-        "73",
-        "22"
+        "90",
+        "44"
       ],
       "serie": null,
       "folio": null,
       "estado": "activo",
       "logo_url": "/logos/premia2.png",
       "extras": {
-        "info_adicional": "15-02                            \n                                                    \n\n\n\n\nPremia 2 11:00 AM"
+        "info_adicional": "16-02                            \n                                                    \n\n\n\n\nPremia 2 11:00 AM"
       }
     },
     "premia2_2pm": {
       "juego": "premia2_2pm",
       "nombre_juego": "Premia 2 2:00 PM",
-      "fecha_consulta": "2026-02-16 03:10:23",
+      "fecha_consulta": "2026-02-16 17:10:26",
       "fecha_sorteo": "15-02",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "97",
@@ -111,7 +111,7 @@
       ],
       "serie": null,
       "folio": null,
-      "estado": "activo",
+      "estado": "completado",
       "logo_url": "/logos/premia2.png",
       "extras": {
         "info_adicional": "15-02                            \n                                                    \n\n\n\n\nPremia 2 3:00 PM"
@@ -120,7 +120,7 @@
     "premia2_9pm": {
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-02-16 03:10:24",
+      "fecha_consulta": "2026-02-16 17:10:27",
       "fecha_sorteo": "15-02",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "33",
@@ -134,7 +134,7 @@
       ],
       "serie": null,
       "folio": null,
-      "estado": "activo",
+      "estado": "completado",
       "logo_url": "/logos/premia2.png",
       "extras": {
         "info_adicional": "15-02                            \n                                                    \n\n\n\n\nPremia 2  9:00 PM"
@@ -143,31 +143,31 @@
     "pega3_10am": {
       "juego": "pega3_10am",
       "nombre_juego": "Pega 3 10:00 AM",
-      "fecha_consulta": "2026-02-16 03:10:25",
-      "fecha_sorteo": "15-02",
+      "fecha_consulta": "2026-02-16 17:10:28",
+      "fecha_sorteo": "16-02",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "56",
+      "numero_ganador": "04",
       "numeros_individuales": [
-        "5",
-        "6"
+        "0",
+        "4"
       ],
       "numeros_adicionales": [
-        "56",
-        "94",
-        "40"
+        "04",
+        "88",
+        "21"
       ],
       "serie": null,
       "folio": null,
       "estado": "activo",
       "logo_url": "/logos/pega3.png",
       "extras": {
-        "info_adicional": "15-02                            \n                                                    \n\n\n\n\nPega 3 11:00 AM"
+        "info_adicional": "16-02                            \n                                                    \n\n\n\n\nPega 3 11:00 AM"
       }
     },
     "pega3_2pm": {
       "juego": "pega3_2pm",
       "nombre_juego": "Pega 3 2:00 PM",
-      "fecha_consulta": "2026-02-16 03:10:27",
+      "fecha_consulta": "2026-02-16 17:10:30",
       "fecha_sorteo": "15-02",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "62",
@@ -182,7 +182,7 @@
       ],
       "serie": null,
       "folio": null,
-      "estado": "activo",
+      "estado": "completado",
       "logo_url": "/logos/pega3.png",
       "extras": {
         "info_adicional": "15-02                            \n                                                    \n\n\n\n\nPega 3 3:00 PM"
@@ -191,7 +191,7 @@
     "pega3_9pm": {
       "juego": "pega3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-02-16 03:10:28",
+      "fecha_consulta": "2026-02-16 17:10:31",
       "fecha_sorteo": "15-02",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "31",
@@ -206,7 +206,7 @@
       ],
       "serie": null,
       "folio": null,
-      "estado": "activo",
+      "estado": "completado",
       "logo_url": "/logos/pega3.png",
       "extras": {
         "info_adicional": "15-02                            \n                                                    \n\n\n\n\nPega 3 9:00 PM"
@@ -215,32 +215,32 @@
     "la_diaria_10am": {
       "juego": "la_diaria_10am",
       "nombre_juego": "La Diaria 10:00 AM",
-      "fecha_consulta": "2026-02-16 03:10:29",
-      "fecha_sorteo": "15-02",
+      "fecha_consulta": "2026-02-16 17:10:33",
+      "fecha_sorteo": "16-02",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "03",
+      "numero_ganador": "42",
       "numeros_individuales": [
-        "0",
-        "3"
+        "4",
+        "2"
       ],
       "numeros_adicionales": [
-        "03",
-        "Muerto",
-        "2X",
-        "0"
+        "42",
+        "Madre",
+        "JG",
+        "9"
       ],
       "serie": null,
       "folio": null,
       "estado": "activo",
       "logo_url": "/logos/la_diaria.png",
       "extras": {
-        "info_adicional": "15-02                            \n                                                    \n\n\n\n\nLa Diaria 11:00 AM"
+        "info_adicional": "16-02                            \n                                                    \n\n\n\n\nLa Diaria 11:00 AM"
       }
     },
     "la_diaria_2pm": {
       "juego": "la_diaria_2pm",
       "nombre_juego": "La Diaria 2:00 PM",
-      "fecha_consulta": "2026-02-16 03:10:30",
+      "fecha_consulta": "2026-02-16 17:10:34",
       "fecha_sorteo": "15-02",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "40",
@@ -256,7 +256,7 @@
       ],
       "serie": null,
       "folio": null,
-      "estado": "activo",
+      "estado": "completado",
       "logo_url": "/logos/la_diaria.png",
       "extras": {
         "info_adicional": "15-02                            \n                                                    \n\n\n\n\nLa Diaria 3:00 PM"
@@ -265,7 +265,7 @@
     "la_diaria_9pm": {
       "juego": "la_diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-02-16 03:10:32",
+      "fecha_consulta": "2026-02-16 17:10:35",
       "fecha_sorteo": "15-02",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "95",
@@ -281,7 +281,7 @@
       ],
       "serie": null,
       "folio": null,
-      "estado": "activo",
+      "estado": "completado",
       "logo_url": "/logos/la_diaria.png",
       "extras": {
         "info_adicional": "15-02                            \n                                                    \n\n\n\n\nLa Diaria 9:00 PM"
@@ -290,7 +290,7 @@
     "super_premio": {
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-02-16 03:10:33",
+      "fecha_consulta": "2026-02-16 17:10:37",
       "fecha_sorteo": "14-02",
       "hora_sorteo": null,
       "numero_ganador": "04",
