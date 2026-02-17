@@ -1,23 +1,15 @@
-import requests
-from bs4 import BeautifulSoup
-from datetime import datetime
 import json
 import time
+import re
+from datetime import datetime
+from playwright.sync_api import sync_playwright
+
 
 class LotoHondurasScraper:
-    """
-    Scraper SIMPLIFICADO - NO descarga logos
-    Solo genera JSON con rutas relativas
-    """
-    
+
     def __init__(self):
         self.base_url = "https://loteriasdehonduras.com"
-        self.headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-        }
-        
-        # Mapeo de juegos a nombres de archivo de logo
-        # (los logos deben estar en /public/logos/ del frontend)
+
         self.logos_estaticos = {
             'juga3_11am': 'juga3.png',
             'juga3_3pm': 'juga3.png',
@@ -33,7 +25,7 @@ class LotoHondurasScraper:
             'la_diaria_9pm': 'la_diaria.png',
             'super_premio': 'super_premio.png'
         }
-        
+
         self.juegos = {
             'juga3_11am': '/loto-hn/juga-3-11am',
             'juga3_3pm': '/loto-hn/juga-3-3pm',
@@ -49,148 +41,173 @@ class LotoHondurasScraper:
             'la_diaria_9pm': '/loto-hn/la-diaria-9pm',
             'super_premio': '/loto-hn/loto-super-premio'
         }
-    
-    def obtener_resultado(self, juego_key, fecha=None, usar_fecha_hoy=True):
-        """
-        Obtiene el resultado de un juego específico
-        """
-        if juego_key not in self.juegos:
-            return None
-        
-        url = self.base_url + self.juegos[juego_key]
-        
-        if fecha:
-            url += f"?date={fecha}"
-        elif usar_fecha_hoy:
-            fecha_hoy = datetime.now().strftime('%Y-%m-%d')
-            url += f"?date={fecha_hoy}"
-        
+
+        self.horas_por_juego = {
+            'juga3_11am': '11:00 AM',
+            'juga3_3pm': '3:00 PM',
+            'juga3_9pm': '9:00 PM',
+            'premia2_10am': '10:00 AM',
+            'premia2_2pm': '2:00 PM',
+            'premia2_9pm': '9:00 PM',
+            'pega3_10am': '10:00 AM',
+            'pega3_2pm': '2:00 PM',
+            'pega3_9pm': '9:00 PM',
+            'la_diaria_10am': '10:00 AM',
+            'la_diaria_2pm': '2:00 PM',
+            'la_diaria_9pm': '9:00 PM',
+            'super_premio': None
+        }
+
+    # ============================================
+    # OBTENER TODOS LOS RESULTADOS
+    # ============================================
+
+    def obtener_todos_resultados_hoy(self):
+        resultados = {}
+        fecha_hoy = datetime.now().strftime('%Y-%m-%d')
+
+        print(f"🔍 Fecha: {fecha_hoy}")
+        print("=" * 60)
+
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            context = browser.new_context(
+                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+            )
+            page = context.new_page()
+
+            for juego_key in self.juegos.keys():
+                print(f"📊 Scrapeando {juego_key}...")
+                resultado = self._scrapear_juego(page, juego_key, fecha_hoy)
+                resultados[juego_key] = resultado
+                time.sleep(1)
+
+            browser.close()
+
+        print("=" * 60)
+        print(f"✨ Total: {len(resultados)}")
+        return resultados
+
+    # ============================================
+    # SCRAPEAR UN JUEGO
+    # ============================================
+
+    def _scrapear_juego(self, page, juego_key, fecha):
+        url = f"{self.base_url}{self.juegos[juego_key]}?date={fecha}"
+        resultado = self._resultado_vacio(juego_key)
+
         try:
-            response = requests.get(url, headers=self.headers, timeout=10)
-            response.raise_for_status()
-            
-            soup = BeautifulSoup(response.content, 'html.parser')
-            resultado = self._extraer_numeros(soup, juego_key)
-            
-            return resultado
-            
-        except requests.RequestException as e:
-            print(f"Error: {e}")
+            page.goto(url, wait_until='networkidle', timeout=30000)
+
+            # ✅ Acepta tanto score-shape-square como score-shape-circle
+            try:
+                page.wait_for_selector('[class*="score-shape"]', timeout=10000)
+            except:
+                print(f"   ⚠️  Timeout esperando resultados")
+                return resultado
+
+            # Extraer números
+            numeros = self._extraer_numeros(page, juego_key)
+
+            if numeros:
+                resultado['numero_ganador'] = numeros[0]
+                resultado['numeros_adicionales'] = numeros
+                if 'juga3' in juego_key and numeros[0].isdigit():
+                    resultado['numeros_individuales'] = list(numeros[0])
+                else:
+                    resultado['numeros_individuales'] = numeros
+                resultado['estado'] = 'completado'
+                print(f"   ✅ Números: {numeros}")
+            else:
+                resultado['estado'] = 'pendiente'
+                print(f"   ⏳ Sin resultado aún")
+
+            # Extraer fecha
+            fecha_sorteo = self._extraer_fecha(page)
+            if fecha_sorteo:
+                resultado['fecha_sorteo'] = fecha_sorteo
+                print(f"   📅 Fecha: {fecha_sorteo}")
+
+            # Extraer hora
+            hora = self._extraer_hora(page)
+            resultado['hora_sorteo'] = hora or self.horas_por_juego.get(juego_key)
+
+        except Exception as e:
+            print(f"   ❌ Error: {e}")
+
+        return resultado
+
+    # ============================================
+    # EXTRACTORES
+    # ============================================
+
+    def _extraer_numeros(self, page, juego_key):
+        numeros = []
+
+        try:
+            # ✅ Captura score-shape-square (juga3, la_diaria) Y score-shape-circle (pega3, premia2, super)
+            elementos = page.query_selector_all('[class*="score-shape"]')
+
+            for elem in elementos:
+                # La Diaria: <span><div>51 Policía</div><img/></span>
+                inner_div = elem.query_selector('span > div')
+                if inner_div:
+                    texto = inner_div.inner_text().strip()
+                else:
+                    span = elem.query_selector('span')
+                    texto = span.inner_text().strip() if span else ''
+
+                if texto:
+                    numeros.append(texto)
+
+        except Exception as e:
+            print(f"   ❌ Error extrayendo números: {e}")
+
+        return numeros
+
+    def _extraer_fecha(self, page):
+        try:
+            texto = page.inner_text('body')
+            match = re.search(r'\b(\d{2}-\d{2})\b', texto)
+            if match:
+                return match.group(1)
+        except:
+            pass
+
+        hoy = datetime.now()
+        return f"{str(hoy.day).zfill(2)}-{str(hoy.month).zfill(2)}"
+
+    def _extraer_hora(self, page):
+        try:
+            texto = page.inner_text('body')
+            match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM))', texto, re.IGNORECASE)
+            return match.group(1).upper() if match else None
+        except:
             return None
-    
-    def _extraer_numeros(self, soup, juego_key):
-        """
-        Extrae todos los datos del sorteo
-        """
-        resultado = {
+
+    # ============================================
+    # HELPERS
+    # ============================================
+
+    def _resultado_vacio(self, juego_key):
+        nombre_logo = self.logos_estaticos.get(juego_key, f'{juego_key}.png')
+        return {
             'juego': juego_key,
             'nombre_juego': self._obtener_nombre_juego(juego_key),
             'fecha_consulta': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             'fecha_sorteo': None,
-            'hora_sorteo': None,
+            'hora_sorteo': self.horas_por_juego.get(juego_key),
             'numero_ganador': None,
             'numeros_individuales': [],
             'numeros_adicionales': [],
             'serie': None,
             'folio': None,
             'estado': None,
-            'logo_url': None,  # ← Ruta relativa al logo
+            'logo_url': f'/logos/{nombre_logo}',
             'extras': {}
         }
-        
-        # ✅ ASIGNAR RUTA DEL LOGO (sin descargar nada)
-        nombre_archivo = self.logos_estaticos.get(juego_key, f'{juego_key}.png')
-        resultado['logo_url'] = f'/logos/{nombre_archivo}'
-        print(f"   📁 Logo: {resultado['logo_url']}")
-        
-        # Buscar número ganador
-        selectores = [
-            ('span', 'score_special3'),
-            ('span', 'score_special'),
-            ('span', 'score'),
-            ('div', 'score'),
-        ]
-        
-        for tag, clase in selectores:
-            numero_elem = soup.find(tag, class_=clase)
-            if numero_elem:
-                numero = numero_elem.get_text().strip()
-                if numero and numero.isdigit() and len(numero) <= 4:
-                    resultado['numero_ganador'] = numero
-                    resultado['numeros_individuales'] = list(numero)
-                    print(f"   🔍 Número: {numero}")
-                    break
-        
-        if not resultado['numero_ganador']:
-            game_scores = soup.find('div', class_='game-scores')
-            if game_scores:
-                primer_score = game_scores.find('span', class_=lambda x: x and 'score' in x)
-                if primer_score:
-                    numero = primer_score.get_text().strip()
-                    if numero and len(numero) <= 4:
-                        resultado['numero_ganador'] = numero
-                        resultado['numeros_individuales'] = list(numero)
-                        print(f"   🔍 Número: {numero}")
-        
-        game_blocks = soup.find_all('div', class_='game-block')
-        
-        bloque_actual = None
-        for block in game_blocks:
-            if 'past' not in block.get('class', []):
-                bloque_actual = block
-                break
-        
-        if not bloque_actual and game_blocks:
-            bloque_actual = game_blocks[0]
-        
-        if bloque_actual:
-            # Fecha sorteo
-            fecha_elem = bloque_actual.find('div', class_='session-date')
-            if fecha_elem:
-                resultado['fecha_sorteo'] = fecha_elem.get_text().strip()
-            
-            if not resultado['fecha_sorteo']:
-                import re
-                texto = bloque_actual.get_text()
-                match = re.search(r'\b(\d{2}-\d{2})\b', texto)
-                if match:
-                    resultado['fecha_sorteo'] = match.group(1)
-            
-            # Info adicional
-            game_info = bloque_actual.find('div', class_='game-info')
-            if game_info:
-                info_texto = game_info.get_text().strip()
-                resultado['extras']['info_adicional'] = info_texto
-                
-                hora = self._extraer_hora(info_texto)
-                if hora:
-                    resultado['hora_sorteo'] = hora
-            
-            # Estado
-            if 'past' in bloque_actual.get('class', []):
-                resultado['estado'] = 'completado'
-            else:
-                resultado['estado'] = 'activo'
-        
-        # Números adicionales
-        game_scores = soup.find('div', class_='game-scores')
-        if game_scores:
-            scores = game_scores.find_all('span', class_=lambda x: x and 'score' in x)
-            if scores:
-                if not resultado['numero_ganador'] and len(scores) > 0:
-                    primer_numero = scores[0].get_text().strip()
-                    if primer_numero and len(primer_numero) <= 4:
-                        resultado['numero_ganador'] = primer_numero
-                        resultado['numeros_individuales'] = list(primer_numero)
-                        if len(scores) > 1:
-                            resultado['numeros_adicionales'] = [s.get_text().strip() for s in scores[1:]]
-                else:
-                    resultado['numeros_adicionales'] = [s.get_text().strip() for s in scores]
-        
-        return resultado
-    
+
     def _obtener_nombre_juego(self, juego_key):
-        """Convierte la clave del juego en un nombre legible"""
         nombres = {
             'juga3_11am': 'Jugá 3 11:00 AM',
             'juga3_3pm': 'Jugá 3 3:00 PM',
@@ -207,74 +224,78 @@ class LotoHondurasScraper:
             'super_premio': 'Super Premio'
         }
         return nombres.get(juego_key, juego_key)
-    
-    def _extraer_hora(self, texto):
-        """Extrae la hora del texto si está presente"""
-        import re
-        match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM|am|pm)?)', texto)
-        return match.group(1) if match else None
-    
-    def obtener_todos_resultados_hoy(self):
-        """
-        Obtiene todos los resultados disponibles del día actual
-        """
-        resultados = {}
-        fecha_hoy = datetime.now().strftime('%Y-%m-%d')
-        
-        print(f"🔍 Fecha: {fecha_hoy}")
-        print("="*60)
-        
-        for juego_key in self.juegos.keys():
-            print(f"📊 {self.juegos[juego_key]}...")
-            resultado = self.obtener_resultado(juego_key, fecha=fecha_hoy)
-            
-            if resultado:
-                resultados[juego_key] = resultado
-            
-            time.sleep(1)
-        
-        print("="*60)
-        print(f"✨ Total: {len(resultados)}")
-        return resultados
-    
+
+    # ============================================
+    # GUARDAR JSON
+    # ============================================
+
     def guardar_resultados_json(self, resultados, archivo='resultados_loto.json'):
-        """
-        Guarda los resultados en un archivo JSON
-        """
         try:
-            # Agregar metadatos
             salida = {
                 'fecha_actualizacion': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                 'total_sorteos': len(resultados),
                 'sorteos': resultados
             }
-            
             with open(archivo, 'w', encoding='utf-8') as f:
                 json.dump(salida, f, ensure_ascii=False, indent=2)
             print(f"💾 Guardado: {archivo}")
             return True
         except Exception as e:
-            print(f"❌ Error: {e}")
+            print(f"❌ Error al guardar: {e}")
             return False
 
+    # ============================================
+    # DEBUG
+    # ============================================
+
+    def debug_html(self, juego_key):
+        fecha_hoy = datetime.now().strftime('%Y-%m-%d')
+        url = f"{self.base_url}{self.juegos[juego_key]}?date={fecha_hoy}"
+
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            page.goto(url, wait_until='networkidle', timeout=30000)
+
+            try:
+                page.wait_for_selector('[class*="score-shape"]', timeout=10000)
+            except:
+                print("⚠️ No apareció ningún score-shape")
+
+            print("=== ELEMENTOS CON 'score' ===")
+            elementos = page.query_selector_all('[class*="score"]')
+            for elem in elementos:
+                print(f"CLASS: {elem.get_attribute('class')} | TEXT: {elem.inner_text()[:60]}")
+
+            print("\n=== HTML p-card-content ===")
+            bloque = page.query_selector('.p-card-content')
+            if bloque:
+                print(bloque.inner_html()[:2000])
+
+            browser.close()
+
+
+# ============================================
+# MAIN
+# ============================================
 
 if __name__ == "__main__":
     scraper = LotoHondurasScraper()
-    
-    print("🎲 LOTO HONDURAS SCRAPER (SIN DESCARGA DE LOGOS)")
-    print("="*60)
-    
-    # Obtener resultados del día
+
+    print("🎲 LOTO HONDURAS SCRAPER")
+    print("=" * 60)
+
     todos_resultados = scraper.obtener_todos_resultados_hoy()
     scraper.guardar_resultados_json(todos_resultados, 'resultados_hoy.json')
-    
-    print("\n" + "="*60)
+
+    print("\n" + "=" * 60)
     print("📊 RESUMEN:")
-    print("="*60)
+    print("=" * 60)
     for key, data in todos_resultados.items():
         if data.get('numero_ganador'):
-            print(f"✅ {data['nombre_juego']}: {data['numero_ganador']} | Logo: {data['logo_url']}")
+            print(f"✅ {data['nombre_juego']}: {data['numero_ganador']} | {data['fecha_sorteo']} | {data['hora_sorteo']}")
         else:
-            print(f"⏳ {data['nombre_juego']}: Pendiente | Logo: {data['logo_url']}")
-    print("="*60)
+            print(f"⏳ {data['nombre_juego']}: Pendiente")
+    print("=" * 60)
+
     
