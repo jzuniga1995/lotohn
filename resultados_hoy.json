@@ -1,11 +1,11 @@
 {
-  "fecha_actualizacion": "2026-02-17 21:10:36",
+  "fecha_actualizacion": "2026-02-17 22:23:37",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-02-17 21:10:18",
+      "fecha_consulta": "2026-02-17 22:23:23",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -20,7 +20,7 @@
     "juga3_3pm": {
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-02-17 21:10:20",
+      "fecha_consulta": "2026-02-17 22:23:24",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -35,7 +35,7 @@
     "juga3_9pm": {
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-02-17 21:10:21",
+      "fecha_consulta": "2026-02-17 22:23:25",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -50,7 +50,7 @@
     "premia2_10am": {
       "juego": "premia2_10am",
       "nombre_juego": "Premia 2 10:00 AM",
-      "fecha_consulta": "2026-02-17 21:10:23",
+      "fecha_consulta": "2026-02-17 22:23:26",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -65,7 +65,7 @@
     "premia2_2pm": {
       "juego": "premia2_2pm",
       "nombre_juego": "Premia 2 2:00 PM",
-      "fecha_consulta": "2026-02-17 21:10:24",
+      "fecha_consulta": "2026-02-17 22:23:27",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -80,7 +80,7 @@
     "premia2_9pm": {
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-02-17 21:10:26",
+      "fecha_consulta": "2026-02-17 22:23:28",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -95,7 +95,7 @@
     "pega3_10am": {
       "juego": "pega3_10am",
       "nombre_juego": "Pega 3 10:00 AM",
-      "fecha_consulta": "2026-02-17 21:10:27",
+      "fecha_consulta": "2026-02-17 22:23:29",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -110,7 +110,7 @@
     "pega3_2pm": {
       "juego": "pega3_2pm",
       "nombre_juego": "Pega 3 2:00 PM",
-      "fecha_consulta": "2026-02-17 21:10:28",
+      "fecha_consulta": "2026-02-17 22:23:30",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -125,7 +125,7 @@
     "pega3_9pm": {
       "juego": "pega3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-02-17 21:10:30",
+      "fecha_consulta": "2026-02-17 22:23:31",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -140,7 +140,7 @@
     "la_diaria_10am": {
       "juego": "la_diaria_10am",
       "nombre_juego": "La Diaria 10:00 AM",
-      "fecha_consulta": "2026-02-17 21:10:31",
+      "fecha_consulta": "2026-02-17 22:23:33",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -155,7 +155,7 @@
     "la_diaria_2pm": {
       "juego": "la_diaria_2pm",
       "nombre_juego": "La Diaria 2:00 PM",
-      "fecha_consulta": "2026-02-17 21:10:33",
+      "fecha_consulta": "2026-02-17 22:23:34",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -170,7 +170,7 @@
     "la_diaria_9pm": {
       "juego": "la_diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-02-17 21:10:34",
+      "fecha_consulta": "2026-02-17 22:23:35",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
@@ -185,7 +185,7 @@
     "super_premio": {
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-02-17 21:10:35",
+      "fecha_consulta": "2026-02-17 22:23:36",
       "fecha_sorteo": null,
       "hora_sorteo": null,
       "numero_ganador": null,
