@@ -33,6 +33,8 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
+      - name: 🎭 Install Playwright browsers
+        run: playwright install chromium --with-deps
       
       - name: 🔄 Run scraper
         run: |
