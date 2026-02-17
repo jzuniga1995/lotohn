@@ -1,7 +1,7 @@
 import json
 import time
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from playwright.sync_api import sync_playwright
 
 
@@ -58,6 +58,15 @@ class LotoHondurasScraper:
             'super_premio': None
         }
 
+        # Cuántos números tiene cada juego
+        self.limite_numeros = {
+            'juga3': 1,
+            'premia2': 2,
+            'pega3': 3,
+            'diaria': 3,
+            'super': 6
+        }
+
     # ============================================
     # OBTENER TODOS LOS RESULTADOS
     # ============================================
@@ -99,15 +108,14 @@ class LotoHondurasScraper:
         try:
             page.goto(url, wait_until='networkidle', timeout=30000)
 
-            # ✅ Acepta tanto score-shape-square como score-shape-circle
             try:
                 page.wait_for_selector('[class*="score-shape"]', timeout=10000)
             except:
                 print(f"   ⚠️  Timeout esperando resultados")
                 return resultado
 
-            # Extraer números
-            numeros = self._extraer_numeros(page, juego_key)
+            # ✅ Intentar obtener resultado de HOY (excluye past-score-ball)
+            numeros = self._extraer_numeros(page, juego_key, solo_hoy=True)
 
             if numeros:
                 resultado['numero_ganador'] = numeros[0]
@@ -119,18 +127,37 @@ class LotoHondurasScraper:
                 resultado['estado'] = 'completado'
                 print(f"   ✅ Números: {numeros}")
             else:
-                resultado['estado'] = 'pendiente'
-                print(f"   ⏳ Sin resultado aún")
+                # ✅ Sin resultado hoy → buscar AYER
+                print(f"   🔄 Sin resultado hoy, buscando ayer...")
+                fecha_ayer = (datetime.strptime(fecha, '%Y-%m-%d') - timedelta(days=1)).strftime('%Y-%m-%d')
+                url_ayer = f"{self.base_url}{self.juegos[juego_key]}?date={fecha_ayer}"
+                page.goto(url_ayer, wait_until='networkidle', timeout=30000)
 
-            # Extraer fecha
+                try:
+                    page.wait_for_selector('[class*="score-shape"]', timeout=10000)
+                    # ✅ En página de ayer no filtramos past-score-ball
+                    numeros_ayer = self._extraer_numeros(page, juego_key, solo_hoy=False)
+                    if numeros_ayer:
+                        resultado['numero_ganador'] = numeros_ayer[0]
+                        resultado['numeros_adicionales'] = numeros_ayer
+                        if 'juga3' in juego_key and numeros_ayer[0].isdigit():
+                            resultado['numeros_individuales'] = list(numeros_ayer[0])
+                        else:
+                            resultado['numeros_individuales'] = numeros_ayer
+                        resultado['estado'] = 'anterior'
+                        print(f"   📅 Resultado anterior: {numeros_ayer}")
+                    else:
+                        resultado['estado'] = 'pendiente'
+                        print(f"   ⏳ Sin resultado")
+                except:
+                    resultado['estado'] = 'pendiente'
+
             fecha_sorteo = self._extraer_fecha(page)
             if fecha_sorteo:
                 resultado['fecha_sorteo'] = fecha_sorteo
                 print(f"   📅 Fecha: {fecha_sorteo}")
 
-            # Extraer hora
-            hora = self._extraer_hora(page)
-            resultado['hora_sorteo'] = hora or self.horas_por_juego.get(juego_key)
+            resultado['hora_sorteo'] = self.horas_por_juego.get(juego_key)
 
         except Exception as e:
             print(f"   ❌ Error: {e}")
@@ -141,15 +168,27 @@ class LotoHondurasScraper:
     # EXTRACTORES
     # ============================================
 
-    def _extraer_numeros(self, page, juego_key):
+    def _extraer_numeros(self, page, juego_key, solo_hoy=True):
         numeros = []
 
         try:
-            # ✅ Captura score-shape-square (juga3, la_diaria) Y score-shape-circle (pega3, premia2, super)
-            elementos = page.query_selector_all('[class*="score-shape"]')
+            if solo_hoy:
+                # Excluir resultados del historial
+                selector = '[class*="score-shape"]:not([class*="past-score-ball"])'
+            else:
+                # En página de ayer todos son past-score-ball, tomamos todos
+                selector = '[class*="score-shape"]'
+
+            elementos = page.query_selector_all(selector)
+
+            # Determinar límite de números para este juego
+            limite = 3  # default
+            for tipo, lim in self.limite_numeros.items():
+                if tipo in juego_key:
+                    limite = lim
+                    break
 
             for elem in elementos:
-                # La Diaria: <span><div>51 Policía</div><img/></span>
                 inner_div = elem.query_selector('span > div')
                 if inner_div:
                     texto = inner_div.inner_text().strip()
@@ -159,6 +198,10 @@ class LotoHondurasScraper:
 
                 if texto:
                     numeros.append(texto)
+
+                # ✅ Parar cuando tengamos los números del sorteo
+                if len(numeros) >= limite:
+                    break
 
         except Exception as e:
             print(f"   ❌ Error extrayendo números: {e}")
@@ -176,14 +219,6 @@ class LotoHondurasScraper:
 
         hoy = datetime.now()
         return f"{str(hoy.day).zfill(2)}-{str(hoy.month).zfill(2)}"
-
-    def _extraer_hora(self, page):
-        try:
-            texto = page.inner_text('body')
-            match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM))', texto, re.IGNORECASE)
-            return match.group(1).upper() if match else None
-        except:
-            return None
 
     # ============================================
     # HELPERS
@@ -292,10 +327,10 @@ if __name__ == "__main__":
     print("📊 RESUMEN:")
     print("=" * 60)
     for key, data in todos_resultados.items():
+        estado = data.get('estado', '?')
         if data.get('numero_ganador'):
-            print(f"✅ {data['nombre_juego']}: {data['numero_ganador']} | {data['fecha_sorteo']} | {data['hora_sorteo']}")
+            print(f"✅ [{estado}] {data['nombre_juego']}: {data['numero_ganador']} | {data['fecha_sorteo']} | {data['hora_sorteo']}")
         else:
             print(f"⏳ {data['nombre_juego']}: Pendiente")
     print("=" * 60)
-
     
