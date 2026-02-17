@@ -58,7 +58,6 @@ class LotoHondurasScraper:
             'super_premio': None
         }
 
-        # Cuántos números tiene cada juego
         self.limite_numeros = {
             'juga3': 1,
             'premia2': 2,
@@ -114,7 +113,6 @@ class LotoHondurasScraper:
                 print(f"   ⚠️  Timeout esperando resultados")
                 return resultado
 
-            # ✅ Intentar obtener resultado de HOY (excluye past-score-ball)
             numeros = self._extraer_numeros(page, juego_key, solo_hoy=True)
 
             if numeros:
@@ -127,7 +125,6 @@ class LotoHondurasScraper:
                 resultado['estado'] = 'completado'
                 print(f"   ✅ Números: {numeros}")
             else:
-                # ✅ Sin resultado hoy → buscar AYER
                 print(f"   🔄 Sin resultado hoy, buscando ayer...")
                 fecha_ayer = (datetime.strptime(fecha, '%Y-%m-%d') - timedelta(days=1)).strftime('%Y-%m-%d')
                 url_ayer = f"{self.base_url}{self.juegos[juego_key]}?date={fecha_ayer}"
@@ -135,7 +132,6 @@ class LotoHondurasScraper:
 
                 try:
                     page.wait_for_selector('[class*="score-shape"]', timeout=10000)
-                    # ✅ En página de ayer no filtramos past-score-ball
                     numeros_ayer = self._extraer_numeros(page, juego_key, solo_hoy=False)
                     if numeros_ayer:
                         resultado['numero_ganador'] = numeros_ayer[0]
@@ -173,16 +169,13 @@ class LotoHondurasScraper:
 
         try:
             if solo_hoy:
-                # Excluir resultados del historial
                 selector = '[class*="score-shape"]:not([class*="past-score-ball"])'
             else:
-                # En página de ayer todos son past-score-ball, tomamos todos
                 selector = '[class*="score-shape"]'
 
             elementos = page.query_selector_all(selector)
 
-            # Determinar límite de números para este juego
-            limite = 3  # default
+            limite = 3
             for tipo, lim in self.limite_numeros.items():
                 if tipo in juego_key:
                     limite = lim
@@ -197,9 +190,13 @@ class LotoHondurasScraper:
                     texto = span.inner_text().strip() if span else ''
 
                 if texto:
-                    numeros.append(texto)
+                    # ✅ Separar "79 Flores" → ["79", "Flores"]
+                    partes = texto.split(' ', 1)
+                    if len(partes) == 2 and partes[0].isdigit():
+                        numeros.extend(partes)
+                    else:
+                        numeros.append(texto)
 
-                # ✅ Parar cuando tengamos los números del sorteo
                 if len(numeros) >= limite:
                     break
 
@@ -333,4 +330,6 @@ if __name__ == "__main__":
         else:
             print(f"⏳ {data['nombre_juego']}: Pendiente")
     print("=" * 60)
+
+
     
