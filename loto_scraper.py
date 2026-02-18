@@ -173,18 +173,19 @@ class LotoHondurasScraper:
             'super_premio': '/loto-hn/loto-super-premio'
         }
 
+        # ✅ HORARIOS CORREGIDOS (display únicamente, las URLs del sitio no cambian)
         self.horas_por_juego = {
             'juga3_11am': '11:00 AM',
             'juga3_3pm': '3:00 PM',
             'juga3_9pm': '9:00 PM',
-            'premia2_10am': '10:00 AM',
-            'premia2_2pm': '2:00 PM',
+            'premia2_10am': '11:00 AM',   # corregido: era 10:00 AM
+            'premia2_2pm': '3:00 PM',     # corregido: era 2:00 PM
             'premia2_9pm': '9:00 PM',
-            'pega3_10am': '10:00 AM',
-            'pega3_2pm': '2:00 PM',
+            'pega3_10am': '11:00 AM',     # corregido: era 10:00 AM
+            'pega3_2pm': '3:00 PM',       # corregido: era 2:00 PM
             'pega3_9pm': '9:00 PM',
-            'la_diaria_10am': '10:00 AM',
-            'la_diaria_2pm': '2:00 PM',
+            'la_diaria_10am': '11:00 AM', # corregido: era 10:00 AM
+            'la_diaria_2pm': '3:00 PM',   # corregido: era 2:00 PM
             'la_diaria_9pm': '9:00 PM',
             'super_premio': None
         }
@@ -308,7 +309,7 @@ class LotoHondurasScraper:
         except Exception as e:
             msg = str(e)
             print(f"   ❌ Error: {msg}")
-            alerta_error_scraping(juego_key, msg)   # ← Alerta Telegram
+            alerta_error_scraping(juego_key, msg)
 
         return resultado
 
@@ -395,14 +396,14 @@ class LotoHondurasScraper:
             'juga3_11am': 'Jugá 3 11:00 AM',
             'juga3_3pm': 'Jugá 3 3:00 PM',
             'juga3_9pm': 'Jugá 3 9:00 PM',
-            'premia2_10am': 'Premia 2 10:00 AM',
-            'premia2_2pm': 'Premia 2 2:00 PM',
+            'premia2_10am': 'Premia 2 11:00 AM',   # corregido
+            'premia2_2pm': 'Premia 2 3:00 PM',     # corregido
             'premia2_9pm': 'Premia 2 9:00 PM',
-            'pega3_10am': 'Pega 3 10:00 AM',
-            'pega3_2pm': 'Pega 3 2:00 PM',
+            'pega3_10am': 'Pega 3 11:00 AM',       # corregido
+            'pega3_2pm': 'Pega 3 3:00 PM',         # corregido
             'pega3_9pm': 'Pega 3 9:00 PM',
-            'la_diaria_10am': 'La Diaria 10:00 AM',
-            'la_diaria_2pm': 'La Diaria 2:00 PM',
+            'la_diaria_10am': 'La Diaria 11:00 AM',# corregido
+            'la_diaria_2pm': 'La Diaria 3:00 PM',  # corregido
             'la_diaria_9pm': 'La Diaria 9:00 PM',
             'super_premio': 'Super Premio'
         }
@@ -485,5 +486,4 @@ if __name__ == "__main__":
         else:
             print(f"⏳ {data['nombre_juego']}: Pendiente")
     print("=" * 60)
-
     
