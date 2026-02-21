@@ -9,11 +9,11 @@ from playwright.sync_api import sync_playwright
 
 # ============================================
 # CONFIGURACIÓN TELEGRAM
-# Usa variables de entorno para no exponer
-# datos sensibles en el repositorio.
 # En GitHub Actions → Settings → Secrets:
 #   TELEGRAM_BOT_TOKEN
 #   TELEGRAM_CHAT_ID
+#   CF_ZONE_ID
+#   CF_TOKEN
 # ============================================
 
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
@@ -61,11 +61,6 @@ def alerta_error_scraping(juego_key: str, motivo: str):
 
 
 def alerta_numero_nulo(juego_key: str, nombre_juego: str):
-    """
-    Notifica cuando numero_ganador quedó null incluso después de intentar
-    con el día anterior. Esto es siempre una falla real porque el scraper
-    tiene fallback a ayer — si aun así es null, el selector no funcionó.
-    """
     msg = (
         "⚠️ <b>SCRAPER — NÚMERO NULO</b>\n"
         f"🎲 Juego: <b>{nombre_juego}</b>\n"
@@ -79,16 +74,11 @@ def alerta_numero_nulo(juego_key: str, nombre_juego: str):
 
 
 def resumen_final_telegram(resultados: dict):
-    """
-    Envía un resumen de todos los resultados al terminar.
-    Separa claramente: resultados de HOY, resultados de AYER (fallback)
-    y los que fallaron (null). Notificación silenciosa.
-    """
     hoy_completo = datetime.now().strftime('%Y-%m-%d')
 
-    bloque_hoy   = []  # estado = completado
-    bloque_ayer  = []  # estado = anterior (fallback a ayer)
-    bloque_nulos = []  # numero_ganador es None
+    bloque_hoy   = []
+    bloque_ayer  = []
+    bloque_nulos = []
 
     for key, data in resultados.items():
         estado = data.get('estado', '')
@@ -133,6 +123,36 @@ def resumen_final_telegram(resultados: dict):
 
 
 # ============================================
+# ✅ NUEVA FUNCIÓN: PURGAR CACHÉ CLOUDFLARE
+# ============================================
+
+def purgar_cache_cloudflare():
+    CF_ZONE_ID = os.environ.get("CF_ZONE_ID", "")
+    CF_TOKEN   = os.environ.get("CF_TOKEN", "")
+
+    if not CF_ZONE_ID or not CF_TOKEN:
+        print("⚠️  Cloudflare no configurado (faltan CF_ZONE_ID o CF_TOKEN)")
+        return
+
+    try:
+        resp = requests.post(
+            f"https://api.cloudflare.com/client/v4/zones/{CF_ZONE_ID}/purge_cache",
+            headers={
+                "Authorization": f"Bearer {CF_TOKEN}",
+                "Content-Type": "application/json"
+            },
+            json={"purge_everything": True},
+            timeout=10
+        )
+        if resp.ok:
+            print("✅ Caché de Cloudflare purgado correctamente")
+        else:
+            print(f"⚠️  Error purgando caché: {resp.text}")
+    except Exception as e:
+        print(f"⚠️  Error al purgar caché: {e}")
+
+
+# ============================================
 # SCRAPER
 # ============================================
 
@@ -173,19 +193,18 @@ class LotoHondurasScraper:
             'super_premio': '/loto-hn/loto-super-premio'
         }
 
-        # ✅ HORARIOS CORREGIDOS (display únicamente, las URLs del sitio no cambian)
         self.horas_por_juego = {
             'juga3_11am': '11:00 AM',
             'juga3_3pm': '3:00 PM',
             'juga3_9pm': '9:00 PM',
-            'premia2_10am': '11:00 AM',   # corregido: era 10:00 AM
-            'premia2_2pm': '3:00 PM',     # corregido: era 2:00 PM
+            'premia2_10am': '11:00 AM',
+            'premia2_2pm': '3:00 PM',
             'premia2_9pm': '9:00 PM',
-            'pega3_10am': '11:00 AM',     # corregido: era 10:00 AM
-            'pega3_2pm': '3:00 PM',       # corregido: era 2:00 PM
+            'pega3_10am': '11:00 AM',
+            'pega3_2pm': '3:00 PM',
             'pega3_9pm': '9:00 PM',
-            'la_diaria_10am': '11:00 AM', # corregido: era 10:00 AM
-            'la_diaria_2pm': '3:00 PM',   # corregido: era 2:00 PM
+            'la_diaria_10am': '11:00 AM',
+            'la_diaria_2pm': '3:00 PM',
             'la_diaria_9pm': '9:00 PM',
             'super_premio': None
         }
@@ -223,7 +242,6 @@ class LotoHondurasScraper:
                     resultado = self._scrapear_juego(page, juego_key, fecha_hoy)
                     resultados[juego_key] = resultado
 
-                    # ── Alerta si numero_ganador quedó null ──────────────
                     if resultado.get('numero_ganador') is None:
                         nombre = resultado.get('nombre_juego', juego_key)
                         alerta_numero_nulo(juego_key, nombre)
@@ -233,7 +251,6 @@ class LotoHondurasScraper:
                 browser.close()
 
         except Exception as e:
-            # Error catastrófico: el browser ni siquiera pudo iniciar
             msg_error = f"Error iniciando Playwright/browser: {e}"
             print(f"❌ {msg_error}")
             alerta_error_scraping("GENERAL", msg_error)
@@ -396,14 +413,14 @@ class LotoHondurasScraper:
             'juga3_11am': 'Jugá 3 11:00 AM',
             'juga3_3pm': 'Jugá 3 3:00 PM',
             'juga3_9pm': 'Jugá 3 9:00 PM',
-            'premia2_10am': 'Premia 2 11:00 AM',   # corregido
-            'premia2_2pm': 'Premia 2 3:00 PM',     # corregido
+            'premia2_10am': 'Premia 2 11:00 AM',
+            'premia2_2pm': 'Premia 2 3:00 PM',
             'premia2_9pm': 'Premia 2 9:00 PM',
-            'pega3_10am': 'Pega 3 11:00 AM',       # corregido
-            'pega3_2pm': 'Pega 3 3:00 PM',         # corregido
+            'pega3_10am': 'Pega 3 11:00 AM',
+            'pega3_2pm': 'Pega 3 3:00 PM',
             'pega3_9pm': 'Pega 3 9:00 PM',
-            'la_diaria_10am': 'La Diaria 11:00 AM',# corregido
-            'la_diaria_2pm': 'La Diaria 3:00 PM',  # corregido
+            'la_diaria_10am': 'La Diaria 11:00 AM',
+            'la_diaria_2pm': 'La Diaria 3:00 PM',
             'la_diaria_9pm': 'La Diaria 9:00 PM',
             'super_premio': 'Super Premio'
         }
@@ -473,7 +490,10 @@ if __name__ == "__main__":
     todos_resultados = scraper.obtener_todos_resultados_hoy()
     scraper.guardar_resultados_json(todos_resultados, 'resultados_hoy.json')
 
-    # Resumen final por Telegram (silencioso, sin ruido)
+    # ✅ Purgar caché de Cloudflare para que el frontend se actualice de inmediato
+    purgar_cache_cloudflare()
+
+    # Resumen final por Telegram (silencioso)
     resumen_final_telegram(todos_resultados)
 
     print("\n" + "=" * 60)
@@ -486,4 +506,5 @@ if __name__ == "__main__":
         else:
             print(f"⏳ {data['nombre_juego']}: Pendiente")
     print("=" * 60)
+
     

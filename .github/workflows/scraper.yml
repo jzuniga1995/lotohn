@@ -36,14 +36,15 @@ jobs:
       - name: 🎭 Install Playwright browsers
         run: playwright install chromium --with-deps
       
-      - name: 🔄 Run scraper
+      - name: 🚀 Run scraper
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+          CF_TOKEN: ${{ secrets.CF_TOKEN }}
         run: |
           python loto_scraper.py
           echo "✅ Scraper ejecutado - $(date +'%Y-%m-%d %H:%M:%S UTC')"
-          
       
       - name: 📊 Check for changes
         id: verify_diff
