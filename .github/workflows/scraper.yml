@@ -1,12 +1,11 @@
 name: Scraper Loto Honduras
-
 on:
   # Schedule desactivado - scraper activado manualmente vía cron-job.org
   # schedule:
   #   - cron: '10 17 * * *'  # 11:10 AM Honduras = 5:10 PM UTC
   #   - cron: '10 21 * * *'  # 3:10 PM Honduras = 9:10 PM UTC
   #   - cron: '10 3 * * *'   # 9:10 PM Honduras = 3:10 AM UTC (día siguiente)
-  
+
   # Mantiene la ejecución manual desde GitHub Actions
   workflow_dispatch:
 
@@ -16,26 +15,35 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: 🐍 Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
           cache: 'pip'
-      
+
       - name: 📦 Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: 🎭 Cache Playwright browsers
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}
+
       - name: 🎭 Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: playwright install chromium --with-deps
-      
+
       - name: 🚀 Run scraper
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -45,7 +53,7 @@ jobs:
         run: |
           python loto_scraper.py
           echo "✅ Scraper ejecutado - $(date +'%Y-%m-%d %H:%M:%S UTC')"
-      
+
       - name: 📊 Check for changes
         id: verify_diff
         run: |
@@ -55,7 +63,7 @@ jobs:
           else
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
-      
+
       - name: 💾 Commit and push changes
         if: steps.verify_diff.outputs.changed == 'true'
         run: |
@@ -63,7 +71,10 @@ jobs:
           git config --local user.name "GitHub Actions Bot"
           git commit -m "🎯 Actualizar resultados - $(date +'%Y-%m-%d %H:%M:%S')"
           git push
-      
+
       - name: ℹ️ No changes detected
         if: steps.verify_diff.outputs.changed != 'true'
         run: echo "ℹ️ No se detectaron cambios en los resultados"
+
+
+        
