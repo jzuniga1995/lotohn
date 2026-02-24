@@ -1,11 +1,11 @@
 {
-  "fecha_actualizacion": "2026-02-24 21:11:53",
+  "fecha_actualizacion": "2026-02-24 21:15:23",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-02-24 21:10:44",
+      "fecha_consulta": "2026-02-24 21:14:00",
       "fecha_sorteo": null,
       "hora_sorteo": "11:00 AM",
       "numero_ganador": null,
@@ -20,7 +20,7 @@
     "juga3_3pm": {
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-02-24 21:11:16",
+      "fecha_consulta": "2026-02-24 21:14:32",
       "fecha_sorteo": "24-02",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "511",
@@ -41,7 +41,7 @@
     "juga3_9pm": {
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-02-24 21:11:20",
+      "fecha_consulta": "2026-02-24 21:14:36",
       "fecha_sorteo": "23-02",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "648",
@@ -62,7 +62,7 @@
     "premia2_10am": {
       "juego": "premia2_10am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-02-24 21:11:25",
+      "fecha_consulta": "2026-02-24 21:14:41",
       "fecha_sorteo": "24-02",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "80",
@@ -83,7 +83,7 @@
     "premia2_2pm": {
       "juego": "premia2_2pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-02-24 21:11:28",
+      "fecha_consulta": "2026-02-24 21:14:44",
       "fecha_sorteo": "24-02",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "22",
@@ -104,7 +104,7 @@
     "premia2_9pm": {
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-02-24 21:11:30",
+      "fecha_consulta": "2026-02-24 21:14:47",
       "fecha_sorteo": "23-02",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "74",
@@ -125,7 +125,7 @@
     "pega3_10am": {
       "juego": "pega3_10am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-02-24 21:11:34",
+      "fecha_consulta": "2026-02-24 21:14:53",
       "fecha_sorteo": "24-02",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "13",
@@ -148,7 +148,7 @@
     "pega3_2pm": {
       "juego": "pega3_2pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-02-24 21:11:36",
+      "fecha_consulta": "2026-02-24 21:14:56",
       "fecha_sorteo": "24-02",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "79",
@@ -171,7 +171,7 @@
     "pega3_9pm": {
       "juego": "pega3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-02-24 21:11:38",
+      "fecha_consulta": "2026-02-24 21:15:00",
       "fecha_sorteo": "23-02",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "30",
@@ -194,7 +194,7 @@
     "la_diaria_10am": {
       "juego": "la_diaria_10am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-02-24 21:11:42",
+      "fecha_consulta": "2026-02-24 21:15:06",
       "fecha_sorteo": "24-02",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "40",
@@ -217,7 +217,7 @@
     "la_diaria_2pm": {
       "juego": "la_diaria_2pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-02-24 21:11:44",
+      "fecha_consulta": "2026-02-24 21:15:09",
       "fecha_sorteo": "24-02",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "41",
@@ -240,7 +240,7 @@
     "la_diaria_9pm": {
       "juego": "la_diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-02-24 21:11:46",
+      "fecha_consulta": "2026-02-24 21:15:12",
       "fecha_sorteo": "23-02",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "40",
@@ -263,7 +263,7 @@
     "super_premio": {
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-02-24 21:11:49",
+      "fecha_consulta": "2026-02-24 21:15:17",
       "fecha_sorteo": "21-02",
       "hora_sorteo": null,
       "numero_ganador": "10",
