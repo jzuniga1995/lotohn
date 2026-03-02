@@ -1,11 +1,11 @@
 {
-  "fecha_actualizacion": "2026-03-01 21:12:28",
+  "fecha_actualizacion": "2026-03-02 03:11:18",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-03-01 21:10:27",
+      "fecha_consulta": "2026-03-02 03:10:25",
       "fecha_sorteo": "01-03",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "244",
@@ -26,7 +26,7 @@
     "juga3_3pm": {
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-03-01 21:11:37",
+      "fecha_consulta": "2026-03-02 03:10:36",
       "fecha_sorteo": "01-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "405",
@@ -47,28 +47,28 @@
     "juga3_9pm": {
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-03-01 21:11:42",
-      "fecha_sorteo": "28-02",
+      "fecha_consulta": "2026-03-02 03:10:40",
+      "fecha_sorteo": "01-03",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "348",
+      "numero_ganador": "178",
       "numeros_individuales": [
-        "3",
-        "4",
+        "1",
+        "7",
         "8"
       ],
       "numeros_adicionales": [
-        "348"
+        "178"
       ],
       "serie": null,
       "folio": null,
-      "estado": "anterior",
+      "estado": "completado",
       "logo_url": "/logos/juga3.png",
       "extras": {}
     },
     "premia2_10am": {
       "juego": "premia2_10am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-03-01 21:11:48",
+      "fecha_consulta": "2026-03-02 03:10:43",
       "fecha_sorteo": "01-03",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "15",
@@ -89,7 +89,7 @@
     "premia2_2pm": {
       "juego": "premia2_2pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-03-01 21:11:52",
+      "fecha_consulta": "2026-03-02 03:10:48",
       "fecha_sorteo": "01-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "35",
@@ -110,28 +110,28 @@
     "premia2_9pm": {
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-03-01 21:11:56",
-      "fecha_sorteo": "28-02",
+      "fecha_consulta": "2026-03-02 03:10:51",
+      "fecha_sorteo": "01-03",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "02",
+      "numero_ganador": "19",
       "numeros_individuales": [
-        "02",
-        "78"
+        "19",
+        "91"
       ],
       "numeros_adicionales": [
-        "02",
-        "78"
+        "19",
+        "91"
       ],
       "serie": null,
       "folio": null,
-      "estado": "anterior",
+      "estado": "completado",
       "logo_url": "/logos/premia2.png",
       "extras": {}
     },
     "pega3_10am": {
       "juego": "pega3_10am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-03-01 21:12:00",
+      "fecha_consulta": "2026-03-02 03:10:54",
       "fecha_sorteo": "01-03",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "39",
@@ -154,7 +154,7 @@
     "pega3_2pm": {
       "juego": "pega3_2pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-03-01 21:12:04",
+      "fecha_consulta": "2026-03-02 03:10:57",
       "fecha_sorteo": "01-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "72",
@@ -177,30 +177,30 @@
     "pega3_9pm": {
       "juego": "pega3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-03-01 21:12:07",
-      "fecha_sorteo": "28-02",
+      "fecha_consulta": "2026-03-02 03:11:00",
+      "fecha_sorteo": "01-03",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "13",
+      "numero_ganador": "62",
       "numeros_individuales": [
-        "13",
-        "66",
-        "56"
+        "62",
+        "54",
+        "82"
       ],
       "numeros_adicionales": [
-        "13",
-        "66",
-        "56"
+        "62",
+        "54",
+        "82"
       ],
       "serie": null,
       "folio": null,
-      "estado": "anterior",
+      "estado": "completado",
       "logo_url": "/logos/pega3.png",
       "extras": {}
     },
     "la_diaria_10am": {
       "juego": "la_diaria_10am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-03-01 21:12:12",
+      "fecha_consulta": "2026-03-02 03:11:04",
       "fecha_sorteo": "01-03",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "16",
@@ -223,7 +223,7 @@
     "la_diaria_2pm": {
       "juego": "la_diaria_2pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-03-01 21:12:15",
+      "fecha_consulta": "2026-03-02 03:11:07",
       "fecha_sorteo": "01-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "12",
@@ -246,30 +246,30 @@
     "la_diaria_9pm": {
       "juego": "la_diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-03-01 21:12:18",
-      "fecha_sorteo": "28-02",
+      "fecha_consulta": "2026-03-02 03:11:10",
+      "fecha_sorteo": "01-03",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "43",
+      "numero_ganador": "34",
       "numeros_individuales": [
-        "43",
-        "Pantera",
-        "2X"
+        "34",
+        "Música",
+        "JG"
       ],
       "numeros_adicionales": [
-        "43",
-        "Pantera",
-        "2X"
+        "34",
+        "Música",
+        "JG"
       ],
       "serie": null,
       "folio": null,
-      "estado": "anterior",
+      "estado": "completado",
       "logo_url": "/logos/la_diaria.png",
       "extras": {}
     },
     "super_premio": {
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-03-01 21:12:23",
+      "fecha_consulta": "2026-03-02 03:11:13",
       "fecha_sorteo": "28-02",
       "hora_sorteo": null,
       "numero_ganador": "06",
