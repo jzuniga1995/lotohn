@@ -41,17 +41,28 @@ jobs:
       - name: 🚀 Run scraper
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
-          CF_TOKEN: ${{ secrets.CF_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          CF_ZONE_ID:         ${{ secrets.CF_ZONE_ID }}
+          CF_TOKEN:           ${{ secrets.CF_TOKEN }}
         run: |
           python loto_scraper.py
           echo "✅ Scraper ejecutado - $(date +'%Y-%m-%d %H:%M:%S UTC')"
 
+      # ── Oráculo: solo corre en la tanda de mañana (17:xx UTC = 11 AM Honduras)
+      # Si querés que corra siempre, eliminá el if
+      - name: 🔮 Run oráculo
+        env:
+          GEMINI_API_KEY:     ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python oraculo.py
+          echo "✅ Oráculo ejecutado - $(date +'%Y-%m-%d %H:%M:%S UTC')"
+
       - name: 📊 Check for changes
         id: verify_diff
         run: |
-          git add resultados_hoy.json historial.json
+          git add resultados_hoy.json historial.json oraculo.json
           if git diff --staged --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
@@ -63,11 +74,9 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions Bot"
-          git commit -m "🎯 Actualizar resultados - $(date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "🔮 Oráculo + resultados - $(date +'%Y-%m-%d %H:%M:%S')"
           git push
 
       - name: ℹ️ No changes detected
         if: steps.verify_diff.outputs.changed != 'true'
-        run: echo "ℹ️ No se detectaron cambios en los resultados"
-
-        
+        run: echo "ℹ️ No se detectaron cambios"
