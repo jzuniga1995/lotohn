@@ -1,0 +1,72 @@
+{
+  "2026-03-05": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "05-03",
+      "numero_ganador": "758",
+      "numeros_adicionales": [
+        "758"
+      ],
+      "numeros_individuales": [
+        "7",
+        "5",
+        "8"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "05-03",
+      "numero_ganador": "11",
+      "numeros_adicionales": [
+        "11",
+        "67"
+      ],
+      "numeros_individuales": [
+        "11",
+        "67"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "05-03",
+      "numero_ganador": "13",
+      "numeros_adicionales": [
+        "13",
+        "73",
+        "89"
+      ],
+      "numeros_individuales": [
+        "13",
+        "73",
+        "89"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "05-03",
+      "numero_ganador": "97",
+      "numeros_adicionales": [
+        "97",
+        "Viejito",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "97",
+        "Viejito",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
+  }
+}
