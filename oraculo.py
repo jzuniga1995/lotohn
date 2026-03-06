@@ -185,7 +185,7 @@ def guardar_oraculo(data: dict, archivo: str = "oraculo.json") -> bool:
                 existente = json.load(f)
             if existente.get("fecha") == data["fecha"]:
                 print(f"⏭️  Oráculo del {data['fecha']} ya existe, se conserva.")
-                return True
+                return False  # ← cambia True por False
 
         with open(archivo, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
