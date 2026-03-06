@@ -1,11 +1,11 @@
 {
-  "fecha_actualizacion": "2026-03-06 00:47:21",
+  "fecha_actualizacion": "2026-03-06 00:53:05",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-03-06 00:45:21",
+      "fecha_consulta": "2026-03-06 00:51:03",
       "fecha_sorteo": "05-03",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "758",
@@ -26,7 +26,7 @@
     "juga3_3pm": {
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-03-06 00:46:44",
+      "fecha_consulta": "2026-03-06 00:52:35",
       "fecha_sorteo": "05-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "704",
@@ -68,7 +68,7 @@
     "premia2_10am": {
       "juego": "premia2_10am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-03-06 00:46:30",
+      "fecha_consulta": "2026-03-06 00:52:18",
       "fecha_sorteo": "05-03",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "11",
@@ -89,7 +89,7 @@
     "premia2_2pm": {
       "juego": "premia2_2pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-03-06 00:46:48",
+      "fecha_consulta": "2026-03-06 00:52:38",
       "fecha_sorteo": "05-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "21",
@@ -131,7 +131,7 @@
     "pega3_10am": {
       "juego": "pega3_10am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-03-06 00:46:36",
+      "fecha_consulta": "2026-03-06 00:52:27",
       "fecha_sorteo": "05-03",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "13",
@@ -154,7 +154,7 @@
     "pega3_2pm": {
       "juego": "pega3_2pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-03-06 00:46:52",
+      "fecha_consulta": "2026-03-06 00:52:42",
       "fecha_sorteo": "05-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "93",
@@ -200,7 +200,7 @@
     "la_diaria_10am": {
       "juego": "la_diaria_10am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-03-06 00:46:40",
+      "fecha_consulta": "2026-03-06 00:52:32",
       "fecha_sorteo": "05-03",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "97",
@@ -223,7 +223,7 @@
     "la_diaria_2pm": {
       "juego": "la_diaria_2pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-03-06 00:46:56",
+      "fecha_consulta": "2026-03-06 00:52:45",
       "fecha_sorteo": "05-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "91",
