@@ -5,8 +5,14 @@
       "hora_sorteo": "11:00 AM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "758",
-      "numeros_adicionales": ["758"],
-      "numeros_individuales": ["7","5","8"],
+      "numeros_adicionales": [
+        "758"
+      ],
+      "numeros_individuales": [
+        "7",
+        "5",
+        "8"
+      ],
       "logo_url": "/logos/juga3.png",
       "estado": "completado"
     },
@@ -15,8 +21,14 @@
       "hora_sorteo": "11:00 AM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "11",
-      "numeros_adicionales": ["11","67"],
-      "numeros_individuales": ["11","67"],
+      "numeros_adicionales": [
+        "11",
+        "67"
+      ],
+      "numeros_individuales": [
+        "11",
+        "67"
+      ],
       "logo_url": "/logos/premia2.png",
       "estado": "completado"
     },
@@ -25,8 +37,16 @@
       "hora_sorteo": "11:00 AM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "13",
-      "numeros_adicionales": ["13","73","89"],
-      "numeros_individuales": ["13","73","89"],
+      "numeros_adicionales": [
+        "13",
+        "73",
+        "89"
+      ],
+      "numeros_individuales": [
+        "13",
+        "73",
+        "89"
+      ],
       "logo_url": "/logos/pega3.png",
       "estado": "completado"
     },
@@ -35,8 +55,16 @@
       "hora_sorteo": "11:00 AM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "97",
-      "numeros_adicionales": ["97","Viejito","JG"],
-      "numeros_individuales": ["97","Viejito","JG"],
+      "numeros_adicionales": [
+        "97",
+        "Viejito",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "97",
+        "Viejito",
+        "JG"
+      ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
     },
@@ -45,8 +73,14 @@
       "hora_sorteo": "3:00 PM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "704",
-      "numeros_adicionales": ["704"],
-      "numeros_individuales": ["7","0","4"],
+      "numeros_adicionales": [
+        "704"
+      ],
+      "numeros_individuales": [
+        "7",
+        "0",
+        "4"
+      ],
       "logo_url": "/logos/juga3.png",
       "estado": "completado"
     },
@@ -55,8 +89,14 @@
       "hora_sorteo": "3:00 PM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "21",
-      "numeros_adicionales": ["21","40"],
-      "numeros_individuales": ["21","40"],
+      "numeros_adicionales": [
+        "21",
+        "40"
+      ],
+      "numeros_individuales": [
+        "21",
+        "40"
+      ],
       "logo_url": "/logos/premia2.png",
       "estado": "completado"
     },
@@ -65,8 +105,16 @@
       "hora_sorteo": "3:00 PM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "93",
-      "numeros_adicionales": ["93","01","26"],
-      "numeros_individuales": ["93","01","26"],
+      "numeros_adicionales": [
+        "93",
+        "01",
+        "26"
+      ],
+      "numeros_individuales": [
+        "93",
+        "01",
+        "26"
+      ],
       "logo_url": "/logos/pega3.png",
       "estado": "completado"
     },
@@ -75,8 +123,16 @@
       "hora_sorteo": "3:00 PM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "91",
-      "numeros_adicionales": ["91","Tortuga","2X"],
-      "numeros_individuales": ["91","Tortuga","2X"],
+      "numeros_adicionales": [
+        "91",
+        "Tortuga",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "91",
+        "Tortuga",
+        "2X"
+      ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
     },
@@ -85,8 +141,14 @@
       "hora_sorteo": "9:00 PM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "018",
-      "numeros_adicionales": ["018"],
-      "numeros_individuales": ["0","1","8"],
+      "numeros_adicionales": [
+        "018"
+      ],
+      "numeros_individuales": [
+        "0",
+        "1",
+        "8"
+      ],
       "logo_url": "/logos/juga3.png",
       "estado": "completado"
     },
@@ -95,8 +157,14 @@
       "hora_sorteo": "9:00 PM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "84",
-      "numeros_adicionales": ["84","71"],
-      "numeros_individuales": ["84","71"],
+      "numeros_adicionales": [
+        "84",
+        "71"
+      ],
+      "numeros_individuales": [
+        "84",
+        "71"
+      ],
       "logo_url": "/logos/premia2.png",
       "estado": "completado"
     },
@@ -105,8 +173,16 @@
       "hora_sorteo": "9:00 PM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "02",
-      "numeros_adicionales": ["02","65","97"],
-      "numeros_individuales": ["02","65","97"],
+      "numeros_adicionales": [
+        "02",
+        "65",
+        "97"
+      ],
+      "numeros_individuales": [
+        "02",
+        "65",
+        "97"
+      ],
       "logo_url": "/logos/pega3.png",
       "estado": "completado"
     },
@@ -115,8 +191,16 @@
       "hora_sorteo": "9:00 PM",
       "fecha_sorteo": "05-03",
       "numero_ganador": "35",
-      "numeros_adicionales": ["35","Virgen","2X"],
-      "numeros_individuales": ["35","Virgen","2X"],
+      "numeros_adicionales": [
+        "35",
+        "Virgen",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "35",
+        "Virgen",
+        "2X"
+      ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
     }
@@ -127,8 +211,14 @@
       "hora_sorteo": "11:00 AM",
       "fecha_sorteo": "06-03",
       "numero_ganador": "326",
-      "numeros_adicionales": ["326"],
-      "numeros_individuales": ["3","2","6"],
+      "numeros_adicionales": [
+        "326"
+      ],
+      "numeros_individuales": [
+        "3",
+        "2",
+        "6"
+      ],
       "logo_url": "/logos/juga3.png",
       "estado": "completado"
     },
@@ -137,8 +227,14 @@
       "hora_sorteo": "11:00 AM",
       "fecha_sorteo": "06-03",
       "numero_ganador": "04",
-      "numeros_adicionales": ["04","73"],
-      "numeros_individuales": ["04","73"],
+      "numeros_adicionales": [
+        "04",
+        "73"
+      ],
+      "numeros_individuales": [
+        "04",
+        "73"
+      ],
       "logo_url": "/logos/premia2.png",
       "estado": "completado"
     },
@@ -147,8 +243,16 @@
       "hora_sorteo": "11:00 AM",
       "fecha_sorteo": "06-03",
       "numero_ganador": "70",
-      "numeros_adicionales": ["70","91","58"],
-      "numeros_individuales": ["70","91","58"],
+      "numeros_adicionales": [
+        "70",
+        "91",
+        "58"
+      ],
+      "numeros_individuales": [
+        "70",
+        "91",
+        "58"
+      ],
       "logo_url": "/logos/pega3.png",
       "estado": "completado"
     },
@@ -157,11 +261,86 @@
       "hora_sorteo": "11:00 AM",
       "fecha_sorteo": "06-03",
       "numero_ganador": "20",
-      "numeros_adicionales": ["20","Espejo","2X"],
-      "numeros_individuales": ["20","Espejo","2X"],
+      "numeros_adicionales": [
+        "20",
+        "Espejo",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "20",
+        "Espejo",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    },
+    "juga3_3pm": {
+      "nombre_juego": "Jugá 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "06-03",
+      "numero_ganador": "998",
+      "numeros_adicionales": [
+        "998"
+      ],
+      "numeros_individuales": [
+        "9",
+        "9",
+        "8"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_2pm": {
+      "nombre_juego": "Premia 2 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "06-03",
+      "numero_ganador": "83",
+      "numeros_adicionales": [
+        "83",
+        "44"
+      ],
+      "numeros_individuales": [
+        "83",
+        "44"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_2pm": {
+      "nombre_juego": "Pega 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "06-03",
+      "numero_ganador": "58",
+      "numeros_adicionales": [
+        "58",
+        "95",
+        "31"
+      ],
+      "numeros_individuales": [
+        "58",
+        "95",
+        "31"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_2pm": {
+      "nombre_juego": "La Diaria 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "06-03",
+      "numero_ganador": "85",
+      "numeros_adicionales": [
+        "85",
+        "Casa",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "85",
+        "Casa",
+        "2X"
+      ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
     }
   }
 }
-
