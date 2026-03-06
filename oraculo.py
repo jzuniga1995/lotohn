@@ -60,13 +60,10 @@ def llamar_gemini(prompt: str) -> str | None:
                 json={
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
-                        "temperature":     0.9,
-                        "maxOutputTokens": 512,   # suficiente para el JSON simple
-                        "topP":            0.95,
-                        "responseMimeType": "application/json",  # fuerza JSON puro
-                    },
-                    "thinkingConfig": {
-                        "thinkingBudget": 0        # desactiva el thinking — evita tokens gastados antes del output
+                        "temperature":      0.9,
+                        "maxOutputTokens":  800,
+                        "topP":             0.95,
+                        "responseMimeType": "application/json",  # fuerza JSON puro sin markdown
                     }
                 },
                 timeout=45
