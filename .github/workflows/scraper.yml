@@ -48,10 +48,11 @@ jobs:
           python loto_scraper.py
           echo "✅ Scraper ejecutado - $(date +'%Y-%m-%d %H:%M:%S UTC')"
 
-      # ── Oráculo: corre diario vía cron-job.org a las 6AM Honduras
+      # ── Oráculo: solo corre en la tanda de mañana (17:xx UTC = 11 AM Honduras)
+      # Si querés que corra siempre, eliminá el if
       - name: 🔮 Run oráculo
         env:
-          XAI_API_KEY:        ${{ secrets.XAI_API_KEY }}
+          GEMINI_API_KEY:     ${{ secrets.GEMINI_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
@@ -79,4 +80,3 @@ jobs:
       - name: ℹ️ No changes detected
         if: steps.verify_diff.outputs.changed != 'true'
         run: echo "ℹ️ No se detectaron cambios"
-        

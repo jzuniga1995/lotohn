@@ -8,9 +8,8 @@ from datetime import datetime, timedelta, timezone
 # CONFIGURACIÓN
 # ============================================
 
-XAI_API_KEY = os.environ.get("XAI_API_KEY", "")
-XAI_URL     = "https://api.x.ai/v1/chat/completions"
-
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID", "")
 
@@ -40,38 +39,39 @@ def enviar_telegram(mensaje: str) -> bool:
 
 
 # ============================================
-# LLAMADA A GROK
+# LLAMADA A GEMINI
 # ============================================
 
-def llamar_grok(prompt: str) -> str | None:
-    if not XAI_API_KEY:
-        print("❌ XAI_API_KEY no configurada")
+def llamar_gemini(prompt: str) -> str | None:
+    if not GEMINI_API_KEY:
+        print("❌ GEMINI_API_KEY no configurada")
         return None
 
     try:
         resp = requests.post(
-            XAI_URL,
-            headers={
-                "Content-Type":  "application/json",
-                "Authorization": f"Bearer {XAI_API_KEY}"
-            },
+            f"{GEMINI_URL}?key={GEMINI_API_KEY}",
+            headers={"Content-Type": "application/json"},
             json={
-                "model":       "grok-3-mini",
-                "messages":    [{"role": "user", "content": prompt}],
-                "temperature": 1.0,
-                "max_tokens":  400,
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {
+                    "temperature":     1.0,
+                    "maxOutputTokens": 400,
+                    "topP":            0.95,
+                }
             },
             timeout=30
         )
 
         if not resp.ok:
-            print(f"❌ Grok HTTP {resp.status_code}: {resp.text}")
+            print(f"❌ Gemini HTTP {resp.status_code}: {resp.text}")
             return None
 
-        return resp.json()["choices"][0]["message"]["content"].strip()
+        data   = resp.json()
+        texto  = data["candidates"][0]["content"]["parts"][0]["text"]
+        return texto.strip()
 
     except Exception as e:
-        print(f"❌ Error llamando Grok: {e}")
+        print(f"❌ Error llamando Gemini: {e}")
         return None
 
 
@@ -80,7 +80,7 @@ def llamar_grok(prompt: str) -> str | None:
 # ============================================
 
 def generar_oraculo(fecha_str: str) -> dict | None:
-    """Genera el oráculo del día vía Grok. Devuelve dict o None si falla."""
+    """Genera el oráculo del día vía Gemini. Devuelve dict o None si falla."""
 
     prompt = f"""Eres el Oráculo Loto Honduras. Tu trabajo es generar el contenido diario de cábala para jugadores de lotería hondureños.
 
@@ -101,13 +101,13 @@ Reglas importantes:
 - Todo en español hondureño natural
 - Solo devuelve el JSON, nada más"""
 
-    print(f"🔮 Llamando a Grok para fecha {fecha_str}...")
-    respuesta = llamar_grok(prompt)
+    print(f"🔮 Llamando a Gemini para fecha {fecha_str}...")
+    respuesta = llamar_gemini(prompt)
 
     if not respuesta:
         return None
 
-    # Limpiar posibles bloques markdown
+    # Limpiar posibles bloques markdown que Gemini a veces agrega
     respuesta = respuesta.strip()
     if respuesta.startswith("```"):
         respuesta = respuesta.split("```")[1]
@@ -129,7 +129,7 @@ Reglas importantes:
         return data
 
     except Exception as e:
-        print(f"❌ Error parseando respuesta de Grok: {e}")
+        print(f"❌ Error parseando respuesta de Gemini: {e}")
         print(f"   Respuesta recibida: {respuesta}")
         return None
 
@@ -168,7 +168,7 @@ def main():
     print("=" * 60)
 
     # Fecha Honduras (UTC-6)
-    fecha_hn = (datetime.now(timezone.utc) - timedelta(hours=6)).strftime("%Y-%m-%d")
+    fecha_hn  = (datetime.now(timezone.utc) - timedelta(hours=6)).strftime("%Y-%m-%d")
     print(f"📅 Fecha Honduras: {fecha_hn}")
 
     # Generar contenido
@@ -176,6 +176,7 @@ def main():
 
     if not oraculo:
         print("❌ No se pudo generar el oráculo. Usando fallback.")
+        # Fallback manual para que el componente nunca quede vacío
         oraculo = {
             "acertijo": "Dicen que en Honduras el que espera, desespera... pero el que juega, ¿quién sabe?",
             "numeros":  [11, 33, 77],
@@ -183,8 +184,8 @@ def main():
         }
 
     # Agregar metadatos
-    oraculo["fecha"]       = fecha_hn
-    oraculo["generado_en"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    oraculo["fecha"]        = fecha_hn
+    oraculo["generado_en"]  = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     print(f"📜 Acertijo: {oraculo['acertijo']}")
     print(f"🔢 Números: {oraculo['numeros']}")
@@ -211,4 +212,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
     
