@@ -411,5 +411,74 @@
       "estado": "completado"
     }
   },
-  "2026-03-07": {}
+  "2026-03-07": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "07-03",
+      "numero_ganador": "777",
+      "numeros_adicionales": [
+        "777"
+      ],
+      "numeros_individuales": [
+        "7",
+        "7",
+        "7"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "07-03",
+      "numero_ganador": "51",
+      "numeros_adicionales": [
+        "51",
+        "16"
+      ],
+      "numeros_individuales": [
+        "51",
+        "16"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "07-03",
+      "numero_ganador": "91",
+      "numeros_adicionales": [
+        "91",
+        "56",
+        "04"
+      ],
+      "numeros_individuales": [
+        "91",
+        "56",
+        "04"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "07-03",
+      "numero_ganador": "08",
+      "numeros_adicionales": [
+        "08",
+        "Conejo",
+        "5X"
+      ],
+      "numeros_individuales": [
+        "08",
+        "Conejo",
+        "5X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
+  }
 }
