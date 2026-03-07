@@ -155,11 +155,11 @@ Vocabulario catracho para usar: {CALICHE}
 Instrucciones:
 1. Elige 4 números distintos entre 01 y 99.
 2. Identifica el signo de cada número en la tabla.
-3. Escribe un acertijo que insinúe los 4 signos sin nombrarlos jamás. Que suene a conversación de mercado en Comayagüela — usá el vocabulario catracho de arriba cuando encaje natural. Nada de frases de libro o poesía elegante.
-4. Escribe una frase final chistosa, callejera, catracha pura — también evocando los signos sin revelarlos.
+3. Escribe UN acertijo real estilo Zavaleta que describa SOLO el primer signo — sin nombrarlo jamás. VARÍA la estructura cada vez: puede ser una paradoja, una descripción en primera persona, una pregunta, una comparación, lo que se te ocurra. Nunca uses siempre "Soy X". Que sea ingenioso, que se pueda adivinar, y que suene a Honduras — usá el vocabulario catracho cuando encaje natural. Nada de poesía elegante.
+4. La frase final: chistosa, catracha, que también insinúe el signo del primer número sin nombrarlo.
 
 Devolvé SOLO este JSON:
-{{"acertijo":"max 100 chars, lenguaje hondureño coloquial","numeros":[N1,N2,N3,N4],"frase":"max 50 chars, chistosa y catracha"}}
+{{"acertijo":"max 100 chars, acertijo real de UN solo signo","numeros":[N1,N2,N3,N4],"frase":"max 50 chars, chistosa y catracha"}}
 
 Solo JSON, nada más."""
 
