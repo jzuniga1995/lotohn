@@ -61,7 +61,7 @@ def llamar_gemini(prompt: str) -> str | None:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature":      0.9,
-                        "maxOutputTokens":  300,   # ✅ FIX: el JSON completo ocupa ~100-150 tokens
+                        "maxOutputTokens":  1400,   
                         "topP":             0.95,
                         "responseMimeType": "application/json",
                     }
