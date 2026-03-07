@@ -20,6 +20,22 @@ ESPERA_ENTRE_REINTENTOS = 15  # segundos
 
 SIGNOS = "00-Avión,01-Pies,02-Mujer,03-Muerto,04-Tigre,05-Embarazada,06-Elefante,07-Navaja,08-Conejo,09-Hombre,10-Anillo,11-Perro,12-Caballo,13-Gato,14-Boda,15-Ratón,16-Niña,17-Joven,18-Ángel,19-Mariposa,20-Espejo,21-Pájaro,22-Ataúd,23-Mono,24-Sapo,25-Balanza,26-Bandera,27-Juego,28-Gallo,29-Padre,30-Bolo,31-Alacrán,32-Culebra,33-Carpintero,34-Música,35-Virgen,36-Ciejita,37-Suerte,38-Pistola,39-Jabón,40-Cielo,41-Novia,42-Madre,43-Pantera,44-Mesas,45-Iglesia,46-Familia,47-Banco,48-Estrella,49-Sombra,50-Luna Nueva,51-Policía,52-Zorrillo,53-Llanta,54-Licor,55-Olas,56-Árbol,57-Cuchillo,58-Venado,59-Selva,60-Dragón,61-Guerra,62-Lagarto,63-Coco,64-Mueble,65-Pintura,66-Diablo,67-Vaca,68-Ladrón,69-Soldado,70-Oro,71-Zapatos,72-Arco,73-Fuego,74-Edificio,75-Reina,76-Palomas,77-Humo,78-Tienda,79-Flores,80-Café,81-Rieles,82-Escuela,83-Bote,84-Coronas,85-Casa,86-Reloj,87-León,88-Platos,89-Búho,90-Lentes,91-Tortuga,92-Águila,93-Cartero,94-Carro,95-Costurera,96-Dinero,97-Viejito,98-Bailes,99-Aretes"
 
+CALICHE = """Vocabulario hondureño auténtico:
+- cipote/cipota: niño/niña | chigüín: niño pequeño | güirro: niño
+- maje: tipo, amigo cercano | alero: amigo de confianza
+- pisto: dinero | hule: sin dinero | acabado: sin un centavo
+- chamba: trabajo | filo/cachuda: hambre
+- cheque: todo bien | macizo/de miedo: excelente
+- tuani: genial, chévere | a toda máquina: muy bueno
+- chunche: cosa cualquiera | chucho: perro callejero
+- chele: persona de piel clara
+- a wilson: claro que sí | yuca: muy difícil
+- chonguengue: fiesta | despelote: relajo divertido
+- sapo: chismoso | dundo: tonto | charrula: inútil
+- catracho/catracha: hondureño/hondureña | mínimo: banano
+- torcido: mala suerte | chepa/chepo: policía
+- zarpe: oportunidad | a la gran: expresión de sorpresa"""
+
 
 # ============================================
 # TELEGRAM
@@ -63,7 +79,7 @@ def llamar_gemini(prompt: str) -> str | None:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature":      0.9,
-                        "maxOutputTokens":  1400,
+                        "maxOutputTokens":  1200,
                         "topP":             0.95,
                         "responseMimeType": "application/json",
                     }
@@ -134,14 +150,16 @@ def generar_oraculo(fecha_str: str) -> dict | None:
 
 Tabla de signos: {SIGNOS}
 
+Vocabulario catracho para usar: {CALICHE}
+
 Instrucciones:
 1. Elige 4 números distintos entre 01 y 99.
 2. Identifica el signo de cada número en la tabla.
-3. Escribe un acertijo poético que insinúe los 4 signos sin nombrarlos jamás. Estilo misterioso, hondureño, como Zavaleta en la prensa.
-4. Escribe una frase final corta con humor hondureño que también evoque los signos sin revelarlos.
+3. Escribe un acertijo que insinúe los 4 signos sin nombrarlos jamás. Que suene a conversación de mercado en Comayagüela — usá el vocabulario catracho de arriba cuando encaje natural. Nada de frases de libro o poesía elegante.
+4. Escribe una frase final chistosa, callejera, catracha pura — también evocando los signos sin revelarlos.
 
 Devolvé SOLO este JSON:
-{{"acertijo":"max 100 chars, insinúa los 4 signos sin nombrarlos","numeros":[N1,N2,N3,N4],"frase":"max 50 chars, humor hondureño"}}
+{{"acertijo":"max 100 chars, lenguaje hondureño coloquial","numeros":[N1,N2,N3,N4],"frase":"max 50 chars, chistosa y catracha"}}
 
 Solo JSON, nada más."""
 
