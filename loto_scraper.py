@@ -146,13 +146,9 @@ def detectar_tanda():
 
             return nombre, juegos
 
-    # Fallback: correr todos si no coincide ninguna hora
-    print(f"⚠️  Hora UTC {hora_utc} no coincide con ninguna tanda — corriendo todos")
-    todos = []
-    for config in TANDAS.values():
-        todos.extend(config['juegos'])
-    todos.append('super_premio')  # en fallback incluir siempre
-    return 'todos', todos
+    # ✅ FIX: hora no programada (ej. 12 UTC = 6am Honduras) → salir sin correr nada
+    print(f"⏭️  Hora UTC {hora_utc} no corresponde a ninguna tanda. Nada que hacer.")
+    return None, []
 
 
 # ============================================
@@ -359,7 +355,6 @@ class LotoHondurasScraper:
                 if not texto or texto in ['-', '?', '']:
                     continue
 
-                # La Diaria acepta texto (signo/multiplicador), el resto solo números
                 if not es_diaria and not texto.replace(' ', '').isdigit():
                     continue
 
@@ -429,20 +424,17 @@ class LotoHondurasScraper:
         return nombres.get(juego_key, juego_key)
 
     # ============================================
-    # GUARDAR JSON HOY — actualiza solo los keys de la tanda
+    # GUARDAR JSON HOY
     # ============================================
 
     def guardar_resultados_json(self, resultados_tanda, archivo='resultados_hoy.json'):
         try:
-            # Cargar el json existente completo
             existente = {}
             if os.path.exists(archivo):
                 with open(archivo, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     existente = data.get('sorteos', {})
 
-            # Solo actualizar los keys de la tanda actual
-            # Si el resultado es pendiente pero el existente tiene dato, conservar el existente
             for key, nuevo in resultados_tanda.items():
                 anterior = existente.get(key, {})
                 if nuevo.get('numero_ganador') is None and anterior.get('numero_ganador') is not None:
@@ -465,8 +457,7 @@ class LotoHondurasScraper:
             return False
 
     # ============================================
-    # GUARDAR HISTORIAL — acumula por fecha,
-    # nunca sobreescribe un 'completado'
+    # GUARDAR HISTORIAL
     # ============================================
 
     def guardar_historial_json(self, resultados_tanda, archivo='historial.json'):
@@ -476,8 +467,6 @@ class LotoHondurasScraper:
                 with open(archivo, 'r', encoding='utf-8') as f:
                     historial = json.load(f)
 
-            # Tanda nocturna corre a las 03:xx UTC = día siguiente en UTC
-            # Hay que usar la fecha de Honduras (UTC-6)
             fecha_hn = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(hours=6)).strftime('%Y-%m-%d')
 
             if fecha_hn not in historial:
@@ -487,7 +476,6 @@ class LotoHondurasScraper:
                 if data.get('estado') != 'completado':
                     continue
 
-                # No sobreescribir un completado existente
                 if historial[fecha_hn].get(key, {}).get('estado') == 'completado':
                     print(f"   📌 Historial: ya existe completado de {key}")
                     continue
@@ -553,6 +541,12 @@ if __name__ == "__main__":
     print("=" * 60)
 
     nombre_tanda, juegos_tanda = detectar_tanda()
+
+    # ✅ FIX: salir limpio si no es hora de ninguna tanda (ej. 6am Honduras = 12 UTC)
+    if not juegos_tanda:
+        print("✅ Sin tanda que procesar. Finalizando.")
+        exit(0)
+
     print(f"⏰ Hora UTC: {datetime.now(timezone.utc).replace(tzinfo=None).strftime('%H:%M')} | Tanda: {nombre_tanda.upper()}")
     print(f"🎯 Juegos: {juegos_tanda}")
     print("=" * 60)
@@ -574,5 +568,3 @@ if __name__ == "__main__":
             print(f"⏳ {data['nombre_juego']}: Pendiente")
     print("=" * 60)
 
-
-    
