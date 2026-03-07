@@ -18,6 +18,8 @@ TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID", "")
 MAX_REINTENTOS = 3
 ESPERA_ENTRE_REINTENTOS = 15  # segundos
 
+SIGNOS = "00-Avión,01-Pies,02-Mujer,03-Muerto,04-Tigre,05-Embarazada,06-Elefante,07-Navaja,08-Conejo,09-Hombre,10-Anillo,11-Perro,12-Caballo,13-Gato,14-Boda,15-Ratón,16-Niña,17-Joven,18-Ángel,19-Mariposa,20-Espejo,21-Pájaro,22-Ataúd,23-Mono,24-Sapo,25-Balanza,26-Bandera,27-Juego,28-Gallo,29-Padre,30-Bolo,31-Alacrán,32-Culebra,33-Carpintero,34-Música,35-Virgen,36-Ciejita,37-Suerte,38-Pistola,39-Jabón,40-Cielo,41-Novia,42-Madre,43-Pantera,44-Mesas,45-Iglesia,46-Familia,47-Banco,48-Estrella,49-Sombra,50-Luna Nueva,51-Policía,52-Zorrillo,53-Llanta,54-Licor,55-Olas,56-Árbol,57-Cuchillo,58-Venado,59-Selva,60-Dragón,61-Guerra,62-Lagarto,63-Coco,64-Mueble,65-Pintura,66-Diablo,67-Vaca,68-Ladrón,69-Soldado,70-Oro,71-Zapatos,72-Arco,73-Fuego,74-Edificio,75-Reina,76-Palomas,77-Humo,78-Tienda,79-Flores,80-Café,81-Rieles,82-Escuela,83-Bote,84-Coronas,85-Casa,86-Reloj,87-León,88-Platos,89-Búho,90-Lentes,91-Tortuga,92-Águila,93-Cartero,94-Carro,95-Costurera,96-Dinero,97-Viejito,98-Bailes,99-Aretes"
+
 
 # ============================================
 # TELEGRAM
@@ -61,7 +63,7 @@ def llamar_gemini(prompt: str) -> str | None:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature":      0.9,
-                        "maxOutputTokens":  1400,   
+                        "maxOutputTokens":  1400,
                         "topP":             0.95,
                         "responseMimeType": "application/json",
                     }
@@ -128,23 +130,20 @@ def extraer_json(texto: str) -> dict | None:
 def generar_oraculo(fecha_str: str) -> dict | None:
     """Genera el oráculo del día vía Gemini. Devuelve dict o None si falla."""
 
-    prompt = f"""Eres el Oráculo Loto Honduras. Generás el contenido diario de cábala para jugadores hondureños.
+    prompt = f"""Eres el Oráculo de La Diaria Honduras, estilo Zavaleta. Fecha: {fecha_str}.
 
-Hoy es {fecha_str}.
+Tabla de signos: {SIGNOS}
 
-Devolvé ÚNICAMENTE este JSON (sin texto extra, sin markdown):
+Instrucciones:
+1. Elige 4 números distintos entre 01 y 99.
+2. Identifica el signo de cada número en la tabla.
+3. Escribe un acertijo poético que insinúe los 4 signos sin nombrarlos jamás. Estilo misterioso, hondureño, como Zavaleta en la prensa.
+4. Escribe una frase final corta con humor hondureño que también evoque los signos sin revelarlos.
 
-{{
-  "acertijo": "Acertijo breve y misterioso con referencias a Honduras.",
-  "numeros": [N1, N2, N3],
-  "frase": "Frase corta hondureña."
-}}
+Devolvé SOLO este JSON:
+{{"acertijo":"max 100 chars, insinúa los 4 signos sin nombrarlos","numeros":[N1,N2,N3,N4],"frase":"max 50 chars, humor hondureño"}}
 
-Reglas ESTRICTAS:
-- acertijo: string, MÁXIMO 100 caracteres, sin revelar la respuesta
-- numeros: exactamente 3 enteros distintos entre 1 y 99
-- frase: string, MÁXIMO 50 caracteres, humor o sabor local hondureño
-- Solo JSON, absolutamente nada más"""
+Solo JSON, nada más."""
 
     print(f"🔮 Llamando a Gemini para fecha {fecha_str}...")
     respuesta = llamar_gemini(prompt)
@@ -159,9 +158,8 @@ Reglas ESTRICTAS:
         return None
 
     try:
-        # Validar estructura mínima
         assert isinstance(data.get("acertijo"), str) and len(data["acertijo"]) > 10, "acertijo inválido"
-        assert isinstance(data.get("numeros"), list) and len(data["numeros"]) == 3, "numeros inválido"
+        assert isinstance(data.get("numeros"), list) and len(data["numeros"]) == 4, "numeros inválido"
         assert isinstance(data.get("frase"), str) and len(data["frase"]) > 3, "frase inválida"
 
         # Normalizar números
@@ -215,7 +213,7 @@ def main():
         print("❌ No se pudo generar el oráculo. Usando fallback.")
         oraculo = {
             "acertijo": "Dicen que en Honduras el que espera, desespera... pero el que juega, ¿quién sabe?",
-            "numeros":  [11, 33, 77],
+            "numeros":  [11, 33, 77, 42],
             "frase":    "¡Zaz zaz, Aguilillo!"
         }
 
@@ -233,7 +231,7 @@ def main():
             "🔮 <b>ORÁCULO DEL DÍA — LOTO HONDURAS</b>\n"
             f"📅 {fecha_hn}\n\n"
             f"📜 <i>{oraculo['acertijo']}</i>\n\n"
-            f"🔢 Números: <b>{' · '.join(str(n) for n in oraculo['numeros'])}</b>\n"
+            f"🔢 Números: <b>{' · '.join(str(n) for n in oraculo['numeros'])}</b>\n\n"
             f"💬 {oraculo['frase']}"
         )
         enviar_telegram(msg)
