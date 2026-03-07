@@ -225,6 +225,17 @@ def main():
     fecha_hn = (datetime.now(timezone.utc) - timedelta(hours=6)).strftime("%Y-%m-%d")
     print(f"📅 Fecha Honduras: {fecha_hn}")
 
+    # ✅ Verificar ANTES de llamar a Gemini — evita gastar cuota
+    if os.path.exists("oraculo.json"):
+        try:
+            with open("oraculo.json", "r", encoding="utf-8") as f:
+                existente = json.load(f)
+            if existente.get("fecha") == fecha_hn:
+                print(f"⏭️  Oráculo del {fecha_hn} ya existe, nada que hacer.")
+                return False
+        except Exception:
+            pass  # si el archivo está corrupto, seguimos y regeneramos
+
     oraculo = generar_oraculo(fecha_hn)
 
     if not oraculo:
