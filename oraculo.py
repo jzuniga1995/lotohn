@@ -61,9 +61,9 @@ def llamar_gemini(prompt: str) -> str | None:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature":      0.9,
-                        "maxOutputTokens":  800,
+                        "maxOutputTokens":  300,   # ✅ FIX: el JSON completo ocupa ~100-150 tokens
                         "topP":             0.95,
-                        "responseMimeType": "application/json",  # fuerza JSON puro sin markdown
+                        "responseMimeType": "application/json",
                     }
                 },
                 timeout=45
@@ -135,16 +135,16 @@ Hoy es {fecha_str}.
 Devolvé ÚNICAMENTE este JSON (sin texto extra, sin markdown):
 
 {{
-  "acertijo": "Un acertijo breve y misterioso (máximo 2 oraciones) con referencias a la naturaleza, comida, tradiciones o lugares de Honduras. No des la respuesta. Estilo poético y ambiguo.",
+  "acertijo": "Acertijo breve y misterioso con referencias a Honduras.",
   "numeros": [N1, N2, N3],
-  "frase": "Frase corta de cierre, hondureña, con personalidad. Máximo 10 palabras."
+  "frase": "Frase corta hondureña."
 }}
 
-Reglas:
-- acertijo: string, máximo 150 caracteres, nunca revela la respuesta
+Reglas ESTRICTAS:
+- acertijo: string, MÁXIMO 100 caracteres, sin revelar la respuesta
 - numeros: exactamente 3 enteros distintos entre 1 y 99
-- frase: string, máximo 60 caracteres, humor o sabor local hondureño
-- Solo JSON, nada más"""
+- frase: string, MÁXIMO 50 caracteres, humor o sabor local hondureño
+- Solo JSON, absolutamente nada más"""
 
     print(f"🔮 Llamando a Gemini para fecha {fecha_str}...")
     respuesta = llamar_gemini(prompt)
@@ -185,7 +185,7 @@ def guardar_oraculo(data: dict, archivo: str = "oraculo.json") -> bool:
                 existente = json.load(f)
             if existente.get("fecha") == data["fecha"]:
                 print(f"⏭️  Oráculo del {data['fecha']} ya existe, se conserva.")
-                return False  # ← cambia True por False
+                return False
 
         with open(archivo, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
