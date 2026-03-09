@@ -1,16 +1,22 @@
 {
-  "fecha_actualizacion": "2026-03-08 03:30:00",
+  "fecha_actualizacion": "2026-03-09 17:10:52",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-03-08 17:10:25",
-      "fecha_sorteo": "08-03",
+      "fecha_consulta": "2026-03-09 17:10:33",
+      "fecha_sorteo": "09-03",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "867",
-      "numeros_individuales": ["8", "6", "7"],
-      "numeros_adicionales": ["867"],
+      "numero_ganador": "945",
+      "numeros_individuales": [
+        "9",
+        "4",
+        "5"
+      ],
+      "numeros_adicionales": [
+        "945"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -24,8 +30,14 @@
       "fecha_sorteo": "08-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "969",
-      "numeros_individuales": ["9", "6", "9"],
-      "numeros_adicionales": ["969"],
+      "numeros_individuales": [
+        "9",
+        "6",
+        "9"
+      ],
+      "numeros_adicionales": [
+        "969"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -39,8 +51,14 @@
       "fecha_sorteo": "08-03",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "341",
-      "numeros_individuales": ["3", "4", "1"],
-      "numeros_adicionales": ["341"],
+      "numeros_individuales": [
+        "3",
+        "4",
+        "1"
+      ],
+      "numeros_adicionales": [
+        "341"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -50,12 +68,18 @@
     "premia2_10am": {
       "juego": "premia2_10am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-03-08 17:11:34",
-      "fecha_sorteo": "08-03",
+      "fecha_consulta": "2026-03-09 17:10:38",
+      "fecha_sorteo": "09-03",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "75",
-      "numeros_individuales": ["75", "85"],
-      "numeros_adicionales": ["75", "85"],
+      "numero_ganador": "70",
+      "numeros_individuales": [
+        "70",
+        "09"
+      ],
+      "numeros_adicionales": [
+        "70",
+        "09"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -69,8 +93,14 @@
       "fecha_sorteo": "08-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "10",
-      "numeros_individuales": ["10", "42"],
-      "numeros_adicionales": ["10", "42"],
+      "numeros_individuales": [
+        "10",
+        "42"
+      ],
+      "numeros_adicionales": [
+        "10",
+        "42"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -84,8 +114,14 @@
       "fecha_sorteo": "08-03",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "71",
-      "numeros_individuales": ["71", "01"],
-      "numeros_adicionales": ["71", "01"],
+      "numeros_individuales": [
+        "71",
+        "01"
+      ],
+      "numeros_adicionales": [
+        "71",
+        "01"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -95,12 +131,20 @@
     "pega3_10am": {
       "juego": "pega3_10am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-03-08 17:11:39",
-      "fecha_sorteo": "08-03",
+      "fecha_consulta": "2026-03-09 17:10:43",
+      "fecha_sorteo": "09-03",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "71",
-      "numeros_individuales": ["71", "77", "92"],
-      "numeros_adicionales": ["71", "77", "92"],
+      "numero_ganador": "06",
+      "numeros_individuales": [
+        "06",
+        "86",
+        "29"
+      ],
+      "numeros_adicionales": [
+        "06",
+        "86",
+        "29"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -114,8 +158,16 @@
       "fecha_sorteo": "08-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "38",
-      "numeros_individuales": ["38", "69", "21"],
-      "numeros_adicionales": ["38", "69", "21"],
+      "numeros_individuales": [
+        "38",
+        "69",
+        "21"
+      ],
+      "numeros_adicionales": [
+        "38",
+        "69",
+        "21"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -129,8 +181,16 @@
       "fecha_sorteo": "08-03",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "83",
-      "numeros_individuales": ["83", "85", "01"],
-      "numeros_adicionales": ["83", "85", "01"],
+      "numeros_individuales": [
+        "83",
+        "85",
+        "01"
+      ],
+      "numeros_adicionales": [
+        "83",
+        "85",
+        "01"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -140,12 +200,20 @@
     "la_diaria_10am": {
       "juego": "la_diaria_10am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-03-08 17:11:43",
-      "fecha_sorteo": "08-03",
+      "fecha_consulta": "2026-03-09 17:10:47",
+      "fecha_sorteo": "09-03",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "73",
-      "numeros_individuales": ["73", "Fuego", "5X"],
-      "numeros_adicionales": ["73", "Fuego", "5X"],
+      "numero_ganador": "13",
+      "numeros_individuales": [
+        "13",
+        "Gato",
+        "2X"
+      ],
+      "numeros_adicionales": [
+        "13",
+        "Gato",
+        "2X"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -159,8 +227,16 @@
       "fecha_sorteo": "08-03",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "65",
-      "numeros_individuales": ["65", "Pintura", "5X"],
-      "numeros_adicionales": ["65", "Pintura", "5X"],
+      "numeros_individuales": [
+        "65",
+        "Pintura",
+        "5X"
+      ],
+      "numeros_adicionales": [
+        "65",
+        "Pintura",
+        "5X"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -174,8 +250,18 @@
       "fecha_sorteo": "08-03",
       "hora_sorteo": "9:00 PM",
       "numero_ganador": "60",
-      "numeros_individuales": ["60", "Dragón", "2X", "1"],
-      "numeros_adicionales": ["60", "Dragón", "2X", "1"],
+      "numeros_individuales": [
+        "60",
+        "Dragón",
+        "2X",
+        "1"
+      ],
+      "numeros_adicionales": [
+        "60",
+        "Dragón",
+        "2X",
+        "1"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -189,8 +275,22 @@
       "fecha_sorteo": "07-03",
       "hora_sorteo": null,
       "numero_ganador": "04",
-      "numeros_individuales": ["04", "20", "22", "10", "14", "28"],
-      "numeros_adicionales": ["04", "20", "22", "10", "14", "28"],
+      "numeros_individuales": [
+        "04",
+        "20",
+        "22",
+        "10",
+        "14",
+        "28"
+      ],
+      "numeros_adicionales": [
+        "04",
+        "20",
+        "22",
+        "10",
+        "14",
+        "28"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -199,5 +299,3 @@
     }
   }
 }
-
-
