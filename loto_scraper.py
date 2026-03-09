@@ -126,16 +126,27 @@ TANDAS = {
 # Super Premio solo miércoles (2) y sábado (5)
 DIAS_SUPER_PREMIO = [2, 5]
 
-
 def detectar_tanda():
     """Detecta qué tanda correr según la hora UTC actual."""
-    hora_utc = datetime.now(timezone.utc).replace(tzinfo=None).hour
 
+    # Override manual vía variable de entorno
+    forzar = os.environ.get("FORZAR_TANDA", "").strip().lower()
+    if forzar in TANDAS:
+        print(f"🔧 Tanda forzada manualmente: {forzar.upper()}")
+        juegos = list(TANDAS[forzar]['juegos'])
+        if forzar == 'noche':
+            dia_hn = (datetime.now(timezone.utc) - timedelta(hours=6)).weekday()
+            if dia_hn in DIAS_SUPER_PREMIO:
+                juegos.append('super_premio')
+                print(f"🏆 Super Premio incluido (día {dia_hn})")
+            else:
+                print(f"⏭️  Super Premio omitido (no es miércoles ni sábado)")
+        return forzar, juegos
+
+    hora_utc = datetime.now(timezone.utc).replace(tzinfo=None).hour
     for nombre, config in TANDAS.items():
         if hora_utc in config['horas_utc']:
             juegos = list(config['juegos'])
-
-            # Agregar super_premio solo si es noche y día corresponde
             if nombre == 'noche':
                 dia_hn = (datetime.now(timezone.utc) - timedelta(hours=6)).weekday()
                 if dia_hn in DIAS_SUPER_PREMIO:
@@ -143,12 +154,11 @@ def detectar_tanda():
                     print(f"🏆 Super Premio incluido (día {dia_hn})")
                 else:
                     print(f"⏭️  Super Premio omitido (no es miércoles ni sábado)")
-
             return nombre, juegos
 
-    # ✅ FIX: hora no programada (ej. 12 UTC = 6am Honduras) → salir sin correr nada
     print(f"⏭️  Hora UTC {hora_utc} no corresponde a ninguna tanda. Nada que hacer.")
     return None, []
+    
 
 
 # ============================================
