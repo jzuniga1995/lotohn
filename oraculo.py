@@ -72,7 +72,7 @@ def llamar_gemini(prompt: str) -> str | None:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature":      0.9,
-                        "maxOutputTokens":  1200,
+                        "maxOutputTokens":  1500,
                         "topP":             0.95,
                         "responseMimeType": "application/json",
                     }
