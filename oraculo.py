@@ -72,7 +72,7 @@ def llamar_gemini(prompt: str) -> str | None:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature":      0.9,
-                        "maxOutputTokens":  1500,
+                        "maxOutputTokens":  1200,
                         "topP":             0.95,
                         "responseMimeType": "application/json",
                     }
@@ -109,11 +109,14 @@ def extraer_json(texto: str) -> dict | None:
     """Extrae el primer objeto JSON válido del texto, aunque venga con basura alrededor."""
 
     try:
-        return json.loads(texto)
+        texto_limpio = re.sub(r'\b0+([1-9]\d*)\b', r'\1', texto)
+        return json.loads(texto_limpio)
     except Exception:
         pass
 
     limpio = re.sub(r"```(?:json)?\s*", "", texto).replace("```", "").strip()
+    # Eliminar ceros adelante en números: 09 → 9, 01 → 1, etc.
+    limpio = re.sub(r'\b0+([1-9]\d*)\b', r'\1', limpio)
     try:
         return json.loads(limpio)
     except Exception:
@@ -267,4 +270,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
