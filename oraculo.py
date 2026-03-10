@@ -36,6 +36,15 @@ CALICHE = """Vocabulario hondureño auténtico:
 - torcido: mala suerte | chepa/chepo: policía
 - zarpe: oportunidad | a la gran: expresión de sorpresa"""
 
+EJEMPLOS_PRESAGIO = """
+Ejemplos de presagios buenos:
+- "Cuando el chucho ladre tres veces sin razón, alguien en tu barrio cambia la suerte esta semana."
+- "Si el primer pájaro que ves hoy vuela hacia el sur, el pisto llega antes del viernes."
+- "Cuando la vela tiemble sin viento, los números del cielo están hablando — escuchalos."
+- "Si soñaste con agua clara esta noche, el zarpe está más cerca de lo que creés, maje."
+- "Cuando el vecino riña por nada, señal que la buena racha anda buscando dueño."
+"""
+
 
 # ============================================
 # TELEGRAM
@@ -79,7 +88,7 @@ def llamar_gemini(prompt: str) -> str | None:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature":      0.9,
-                        "maxOutputTokens":  1200,
+                        "maxOutputTokens":  1500,
                         "topP":             0.95,
                         "responseMimeType": "application/json",
                     }
@@ -154,12 +163,19 @@ Vocabulario catracho para usar: {CALICHE}
 
 Instrucciones:
 1. Elige 4 números distintos entre 01 y 99.
-2. Identifica el signo de cada número en la tabla.
-3. Escribe UN acertijo real estilo Zavaleta que describa SOLO el primer signo — sin nombrarlo jamás. VARÍA la estructura cada vez: puede ser una paradoja, una descripción en primera persona, una pregunta, una comparación, lo que se te ocurra. Nunca uses siempre "Soy X". Que sea ingenioso, que se pueda adivinar, y que suene a Honduras — usá el vocabulario catracho cuando encaje natural. Nada de poesía elegante.
-4. La frase final: chistosa, catracha, que también insinúe el signo del primer número sin nombrarlo.
+2. Identifica el signo del PRIMER número en la tabla.
+3. Escribe UN presagio místico inspirado en ese signo — sin nombrarlo jamás.
+   - Que suene a señal del universo o la naturaleza, vago pero creíble.
+   - Usá el vocabulario catracho cuando encaje natural.
+   - Varía la estructura: puede empezar con "Cuando...", "Si hoy...", "La señal llega cuando...", etc.
+   - Máximo 120 caracteres.
+4. Escribe una frase de cierre chistosa y catracha, puro despelote, sin relación forzada con los números.
+   - Máximo 60 caracteres.
+
+Ejemplos de presagios: {EJEMPLOS_PRESAGIO}
 
 Devolvé SOLO este JSON:
-{{"acertijo":"max 100 chars, acertijo real de UN solo signo","numeros":[N1,N2,N3,N4],"frase":"max 50 chars, chistosa y catracha"}}
+{{"presagio":"max 120 chars, señal mística catracha","numeros":[N1,N2,N3,N4],"frase":"max 60 chars, remate cómico catracho"}}
 
 Solo JSON, nada más."""
 
@@ -176,7 +192,7 @@ Solo JSON, nada más."""
         return None
 
     try:
-        assert isinstance(data.get("acertijo"), str) and len(data["acertijo"]) > 10, "acertijo inválido"
+        assert isinstance(data.get("presagio"), str) and len(data["presagio"]) > 10, "presagio inválido"
         assert isinstance(data.get("numeros"), list) and len(data["numeros"]) == 4, "numeros inválido"
         assert isinstance(data.get("frase"), str) and len(data["frase"]) > 3, "frase inválida"
 
@@ -241,7 +257,7 @@ def main():
     if not oraculo:
         print("❌ No se pudo generar el oráculo. Usando fallback.")
         oraculo = {
-            "acertijo": "Dicen que en Honduras el que espera, desespera... pero el que juega, ¿quién sabe?",
+            "presagio": "Cuando el chucho ladre sin razón al amanecer, la suerte anda cerca, maje.",
             "numeros":  [11, 33, 77, 42],
             "frase":    "¡Zaz zaz, Aguilillo!"
         }
@@ -249,7 +265,7 @@ def main():
     oraculo["fecha"]       = fecha_hn
     oraculo["generado_en"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-    print(f"📜 Acertijo: {oraculo['acertijo']}")
+    print(f"🌙 Presagio: {oraculo['presagio']}")
     print(f"🔢 Números:  {oraculo['numeros']}")
     print(f"💬 Frase:    {oraculo['frase']}")
 
@@ -259,7 +275,7 @@ def main():
         msg = (
             "🔮 <b>ORÁCULO DEL DÍA — LOTO HONDURAS</b>\n"
             f"📅 {fecha_hn}\n\n"
-            f"📜 <i>{oraculo['acertijo']}</i>\n\n"
+            f"🌙 <i>{oraculo['presagio']}</i>\n\n"
             f"🔢 Números: <b>{' · '.join(str(n) for n in oraculo['numeros'])}</b>\n\n"
             f"💬 {oraculo['frase']}"
         )
