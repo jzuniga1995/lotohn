@@ -1260,5 +1260,75 @@
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
     }
+  },
+  "2026-03-11": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "11-03",
+      "numero_ganador": "490",
+      "numeros_adicionales": [
+        "490"
+      ],
+      "numeros_individuales": [
+        "4",
+        "9",
+        "0"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "11-03",
+      "numero_ganador": "23",
+      "numeros_adicionales": [
+        "23",
+        "55"
+      ],
+      "numeros_individuales": [
+        "23",
+        "55"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "11-03",
+      "numero_ganador": "00",
+      "numeros_adicionales": [
+        "00",
+        "87",
+        "20"
+      ],
+      "numeros_individuales": [
+        "00",
+        "87",
+        "20"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "11-03",
+      "numero_ganador": "03",
+      "numeros_adicionales": [
+        "03",
+        "Muerto",
+        "5X"
+      ],
+      "numeros_individuales": [
+        "03",
+        "Muerto",
+        "5X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
   }
 }
