@@ -19,6 +19,26 @@ TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 # ============================================
+# ✅ HORA HONDURAS — UTC-6 FIJO, NUNCA CAMBIA DST
+# ============================================
+
+HN_TZ = timezone(timedelta(hours=-6))
+
+def ahora_hn() -> datetime:
+    """Retorna datetime actual en hora Honduras (UTC-6 fijo)."""
+    return datetime.now(HN_TZ)
+
+def fecha_hn_str(fmt='%Y-%m-%d') -> str:
+    """Fecha actual Honduras como string. Default: YYYY-MM-DD"""
+    return ahora_hn().strftime(fmt)
+
+def fecha_hn_ddmm() -> str:
+    """Fecha actual Honduras en formato DD-MM."""
+    hn = ahora_hn()
+    return f"{str(hn.day).zfill(2)}-{str(hn.month).zfill(2)}"
+
+
+# ============================================
 # FUNCIONES TELEGRAM
 # ============================================
 
@@ -49,7 +69,7 @@ def alerta_error_scraping(juego_key: str, motivo: str):
         "🚨 <b>SCRAPER — ERROR</b>\n"
         f"🎲 Juego: <code>{juego_key}</code>\n"
         f"❌ Motivo: {motivo}\n"
-        f"🕐 {datetime.now(timezone.utc).replace(tzinfo=None).strftime('%Y-%m-%d %H:%M:%S')}"
+        f"🕐 {fecha_hn_str('%Y-%m-%d %H:%M:%S')} HN"
     )
     print(f"   📨 Enviando alerta de error a Telegram...")
     enviar_telegram(msg)
@@ -67,7 +87,7 @@ def resumen_tanda_telegram(nombre_tanda: str, resultados: dict):
 
     lineas = [
         f"📊 <b>LOTO HONDURAS — TANDA {nombre_tanda.upper()}</b>",
-        f"🕐 {datetime.now(timezone.utc).replace(tzinfo=None).strftime('%Y-%m-%d %H:%M:%S')} UTC",
+        f"🕐 {fecha_hn_str('%Y-%m-%d %H:%M:%S')} HN",
     ]
     if bloque_ok:
         lineas += ["", f"🟢 <b>COMPLETADOS ({len(bloque_ok)})</b>"] + bloque_ok
@@ -103,23 +123,26 @@ def purgar_cache_cloudflare():
         print(f"⚠️  Error al purgar caché: {e}")
 
 
-# Tandas por hora UTC
-# 17:xx UTC = 11:00 AM Honduras
-# 21:xx UTC = 3:00 PM Honduras
-# 03:xx UTC = 9:00 PM Honduras (día siguiente en UTC)
+# ============================================
+# TANDAS
+# ✅ Detectadas por hora HONDURAS, no UTC
+#    11:xx HN = mañana
+#    15:xx HN = tarde
+#    21:xx HN = noche
+# ============================================
 
 TANDAS = {
     'manana': {
-        'juegos': ['juga3_11am', 'premia2_10am', 'pega3_10am', 'la_diaria_10am'],
-        'horas_utc': [17]
+        'juegos':    ['juga3_11am', 'premia2_10am', 'pega3_10am', 'la_diaria_10am'],
+        'horas_hn':  [11]
     },
     'tarde': {
-        'juegos': ['juga3_3pm', 'premia2_2pm', 'pega3_2pm', 'la_diaria_2pm'],
-        'horas_utc': [21]
+        'juegos':    ['juga3_3pm', 'premia2_2pm', 'pega3_2pm', 'la_diaria_2pm'],
+        'horas_hn':  [15]
     },
     'noche': {
-        'juegos': ['juga3_9pm', 'premia2_9pm', 'pega3_9pm', 'la_diaria_9pm'],
-        'horas_utc': [3]
+        'juegos':    ['juga3_9pm', 'premia2_9pm', 'pega3_9pm', 'la_diaria_9pm'],
+        'horas_hn':  [21]
     }
 }
 
@@ -128,16 +151,15 @@ DIAS_SUPER_PREMIO = [2, 5]
 
 
 def detectar_tanda():
-    """Detecta qué tanda correr según la hora UTC actual."""
-    hora_utc = datetime.now(timezone.utc).replace(tzinfo=None).hour
+    """Detecta qué tanda correr según la hora actual en Honduras."""
+    hora_hn = ahora_hn().hour  # ✅ hora Honduras, nunca cambia por DST
 
     for nombre, config in TANDAS.items():
-        if hora_utc in config['horas_utc']:
+        if hora_hn in config['horas_hn']:
             juegos = list(config['juegos'])
 
-            # Agregar super_premio solo si es noche y día corresponde
             if nombre == 'noche':
-                dia_hn = (datetime.now(timezone.utc) - timedelta(hours=6)).weekday()
+                dia_hn = ahora_hn().weekday()
                 if dia_hn in DIAS_SUPER_PREMIO:
                     juegos.append('super_premio')
                     print(f"🏆 Super Premio incluido (día {dia_hn})")
@@ -146,8 +168,7 @@ def detectar_tanda():
 
             return nombre, juegos
 
-    # ✅ FIX: hora no programada (ej. 12 UTC = 6am Honduras) → salir sin correr nada
-    print(f"⏭️  Hora UTC {hora_utc} no corresponde a ninguna tanda. Nada que hacer.")
+    print(f"⏭️  Hora HN {hora_hn}:xx no corresponde a ninguna tanda. Nada que hacer.")
     return None, []
 
 
@@ -248,9 +269,11 @@ class LotoHondurasScraper:
 
     def obtener_resultados_tanda(self, juegos_tanda):
         resultados = {}
-        fecha_hoy  = datetime.now(timezone.utc).replace(tzinfo=None).strftime('%Y-%m-%d')
 
-        print(f"🔍 Fecha UTC: {fecha_hoy}")
+        # ✅ Fecha para la URL siempre en hora Honduras
+        fecha_url = fecha_hn_str('%Y-%m-%d')
+
+        print(f"🔍 Fecha Honduras: {fecha_url}")
         print("=" * 60)
 
         try:
@@ -264,7 +287,7 @@ class LotoHondurasScraper:
 
                 for juego_key in juegos_tanda:
                     print(f"📊 Scrapeando {juego_key}...")
-                    resultado = self._scrapear_juego(page, juego_key, fecha_hoy)
+                    resultado = self._scrapear_juego(page, juego_key, fecha_url)
                     resultados[juego_key] = resultado
                     time.sleep(PAUSA_ENTRE_JUEGOS)
 
@@ -278,11 +301,11 @@ class LotoHondurasScraper:
         return resultados
 
     # ============================================
-    # SCRAPEAR UN JUEGO — solo busca hoy, sin fallback ayer
+    # SCRAPEAR UN JUEGO
     # ============================================
 
-    def _scrapear_juego(self, page, juego_key, fecha):
-        url       = f"{self.base_url}{self.juegos[juego_key]}?date={fecha}"
+    def _scrapear_juego(self, page, juego_key, fecha_url):
+        url       = f"{self.base_url}{self.juegos[juego_key]}?date={fecha_url}"
         resultado = self._resultado_vacio(juego_key)
 
         try:
@@ -306,12 +329,10 @@ class LotoHondurasScraper:
                 resultado['estado'] = 'pendiente'
                 print(f"   ⏳ Sin resultado aún")
 
-            fecha_sorteo = self._extraer_fecha(page)
-            if fecha_sorteo:
-                resultado['fecha_sorteo'] = fecha_sorteo
-                print(f"   📅 Fecha: {fecha_sorteo}")
-
-            resultado['hora_sorteo'] = self.horas_por_juego.get(juego_key)
+            # ✅ fecha_sorteo siempre desde hora Honduras, ignoramos lo que diga la página
+            resultado['fecha_sorteo'] = fecha_hn_ddmm()
+            resultado['hora_sorteo']  = self.horas_por_juego.get(juego_key)
+            print(f"   📅 Fecha sorteo (HN): {resultado['fecha_sorteo']}")
 
         except Exception as e:
             print(f"   ❌ Error: {e}")
@@ -323,11 +344,11 @@ class LotoHondurasScraper:
     # ============================================
 
     def _extraer_numeros(self, page, juego_key):
-        numeros = []
+        numeros   = []
         es_diaria = 'diaria' in juego_key
 
         try:
-            selector = '[class*="score-shape"]:not([class*="past-score-ball"])'
+            selector  = '[class*="score-shape"]:not([class*="past-score-ball"])'
             elementos = page.query_selector_all(selector)
 
             limite = 3
@@ -372,17 +393,6 @@ class LotoHondurasScraper:
 
         return numeros
 
-    def _extraer_fecha(self, page):
-        try:
-            texto = page.inner_text('body')
-            match = re.search(r'\b(\d{2}-\d{2})\b', texto)
-            if match:
-                return match.group(1)
-        except:
-            pass
-        hoy = datetime.now(timezone.utc).replace(tzinfo=None)
-        return f"{str(hoy.day).zfill(2)}-{str(hoy.month).zfill(2)}"
-
     # ============================================
     # HELPERS
     # ============================================
@@ -390,16 +400,16 @@ class LotoHondurasScraper:
     def _resultado_vacio(self, juego_key):
         nombre_logo = self.logos_estaticos.get(juego_key, f'{juego_key}.png')
         return {
-            'juego': juego_key,
-            'nombre_juego': self._obtener_nombre_juego(juego_key),
-            'fecha_consulta': datetime.now(timezone.utc).replace(tzinfo=None).strftime('%Y-%m-%d %H:%M:%S'),
-            'fecha_sorteo': None,
-            'hora_sorteo': self.horas_por_juego.get(juego_key),
-            'numero_ganador': None,
+            'juego':               juego_key,
+            'nombre_juego':        self._obtener_nombre_juego(juego_key),
+            'fecha_consulta':      datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'),  # UTC para log
+            'fecha_sorteo':        fecha_hn_ddmm(),   # ✅ Honduras
+            'hora_sorteo':         self.horas_por_juego.get(juego_key),
+            'numero_ganador':      None,
             'numeros_individuales': [],
             'numeros_adicionales': [],
-            'serie': None,
-            'folio': None,
+            'serie':  None,
+            'folio':  None,
             'estado': None,
             'logo_url': f'/logos/{nombre_logo}',
             'extras': {}
@@ -444,7 +454,7 @@ class LotoHondurasScraper:
                     existente[key] = nuevo
 
             salida = {
-                'fecha_actualizacion': datetime.now(timezone.utc).replace(tzinfo=None).strftime('%Y-%m-%d %H:%M:%S'),
+                'fecha_actualizacion': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'),
                 'total_sorteos': len(existente),
                 'sorteos': existente
             }
@@ -467,7 +477,8 @@ class LotoHondurasScraper:
                 with open(archivo, 'r', encoding='utf-8') as f:
                     historial = json.load(f)
 
-            fecha_hn = (datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(hours=6)).strftime('%Y-%m-%d')
+            # ✅ Fecha del historial también en hora Honduras
+            fecha_hn = fecha_hn_str('%Y-%m-%d')
 
             if fecha_hn not in historial:
                 historial[fecha_hn] = {}
@@ -507,8 +518,8 @@ class LotoHondurasScraper:
     # ============================================
 
     def debug_html(self, juego_key):
-        fecha_hoy = datetime.now(timezone.utc).replace(tzinfo=None).strftime('%Y-%m-%d')
-        url = f"{self.base_url}{self.juegos[juego_key]}?date={fecha_hoy}"
+        fecha_url = fecha_hn_str('%Y-%m-%d')
+        url = f"{self.base_url}{self.juegos[juego_key]}?date={fecha_url}"
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             page = browser.new_page()
@@ -542,12 +553,11 @@ if __name__ == "__main__":
 
     nombre_tanda, juegos_tanda = detectar_tanda()
 
-    # ✅ FIX: salir limpio si no es hora de ninguna tanda (ej. 6am Honduras = 12 UTC)
     if not juegos_tanda:
         print("✅ Sin tanda que procesar. Finalizando.")
         exit(0)
 
-    print(f"⏰ Hora UTC: {datetime.now(timezone.utc).replace(tzinfo=None).strftime('%H:%M')} | Tanda: {nombre_tanda.upper()}")
+    print(f"⏰ Hora HN: {fecha_hn_str('%H:%M')} | Tanda: {nombre_tanda.upper()}")
     print(f"🎯 Juegos: {juegos_tanda}")
     print("=" * 60)
 
@@ -567,6 +577,4 @@ if __name__ == "__main__":
         else:
             print(f"⏳ {data['nombre_juego']}: Pendiente")
     print("=" * 60)
-
-
 
