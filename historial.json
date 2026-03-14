@@ -1971,6 +1971,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_3pm": {
+      "nombre_juego": "Jugá 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "14-03",
+      "numero_ganador": "932",
+      "numeros_adicionales": [
+        "932"
+      ],
+      "numeros_individuales": [
+        "9",
+        "3",
+        "2"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_2pm": {
+      "nombre_juego": "Premia 2 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "14-03",
+      "numero_ganador": "68",
+      "numeros_adicionales": [
+        "68",
+        "01"
+      ],
+      "numeros_individuales": [
+        "68",
+        "01"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_2pm": {
+      "nombre_juego": "Pega 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "14-03",
+      "numero_ganador": "57",
+      "numeros_adicionales": [
+        "57",
+        "07",
+        "00"
+      ],
+      "numeros_individuales": [
+        "57",
+        "07",
+        "00"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_2pm": {
+      "nombre_juego": "La Diaria 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "14-03",
+      "numero_ganador": "92",
+      "numeros_adicionales": [
+        "92",
+        "Águila",
+        "3X"
+      ],
+      "numeros_individuales": [
+        "92",
+        "Águila",
+        "3X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
