@@ -3255,6 +3255,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_3pm": {
+      "nombre_juego": "Jugá 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "20-03",
+      "numero_ganador": "680",
+      "numeros_adicionales": [
+        "680"
+      ],
+      "numeros_individuales": [
+        "6",
+        "8",
+        "0"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_2pm": {
+      "nombre_juego": "Premia 2 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "20-03",
+      "numero_ganador": "25",
+      "numeros_adicionales": [
+        "25",
+        "25"
+      ],
+      "numeros_individuales": [
+        "25",
+        "25"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_2pm": {
+      "nombre_juego": "Pega 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "20-03",
+      "numero_ganador": "77",
+      "numeros_adicionales": [
+        "77",
+        "47",
+        "21"
+      ],
+      "numeros_individuales": [
+        "77",
+        "47",
+        "21"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_2pm": {
+      "nombre_juego": "La Diaria 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "20-03",
+      "numero_ganador": "61",
+      "numeros_adicionales": [
+        "61",
+        "Guerra",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "61",
+        "Guerra",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
