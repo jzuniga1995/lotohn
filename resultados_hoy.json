@@ -1,21 +1,21 @@
 {
-  "fecha_actualizacion": "2026-03-29 03:10:40",
+  "fecha_actualizacion": "2026-03-29 17:10:36",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-03-28 17:10:26",
-      "fecha_sorteo": "28-03",
+      "fecha_consulta": "2026-03-29 17:10:24",
+      "fecha_sorteo": "29-03",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "925",
+      "numero_ganador": "919",
       "numeros_individuales": [
         "9",
-        "2",
-        "5"
+        "1",
+        "9"
       ],
       "numeros_adicionales": [
-        "925"
+        "919"
       ],
       "serie": null,
       "folio": null,
@@ -68,17 +68,17 @@
     "premia2_10am": {
       "juego": "premia2_10am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-03-28 17:10:29",
-      "fecha_sorteo": "28-03",
+      "fecha_consulta": "2026-03-29 17:10:27",
+      "fecha_sorteo": "29-03",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "64",
+      "numero_ganador": "29",
       "numeros_individuales": [
-        "64",
-        "81"
+        "29",
+        "78"
       ],
       "numeros_adicionales": [
-        "64",
-        "81"
+        "29",
+        "78"
       ],
       "serie": null,
       "folio": null,
@@ -131,19 +131,19 @@
     "pega3_10am": {
       "juego": "pega3_10am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-03-28 17:10:32",
-      "fecha_sorteo": "28-03",
+      "fecha_consulta": "2026-03-29 17:10:30",
+      "fecha_sorteo": "29-03",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "33",
+      "numero_ganador": "64",
       "numeros_individuales": [
-        "33",
-        "16",
-        "31"
+        "64",
+        "25",
+        "32"
       ],
       "numeros_adicionales": [
-        "33",
-        "16",
-        "31"
+        "64",
+        "25",
+        "32"
       ],
       "serie": null,
       "folio": null,
@@ -200,18 +200,18 @@
     "la_diaria_10am": {
       "juego": "la_diaria_10am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-03-28 17:10:35",
-      "fecha_sorteo": "28-03",
+      "fecha_consulta": "2026-03-29 17:10:33",
+      "fecha_sorteo": "29-03",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "49",
+      "numero_ganador": "16",
       "numeros_individuales": [
-        "49",
-        "Sombra",
+        "16",
+        "Niña",
         "2X"
       ],
       "numeros_adicionales": [
-        "49",
-        "Sombra",
+        "16",
+        "Niña",
         "2X"
       ],
       "serie": null,
