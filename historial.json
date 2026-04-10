@@ -7725,6 +7725,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_3pm": {
+      "nombre_juego": "Jugá 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "10-04",
+      "numero_ganador": "370",
+      "numeros_adicionales": [
+        "370"
+      ],
+      "numeros_individuales": [
+        "3",
+        "7",
+        "0"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_2pm": {
+      "nombre_juego": "Premia 2 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "10-04",
+      "numero_ganador": "14",
+      "numeros_adicionales": [
+        "14",
+        "27"
+      ],
+      "numeros_individuales": [
+        "14",
+        "27"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_2pm": {
+      "nombre_juego": "Pega 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "10-04",
+      "numero_ganador": "81",
+      "numeros_adicionales": [
+        "81",
+        "04",
+        "15"
+      ],
+      "numeros_individuales": [
+        "81",
+        "04",
+        "15"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_2pm": {
+      "nombre_juego": "La Diaria 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "10-04",
+      "numero_ganador": "45",
+      "numeros_adicionales": [
+        "45",
+        "Iglesia",
+        "3X"
+      ],
+      "numeros_individuales": [
+        "45",
+        "Iglesia",
+        "3X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
