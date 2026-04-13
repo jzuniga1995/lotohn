@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-04-12 21:10:40",
+  "fecha_actualizacion": "2026-04-13 03:10:33",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
@@ -47,17 +47,17 @@
     "juga3_9pm": {
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-04-12 03:10:28",
-      "fecha_sorteo": "11-04",
+      "fecha_consulta": "2026-04-13 03:10:21",
+      "fecha_sorteo": "12-04",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "498",
+      "numero_ganador": "541",
       "numeros_individuales": [
+        "5",
         "4",
-        "9",
-        "8"
+        "1"
       ],
       "numeros_adicionales": [
-        "498"
+        "541"
       ],
       "serie": null,
       "folio": null,
@@ -110,17 +110,17 @@
     "premia2_9pm": {
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-04-12 03:10:32",
-      "fecha_sorteo": "11-04",
+      "fecha_consulta": "2026-04-13 03:10:25",
+      "fecha_sorteo": "12-04",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "91",
+      "numero_ganador": "97",
       "numeros_individuales": [
-        "91",
-        "41"
+        "97",
+        "87"
       ],
       "numeros_adicionales": [
-        "91",
-        "41"
+        "97",
+        "87"
       ],
       "serie": null,
       "folio": null,
@@ -177,19 +177,19 @@
     "pega3_9pm": {
       "juego": "pega3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-04-12 03:10:35",
-      "fecha_sorteo": "11-04",
+      "fecha_consulta": "2026-04-13 03:10:27",
+      "fecha_sorteo": "12-04",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "68",
+      "numero_ganador": "15",
       "numeros_individuales": [
-        "68",
-        "22",
-        "82"
+        "15",
+        "34",
+        "23"
       ],
       "numeros_adicionales": [
-        "68",
-        "22",
-        "82"
+        "15",
+        "34",
+        "23"
       ],
       "serie": null,
       "folio": null,
@@ -246,19 +246,19 @@
     "la_diaria_9pm": {
       "juego": "la_diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-04-12 03:10:39",
-      "fecha_sorteo": "11-04",
+      "fecha_consulta": "2026-04-13 03:10:30",
+      "fecha_sorteo": "12-04",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "71",
+      "numero_ganador": "92",
       "numeros_individuales": [
-        "71",
-        "Zapatos",
-        "2X"
+        "92",
+        "Águila",
+        "JG"
       ],
       "numeros_adicionales": [
-        "71",
-        "Zapatos",
-        "2X"
+        "92",
+        "Águila",
+        "JG"
       ],
       "serie": null,
       "folio": null,
