@@ -8573,6 +8573,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_9pm": {
+      "nombre_juego": "Jugá 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "14-04",
+      "numero_ganador": "634",
+      "numeros_adicionales": [
+        "634"
+      ],
+      "numeros_individuales": [
+        "6",
+        "3",
+        "4"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_9pm": {
+      "nombre_juego": "Premia 2 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "14-04",
+      "numero_ganador": "81",
+      "numeros_adicionales": [
+        "81",
+        "73"
+      ],
+      "numeros_individuales": [
+        "81",
+        "73"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_9pm": {
+      "nombre_juego": "Pega 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "14-04",
+      "numero_ganador": "99",
+      "numeros_adicionales": [
+        "99",
+        "88",
+        "38"
+      ],
+      "numeros_individuales": [
+        "99",
+        "88",
+        "38"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_9pm": {
+      "nombre_juego": "La Diaria 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "14-04",
+      "numero_ganador": "91",
+      "numeros_adicionales": [
+        "91",
+        "Tortuga",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "91",
+        "Tortuga",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
