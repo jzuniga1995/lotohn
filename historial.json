@@ -8872,5 +8872,75 @@
       "logo_url": "/logos/super_premio.png",
       "estado": "completado"
     }
+  },
+  "2026-04-16": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "16-04",
+      "numero_ganador": "999",
+      "numeros_adicionales": [
+        "999"
+      ],
+      "numeros_individuales": [
+        "9",
+        "9",
+        "9"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "16-04",
+      "numero_ganador": "16",
+      "numeros_adicionales": [
+        "16",
+        "49"
+      ],
+      "numeros_individuales": [
+        "16",
+        "49"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "16-04",
+      "numero_ganador": "33",
+      "numeros_adicionales": [
+        "33",
+        "26",
+        "75"
+      ],
+      "numeros_individuales": [
+        "33",
+        "26",
+        "75"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "16-04",
+      "numero_ganador": "02",
+      "numeros_adicionales": [
+        "02",
+        "Mujer",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "02",
+        "Mujer",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
   }
 }
