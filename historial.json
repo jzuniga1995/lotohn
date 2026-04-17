@@ -9147,6 +9147,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_3pm": {
+      "nombre_juego": "Jugá 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "17-04",
+      "numero_ganador": "512",
+      "numeros_adicionales": [
+        "512"
+      ],
+      "numeros_individuales": [
+        "5",
+        "1",
+        "2"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_2pm": {
+      "nombre_juego": "Premia 2 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "17-04",
+      "numero_ganador": "89",
+      "numeros_adicionales": [
+        "89",
+        "21"
+      ],
+      "numeros_individuales": [
+        "89",
+        "21"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_2pm": {
+      "nombre_juego": "Pega 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "17-04",
+      "numero_ganador": "60",
+      "numeros_adicionales": [
+        "60",
+        "14",
+        "04"
+      ],
+      "numeros_individuales": [
+        "60",
+        "14",
+        "04"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_2pm": {
+      "nombre_juego": "La Diaria 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "17-04",
+      "numero_ganador": "47",
+      "numeros_adicionales": [
+        "47",
+        "Banco",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "47",
+        "Banco",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
