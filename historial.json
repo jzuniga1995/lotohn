@@ -9995,6 +9995,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_3pm": {
+      "nombre_juego": "Jugá 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "21-04",
+      "numero_ganador": "207",
+      "numeros_adicionales": [
+        "207"
+      ],
+      "numeros_individuales": [
+        "2",
+        "0",
+        "7"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_2pm": {
+      "nombre_juego": "Premia 2 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "21-04",
+      "numero_ganador": "71",
+      "numeros_adicionales": [
+        "71",
+        "84"
+      ],
+      "numeros_individuales": [
+        "71",
+        "84"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_2pm": {
+      "nombre_juego": "Pega 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "21-04",
+      "numero_ganador": "82",
+      "numeros_adicionales": [
+        "82",
+        "46",
+        "63"
+      ],
+      "numeros_individuales": [
+        "82",
+        "46",
+        "63"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_2pm": {
+      "nombre_juego": "La Diaria 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "21-04",
+      "numero_ganador": "50",
+      "numeros_adicionales": [
+        "50",
+        "Luna Nueva",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "50",
+        "Luna Nueva",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
