@@ -1,21 +1,21 @@
 {
-  "fecha_actualizacion": "2026-04-22 03:10:43",
+  "fecha_actualizacion": "2026-04-22 17:10:37",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-04-21 17:10:30",
-      "fecha_sorteo": "21-04",
+      "fecha_consulta": "2026-04-22 17:10:25",
+      "fecha_sorteo": "22-04",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "190",
+      "numero_ganador": "115",
       "numeros_individuales": [
         "1",
-        "9",
-        "0"
+        "1",
+        "5"
       ],
       "numeros_adicionales": [
-        "190"
+        "115"
       ],
       "serie": null,
       "folio": null,
@@ -68,17 +68,17 @@
     "premia2_10am": {
       "juego": "premia2_10am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-04-21 17:10:34",
-      "fecha_sorteo": "21-04",
+      "fecha_consulta": "2026-04-22 17:10:29",
+      "fecha_sorteo": "22-04",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "55",
+      "numero_ganador": "59",
       "numeros_individuales": [
-        "55",
-        "78"
+        "59",
+        "66"
       ],
       "numeros_adicionales": [
-        "55",
-        "78"
+        "59",
+        "66"
       ],
       "serie": null,
       "folio": null,
@@ -131,19 +131,19 @@
     "pega3_10am": {
       "juego": "pega3_10am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-04-21 17:10:38",
-      "fecha_sorteo": "21-04",
+      "fecha_consulta": "2026-04-22 17:10:32",
+      "fecha_sorteo": "22-04",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "11",
+      "numero_ganador": "40",
       "numeros_individuales": [
-        "11",
-        "66",
-        "79"
+        "40",
+        "49",
+        "76"
       ],
       "numeros_adicionales": [
-        "11",
-        "66",
-        "79"
+        "40",
+        "49",
+        "76"
       ],
       "serie": null,
       "folio": null,
@@ -200,18 +200,18 @@
     "la_diaria_10am": {
       "juego": "la_diaria_10am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-04-21 17:10:41",
-      "fecha_sorteo": "21-04",
+      "fecha_consulta": "2026-04-22 17:10:34",
+      "fecha_sorteo": "22-04",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "90",
+      "numero_ganador": "83",
       "numeros_individuales": [
-        "90",
-        "Lentes",
+        "83",
+        "Bote",
         "2X"
       ],
       "numeros_adicionales": [
-        "90",
-        "Lentes",
+        "83",
+        "Bote",
         "2X"
       ],
       "serie": null,
