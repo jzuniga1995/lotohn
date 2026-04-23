@@ -10362,5 +10362,75 @@
       "logo_url": "/logos/super_premio.png",
       "estado": "completado"
     }
+  },
+  "2026-04-23": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "23-04",
+      "numero_ganador": "980",
+      "numeros_adicionales": [
+        "980"
+      ],
+      "numeros_individuales": [
+        "9",
+        "8",
+        "0"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "23-04",
+      "numero_ganador": "96",
+      "numeros_adicionales": [
+        "96",
+        "93"
+      ],
+      "numeros_individuales": [
+        "96",
+        "93"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "23-04",
+      "numero_ganador": "60",
+      "numeros_adicionales": [
+        "60",
+        "26",
+        "58"
+      ],
+      "numeros_individuales": [
+        "60",
+        "26",
+        "58"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "23-04",
+      "numero_ganador": "56",
+      "numeros_adicionales": [
+        "56",
+        "Árbol",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "56",
+        "Árbol",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
   }
 }
