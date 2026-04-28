@@ -11347,6 +11347,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_9pm": {
+      "nombre_juego": "Jugá 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "27-04",
+      "numero_ganador": "629",
+      "numeros_adicionales": [
+        "629"
+      ],
+      "numeros_individuales": [
+        "6",
+        "2",
+        "9"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_9pm": {
+      "nombre_juego": "Premia 2 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "27-04",
+      "numero_ganador": "90",
+      "numeros_adicionales": [
+        "90",
+        "96"
+      ],
+      "numeros_individuales": [
+        "90",
+        "96"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_9pm": {
+      "nombre_juego": "Pega 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "27-04",
+      "numero_ganador": "35",
+      "numeros_adicionales": [
+        "35",
+        "62",
+        "43"
+      ],
+      "numeros_individuales": [
+        "35",
+        "62",
+        "43"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_9pm": {
+      "nombre_juego": "La Diaria 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "27-04",
+      "numero_ganador": "02",
+      "numeros_adicionales": [
+        "02",
+        "Mujer",
+        "3X"
+      ],
+      "numeros_individuales": [
+        "02",
+        "Mujer",
+        "3X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
