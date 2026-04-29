@@ -11622,5 +11622,75 @@
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
     }
+  },
+  "2026-04-29": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "29-04",
+      "numero_ganador": "126",
+      "numeros_adicionales": [
+        "126"
+      ],
+      "numeros_individuales": [
+        "1",
+        "2",
+        "6"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "29-04",
+      "numero_ganador": "12",
+      "numeros_adicionales": [
+        "12",
+        "48"
+      ],
+      "numeros_individuales": [
+        "12",
+        "48"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "29-04",
+      "numero_ganador": "84",
+      "numeros_adicionales": [
+        "84",
+        "68",
+        "10"
+      ],
+      "numeros_individuales": [
+        "84",
+        "68",
+        "10"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "29-04",
+      "numero_ganador": "64",
+      "numeros_adicionales": [
+        "64",
+        "Mueble",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "64",
+        "Mueble",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
   }
 }
