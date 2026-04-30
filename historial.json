@@ -11759,6 +11759,98 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_9pm": {
+      "nombre_juego": "Jugá 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "29-04",
+      "numero_ganador": "029",
+      "numeros_adicionales": [
+        "029"
+      ],
+      "numeros_individuales": [
+        "0",
+        "2",
+        "9"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_9pm": {
+      "nombre_juego": "Premia 2 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "29-04",
+      "numero_ganador": "91",
+      "numeros_adicionales": [
+        "91",
+        "88"
+      ],
+      "numeros_individuales": [
+        "91",
+        "88"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_9pm": {
+      "nombre_juego": "Pega 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "29-04",
+      "numero_ganador": "04",
+      "numeros_adicionales": [
+        "04",
+        "36",
+        "90"
+      ],
+      "numeros_individuales": [
+        "04",
+        "36",
+        "90"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_9pm": {
+      "nombre_juego": "La Diaria 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "29-04",
+      "numero_ganador": "65",
+      "numeros_adicionales": [
+        "65",
+        "Pintura",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "65",
+        "Pintura",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    },
+    "super_premio": {
+      "nombre_juego": "Super Premio",
+      "hora_sorteo": null,
+      "fecha_sorteo": "29-04",
+      "numero_ganador": "14",
+      "numeros_adicionales": [
+        "14",
+        "29",
+        "31",
+        "11",
+        "17",
+        "18"
+      ],
+      "numeros_individuales": [
+        "14",
+        "29",
+        "31",
+        "11",
+        "17",
+        "18"
+      ],
+      "logo_url": "/logos/super_premio.png",
+      "estado": "completado"
     }
   }
 }
