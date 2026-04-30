@@ -11852,5 +11852,75 @@
       "logo_url": "/logos/super_premio.png",
       "estado": "completado"
     }
+  },
+  "2026-04-30": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "30-04",
+      "numero_ganador": "389",
+      "numeros_adicionales": [
+        "389"
+      ],
+      "numeros_individuales": [
+        "3",
+        "8",
+        "9"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "30-04",
+      "numero_ganador": "66",
+      "numeros_adicionales": [
+        "66",
+        "10"
+      ],
+      "numeros_individuales": [
+        "66",
+        "10"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "30-04",
+      "numero_ganador": "03",
+      "numeros_adicionales": [
+        "03",
+        "98",
+        "38"
+      ],
+      "numeros_individuales": [
+        "03",
+        "98",
+        "38"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "30-04",
+      "numero_ganador": "00",
+      "numeros_adicionales": [
+        "00",
+        "Avión",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "00",
+        "Avión",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
   }
 }
