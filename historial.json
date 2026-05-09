@@ -13823,6 +13823,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_3pm": {
+      "nombre_juego": "Jugá 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "09-05",
+      "numero_ganador": "811",
+      "numeros_adicionales": [
+        "811"
+      ],
+      "numeros_individuales": [
+        "8",
+        "1",
+        "1"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_2pm": {
+      "nombre_juego": "Premia 2 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "09-05",
+      "numero_ganador": "25",
+      "numeros_adicionales": [
+        "25",
+        "92"
+      ],
+      "numeros_individuales": [
+        "25",
+        "92"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_2pm": {
+      "nombre_juego": "Pega 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "09-05",
+      "numero_ganador": "49",
+      "numeros_adicionales": [
+        "49",
+        "24",
+        "68"
+      ],
+      "numeros_individuales": [
+        "49",
+        "24",
+        "68"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_2pm": {
+      "nombre_juego": "La Diaria 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "09-05",
+      "numero_ganador": "11",
+      "numeros_adicionales": [
+        "11",
+        "Perro",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "11",
+        "Perro",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
