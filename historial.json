@@ -15244,5 +15244,75 @@
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
     }
+  },
+  "2026-05-16": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "16-05",
+      "numero_ganador": "001",
+      "numeros_adicionales": [
+        "001"
+      ],
+      "numeros_individuales": [
+        "0",
+        "0",
+        "1"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "16-05",
+      "numero_ganador": "54",
+      "numeros_adicionales": [
+        "54",
+        "04"
+      ],
+      "numeros_individuales": [
+        "54",
+        "04"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "16-05",
+      "numero_ganador": "74",
+      "numeros_adicionales": [
+        "74",
+        "76",
+        "91"
+      ],
+      "numeros_individuales": [
+        "74",
+        "76",
+        "91"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "16-05",
+      "numero_ganador": "17",
+      "numeros_adicionales": [
+        "17",
+        "Joven",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "17",
+        "Joven",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
   }
 }
