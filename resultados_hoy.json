@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-05-19 17:10:46",
+  "fecha_actualizacion": "2026-05-19 21:10:40",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
@@ -26,17 +26,17 @@
     "juga3_3pm": {
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-05-18 21:10:31",
-      "fecha_sorteo": "18-05",
+      "fecha_consulta": "2026-05-19 21:10:27",
+      "fecha_sorteo": "19-05",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "562",
+      "numero_ganador": "028",
       "numeros_individuales": [
-        "5",
-        "6",
-        "2"
+        "0",
+        "2",
+        "8"
       ],
       "numeros_adicionales": [
-        "562"
+        "028"
       ],
       "serie": null,
       "folio": null,
@@ -89,17 +89,17 @@
     "premia2_2pm": {
       "juego": "premia2_2pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-05-18 21:10:35",
-      "fecha_sorteo": "18-05",
+      "fecha_consulta": "2026-05-19 21:10:31",
+      "fecha_sorteo": "19-05",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "55",
+      "numero_ganador": "12",
       "numeros_individuales": [
-        "55",
-        "71"
+        "12",
+        "10"
       ],
       "numeros_adicionales": [
-        "55",
-        "71"
+        "12",
+        "10"
       ],
       "serie": null,
       "folio": null,
@@ -154,19 +154,19 @@
     "pega3_2pm": {
       "juego": "pega3_2pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-05-18 21:10:38",
-      "fecha_sorteo": "18-05",
+      "fecha_consulta": "2026-05-19 21:10:34",
+      "fecha_sorteo": "19-05",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "65",
+      "numero_ganador": "51",
       "numeros_individuales": [
-        "65",
-        "01",
-        "91"
+        "51",
+        "27",
+        "65"
       ],
       "numeros_adicionales": [
-        "65",
-        "01",
-        "91"
+        "51",
+        "27",
+        "65"
       ],
       "serie": null,
       "folio": null,
@@ -223,19 +223,19 @@
     "la_diaria_2pm": {
       "juego": "la_diaria_2pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-05-18 21:10:42",
-      "fecha_sorteo": "18-05",
+      "fecha_consulta": "2026-05-19 21:10:37",
+      "fecha_sorteo": "19-05",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "76",
+      "numero_ganador": "62",
       "numeros_individuales": [
-        "76",
-        "Palomas",
-        "3X"
+        "62",
+        "Lagarto",
+        "2X"
       ],
       "numeros_adicionales": [
-        "76",
-        "Palomas",
-        "3X"
+        "62",
+        "Lagarto",
+        "2X"
       ],
       "serie": null,
       "folio": null,
