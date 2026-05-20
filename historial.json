@@ -16161,6 +16161,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_3pm": {
+      "nombre_juego": "Jugá 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "20-05",
+      "numero_ganador": "995",
+      "numeros_adicionales": [
+        "995"
+      ],
+      "numeros_individuales": [
+        "9",
+        "9",
+        "5"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_2pm": {
+      "nombre_juego": "Premia 2 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "20-05",
+      "numero_ganador": "41",
+      "numeros_adicionales": [
+        "41",
+        "00"
+      ],
+      "numeros_individuales": [
+        "41",
+        "00"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_2pm": {
+      "nombre_juego": "Pega 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "20-05",
+      "numero_ganador": "06",
+      "numeros_adicionales": [
+        "06",
+        "37",
+        "34"
+      ],
+      "numeros_individuales": [
+        "06",
+        "37",
+        "34"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_2pm": {
+      "nombre_juego": "La Diaria 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "20-05",
+      "numero_ganador": "81",
+      "numeros_adicionales": [
+        "81",
+        "Rieles",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "81",
+        "Rieles",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
