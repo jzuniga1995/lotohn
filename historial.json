@@ -16092,5 +16092,75 @@
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
     }
+  },
+  "2026-05-20": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "20-05",
+      "numero_ganador": "322",
+      "numeros_adicionales": [
+        "322"
+      ],
+      "numeros_individuales": [
+        "3",
+        "2",
+        "2"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "20-05",
+      "numero_ganador": "08",
+      "numeros_adicionales": [
+        "08",
+        "19"
+      ],
+      "numeros_individuales": [
+        "08",
+        "19"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "20-05",
+      "numero_ganador": "59",
+      "numeros_adicionales": [
+        "59",
+        "97",
+        "38"
+      ],
+      "numeros_individuales": [
+        "59",
+        "97",
+        "38"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "20-05",
+      "numero_ganador": "00",
+      "numeros_adicionales": [
+        "00",
+        "Avión",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "00",
+        "Avión",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
   }
 }
