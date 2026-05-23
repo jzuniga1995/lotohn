@@ -16597,6 +16597,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_9pm": {
+      "nombre_juego": "Jugá 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "22-05",
+      "numero_ganador": "088",
+      "numeros_adicionales": [
+        "088"
+      ],
+      "numeros_individuales": [
+        "0",
+        "8",
+        "8"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_9pm": {
+      "nombre_juego": "Premia 2 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "22-05",
+      "numero_ganador": "17",
+      "numeros_adicionales": [
+        "17",
+        "53"
+      ],
+      "numeros_individuales": [
+        "17",
+        "53"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_9pm": {
+      "nombre_juego": "Pega 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "22-05",
+      "numero_ganador": "57",
+      "numeros_adicionales": [
+        "57",
+        "54",
+        "80"
+      ],
+      "numeros_individuales": [
+        "57",
+        "54",
+        "80"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_9pm": {
+      "nombre_juego": "La Diaria 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "22-05",
+      "numero_ganador": "00",
+      "numeros_adicionales": [
+        "00",
+        "Avión",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "00",
+        "Avión",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
