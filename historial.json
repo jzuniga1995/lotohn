@@ -16896,5 +16896,75 @@
       "logo_url": "/logos/super_premio.png",
       "estado": "completado"
     }
+  },
+  "2026-05-24": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "24-05",
+      "numero_ganador": "789",
+      "numeros_adicionales": [
+        "789"
+      ],
+      "numeros_individuales": [
+        "7",
+        "8",
+        "9"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "24-05",
+      "numero_ganador": "06",
+      "numeros_adicionales": [
+        "06",
+        "79"
+      ],
+      "numeros_individuales": [
+        "06",
+        "79"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "24-05",
+      "numero_ganador": "23",
+      "numeros_adicionales": [
+        "23",
+        "97",
+        "61"
+      ],
+      "numeros_individuales": [
+        "23",
+        "97",
+        "61"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "24-05",
+      "numero_ganador": "63",
+      "numeros_adicionales": [
+        "63",
+        "Coco",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "63",
+        "Coco",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
   }
 }
