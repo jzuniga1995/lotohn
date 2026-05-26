@@ -17239,6 +17239,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_9pm": {
+      "nombre_juego": "Jugá 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "25-05",
+      "numero_ganador": "710",
+      "numeros_adicionales": [
+        "710"
+      ],
+      "numeros_individuales": [
+        "7",
+        "1",
+        "0"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_9pm": {
+      "nombre_juego": "Premia 2 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "25-05",
+      "numero_ganador": "81",
+      "numeros_adicionales": [
+        "81",
+        "83"
+      ],
+      "numeros_individuales": [
+        "81",
+        "83"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_9pm": {
+      "nombre_juego": "Pega 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "25-05",
+      "numero_ganador": "22",
+      "numeros_adicionales": [
+        "22",
+        "77",
+        "79"
+      ],
+      "numeros_individuales": [
+        "22",
+        "77",
+        "79"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_9pm": {
+      "nombre_juego": "La Diaria 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "25-05",
+      "numero_ganador": "69",
+      "numeros_adicionales": [
+        "69",
+        "Soldado",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "69",
+        "Soldado",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
