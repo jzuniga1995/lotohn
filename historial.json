@@ -17308,5 +17308,75 @@
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
     }
+  },
+  "2026-05-26": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "26-05",
+      "numero_ganador": "602",
+      "numeros_adicionales": [
+        "602"
+      ],
+      "numeros_individuales": [
+        "6",
+        "0",
+        "2"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "26-05",
+      "numero_ganador": "58",
+      "numeros_adicionales": [
+        "58",
+        "62"
+      ],
+      "numeros_individuales": [
+        "58",
+        "62"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "26-05",
+      "numero_ganador": "69",
+      "numeros_adicionales": [
+        "69",
+        "97",
+        "02"
+      ],
+      "numeros_individuales": [
+        "69",
+        "97",
+        "02"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "26-05",
+      "numero_ganador": "61",
+      "numeros_adicionales": [
+        "61",
+        "Guerra",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "61",
+        "Guerra",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
   }
 }
