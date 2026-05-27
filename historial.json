@@ -17583,6 +17583,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_3pm": {
+      "nombre_juego": "Jugá 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "27-05",
+      "numero_ganador": "733",
+      "numeros_adicionales": [
+        "733"
+      ],
+      "numeros_individuales": [
+        "7",
+        "3",
+        "3"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_2pm": {
+      "nombre_juego": "Premia 2 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "27-05",
+      "numero_ganador": "52",
+      "numeros_adicionales": [
+        "52",
+        "98"
+      ],
+      "numeros_individuales": [
+        "52",
+        "98"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_2pm": {
+      "nombre_juego": "Pega 3 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "27-05",
+      "numero_ganador": "37",
+      "numeros_adicionales": [
+        "37",
+        "80",
+        "71"
+      ],
+      "numeros_individuales": [
+        "37",
+        "80",
+        "71"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_2pm": {
+      "nombre_juego": "La Diaria 3:00 PM",
+      "hora_sorteo": "3:00 PM",
+      "fecha_sorteo": "27-05",
+      "numero_ganador": "05",
+      "numeros_adicionales": [
+        "05",
+        "Embarazada",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "05",
+        "Embarazada",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
