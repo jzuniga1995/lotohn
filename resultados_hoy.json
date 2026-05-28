@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-05-28 17:32:14",
+  "fecha_actualizacion": "2026-05-28 21:10:41",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
@@ -9,8 +9,14 @@
       "fecha_sorteo": "28-05",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "011",
-      "numeros_individuales": ["0", "1", "1"],
-      "numeros_adicionales": ["011"],
+      "numeros_individuales": [
+        "0",
+        "1",
+        "1"
+      ],
+      "numeros_adicionales": [
+        "011"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -24,8 +30,14 @@
       "fecha_sorteo": "28-05",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "84",
-      "numeros_individuales": ["84", "00"],
-      "numeros_adicionales": ["84", "00"],
+      "numeros_individuales": [
+        "84",
+        "00"
+      ],
+      "numeros_adicionales": [
+        "84",
+        "00"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -39,8 +51,16 @@
       "fecha_sorteo": "28-05",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "35",
-      "numeros_individuales": ["35", "75", "93"],
-      "numeros_adicionales": ["35", "75", "93"],
+      "numeros_individuales": [
+        "35",
+        "75",
+        "93"
+      ],
+      "numeros_adicionales": [
+        "35",
+        "75",
+        "93"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
@@ -54,23 +74,124 @@
       "fecha_sorteo": "28-05",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "71",
-      "numeros_individuales": ["71", null, "4"],
-      "numeros_adicionales": ["71", null, "4"],
+      "numeros_individuales": [
+        "71",
+        null,
+        "4"
+      ],
+      "numeros_adicionales": [
+        "71",
+        null,
+        "4"
+      ],
       "serie": null,
       "folio": null,
       "estado": "completado",
       "logo_url": "/logos/la_diaria.png",
       "extras": {}
     },
-
-    "juga3_3pm": { "...": "sin cambios - datos del 27-05" },
-    "juga3_9pm": { "...": "sin cambios - datos del 27-05" },
-    "premia2_2pm": { "...": "sin cambios - datos del 27-05" },
-    "premia2_9pm": { "...": "sin cambios - datos del 27-05" },
-    "pega3_2pm": { "...": "sin cambios - datos del 27-05" },
-    "pega3_9pm": { "...": "sin cambios - datos del 27-05" },
-    "la_diaria_2pm": { "...": "sin cambios - datos del 27-05" },
-    "la_diaria_9pm": { "...": "sin cambios - datos del 27-05" },
-    "super_premio": { "...": "sin cambios - datos del 27-05" }
+    "juga3_3pm": {
+      "juego": "juga3_3pm",
+      "nombre_juego": "Jugá 3 3:00 PM",
+      "fecha_consulta": "2026-05-28 21:10:28",
+      "fecha_sorteo": "28-05",
+      "hora_sorteo": "3:00 PM",
+      "numero_ganador": "363",
+      "numeros_individuales": [
+        "3",
+        "6",
+        "3"
+      ],
+      "numeros_adicionales": [
+        "363"
+      ],
+      "serie": null,
+      "folio": null,
+      "estado": "completado",
+      "logo_url": "/logos/juga3.png",
+      "extras": {}
+    },
+    "juga3_9pm": {
+      "...": "sin cambios - datos del 27-05"
+    },
+    "premia2_2pm": {
+      "juego": "premia2_2pm",
+      "nombre_juego": "Premia 2 3:00 PM",
+      "fecha_consulta": "2026-05-28 21:10:32",
+      "fecha_sorteo": "28-05",
+      "hora_sorteo": "3:00 PM",
+      "numero_ganador": "11",
+      "numeros_individuales": [
+        "11",
+        "35"
+      ],
+      "numeros_adicionales": [
+        "11",
+        "35"
+      ],
+      "serie": null,
+      "folio": null,
+      "estado": "completado",
+      "logo_url": "/logos/premia2.png",
+      "extras": {}
+    },
+    "premia2_9pm": {
+      "...": "sin cambios - datos del 27-05"
+    },
+    "pega3_2pm": {
+      "juego": "pega3_2pm",
+      "nombre_juego": "Pega 3 3:00 PM",
+      "fecha_consulta": "2026-05-28 21:10:35",
+      "fecha_sorteo": "28-05",
+      "hora_sorteo": "3:00 PM",
+      "numero_ganador": "82",
+      "numeros_individuales": [
+        "82",
+        "42",
+        "95"
+      ],
+      "numeros_adicionales": [
+        "82",
+        "42",
+        "95"
+      ],
+      "serie": null,
+      "folio": null,
+      "estado": "completado",
+      "logo_url": "/logos/pega3.png",
+      "extras": {}
+    },
+    "pega3_9pm": {
+      "...": "sin cambios - datos del 27-05"
+    },
+    "la_diaria_2pm": {
+      "juego": "la_diaria_2pm",
+      "nombre_juego": "La Diaria 3:00 PM",
+      "fecha_consulta": "2026-05-28 21:10:38",
+      "fecha_sorteo": "28-05",
+      "hora_sorteo": "3:00 PM",
+      "numero_ganador": "76",
+      "numeros_individuales": [
+        "76",
+        "Palomas",
+        "3X"
+      ],
+      "numeros_adicionales": [
+        "76",
+        "Palomas",
+        "3X"
+      ],
+      "serie": null,
+      "folio": null,
+      "estado": "completado",
+      "logo_url": "/logos/la_diaria.png",
+      "extras": {}
+    },
+    "la_diaria_9pm": {
+      "...": "sin cambios - datos del 27-05"
+    },
+    "super_premio": {
+      "...": "sin cambios - datos del 27-05"
+    }
   }
 }
