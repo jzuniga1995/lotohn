@@ -17882,5 +17882,75 @@
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
     }
+  },
+  "2026-05-29": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "29-05",
+      "numero_ganador": "530",
+      "numeros_adicionales": [
+        "530"
+      ],
+      "numeros_individuales": [
+        "5",
+        "3",
+        "0"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "29-05",
+      "numero_ganador": "00",
+      "numeros_adicionales": [
+        "00",
+        "02"
+      ],
+      "numeros_individuales": [
+        "00",
+        "02"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "29-05",
+      "numero_ganador": "15",
+      "numeros_adicionales": [
+        "15",
+        "91",
+        "45"
+      ],
+      "numeros_individuales": [
+        "15",
+        "91",
+        "45"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "29-05",
+      "numero_ganador": "54",
+      "numeros_adicionales": [
+        "54",
+        "Licor",
+        "2X"
+      ],
+      "numeros_individuales": [
+        "54",
+        "Licor",
+        "2X"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
+    }
   }
 }
