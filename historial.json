@@ -18019,6 +18019,74 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "juga3_9pm": {
+      "nombre_juego": "Jugá 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "29-05",
+      "numero_ganador": "859",
+      "numeros_adicionales": [
+        "859"
+      ],
+      "numeros_individuales": [
+        "8",
+        "5",
+        "9"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_9pm": {
+      "nombre_juego": "Premia 2 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "29-05",
+      "numero_ganador": "66",
+      "numeros_adicionales": [
+        "66",
+        "78"
+      ],
+      "numeros_individuales": [
+        "66",
+        "78"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    },
+    "pega3_9pm": {
+      "nombre_juego": "Pega 3 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "29-05",
+      "numero_ganador": "60",
+      "numeros_adicionales": [
+        "60",
+        "75",
+        "02"
+      ],
+      "numeros_individuales": [
+        "60",
+        "75",
+        "02"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_9pm": {
+      "nombre_juego": "La Diaria 9:00 PM",
+      "hora_sorteo": "9:00 PM",
+      "fecha_sorteo": "29-05",
+      "numero_ganador": "39",
+      "numeros_adicionales": [
+        "39",
+        "Jabón",
+        "JG"
+      ],
+      "numeros_individuales": [
+        "39",
+        "Jabón",
+        "JG"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
