@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-05-30 21:10:43",
+  "fecha_actualizacion": "2026-05-31 03:11:46",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
@@ -114,17 +114,17 @@
     "juga3_9pm": {
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-05-30 03:10:34",
-      "fecha_sorteo": "29-05",
+      "fecha_consulta": "2026-05-31 03:10:23",
+      "fecha_sorteo": "30-05",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "859",
+      "numero_ganador": "968",
       "numeros_individuales": [
-        "8",
-        "5",
-        "9"
+        "9",
+        "6",
+        "8"
       ],
       "numeros_adicionales": [
-        "859"
+        "968"
       ],
       "serie": null,
       "folio": null,
@@ -156,17 +156,17 @@
     "premia2_9pm": {
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-05-30 03:10:38",
-      "fecha_sorteo": "29-05",
+      "fecha_consulta": "2026-05-31 03:11:31",
+      "fecha_sorteo": "30-05",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "66",
+      "numero_ganador": "65",
       "numeros_individuales": [
-        "66",
-        "78"
+        "65",
+        "80"
       ],
       "numeros_adicionales": [
-        "66",
-        "78"
+        "65",
+        "80"
       ],
       "serie": null,
       "folio": null,
@@ -200,19 +200,19 @@
     "pega3_9pm": {
       "juego": "pega3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-05-30 03:10:42",
-      "fecha_sorteo": "29-05",
+      "fecha_consulta": "2026-05-31 03:11:34",
+      "fecha_sorteo": "30-05",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "60",
+      "numero_ganador": "88",
       "numeros_individuales": [
-        "60",
-        "75",
-        "02"
+        "88",
+        "66",
+        "60"
       ],
       "numeros_adicionales": [
-        "60",
-        "75",
-        "02"
+        "88",
+        "66",
+        "60"
       ],
       "serie": null,
       "folio": null,
@@ -246,19 +246,19 @@
     "la_diaria_9pm": {
       "juego": "la_diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-05-30 03:10:45",
-      "fecha_sorteo": "29-05",
+      "fecha_consulta": "2026-05-31 03:11:39",
+      "fecha_sorteo": "30-05",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "39",
+      "numero_ganador": "04",
       "numeros_individuales": [
-        "39",
-        "Jabón",
-        "JG"
+        "04",
+        "Tigre",
+        "3X"
       ],
       "numeros_adicionales": [
-        "39",
-        "Jabón",
-        "JG"
+        "04",
+        "Tigre",
+        "3X"
       ],
       "serie": null,
       "folio": null,
@@ -267,7 +267,33 @@
       "extras": {}
     },
     "super_premio": {
-      "...": "sin cambios - datos del 27-05"
+      "juego": "super_premio",
+      "nombre_juego": "Super Premio",
+      "fecha_consulta": "2026-05-31 03:11:42",
+      "fecha_sorteo": "30-05",
+      "hora_sorteo": null,
+      "numero_ganador": "04",
+      "numeros_individuales": [
+        "04",
+        "07",
+        "06",
+        "13",
+        "26",
+        "09"
+      ],
+      "numeros_adicionales": [
+        "04",
+        "07",
+        "06",
+        "13",
+        "26",
+        "09"
+      ],
+      "serie": null,
+      "folio": null,
+      "estado": "completado",
+      "logo_url": "/logos/super_premio.png",
+      "extras": {}
     }
   }
 }
