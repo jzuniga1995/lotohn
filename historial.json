@@ -19167,5 +19167,38 @@
       "estado": "completado"
     }
   },
-  "2026-06-04": {}
+  "2026-06-04": {
+    "juga3_11am": {
+      "nombre_juego": "Jugá 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "04-06",
+      "numero_ganador": "031",
+      "numeros_adicionales": [
+        "031"
+      ],
+      "numeros_individuales": [
+        "0",
+        "3",
+        "1"
+      ],
+      "logo_url": "/logos/juga3.png",
+      "estado": "completado"
+    },
+    "premia2_10am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "04-06",
+      "numero_ganador": "65",
+      "numeros_adicionales": [
+        "65",
+        "31"
+      ],
+      "numeros_individuales": [
+        "65",
+        "31"
+      ],
+      "logo_url": "/logos/premia2.png",
+      "estado": "completado"
+    }
+  }
 }
