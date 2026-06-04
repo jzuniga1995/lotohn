@@ -124,21 +124,17 @@ def purgar_cache_cloudflare():
 
 TANDAS = {
     'manana': {
-        'juegos':   ['juga3_11am', 'premia2_10am', 'pega3_10am', 'la_diaria_10am'],
         'horas_hn': list(range(0, 15))   # TODO: restaurar a [11] tras pruebas
     },
     'tarde': {
-        'juegos':   ['juga3_3pm', 'premia2_2pm', 'pega3_2pm', 'la_diaria_2pm'],
         'horas_hn': list(range(15, 21))  # TODO: restaurar a [15] tras pruebas
     },
     'noche': {
-        'juegos':   ['juga3_9pm', 'premia2_9pm', 'pega3_9pm', 'la_diaria_9pm'],
         'horas_hn': list(range(21, 24))  # TODO: restaurar a [21] tras pruebas
     }
 }
 
-# Super Premio solo miércoles (2) y sábado (5)
-DIAS_SUPER_PREMIO = [2, 5]
+DIAS_SUPER_PREMIO = [2, 5]  # miércoles y sábado
 
 
 def detectar_tanda():
@@ -146,56 +142,45 @@ def detectar_tanda():
 
     for nombre, config in TANDAS.items():
         if hora_hn in config['horas_hn']:
-            juegos = list(config['juegos'])
-
-            if nombre == 'noche':
-                dia_hn = ahora_hn().weekday()
-                if dia_hn in DIAS_SUPER_PREMIO:
-                    juegos.append('super_premio')
-                    print(f"🏆 Super Premio incluido (día {dia_hn})")
-                else:
-                    print(f"⏭️  Super Premio omitido (no es miércoles ni sábado)")
-
-            return nombre, juegos
+            return nombre
 
     print(f"⏭️  Hora HN {hora_hn}:xx no corresponde a ninguna tanda. Nada que hacer.")
-    return None, []
+    return None
 
 
 # ============================================
 # SCRAPER — fuente: loto.hn
 # ============================================
 
-# Palabras clave en el src de la imagen → tipo de juego interno
-GAME_IMG_MAP = {
-    'LA DIARIA':   'diaria',
-    'SUPERPREMIO': 'super',
-    'JUGA TRES':   'juga3',
-    'PREMIA2':     'premia2',
-    'PEGA3':       'pega3',
+# Juegos sin tanda (resultado único, sin sufijo de hora)
+JUEGOS_SIN_TANDA = {'super_premio', 'instacash', 'apostemos', 'bingo_con_todo', 'multi_x', 'ganagol'}
+
+# Sufijo de hora por tanda
+SUFIJO_TANDA = {
+    'manana': '_11am',
+    'tarde':  '_3pm',
+    'noche':  '_9pm',
 }
 
-# tipo → juego_key por tanda
-TIPO_A_KEY = {
-    'manana': {
-        'juga3':   'juga3_11am',
-        'premia2': 'premia2_10am',
-        'pega3':   'pega3_10am',
-        'diaria':  'la_diaria_10am',
-    },
-    'tarde': {
-        'juga3':   'juga3_3pm',
-        'premia2': 'premia2_2pm',
-        'pega3':   'pega3_2pm',
-        'diaria':  'la_diaria_2pm',
-    },
-    'noche': {
-        'juga3':   'juga3_9pm',
-        'premia2': 'premia2_9pm',
-        'pega3':   'pega3_9pm',
-        'diaria':  'la_diaria_9pm',
-        'super':   'super_premio',
-    },
+# Hora legible por tanda
+HORA_TANDA = {
+    'manana': '11:00 AM',
+    'tarde':  '3:00 PM',
+    'noche':  '9:00 PM',
+}
+
+# Nombres legibles por slug
+NOMBRES_JUEGO = {
+    'diaria':         'La Diaria',
+    'super_premio':   'Super Premio',
+    'juga3':          'Jugá 3',
+    'premia2':        'Premia 2',
+    'pega_3':         'Pega 3',
+    'instacash':      'InstaCash',
+    'apostemos':      'Apostemos',
+    'bingo_con_todo': 'Bingo con Todo',
+    'multi_x':        'Multi X',
+    'ganagol':        'Ganagol',
 }
 
 
@@ -203,46 +188,12 @@ class LotoHondurasScraper:
 
     BASE_URL = "https://loto.hn/?pag=body"
 
-    def __init__(self):
-        self.logos_estaticos = {
-            'juga3_11am':     'juga3.png',
-            'juga3_3pm':      'juga3.png',
-            'juga3_9pm':      'juga3.png',
-            'premia2_10am':   'premia2.png',
-            'premia2_2pm':    'premia2.png',
-            'premia2_9pm':    'premia2.png',
-            'pega3_10am':     'pega3.png',
-            'pega3_2pm':      'pega3.png',
-            'pega3_9pm':      'pega3.png',
-            'la_diaria_10am': 'la_diaria.png',
-            'la_diaria_2pm':  'la_diaria.png',
-            'la_diaria_9pm':  'la_diaria.png',
-            'super_premio':   'super_premio.png',
-        }
-
-        self.horas_por_juego = {
-            'juga3_11am':     '11:00 AM',
-            'juga3_3pm':      '3:00 PM',
-            'juga3_9pm':      '9:00 PM',
-            'premia2_10am':   '11:00 AM',
-            'premia2_2pm':    '3:00 PM',
-            'premia2_9pm':    '9:00 PM',
-            'pega3_10am':     '11:00 AM',
-            'pega3_2pm':      '3:00 PM',
-            'pega3_9pm':      '9:00 PM',
-            'la_diaria_10am': '11:00 AM',
-            'la_diaria_2pm':  '3:00 PM',
-            'la_diaria_9pm':  '9:00 PM',
-            'super_premio':   None,
-        }
-
     # ----------------------------------------
     # ENTRADA PRINCIPAL
     # ----------------------------------------
 
-    def obtener_resultados_tanda(self, juegos_tanda: list, nombre_tanda: str) -> dict:
-        # Inicializar con resultados vacíos
-        resultados = {key: self._resultado_vacio(key) for key in juegos_tanda}
+    def obtener_resultados_tanda(self, nombre_tanda: str) -> dict:
+        resultados = {}
 
         print(f"🌐 Cargando {self.BASE_URL} ...")
         print("=" * 60)
@@ -258,7 +209,6 @@ class LotoHondurasScraper:
 
                 self._navegar_con_reintentos(page)
 
-                # Esperar a que aparezcan las tarjetas de juegos
                 try:
                     page.wait_for_selector('.game-card', timeout=15000)
                 except Exception as e:
@@ -266,44 +216,43 @@ class LotoHondurasScraper:
                     browser.close()
                     return resultados
 
-                # Pequeña pausa extra para JS dinámico
                 time.sleep(2)
 
                 cards = page.query_selector_all('.game-card')
                 print(f"🃏 Tarjetas encontradas: {len(cards)}")
 
-                mapa_tanda = TIPO_A_KEY.get(nombre_tanda, {})
-
                 for card in cards:
-                    juego_tipo = self._identificar_juego(card)
-                    if not juego_tipo:
+                    juego_key, nombre_juego = self._identificar_juego(card, nombre_tanda)
+                    if not juego_key:
                         continue
 
-                    juego_key = mapa_tanda.get(juego_tipo)
-                    if not juego_key or juego_key not in resultados:
-                        continue  # este juego no pertenece a la tanda actual
+                    # Super Premio solo miércoles y sábado
+                    if juego_key == 'super_premio':
+                        if ahora_hn().weekday() not in DIAS_SUPER_PREMIO:
+                            print(f"⏭️  Super Premio omitido (no es miércoles ni sábado)")
+                            continue
+                        print(f"🏆 Super Premio incluido")
 
-                    print(f"📊 Procesando {juego_key} (tipo={juego_tipo})...")
+                    print(f"📊 Procesando {juego_key}...")
                     numeros_raw = self._extraer_balls(card)
+                    resultado   = self._resultado_vacio(juego_key, nombre_juego, nombre_tanda)
 
-                    if not numeros_raw:
-                        print(f"   ⏳ Sin números en la tarjeta")
-                        continue
-
-                    ganador, adicionales, individuales = self._formatear_numeros(numeros_raw, juego_tipo)
-
-                    if ganador:
-                        resultados[juego_key]['numero_ganador']       = ganador
-                        resultados[juego_key]['numeros_adicionales']  = adicionales
-                        resultados[juego_key]['numeros_individuales'] = individuales
-                        resultados[juego_key]['estado']               = 'completado'
-                        print(f"   ✅ Ganador: {ganador} | Todos: {adicionales}")
+                    if numeros_raw:
+                        ganador, adicionales, individuales = self._formatear_numeros(numeros_raw, juego_key)
+                        if ganador:
+                            resultado['numero_ganador']       = ganador
+                            resultado['numeros_adicionales']  = adicionales
+                            resultado['numeros_individuales'] = individuales
+                            resultado['estado']               = 'completado'
+                            print(f"   ✅ Ganador: {ganador} | Todos: {adicionales}")
+                        else:
+                            resultado['estado'] = 'pendiente'
+                            print(f"   ⏳ Sin resultado aún")
                     else:
-                        resultados[juego_key]['estado'] = 'pendiente'
-                        print(f"   ⏳ Sin resultado aún")
+                        resultado['estado'] = 'pendiente'
+                        print(f"   ⏳ Sin números en la tarjeta")
 
-                    resultados[juego_key]['fecha_sorteo'] = fecha_hn_ddmm()
-                    resultados[juego_key]['hora_sorteo']  = self.horas_por_juego.get(juego_key)
+                    resultados[juego_key] = resultado
 
                 browser.close()
 
@@ -333,24 +282,42 @@ class LotoHondurasScraper:
         raise ultimo_error
 
     # ----------------------------------------
-    # IDENTIFICAR JUEGO POR IMAGEN
+    # IDENTIFICAR JUEGO — dinámico por href "CONOCE MÁS"
     # ----------------------------------------
 
-    def _identificar_juego(self, card) -> str | None:
-        img = card.query_selector('img')
-        if not img:
-            return None
-        src = (img.get_attribute('src') or '').upper()
-        for keyword, tipo in GAME_IMG_MAP.items():
-            if keyword in src:
-                return tipo
-        return None
+    def _identificar_juego(self, card, nombre_tanda: str):
+        """
+        Lee el href del botón 'CONOCE MÁS' para extraer ?pag=<slug>.
+        Juegos con tanda reciben sufijo (_11am / _3pm / _9pm).
+        Juegos sin tanda usan el slug directo.
+        Retorna (juego_key, nombre_juego) o (None, None).
+        """
+        slug = None
+        for enlace in card.query_selector_all('a'):
+            href = (enlace.get_attribute('href') or '')
+            if 'pag=' in href:
+                slug = href.split('pag=')[-1].strip().rstrip('/').replace('-', '_').lower()
+                break
+
+        if not slug:
+            return None, None
+
+        nombre_base = NOMBRES_JUEGO.get(slug, slug.replace('_', ' ').title())
+
+        if slug in JUEGOS_SIN_TANDA:
+            return slug, nombre_base
+
+        sufijo       = SUFIJO_TANDA.get(nombre_tanda, '')
+        hora         = HORA_TANDA.get(nombre_tanda, '')
+        juego_key    = f"{slug}{sufijo}"
+        nombre_juego = f"{nombre_base} {hora}".strip()
+        return juego_key, nombre_juego
 
     # ----------------------------------------
     # EXTRAER NÚMEROS DE LAS BOLAS
     # ----------------------------------------
 
-    def _extraer_balls(self, card) -> list[str]:
+    def _extraer_balls(self, card) -> list:
         balls = card.query_selector_all('.ball')
         numeros = []
         for ball in balls:
@@ -366,18 +333,18 @@ class LotoHondurasScraper:
     # FORMATEAR NÚMEROS SEGÚN EL TIPO DE JUEGO
     # ----------------------------------------
 
-    def _formatear_numeros(self, numeros: list[str], juego_tipo: str):
+    def _formatear_numeros(self, numeros: list, juego_key: str):
         """Retorna (numero_ganador, numeros_adicionales, numeros_individuales)."""
         if not numeros:
             return None, [], []
 
-        if juego_tipo == 'juga3':
-            # 3 dígitos individuales → unir en un solo string "031"
+        if 'juga3' in juego_key:
+            # 3 dígitos → unir "031"
             ganador = ''.join(numeros)
             return ganador, [ganador], list(numeros)
 
-        elif juego_tipo == 'premia2':
-            # 4 dígitos: primeros 2 = número 1, últimos 2 = número 2
+        elif 'premia2' in juego_key:
+            # 4 dígitos agrupados en pares: "65" y "31"
             if len(numeros) >= 4:
                 n1 = numeros[0] + numeros[1]
                 n2 = numeros[2] + numeros[3]
@@ -387,54 +354,36 @@ class LotoHondurasScraper:
             ganador = ''.join(numeros)
             return ganador, [ganador], numeros
 
-        elif juego_tipo == 'diaria':
-            # 3 números individuales (0-9)
+        elif 'diaria' in juego_key:
+            # 3 números individuales 0-9
             ganador = ' '.join(numeros)
             return ganador, list(numeros), list(numeros)
 
         else:
-            # pega3 (3 nums de 2 cifras), super (6 nums de 2 cifras)
+            # pega_3, super_premio, bingo_con_todo, multi_x, etc.
             return numeros[0], list(numeros), list(numeros)
 
     # ----------------------------------------
     # HELPERS
     # ----------------------------------------
 
-    def _resultado_vacio(self, juego_key: str) -> dict:
-        nombre_logo = self.logos_estaticos.get(juego_key, f'{juego_key}.png')
+    def _resultado_vacio(self, juego_key: str, nombre_juego: str, nombre_tanda: str) -> dict:
+        hora = HORA_TANDA.get(nombre_tanda) if juego_key not in JUEGOS_SIN_TANDA else None
         return {
-            'juego':               juego_key,
-            'nombre_juego':        self._obtener_nombre_juego(juego_key),
-            'fecha_consulta':      datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'),
-            'fecha_sorteo':        fecha_hn_ddmm(),
-            'hora_sorteo':         self.horas_por_juego.get(juego_key),
-            'numero_ganador':      None,
+            'juego':                juego_key,
+            'nombre_juego':         nombre_juego,
+            'fecha_consulta':       datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'),
+            'fecha_sorteo':         fecha_hn_ddmm(),
+            'hora_sorteo':          hora,
+            'numero_ganador':       None,
             'numeros_individuales': [],
-            'numeros_adicionales': [],
-            'serie':               None,
-            'folio':               None,
-            'estado':              None,
-            'logo_url':            f'/logos/{nombre_logo}',
-            'extras':              {}
+            'numeros_adicionales':  [],
+            'serie':                None,
+            'folio':                None,
+            'estado':               None,
+            'logo_url':             f'/logos/{juego_key}.png',
+            'extras':               {}
         }
-
-    def _obtener_nombre_juego(self, juego_key: str) -> str:
-        nombres = {
-            'juga3_11am':     'Jugá 3 11:00 AM',
-            'juga3_3pm':      'Jugá 3 3:00 PM',
-            'juga3_9pm':      'Jugá 3 9:00 PM',
-            'premia2_10am':   'Premia 2 11:00 AM',
-            'premia2_2pm':    'Premia 2 3:00 PM',
-            'premia2_9pm':    'Premia 2 9:00 PM',
-            'pega3_10am':     'Pega 3 11:00 AM',
-            'pega3_2pm':      'Pega 3 3:00 PM',
-            'pega3_9pm':      'Pega 3 9:00 PM',
-            'la_diaria_10am': 'La Diaria 11:00 AM',
-            'la_diaria_2pm':  'La Diaria 3:00 PM',
-            'la_diaria_9pm':  'La Diaria 9:00 PM',
-            'super_premio':   'Super Premio',
-        }
-        return nombres.get(juego_key, juego_key)
 
     # ----------------------------------------
     # GUARDAR JSON HOY
@@ -516,7 +465,7 @@ class LotoHondurasScraper:
     # ----------------------------------------
 
     def debug_estructura(self):
-        """Imprime la estructura de las tarjetas encontradas en loto.hn."""
+        """Imprime todos los juegos detectados en loto.hn con sus números."""
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True)
             context = browser.new_context(
@@ -530,11 +479,9 @@ class LotoHondurasScraper:
             cards = page.query_selector_all('.game-card')
             print(f"=== {len(cards)} tarjetas encontradas ===")
             for i, card in enumerate(cards):
-                tipo = self._identificar_juego(card)
+                key, nombre = self._identificar_juego(card, 'manana')
                 balls = self._extraer_balls(card)
-                img = card.query_selector('img')
-                src = img.get_attribute('src') if img else 'N/A'
-                print(f"[{i}] tipo={tipo} | src={src} | balls={balls}")
+                print(f"[{i}] key={key} | nombre={nombre} | balls={balls}")
             browser.close()
 
 
@@ -548,17 +495,16 @@ if __name__ == "__main__":
     print("🎲 LOTO HONDURAS SCRAPER — fuente: loto.hn")
     print("=" * 60)
 
-    nombre_tanda, juegos_tanda = detectar_tanda()
+    nombre_tanda = detectar_tanda()
 
-    if not juegos_tanda:
+    if not nombre_tanda:
         print("✅ Sin tanda que procesar. Finalizando.")
         exit(0)
 
     print(f"⏰ Hora HN: {fecha_hn_str('%H:%M')} | Tanda: {nombre_tanda.upper()}")
-    print(f"🎯 Juegos: {juegos_tanda}")
     print("=" * 60)
 
-    resultados_tanda = scraper.obtener_resultados_tanda(juegos_tanda, nombre_tanda)
+    resultados_tanda = scraper.obtener_resultados_tanda(nombre_tanda)
     scraper.guardar_resultados_json(resultados_tanda, 'resultados_hoy.json')
     scraper.guardar_historial_json(resultados_tanda, 'historial.json')
     purgar_cache_cloudflare()
