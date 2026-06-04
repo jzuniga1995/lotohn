@@ -124,13 +124,13 @@ def purgar_cache_cloudflare():
 
 TANDAS = {
     'manana': {
-        'horas_hn': list(range(0, 15))   # TODO: restaurar a [11] tras pruebas
+        'horas_hn': [11]
     },
     'tarde': {
-        'horas_hn': list(range(15, 21))  # TODO: restaurar a [15] tras pruebas
+        'horas_hn': [15]
     },
     'noche': {
-        'horas_hn': list(range(21, 24))  # TODO: restaurar a [21] tras pruebas
+        'horas_hn': [21]
     }
 }
 
