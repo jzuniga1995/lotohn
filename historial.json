@@ -19199,6 +19199,42 @@
       ],
       "logo_url": "/logos/premia2.png",
       "estado": "completado"
+    },
+    "pega3_10am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "04-06",
+      "numero_ganador": "25",
+      "numeros_adicionales": [
+        "25",
+        "82",
+        "86"
+      ],
+      "numeros_individuales": [
+        "25",
+        "82",
+        "86"
+      ],
+      "logo_url": "/logos/pega3.png",
+      "estado": "completado"
+    },
+    "la_diaria_10am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "04-06",
+      "numero_ganador": "2 2 9",
+      "numeros_adicionales": [
+        "2",
+        "2",
+        "9"
+      ],
+      "numeros_individuales": [
+        "2",
+        "2",
+        "9"
+      ],
+      "logo_url": "/logos/la_diaria.png",
+      "estado": "completado"
     }
   }
 }
