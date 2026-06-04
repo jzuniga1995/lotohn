@@ -436,22 +436,14 @@ class LotoHondurasScraper:
             for key, data in resultados_tanda.items():
                 if data.get('estado') != 'completado':
                     continue
-                if historial[fecha_hn].get(key, {}).get('estado') == 'completado':
-                    print(f"   📌 Historial: ya existe completado de {key}")
+                if key in historial[fecha_hn]:
+                    print(f"   📌 Historial: ya existe {key}")
                     continue
-                historial[fecha_hn][key] = {
-                    'nombre_juego':         data['nombre_juego'],
-                    'hora_sorteo':          data['hora_sorteo'],
-                    'fecha_sorteo':         data['fecha_sorteo'],
-                    'numero_ganador':       data['numero_ganador'],
-                    'numeros_adicionales':  data['numeros_adicionales'],
-                    'numeros_individuales': data['numeros_individuales'],
-                    'logo_url':             data['logo_url'],
-                    'estado':               data['estado'],
-                }
+                # Solo guardamos los números — la key ya codifica juego + tanda
+                historial[fecha_hn][key] = data['numeros_adicionales']
 
             with open(archivo, 'w', encoding='utf-8') as f:
-                json.dump(historial, f, ensure_ascii=False, indent=2)
+                json.dump(historial, f, ensure_ascii=False, separators=(',', ':'))
 
             total = len(historial.get(fecha_hn, {}))
             print(f"📚 Historial guardado: {archivo} | {fecha_hn}: {total} sorteos")
