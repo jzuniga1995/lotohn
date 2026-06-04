@@ -125,15 +125,15 @@ def purgar_cache_cloudflare():
 TANDAS = {
     'manana': {
         'juegos':   ['juga3_11am', 'premia2_10am', 'pega3_10am', 'la_diaria_10am'],
-        'horas_hn': [11]
+        'horas_hn': list(range(0, 15))   # TODO: restaurar a [11] tras pruebas
     },
     'tarde': {
         'juegos':   ['juga3_3pm', 'premia2_2pm', 'pega3_2pm', 'la_diaria_2pm'],
-        'horas_hn': [15]
+        'horas_hn': list(range(15, 21))  # TODO: restaurar a [15] tras pruebas
     },
     'noche': {
         'juegos':   ['juga3_9pm', 'premia2_9pm', 'pega3_9pm', 'la_diaria_9pm'],
-        'horas_hn': [21]
+        'horas_hn': list(range(21, 24))  # TODO: restaurar a [21] tras pruebas
     }
 }
 
