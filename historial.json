@@ -19235,6 +19235,100 @@
       ],
       "logo_url": "/logos/la_diaria.png",
       "estado": "completado"
+    },
+    "diaria_11am": {
+      "nombre_juego": "La Diaria 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "04-06",
+      "numero_ganador": "2 2 9",
+      "numeros_adicionales": [
+        "2",
+        "2",
+        "9"
+      ],
+      "numeros_individuales": [
+        "2",
+        "2",
+        "9"
+      ],
+      "logo_url": "/logos/diaria_11am.png",
+      "estado": "completado"
+    },
+    "premia2_11am": {
+      "nombre_juego": "Premia 2 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "04-06",
+      "numero_ganador": "65",
+      "numeros_adicionales": [
+        "65",
+        "31"
+      ],
+      "numeros_individuales": [
+        "6",
+        "5",
+        "3",
+        "1"
+      ],
+      "logo_url": "/logos/premia2_11am.png",
+      "estado": "completado"
+    },
+    "pega_3_11am": {
+      "nombre_juego": "Pega 3 11:00 AM",
+      "hora_sorteo": "11:00 AM",
+      "fecha_sorteo": "04-06",
+      "numero_ganador": "25",
+      "numeros_adicionales": [
+        "25",
+        "82",
+        "86"
+      ],
+      "numeros_individuales": [
+        "25",
+        "82",
+        "86"
+      ],
+      "logo_url": "/logos/pega_3_11am.png",
+      "estado": "completado"
+    },
+    "multi_x": {
+      "nombre_juego": "Multi X",
+      "hora_sorteo": null,
+      "fecha_sorteo": "04-06",
+      "numero_ganador": "2x",
+      "numeros_adicionales": [
+        "2x"
+      ],
+      "numeros_individuales": [
+        "2x"
+      ],
+      "logo_url": "/logos/multi_x.png",
+      "estado": "completado"
+    },
+    "bingo_con_todo": {
+      "nombre_juego": "Bingo con Todo",
+      "hora_sorteo": null,
+      "fecha_sorteo": "04-06",
+      "numero_ganador": "03",
+      "numeros_adicionales": [
+        "03",
+        "04",
+        "08",
+        "11",
+        "12",
+        "16",
+        "21"
+      ],
+      "numeros_individuales": [
+        "03",
+        "04",
+        "08",
+        "11",
+        "12",
+        "16",
+        "21"
+      ],
+      "logo_url": "/logos/bingo_con_todo.png",
+      "estado": "completado"
     }
   }
 }
