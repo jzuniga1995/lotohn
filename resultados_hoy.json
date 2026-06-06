@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-06-05 21:40:37",
+  "fecha_actualizacion": "2026-06-06 03:30:41",
   "total_sorteos": 15,
   "sorteos": {
     "juga3_11am": {
@@ -47,17 +47,17 @@
     "juga3_9pm": {
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-06-05 03:40:31",
-      "fecha_sorteo": "04-06",
+      "fecha_consulta": "2026-06-06 03:30:41",
+      "fecha_sorteo": "05-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "691",
+      "numero_ganador": "718",
       "numeros_individuales": [
-        "6",
-        "9",
-        "1"
+        "7",
+        "1",
+        "8"
       ],
       "numeros_adicionales": [
-        "691"
+        "718"
       ],
       "serie": null,
       "folio": null,
@@ -166,15 +166,15 @@
     "multi_x": {
       "juego": "multi_x",
       "nombre_juego": "Multi X",
-      "fecha_consulta": "2026-06-05 21:40:37",
+      "fecha_consulta": "2026-06-06 03:30:41",
       "fecha_sorteo": "05-06",
       "hora_sorteo": null,
-      "numero_ganador": "2x",
+      "numero_ganador": "JG",
       "numeros_individuales": [
-        "2x"
+        "JG"
       ],
       "numeros_adicionales": [
-        "2x"
+        "JG"
       ],
       "serie": null,
       "folio": null,
@@ -185,7 +185,7 @@
     "bingo_con_todo": {
       "juego": "bingo_con_todo",
       "nombre_juego": "Bingo con Todo",
-      "fecha_consulta": "2026-06-05 21:40:37",
+      "fecha_consulta": "2026-06-06 03:30:41",
       "fecha_sorteo": "05-06",
       "hora_sorteo": null,
       "numero_ganador": "03",
@@ -285,18 +285,18 @@
     "diaria_9pm": {
       "juego": "diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-06-05 03:40:31",
-      "fecha_sorteo": "04-06",
+      "fecha_consulta": "2026-06-06 03:30:41",
+      "fecha_sorteo": "05-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "3 6 1",
+      "numero_ganador": "6 8 1",
       "numeros_individuales": [
-        "3",
         "6",
+        "8",
         "1"
       ],
       "numeros_adicionales": [
-        "3",
         "6",
+        "8",
         "1"
       ],
       "serie": null,
@@ -308,19 +308,19 @@
     "premia2_9pm": {
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-06-05 03:40:32",
-      "fecha_sorteo": "04-06",
+      "fecha_consulta": "2026-06-06 03:30:41",
+      "fecha_sorteo": "05-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "64",
+      "numero_ganador": "67",
       "numeros_individuales": [
         "6",
-        "4",
-        "9",
-        "8"
+        "7",
+        "2",
+        "6"
       ],
       "numeros_adicionales": [
-        "64",
-        "98"
+        "67",
+        "26"
       ],
       "serie": null,
       "folio": null,
@@ -331,19 +331,19 @@
     "pega_3_9pm": {
       "juego": "pega_3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-06-05 03:40:32",
-      "fecha_sorteo": "04-06",
+      "fecha_consulta": "2026-06-06 03:30:41",
+      "fecha_sorteo": "05-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "45",
+      "numero_ganador": "07",
       "numeros_individuales": [
-        "45",
-        "57",
-        "58"
+        "07",
+        "18",
+        "87"
       ],
       "numeros_adicionales": [
-        "45",
-        "57",
-        "58"
+        "07",
+        "18",
+        "87"
       ],
       "serie": null,
       "folio": null,
