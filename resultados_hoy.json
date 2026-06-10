@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-06-10 21:30:42",
+  "fecha_actualizacion": "2026-06-10 21:40:30",
   "total_sorteos": 15,
   "sorteos": {
     "juga3_11am": {
@@ -26,7 +26,7 @@
     "juga3_3pm": {
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-06-10 21:30:42",
+      "fecha_consulta": "2026-06-10 21:40:30",
       "fecha_sorteo": "10-06",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "196",
@@ -68,7 +68,7 @@
     "super_premio": {
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-06-10 21:30:42",
+      "fecha_consulta": "2026-06-10 21:40:30",
       "fecha_sorteo": "10-06",
       "hora_sorteo": null,
       "numero_ganador": "05",
@@ -166,7 +166,7 @@
     "multi_x": {
       "juego": "multi_x",
       "nombre_juego": "Multi X",
-      "fecha_consulta": "2026-06-10 21:30:42",
+      "fecha_consulta": "2026-06-10 21:40:30",
       "fecha_sorteo": "10-06",
       "hora_sorteo": null,
       "numero_ganador": "2x",
@@ -185,7 +185,7 @@
     "bingo_con_todo": {
       "juego": "bingo_con_todo",
       "nombre_juego": "Bingo con Todo",
-      "fecha_consulta": "2026-06-10 21:30:42",
+      "fecha_consulta": "2026-06-10 21:40:30",
       "fecha_sorteo": "10-06",
       "hora_sorteo": null,
       "numero_ganador": "01",
@@ -216,7 +216,7 @@
     "diaria_3pm": {
       "juego": "diaria_3pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-06-10 21:30:42",
+      "fecha_consulta": "2026-06-10 21:40:30",
       "fecha_sorteo": "10-06",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "2 4 5",
@@ -239,7 +239,7 @@
     "premia2_3pm": {
       "juego": "premia2_3pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-06-10 21:30:42",
+      "fecha_consulta": "2026-06-10 21:40:30",
       "fecha_sorteo": "10-06",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "15",
@@ -262,7 +262,7 @@
     "pega_3_3pm": {
       "juego": "pega_3_3pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-06-10 21:30:42",
+      "fecha_consulta": "2026-06-10 21:40:30",
       "fecha_sorteo": "10-06",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "40",
