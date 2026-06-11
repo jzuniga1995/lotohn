@@ -1,41 +1,41 @@
 {
   "fecha": "2026-06-11",
-  "generado_en": "2026-06-11T21:12:01Z",
+  "generado_en": "2026-06-11T21:18:20Z",
   "juegos": {
     "juga3": {
       "patrones": "No se pudo generar el análisis en este momento.",
       "tendencias": "Intenta de nuevo más tarde.",
       "sugerencias": [],
       "advertencia": "La lotería es un juego de azar.",
-      "sorteos_analizados": 30
+      "sorteos_analizados": 15
     },
     "pega_3": {
       "patrones": "No se pudo generar el análisis en este momento.",
       "tendencias": "Intenta de nuevo más tarde.",
       "sugerencias": [],
       "advertencia": "La lotería es un juego de azar.",
-      "sorteos_analizados": 23
+      "sorteos_analizados": 15
     },
     "premia2": {
       "patrones": "No se pudo generar el análisis en este momento.",
       "tendencias": "Intenta de nuevo más tarde.",
       "sugerencias": [],
       "advertencia": "La lotería es un juego de azar.",
-      "sorteos_analizados": 30
+      "sorteos_analizados": 15
     },
     "la_diaria": {
       "patrones": "No se pudo generar el análisis en este momento.",
       "tendencias": "Intenta de nuevo más tarde.",
       "sugerencias": [],
       "advertencia": "La lotería es un juego de azar.",
-      "sorteos_analizados": 30
+      "sorteos_analizados": 15
     },
     "super_premio": {
       "patrones": "No se pudo generar el análisis en este momento.",
       "tendencias": "Intenta de nuevo más tarde.",
       "sugerencias": [],
       "advertencia": "La lotería es un juego de azar.",
-      "sorteos_analizados": 28
+      "sorteos_analizados": 15
     }
   }
 }
