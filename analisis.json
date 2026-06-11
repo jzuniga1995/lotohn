@@ -1,11 +1,41 @@
 {
   "fecha": "2026-06-11",
-  "juego": "Jugá 3",
-  "tendencia": "Números bajos dominan",
-  "calientes": [3, 7, 12, 45, 6],
-  "frios": [88, 91, 33, 0, 17],
-  "combinaciones": [
-    { "numeros": [3, 7, 12], "justificacion": "Alta frecuencia últimos 7 días" },
-    { "numeros": [45, 6, 3], "justificacion": "Patrón ascendente detectado" }
-  ]
+  "generado_en": "2026-06-11T20:41:18Z",
+  "juegos": {
+    "juga3": {
+      "patrones": "No se pudo generar el análisis en este momento.",
+      "tendencias": "Intenta de nuevo más tarde.",
+      "sugerencias": [],
+      "advertencia": "La lotería es un juego de azar.",
+      "sorteos_analizados": 30
+    },
+    "pega_3": {
+      "patrones": "No se pudo generar el análisis en este momento.",
+      "tendencias": "Intenta de nuevo más tarde.",
+      "sugerencias": [],
+      "advertencia": "La lotería es un juego de azar.",
+      "sorteos_analizados": 22
+    },
+    "premia2": {
+      "patrones": "No se pudo generar el análisis en este momento.",
+      "tendencias": "Intenta de nuevo más tarde.",
+      "sugerencias": [],
+      "advertencia": "La lotería es un juego de azar.",
+      "sorteos_analizados": 30
+    },
+    "la_diaria": {
+      "patrones": "No se pudo generar el análisis en este momento.",
+      "tendencias": "Intenta de nuevo más tarde.",
+      "sugerencias": [],
+      "advertencia": "La lotería es un juego de azar.",
+      "sorteos_analizados": 30
+    },
+    "super_premio": {
+      "patrones": "No se pudo generar el análisis en este momento.",
+      "tendencias": "Intenta de nuevo más tarde.",
+      "sugerencias": [],
+      "advertencia": "La lotería es un juego de azar.",
+      "sorteos_analizados": 28
+    }
+  }
 }
