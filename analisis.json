@@ -33,7 +33,7 @@
     "super_premio": {
       "patrones": "El número 19 es el más frecuente. Los números 07, 14 y 20 también son recurrentes.",
       "tendencias": "En sorteos recientes predominan números en el rango 10-30. Números mayores a 25 aparecen menos.",
-      "sugerencias": ["07-14-19-20-28-33", "03-10-19-25-31-40", "05-12-18-24-30-37"],
+      "sugerencias": ["07-14-19-20-28-33", "03-10-15-22-27-31", "05-11-18-23-29-32"],
       "advertencia": "Jugar con moderación es siempre la mejor estrategia.",
       "sorteos_analizados": 15
     }
