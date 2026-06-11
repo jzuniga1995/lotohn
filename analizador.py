@@ -47,17 +47,18 @@ def llamar_gemini(prompt: str) -> str | None:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature":      0.7,
-                        "maxOutputTokens":  1000,
+                        "maxOutputTokens":  2048,
                         "topP":             0.95,
                         "responseMimeType": "application/json",
                     }
                 },
-                timeout=45
+                timeout=60
             )
 
-            if resp.status_code == 429:
-                print(f"⏳ Rate limit (intento {intento}/{MAX_REINTENTOS}), esperando {ESPERA_ENTRE_REINTENTOS}s...")
-                time.sleep(ESPERA_ENTRE_REINTENTOS)
+            if resp.status_code in (429, 503):
+                espera = ESPERA_ENTRE_REINTENTOS * intento
+                print(f"⏳ HTTP {resp.status_code} (intento {intento}/{MAX_REINTENTOS}), esperando {espera}s...")
+                time.sleep(espera)
                 continue
 
             if not resp.ok:
@@ -158,25 +159,13 @@ def analizar_juego(slug: str, nombre: str, sorteos: list) -> dict | None:
     lineas = [f"{s['fecha']} ({s['key']}): {' - '.join(s['nums'])}" for s in sorteos]
     historial_texto = "\n".join(lineas)
 
-    prompt = f"""Eres un analista experto en estadística de loterías hondureñas.
-Analiza los últimos {len(sorteos)} sorteos del juego "{nombre}" y entrega un análisis útil para el jugador.
+    prompt = f"""Analiza los últimos {len(sorteos)} sorteos de "{nombre}" (lotería hondureña).
 
-HISTORIAL RECIENTE:
+HISTORIAL:
 {historial_texto}
 
-Instrucciones:
-1. Identifica patrones numéricos reales (frecuencia, repeticiones, gaps).
-2. Describe tendencias recientes (últimos 7-10 sorteos).
-3. Sugiere 3 combinaciones basadas en el análisis estadístico.
-4. Incluye una advertencia corta sobre el azar.
-
-Devolvé SOLO este JSON (sin texto extra):
-{{
-  "patrones": "descripción breve de patrones detectados, max 150 chars",
-  "tendencias": "tendencias recientes, max 150 chars",
-  "sugerencias": ["combinación 1", "combinación 2", "combinación 3"],
-  "advertencia": "recordatorio breve sobre el azar, max 80 chars"
-}}"""
+Devolvé SOLO este JSON, sin texto extra, sin markdown:
+{{"patrones":"patrones detectados max 120 chars","tendencias":"tendencias recientes max 120 chars","sugerencias":["combo1","combo2","combo3"],"advertencia":"aviso sobre el azar max 70 chars"}}"""
 
     print(f"   🤖 Llamando a Gemini para {nombre}...")
     respuesta = llamar_gemini(prompt)
