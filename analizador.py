@@ -11,7 +11,7 @@ from datetime import datetime, timedelta, timezone
 # ============================================
 
 GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_URL      = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
+GEMINI_URL      = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
 HISTORIAL_URL   = "https://raw.githubusercontent.com/jzuniga1995/lotohn/main/historial.json"
 
 MAX_REINTENTOS          = 3
@@ -46,9 +46,8 @@ def llamar_gemini(prompt: str) -> str | None:
                 json={
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
-                        "temperature":      0.7,
-                        "maxOutputTokens":  1024,
-                        "topP":             0.95,
+                        "temperature": 0.7,
+                        "topP":        0.95,
                     }
                 },
                 timeout=60
