@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-06-10 21:40:30",
+  "fecha_actualizacion": "2026-06-11 03:30:38",
   "total_sorteos": 15,
   "sorteos": {
     "juga3_11am": {
@@ -47,17 +47,17 @@
     "juga3_9pm": {
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-06-10 03:40:32",
-      "fecha_sorteo": "09-06",
+      "fecha_consulta": "2026-06-11 03:30:38",
+      "fecha_sorteo": "10-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "765",
+      "numero_ganador": "196",
       "numeros_individuales": [
-        "7",
-        "6",
-        "5"
+        "1",
+        "9",
+        "6"
       ],
       "numeros_adicionales": [
-        "765"
+        "196"
       ],
       "serie": null,
       "folio": null,
@@ -68,7 +68,7 @@
     "super_premio": {
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-06-10 21:40:30",
+      "fecha_consulta": "2026-06-11 03:30:38",
       "fecha_sorteo": "10-06",
       "hora_sorteo": null,
       "numero_ganador": "05",
@@ -166,7 +166,7 @@
     "multi_x": {
       "juego": "multi_x",
       "nombre_juego": "Multi X",
-      "fecha_consulta": "2026-06-10 21:40:30",
+      "fecha_consulta": "2026-06-11 03:30:38",
       "fecha_sorteo": "10-06",
       "hora_sorteo": null,
       "numero_ganador": "2x",
@@ -185,27 +185,27 @@
     "bingo_con_todo": {
       "juego": "bingo_con_todo",
       "nombre_juego": "Bingo con Todo",
-      "fecha_consulta": "2026-06-10 21:40:30",
+      "fecha_consulta": "2026-06-11 03:30:38",
       "fecha_sorteo": "10-06",
       "hora_sorteo": null,
-      "numero_ganador": "01",
+      "numero_ganador": "06",
       "numeros_individuales": [
-        "01",
-        "03",
+        "06",
+        "09",
+        "10",
         "14",
-        "17",
+        "16",
         "18",
-        "19",
-        "20"
+        "19"
       ],
       "numeros_adicionales": [
-        "01",
-        "03",
+        "06",
+        "09",
+        "10",
         "14",
-        "17",
+        "16",
         "18",
-        "19",
-        "20"
+        "19"
       ],
       "serie": null,
       "folio": null,
@@ -285,19 +285,19 @@
     "diaria_9pm": {
       "juego": "diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-06-10 03:40:32",
-      "fecha_sorteo": "09-06",
+      "fecha_consulta": "2026-06-11 03:30:38",
+      "fecha_sorteo": "10-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "9 6 2",
+      "numero_ganador": "2 4 5",
       "numeros_individuales": [
-        "9",
-        "6",
-        "2"
+        "2",
+        "4",
+        "5"
       ],
       "numeros_adicionales": [
-        "9",
-        "6",
-        "2"
+        "2",
+        "4",
+        "5"
       ],
       "serie": null,
       "folio": null,
@@ -308,19 +308,19 @@
     "premia2_9pm": {
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-06-10 03:40:32",
-      "fecha_sorteo": "09-06",
+      "fecha_consulta": "2026-06-11 03:30:38",
+      "fecha_sorteo": "10-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "79",
+      "numero_ganador": "15",
       "numeros_individuales": [
+        "1",
+        "5",
         "7",
-        "9",
-        "0",
-        "6"
+        "2"
       ],
       "numeros_adicionales": [
-        "79",
-        "06"
+        "15",
+        "72"
       ],
       "serie": null,
       "folio": null,
@@ -331,19 +331,19 @@
     "pega_3_9pm": {
       "juego": "pega_3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-06-10 03:40:32",
-      "fecha_sorteo": "09-06",
+      "fecha_consulta": "2026-06-11 03:30:38",
+      "fecha_sorteo": "10-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "48",
+      "numero_ganador": "40",
       "numeros_individuales": [
-        "48",
-        "60",
-        "88"
+        "40",
+        "69",
+        "94"
       ],
       "numeros_adicionales": [
-        "48",
-        "60",
-        "88"
+        "40",
+        "69",
+        "94"
       ],
       "serie": null,
       "folio": null,
