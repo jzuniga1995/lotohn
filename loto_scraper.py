@@ -153,7 +153,7 @@ def detectar_tanda():
 # ============================================
 
 # Juegos sin tanda (resultado único, sin sufijo de hora)
-JUEGOS_SIN_TANDA = {'super_premio', 'instacash', 'apostemos', 'bingo_con_todo', 'multi_x', 'ganagol'}
+JUEGOS_SIN_TANDA = {'super_premio', 'instacash', 'apostemos', 'bingo_con_todo', 'ganagol'}
 
 # Sufijo de hora por tanda
 SUFIJO_TANDA = {
