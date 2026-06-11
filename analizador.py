@@ -47,9 +47,8 @@ def llamar_gemini(prompt: str) -> str | None:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature":      0.7,
-                        "maxOutputTokens":  512,
+                        "maxOutputTokens":  1024,
                         "topP":             0.95,
-                        "responseMimeType": "application/json",
                     }
                 },
                 timeout=60
@@ -231,7 +230,7 @@ def generar_analisis() -> dict | None:
             print(f"   ⚠️  {nombre} usará fallback")
 
         # Pausa entre llamadas para no saturar la API
-        time.sleep(3)
+        time.sleep(12)
 
     return resultado
 
