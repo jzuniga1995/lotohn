@@ -26,14 +26,14 @@
     "la_diaria": {
       "patrones": "Los números 04, 23, 43 y 98 se repiten. El multiplicador 2X es el más común en sorteos recientes.",
       "tendencias": "Números en el rango 40-60 predominan en los últimos 7 sorteos. Alta frecuencia de números terminados en 3.",
-      "sugerencias": ["43", "23", "98"],
+      "sugerencias": ["43 Mono 2X", "23 Ladrón 3X", "98 Aretes 2X"],
       "advertencia": "Este análisis es orientativo. La lotería depende del azar.",
       "sorteos_analizados": 15
     },
     "super_premio": {
       "patrones": "El número 19 es el más frecuente. Los números 07, 14 y 20 también son recurrentes.",
       "tendencias": "En sorteos recientes predominan números en el rango 10-30. Números mayores a 25 aparecen menos.",
-      "sugerencias": ["07-19-33", "14-20-28", "03-19-25"],
+      "sugerencias": ["07-14-19-20-28-33", "03-10-19-25-31-40", "05-12-18-24-30-37"],
       "advertencia": "Jugar con moderación es siempre la mejor estrategia.",
       "sorteos_analizados": 15
     }
