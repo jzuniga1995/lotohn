@@ -26,7 +26,7 @@
     "la_diaria": {
       "patrones": "Los números 04, 23, 43 y 98 se repiten. El multiplicador 2X es el más común en sorteos recientes.",
       "tendencias": "Números en el rango 40-60 predominan en los últimos 7 sorteos. Alta frecuencia de números terminados en 3.",
-      "sugerencias": ["43 Mono 2X", "23 Ladrón 3X", "98 Aretes 2X"],
+      "sugerencias": ["43", "23", "98"],
       "advertencia": "Este análisis es orientativo. La lotería depende del azar.",
       "sorteos_analizados": 15
     },

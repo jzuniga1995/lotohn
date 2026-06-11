@@ -156,10 +156,21 @@ def analizar_juego(slug: str, nombre: str, sorteos: list) -> dict | None:
     lineas = [f"{s['fecha']} ({s['key']}): {' - '.join(s['nums'])}" for s in sorteos]
     historial_texto = "\n".join(lineas)
 
+    formato = {
+        'juga3':        'cada sugerencia es UN número de 3 dígitos (000-999), ej: "318"',
+        'pega_3':       'cada sugerencia son 3 números de 2 dígitos separados por guión (00-99), ej: "24-58-91"',
+        'premia2':      'cada sugerencia son 2 números de 2 dígitos separados por guión (00-99), ej: "15-72"',
+        'la_diaria':    'cada sugerencia es UN número de 2 dígitos (01-99), ej: "43"',
+        'super_premio': 'cada sugerencia son 6 números separados por guión, rango 01-33, ej: "07-14-19-20-28-33"',
+    }
+    nota_formato = formato.get(slug, 'cada sugerencia es una combinación de números válida para este juego')
+
     prompt = f"""Analiza los últimos {len(sorteos)} sorteos de "{nombre}" (lotería hondureña).
 
 HISTORIAL:
 {historial_texto}
+
+Formato de sugerencias: {nota_formato}
 
 Devolvé SOLO este JSON, sin texto extra, sin markdown:
 {{"patrones":"patrones detectados max 120 chars","tendencias":"tendencias recientes max 120 chars","sugerencias":["combo1","combo2","combo3"],"advertencia":"aviso sobre el azar max 70 chars"}}"""
