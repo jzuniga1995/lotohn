@@ -26,7 +26,7 @@ JUEGOS = {
 }
 
 # Cuántos sorteos recientes usar por juego
-SORTEOS_A_ANALIZAR = 30
+SORTEOS_A_ANALIZAR = 15
 
 
 # ============================================
@@ -47,7 +47,7 @@ def llamar_gemini(prompt: str) -> str | None:
                     "contents": [{"parts": [{"text": prompt}]}],
                     "generationConfig": {
                         "temperature":      0.7,
-                        "maxOutputTokens":  2048,
+                        "maxOutputTokens":  512,
                         "topP":             0.95,
                         "responseMimeType": "application/json",
                     }
@@ -175,7 +175,7 @@ Devolvé SOLO este JSON, sin texto extra, sin markdown:
 
     data = extraer_json(respuesta)
     if not data:
-        print(f"   ❌ No se pudo extraer JSON: {respuesta[:200]}")
+        print(f"   ❌ No se pudo extraer JSON (len={len(respuesta)}): {respuesta[:300]}")
         return None
 
     # Validar estructura mínima
