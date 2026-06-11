@@ -15,7 +15,7 @@ GEMINI_URL      = "https://generativelanguage.googleapis.com/v1beta/models/gemin
 HISTORIAL_URL   = "https://raw.githubusercontent.com/jzuniga1995/lotohn/main/historial.json"
 
 MAX_REINTENTOS          = 3
-ESPERA_ENTRE_REINTENTOS = 15
+ESPERA_ENTRE_REINTENTOS = 5
 
 JUEGOS = {
     'juga3':       'Jugá 3',
@@ -55,9 +55,8 @@ def llamar_gemini(prompt: str) -> str | None:
             )
 
             if resp.status_code in (429, 503):
-                espera = ESPERA_ENTRE_REINTENTOS * intento
-                print(f"⏳ HTTP {resp.status_code} (intento {intento}/{MAX_REINTENTOS}), esperando {espera}s...")
-                time.sleep(espera)
+                print(f"⏳ HTTP {resp.status_code} (intento {intento}/{MAX_REINTENTOS}), esperando {ESPERA_ENTRE_REINTENTOS}s...")
+                time.sleep(ESPERA_ENTRE_REINTENTOS)
                 continue
 
             if not resp.ok:
@@ -230,7 +229,7 @@ def generar_analisis() -> dict | None:
             print(f"   ⚠️  {nombre} usará fallback")
 
         # Pausa entre llamadas para no saturar la API
-        time.sleep(12)
+        time.sleep(4)
 
     return resultado
 
