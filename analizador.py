@@ -1,118 +1,32 @@
 import json
 import os
-import re
-import time
-import requests
+import random
+from collections import Counter
 from datetime import datetime, timedelta, timezone
 
 
-# ============================================
-# CONFIGURACIÓN
-# ============================================
-
-GEMINI_API_KEY  = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_URL      = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
-HISTORIAL_URL   = "https://raw.githubusercontent.com/jzuniga1995/lotohn/main/historial.json"
-
-MAX_REINTENTOS          = 3
-ESPERA_ENTRE_REINTENTOS = 5
+HISTORIAL_URL = "https://raw.githubusercontent.com/jzuniga1995/lotohn/main/historial.json"
 
 JUEGOS = {
-    'juga3':       'Jugá 3',
-    'pega_3':      'Pega 3',
-    'premia2':     'Premia 2',
-    'la_diaria':   'La Diaria',
-    'super_premio':'Súper Premio',
+    'juga3':        'Jugá 3',
+    'pega_3':       'Pega 3',
+    'premia2':      'Premia 2',
+    'la_diaria':    'La Diaria',
+    'super_premio': 'Súper Premio',
 }
 
-# Cuántos sorteos recientes usar por juego
-SORTEOS_A_ANALIZAR = 15
+SORTEOS_A_ANALIZAR = 30
 
-
-# ============================================
-# LLAMADA A GEMINI  (mismo patrón que oraculo.py)
-# ============================================
-
-def llamar_gemini(prompt: str) -> str | None:
-    if not GEMINI_API_KEY:
-        print("❌ GEMINI_API_KEY no configurada")
-        return None
-
-    for intento in range(1, MAX_REINTENTOS + 1):
-        try:
-            resp = requests.post(
-                f"{GEMINI_URL}?key={GEMINI_API_KEY}",
-                headers={"Content-Type": "application/json"},
-                json={
-                    "contents": [{"parts": [{"text": prompt}]}],
-                    "generationConfig": {
-                        "temperature": 0.7,
-                        "topP":        0.95,
-                    }
-                },
-                timeout=60
-            )
-
-            if resp.status_code in (429, 503):
-                print(f"⏳ HTTP {resp.status_code} (intento {intento}/{MAX_REINTENTOS}), esperando {ESPERA_ENTRE_REINTENTOS}s...")
-                time.sleep(ESPERA_ENTRE_REINTENTOS)
-                continue
-
-            if not resp.ok:
-                print(f"❌ Gemini HTTP {resp.status_code}: {resp.text[:300]}")
-                return None
-
-            data  = resp.json()
-            texto = data["candidates"][0]["content"]["parts"][0]["text"]
-            return texto.strip()
-
-        except Exception as e:
-            print(f"❌ Error llamando Gemini (intento {intento}): {e}")
-            if intento < MAX_REINTENTOS:
-                time.sleep(ESPERA_ENTRE_REINTENTOS)
-
-    return None
-
-
-# ============================================
-# EXTRAER JSON ROBUSTO  (mismo patrón que oraculo.py)
-# ============================================
-
-def extraer_json(texto: str) -> dict | None:
-    try:
-        return json.loads(texto)
-    except Exception:
-        pass
-
-    limpio = re.sub(r"```(?:json)?\s*", "", texto).replace("```", "").strip()
-    try:
-        return json.loads(limpio)
-    except Exception:
-        pass
-
-    match = re.search(r"\{[\s\S]*\}", limpio)
-    if match:
-        try:
-            return json.loads(match.group())
-        except Exception:
-            pass
-
-    return None
-
-
-# ============================================
-# CARGAR HISTORIAL
-# ============================================
 
 def cargar_historial() -> dict:
     try:
+        import requests
         resp = requests.get(HISTORIAL_URL, timeout=15)
         resp.raise_for_status()
         return resp.json()
     except Exception as e:
         print(f"⚠️  No se pudo cargar historial remoto: {e}")
 
-    # Fallback: leer local
     if os.path.exists("historial.json"):
         with open("historial.json", "r", encoding="utf-8") as f:
             return json.load(f)
@@ -121,87 +35,132 @@ def cargar_historial() -> dict:
 
 
 def extraer_sorteos_juego(historial: dict, slug: str) -> list:
-    """
-    Extrae los últimos SORTEOS_A_ANALIZAR resultados de un juego dado su slug.
-    Busca keys que contengan el slug en cualquier tanda (_11am, _3pm, _9pm).
-    """
     resultados = []
-
     for fecha in sorted(historial.keys(), reverse=True):
-        sorteos = historial[fecha]
-        for key, nums in sorteos.items():
-            if key.startswith(slug) or key == slug:
-                if isinstance(nums, list) and nums:
-                    resultados.append({
-                        "fecha": fecha,
-                        "key":   key,
-                        "nums":  nums
-                    })
+        for key, nums in historial[fecha].items():
+            if (key.startswith(slug) or key == slug) and isinstance(nums, list) and nums:
+                resultados.append({"fecha": fecha, "key": key, "nums": nums})
         if len(resultados) >= SORTEOS_A_ANALIZAR:
             break
-
     return resultados[:SORTEOS_A_ANALIZAR]
 
 
-# ============================================
-# ANALIZAR UN JUEGO
-# ============================================
+def extraer_numeros(sorteos: list, slug: str) -> list:
+    """Extrae solo los valores numéricos según el juego."""
+    nums = []
+    for s in sorteos:
+        for n in s['nums']:
+            # la_diaria: ignorar signo y multiplicador (no son dígitos puros)
+            if slug == 'la_diaria':
+                try:
+                    int(n)
+                    nums.append(n.zfill(2))
+                except ValueError:
+                    pass
+            else:
+                nums.append(n)
+    return nums
 
-def analizar_juego(slug: str, nombre: str, sorteos: list) -> dict | None:
+
+def analizar_juego(slug: str, nombre: str, sorteos: list) -> dict:
     if not sorteos:
-        print(f"   ⚠️  Sin datos para {nombre}")
-        return None
+        return _fallback(slug, 0)
 
-    # Formatear historial para el prompt
-    lineas = [f"{s['fecha']} ({s['key']}): {' - '.join(s['nums'])}" for s in sorteos]
-    historial_texto = "\n".join(lineas)
+    todos = extraer_numeros(sorteos, slug)
+    recientes = extraer_numeros(sorteos[:7], slug)
 
-    formato = {
-        'juga3':        'cada sugerencia es UN número de 3 dígitos (000-999), ej: "318"',
-        'pega_3':       'cada sugerencia son 3 números de 2 dígitos separados por guión (00-99), ej: "24-58-91"',
-        'premia2':      'cada sugerencia son 2 números de 2 dígitos separados por guión (00-99), ej: "15-72"',
-        'la_diaria':    'cada sugerencia es UN número de 2 dígitos (01-99), ej: "43"',
-        'super_premio': 'cada sugerencia son 6 números separados por guión, rango 01-33, ej: "07-14-19-20-28-33"',
+    freq_total   = Counter(todos)
+    freq_reciente = Counter(recientes)
+
+    mas_frecuentes  = [n for n, _ in freq_total.most_common(8)]
+    menos_frecuentes = [n for n, _ in freq_total.most_common()[:-9:-1]]
+    top_recientes   = [n for n, _ in freq_reciente.most_common(5)]
+
+    patrones  = _describir_patrones(freq_total, mas_frecuentes)
+    tendencias = _describir_tendencias(top_recientes, mas_frecuentes)
+    sugerencias = _generar_sugerencias(slug, mas_frecuentes, freq_total)
+    advertencia = "La lotería es un juego de azar. Juega con responsabilidad."
+
+    return {
+        "patrones":           patrones,
+        "tendencias":         tendencias,
+        "sugerencias":        sugerencias,
+        "advertencia":        advertencia,
+        "sorteos_analizados": len(sorteos),
     }
-    nota_formato = formato.get(slug, 'cada sugerencia es una combinación de números válida para este juego')
-
-    prompt = f"""Analiza los últimos {len(sorteos)} sorteos de "{nombre}" (lotería hondureña).
-
-HISTORIAL:
-{historial_texto}
-
-Formato de sugerencias: {nota_formato}
-
-Devolvé SOLO este JSON, sin texto extra, sin markdown:
-{{"patrones":"patrones detectados max 120 chars","tendencias":"tendencias recientes max 120 chars","sugerencias":["combo1","combo2","combo3"],"advertencia":"aviso sobre el azar max 70 chars"}}"""
-
-    print(f"   🤖 Llamando a Gemini para {nombre}...")
-    respuesta = llamar_gemini(prompt)
-
-    if not respuesta:
-        return None
-
-    data = extraer_json(respuesta)
-    if not data:
-        print(f"   ❌ No se pudo extraer JSON (len={len(respuesta)}): {respuesta[:300]}")
-        return None
-
-    # Validar estructura mínima
-    if not all(k in data for k in ("patrones", "tendencias", "sugerencias", "advertencia")):
-        print(f"   ❌ JSON incompleto: {data}")
-        return None
-
-    if not isinstance(data["sugerencias"], list) or len(data["sugerencias"]) < 1:
-        print(f"   ❌ Sugerencias inválidas")
-        return None
-
-    data["sorteos_analizados"] = len(sorteos)
-    return data
 
 
-# ============================================
-# GENERAR analisis.json
-# ============================================
+def _describir_patrones(freq: Counter, top: list) -> str:
+    top3 = top[:3]
+    conteos = [f"{n}({freq[n]}v)" for n in top3]
+    return f"Más frecuentes: {', '.join(conteos)} en {sum(freq.values())} sorteos analizados."
+
+
+def _describir_tendencias(recientes: list, historicos: list) -> str:
+    coinciden = [n for n in recientes if n in historicos[:5]]
+    if coinciden:
+        return f"Los números {', '.join(coinciden[:3])} son frecuentes tanto en el historial como en sorteos recientes."
+    return f"Últimos sorteos muestran números distintos al patrón histórico: {', '.join(recientes[:3])}."
+
+
+def _generar_sugerencias(slug: str, top: list, freq: Counter) -> list:
+    pool = top[:10] if len(top) >= 10 else top
+
+    if slug == 'juga3':
+        # 1 número de 3 dígitos
+        candidatos = list(freq.most_common(10))
+        return [n for n, _ in candidatos[:3]]
+
+    if slug == 'pega_3':
+        # 3 números de 2 dígitos separados por guión
+        sugs = []
+        usados = list(pool)
+        random.seed(42)
+        for i in range(3):
+            sample = random.sample(usados, min(3, len(usados)))
+            sugs.append('-'.join(sorted(sample)))
+        return sugs
+
+    if slug == 'premia2':
+        # 2 números de 2 dígitos separados por guión
+        sugs = []
+        random.seed(7)
+        for i in range(3):
+            sample = random.sample(pool, min(2, len(pool)))
+            sugs.append('-'.join(sorted(sample)))
+        return sugs
+
+    if slug == 'la_diaria':
+        # 1 número de 2 dígitos
+        return [n for n, _ in freq.most_common(3)]
+
+    if slug == 'super_premio':
+        # 6 números del 01 al 33
+        validos = [n for n in pool if 1 <= int(n) <= 33]
+        # completar con números del rango si faltan
+        todos_rango = [f"{i:02d}" for i in range(1, 34)]
+        extra = [n for n in todos_rango if n not in validos]
+        random.seed(13)
+        random.shuffle(extra)
+        combinado = (validos + extra)[:18]
+        sugs = []
+        for i in range(3):
+            chunk = sorted(combinado[i*6:(i+1)*6], key=lambda x: int(x))
+            sugs.append('-'.join(chunk))
+        return sugs
+
+    return pool[:3]
+
+
+def _fallback(slug: str, n: int) -> dict:
+    return {
+        "patrones":           "No hay suficientes datos para analizar.",
+        "tendencias":         "Intenta de nuevo cuando haya más historial disponible.",
+        "sugerencias":        [],
+        "advertencia":        "La lotería es un juego de azar.",
+        "sorteos_analizados": n,
+    }
+
 
 def generar_analisis() -> dict | None:
     print("📂 Cargando historial...")
@@ -213,55 +172,21 @@ def generar_analisis() -> dict | None:
 
     fecha_hn = (datetime.now(timezone.utc) - timedelta(hours=6)).strftime("%Y-%m-%d")
     resultado = {
-        "fecha":        fecha_hn,
-        "generado_en":  datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "juegos":       {}
+        "fecha":       fecha_hn,
+        "generado_en": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "juegos":      {}
     }
 
     for slug, nombre in JUEGOS.items():
         print(f"\n📊 Analizando {nombre} ({slug})...")
         sorteos = extraer_sorteos_juego(historial, slug)
         print(f"   📈 {len(sorteos)} sorteos encontrados")
-
         analisis = analizar_juego(slug, nombre, sorteos)
-
-        if analisis:
-            resultado["juegos"][slug] = analisis
-            print(f"   ✅ {nombre} analizado")
-        else:
-            resultado["juegos"][slug] = {
-                "patrones":    "No se pudo generar el análisis en este momento.",
-                "tendencias":  "Intenta de nuevo más tarde.",
-                "sugerencias": [],
-                "advertencia": "La lotería es un juego de azar.",
-                "sorteos_analizados": len(sorteos)
-            }
-            print(f"   ⚠️  {nombre} usará fallback")
-
-        # Pausa entre llamadas para no saturar la API
-        time.sleep(4)
+        resultado["juegos"][slug] = analisis
+        print(f"   ✅ {nombre} analizado")
 
     return resultado
 
-
-# ============================================
-# GUARDAR analisis.json
-# ============================================
-
-def guardar_analisis(data: dict, archivo: str = "analisis.json") -> bool:
-    try:
-        with open(archivo, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"\n💾 Guardado: {archivo}")
-        return True
-    except Exception as e:
-        print(f"❌ Error guardando: {e}")
-        return False
-
-
-# ============================================
-# MAIN
-# ============================================
 
 def main():
     print("🧠 ANALIZADOR DE NÚMEROS — LOTO HONDURAS")
@@ -276,16 +201,19 @@ def main():
         print("❌ No se pudo generar el análisis.")
         return False
 
-    ok = guardar_analisis(analisis)
+    with open("analisis.json", "w", encoding="utf-8") as f:
+        json.dump(analisis, f, ensure_ascii=False, indent=2)
+    print(f"\n💾 Guardado: analisis.json")
 
     print("\n" + "=" * 60)
     print("📊 RESUMEN:")
     for slug, data in analisis["juegos"].items():
         n = data.get("sorteos_analizados", 0)
-        print(f"  {'✅' if data.get('sugerencias') else '⚠️ '} {JUEGOS.get(slug, slug)}: {n} sorteos analizados")
+        ok = "✅" if data.get("sugerencias") else "⚠️ "
+        print(f"  {ok} {JUEGOS.get(slug, slug)}: {n} sorteos — {data['sugerencias']}")
     print("=" * 60)
 
-    return ok
+    return True
 
 
 if __name__ == "__main__":
