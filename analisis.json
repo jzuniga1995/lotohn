@@ -1,40 +1,40 @@
 {
   "fecha": "2026-06-11",
-  "generado_en": "2026-06-11T21:45:00Z",
+  "generado_en": "2026-06-12T03:30:38Z",
   "juegos": {
     "juga3": {
-      "patrones": "Los dígitos 3, 7 y 1 aparecen con mayor frecuencia. Tendencia a combinar dígitos pares e impares.",
-      "tendencias": "En los últimos sorteos predominan números entre 100-400. El dígito central tiende a repetirse.",
-      "sugerencias": ["247", "318", "573"],
-      "advertencia": "La lotería es un juego de azar. Juega responsablemente.",
+      "patrones": "No se pudo generar el análisis en este momento.",
+      "tendencias": "Intenta de nuevo más tarde.",
+      "sugerencias": [],
+      "advertencia": "La lotería es un juego de azar.",
       "sorteos_analizados": 15
     },
     "pega_3": {
-      "patrones": "Los números 24, 94 y 40 se repiten con frecuencia. Combinaciones terminadas en 4 son recurrentes.",
-      "tendencias": "Últimos sorteos muestran números bajos en primera posición. Predominan valores entre 20-70.",
-      "sugerencias": ["24-58-91", "40-69-83", "15-47-72"],
-      "advertencia": "Los resultados pasados no garantizan resultados futuros.",
+      "patrones": "No se pudo generar el análisis en este momento.",
+      "tendencias": "Intenta de nuevo más tarde.",
+      "sugerencias": [],
+      "advertencia": "La lotería es un juego de azar.",
       "sorteos_analizados": 15
     },
     "premia2": {
-      "patrones": "El par 67-98 aparece frecuentemente. Números altos (70-99) dominan la segunda posición.",
-      "tendencias": "Combinaciones con diferencia mayor a 20 entre ambos números son las más comunes recientemente.",
-      "sugerencias": ["15-72", "36-89", "43-67"],
-      "advertencia": "Juega con responsabilidad. El azar no sigue patrones garantizados.",
+      "patrones": "No se pudo generar el análisis en este momento.",
+      "tendencias": "Intenta de nuevo más tarde.",
+      "sugerencias": [],
+      "advertencia": "La lotería es un juego de azar.",
       "sorteos_analizados": 15
     },
     "la_diaria": {
-      "patrones": "Los números 04, 23, 43 y 98 se repiten. El multiplicador 2X es el más común en sorteos recientes.",
-      "tendencias": "Números en el rango 40-60 predominan en los últimos 7 sorteos. Alta frecuencia de números terminados en 3.",
-      "sugerencias": ["43", "23", "98"],
-      "advertencia": "Este análisis es orientativo. La lotería depende del azar.",
+      "patrones": "No se pudo generar el análisis en este momento.",
+      "tendencias": "Intenta de nuevo más tarde.",
+      "sugerencias": [],
+      "advertencia": "La lotería es un juego de azar.",
       "sorteos_analizados": 15
     },
     "super_premio": {
-      "patrones": "El número 19 es el más frecuente. Los números 07, 14 y 20 también son recurrentes.",
-      "tendencias": "En sorteos recientes predominan números en el rango 10-30. Números mayores a 25 aparecen menos.",
-      "sugerencias": ["07-14-19-20-28-33", "03-10-15-22-27-31", "05-11-18-23-29-32"],
-      "advertencia": "Jugar con moderación es siempre la mejor estrategia.",
+      "patrones": "No se pudo generar el análisis en este momento.",
+      "tendencias": "Intenta de nuevo más tarde.",
+      "sugerencias": [],
+      "advertencia": "La lotería es un juego de azar.",
       "sorteos_analizados": 15
     }
   }
