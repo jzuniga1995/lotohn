@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-06-13 21:15:37",
+  "fecha_actualizacion": "2026-06-13 21:20:38",
   "total_sorteos": 18,
   "sorteos": {
     "juga3_11am": {
@@ -26,7 +26,7 @@
     "juga3_3pm": {
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-06-13 21:15:37",
+      "fecha_consulta": "2026-06-13 21:20:38",
       "fecha_sorteo": "13-06",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "671",
@@ -68,7 +68,7 @@
     "super_premio": {
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-06-13 21:15:37",
+      "fecha_consulta": "2026-06-13 21:20:38",
       "fecha_sorteo": "13-06",
       "hora_sorteo": null,
       "numero_ganador": "03",
@@ -185,7 +185,7 @@
     "bingo_con_todo": {
       "juego": "bingo_con_todo",
       "nombre_juego": "Bingo con Todo",
-      "fecha_consulta": "2026-06-13 21:15:37",
+      "fecha_consulta": "2026-06-13 21:20:38",
       "fecha_sorteo": "13-06",
       "hora_sorteo": null,
       "numero_ganador": "01",
@@ -216,7 +216,7 @@
     "diaria_3pm": {
       "juego": "diaria_3pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-06-13 21:15:37",
+      "fecha_consulta": "2026-06-13 21:20:38",
       "fecha_sorteo": "13-06",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "2 8 4",
@@ -239,7 +239,7 @@
     "premia2_3pm": {
       "juego": "premia2_3pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-06-13 21:15:37",
+      "fecha_consulta": "2026-06-13 21:20:38",
       "fecha_sorteo": "13-06",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "12",
@@ -262,7 +262,7 @@
     "pega_3_3pm": {
       "juego": "pega_3_3pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-06-13 21:15:37",
+      "fecha_consulta": "2026-06-13 21:20:38",
       "fecha_sorteo": "13-06",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "03",
@@ -354,7 +354,7 @@
     "multi_x_3pm": {
       "juego": "multi_x_3pm",
       "nombre_juego": "Multi X 3:00 PM",
-      "fecha_consulta": "2026-06-13 21:15:37",
+      "fecha_consulta": "2026-06-13 21:20:38",
       "fecha_sorteo": "13-06",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "2x",
