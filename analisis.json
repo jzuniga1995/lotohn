@@ -1,36 +1,36 @@
 {
   "fecha": "2026-06-15",
-  "generado_en": "2026-06-15T21:15:44Z",
+  "generado_en": "2026-06-15T21:22:04Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 376(3v), 196(2v), 988(2v) en 30 sorteos analizados.",
-      "tendencias": "Los números 948, 172 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 196(2v), 988(2v), 376(2v) en 30 sorteos analizados.",
+      "tendencias": "Los números 948, 020 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "376",
         "196",
-        "988"
+        "988",
+        "376"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 94(4v), 61(3v), 37(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 61 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 03(4v), 94(4v), 61(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 61, 03 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "61-70-94",
-        "61-66-88",
-        "37-70-94"
+        "03-24-94",
+        "51-88-94",
+        "03-24-61"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 98(3v), 67(3v), 52(2v) en 60 sorteos analizados.",
-      "tendencias": "Últimos sorteos muestran números distintos al patrón histórico: 48, 96, 13.",
+      "patrones": "Más frecuentes: 98(3v), 52(2v), 92(2v) en 60 sorteos analizados.",
+      "tendencias": "Últimos sorteos muestran números distintos al patrón histórico: 48, 96, 38.",
       "sugerencias": [
-        "15-67",
-        "15-72",
-        "79-98"
+        "52-72",
+        "72-79",
+        "18-98"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
