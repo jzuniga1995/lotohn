@@ -1,21 +1,21 @@
 {
   "fecha": "2026-06-16",
-  "generado_en": "2026-06-16T17:06:44Z",
+  "generado_en": "2026-06-16T17:10:47Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 196(2v), 988(2v), 948(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 948, 020, 267 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 196(2v), 988(2v), 705(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 705, 948, 020 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "196",
         "988",
-        "948"
+        "705"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
       "patrones": "Más frecuentes: 03(4v), 94(4v), 52(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 03 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Últimos sorteos muestran números distintos al patrón histórico: 51, 15, 19.",
       "sugerencias": [
         "03-37-94",
         "61-88-94",
@@ -25,12 +25,12 @@
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 79(3v), 98(3v), 52(2v) en 60 sorteos analizados.",
-      "tendencias": "Últimos sorteos muestran números distintos al patrón histórico: 48, 96, 38.",
+      "patrones": "Más frecuentes: 09(3v), 79(3v), 98(3v) en 60 sorteos analizados.",
+      "tendencias": "Los números 09 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "15-98",
+        "15-79",
         "15-72",
-        "18-79"
+        "09-18"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
