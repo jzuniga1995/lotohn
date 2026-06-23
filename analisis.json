@@ -1,21 +1,21 @@
 {
-  "fecha": "2026-06-22",
-  "generado_en": "2026-06-23T03:06:28Z",
+  "fecha": "2026-06-23",
+  "generado_en": "2026-06-23T15:20:42Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 588(1v), 427(1v), 518(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 588, 427, 518 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 588(1v), 427(1v), 614(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 588, 427, 614 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "588",
         "427",
-        "518"
+        "614"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
       "patrones": "Más frecuentes: 93(3v), 15(3v), 23(3v) en 90 sorteos analizados.",
-      "tendencias": "Últimos sorteos muestran números distintos al patrón histórico: 69, 04, 70.",
+      "tendencias": "Últimos sorteos muestran números distintos al patrón histórico: 04, 70, 91.",
       "sugerencias": [
         "15-61-93",
         "15-19-29",
@@ -26,7 +26,7 @@
     },
     "premia2": {
       "patrones": "Más frecuentes: 50(3v), 35(3v), 45(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 45, 94, 50 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 45, 94 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "28-35",
         "28-48",
