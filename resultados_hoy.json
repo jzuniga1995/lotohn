@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-06-22 21:20:46",
+  "fecha_actualizacion": "2026-06-23 03:06:27",
   "total_sorteos": 18,
   "sorteos": {
     "juga3_11am": {
@@ -47,17 +47,17 @@
     "juga3_9pm": {
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-06-22 03:06:29",
-      "fecha_sorteo": "21-06",
+      "fecha_consulta": "2026-06-23 03:06:27",
+      "fecha_sorteo": "22-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "328",
+      "numero_ganador": "614",
       "numeros_individuales": [
-        "3",
-        "2",
-        "8"
+        "6",
+        "1",
+        "4"
       ],
       "numeros_adicionales": [
-        "328"
+        "614"
       ],
       "serie": null,
       "folio": null,
@@ -185,27 +185,27 @@
     "bingo_con_todo": {
       "juego": "bingo_con_todo",
       "nombre_juego": "Bingo con Todo",
-      "fecha_consulta": "2026-06-22 21:20:46",
+      "fecha_consulta": "2026-06-23 03:06:27",
       "fecha_sorteo": "22-06",
       "hora_sorteo": null,
-      "numero_ganador": "05",
+      "numero_ganador": "02",
       "numeros_individuales": [
-        "05",
-        "06",
-        "07",
-        "10",
+        "02",
+        "03",
+        "08",
         "11",
-        "15",
-        "17"
+        "14",
+        "16",
+        "18"
       ],
       "numeros_adicionales": [
-        "05",
-        "06",
-        "07",
-        "10",
+        "02",
+        "03",
+        "08",
         "11",
-        "15",
-        "17"
+        "14",
+        "16",
+        "18"
       ],
       "serie": null,
       "folio": null,
@@ -285,19 +285,19 @@
     "diaria_9pm": {
       "juego": "diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-06-22 03:06:29",
-      "fecha_sorteo": "21-06",
+      "fecha_consulta": "2026-06-23 03:06:27",
+      "fecha_sorteo": "22-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "2 0 0",
+      "numero_ganador": "0 0 9",
       "numeros_individuales": [
-        "2",
         "0",
-        "0"
+        "0",
+        "9"
       ],
       "numeros_adicionales": [
-        "2",
         "0",
-        "0"
+        "0",
+        "9"
       ],
       "serie": null,
       "folio": null,
@@ -308,19 +308,19 @@
     "premia2_9pm": {
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-06-22 03:06:29",
-      "fecha_sorteo": "21-06",
+      "fecha_consulta": "2026-06-23 03:06:27",
+      "fecha_sorteo": "22-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "19",
+      "numero_ganador": "76",
       "numeros_individuales": [
-        "1",
-        "9",
-        "5",
-        "3"
+        "7",
+        "6",
+        "0",
+        "4"
       ],
       "numeros_adicionales": [
-        "19",
-        "53"
+        "76",
+        "04"
       ],
       "serie": null,
       "folio": null,
@@ -331,19 +331,19 @@
     "pega_3_9pm": {
       "juego": "pega_3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-06-22 03:06:29",
-      "fecha_sorteo": "21-06",
+      "fecha_consulta": "2026-06-23 03:06:27",
+      "fecha_sorteo": "22-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "52",
+      "numero_ganador": "17",
       "numeros_individuales": [
-        "52",
-        "69",
-        "98"
+        "17",
+        "92",
+        "97"
       ],
       "numeros_adicionales": [
-        "52",
-        "69",
-        "98"
+        "17",
+        "92",
+        "97"
       ],
       "serie": null,
       "folio": null,
@@ -373,15 +373,15 @@
     "multi_x_9pm": {
       "juego": "multi_x_9pm",
       "nombre_juego": "Multi X 9:00 PM",
-      "fecha_consulta": "2026-06-22 03:06:29",
-      "fecha_sorteo": "21-06",
+      "fecha_consulta": "2026-06-23 03:06:27",
+      "fecha_sorteo": "22-06",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "JG",
+      "numero_ganador": "2x",
       "numeros_individuales": [
-        "JG"
+        "2x"
       ],
       "numeros_adicionales": [
-        "JG"
+        "2x"
       ],
       "serie": null,
       "folio": null,
