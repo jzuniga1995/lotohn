@@ -1,36 +1,36 @@
 {
-  "fecha": "2026-06-23",
-  "generado_en": "2026-06-24T03:06:34Z",
+  "fecha": "2026-06-24",
+  "generado_en": "2026-06-24T15:20:31Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 170(1v), 567(1v), 588(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 170, 567, 588 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 170(1v), 567(1v), 828(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 170, 567, 828 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "170",
         "567",
-        "588"
+        "828"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 15(4v), 23(4v), 25(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 15, 23, 25 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 15(4v), 23(4v), 19(4v) en 90 sorteos analizados.",
+      "tendencias": "Los números 15, 23 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "15-19-23",
-        "23-29-48",
-        "15-19-25"
+        "15-23-29",
+        "23-25-48",
+        "15-19-29"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 50(3v), 35(3v), 74(2v) en 60 sorteos analizados.",
+      "patrones": "Más frecuentes: 35(4v), 50(3v), 74(2v) en 60 sorteos analizados.",
       "tendencias": "Los números 74, 30 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "35-84",
-        "28-84",
-        "48-50"
+        "50-84",
+        "48-84",
+        "35-86"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
