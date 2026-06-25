@@ -1,36 +1,36 @@
 {
   "fecha": "2026-06-25",
-  "generado_en": "2026-06-25T17:06:41Z",
+  "generado_en": "2026-06-25T17:20:48Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 393(1v), 325(1v), 824(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 393, 325, 824 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 321(1v), 393(1v), 325(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 321, 393, 325 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
+        "321",
         "393",
-        "325",
-        "824"
+        "325"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
       "patrones": "Más frecuentes: 15(4v), 23(4v), 19(4v) en 90 sorteos analizados.",
-      "tendencias": "Los números 86 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 34 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "15-23-64",
-        "23-29-96",
-        "15-19-64"
+        "15-23-76",
+        "23-34-86",
+        "15-19-76"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 35(4v), 50(3v), 83(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 83, 38 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 35(4v), 50(3v), 01(2v) en 60 sorteos analizados.",
+      "tendencias": "Los números 01, 83, 38 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "50-74",
-        "30-74",
-        "35-84"
+        "50-95",
+        "74-95",
+        "30-35"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
