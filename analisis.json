@@ -1,25 +1,25 @@
 {
-  "fecha": "2026-06-25",
-  "generado_en": "2026-06-26T03:06:39Z",
+  "fecha": "2026-06-26",
+  "generado_en": "2026-06-26T15:20:33Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 588(2v), 321(1v), 393(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 321, 588, 393 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 588(2v), 321(1v), 382(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 321, 588, 382 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "588",
         "321",
-        "393"
+        "382"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 15(4v), 23(4v), 19(4v) en 90 sorteos analizados.",
-      "tendencias": "Los números 76 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 23(5v), 15(4v), 19(4v) en 90 sorteos analizados.",
+      "tendencias": "Los números 76, 23 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "15-23-34",
-        "23-29-59",
-        "15-19-34"
+        "15-29-59",
+        "19-23-34"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -30,7 +30,7 @@
       "sugerencias": [
         "50-74",
         "74-84",
-        "35-48"
+        "35-86"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
