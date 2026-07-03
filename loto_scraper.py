@@ -140,6 +140,16 @@ TANDAS = {
 DIAS_SUPER_PREMIO = [2, 5]  # miércoles y sábado
 
 
+def fecha_ultimo_sorteo_super() -> datetime:
+    """Fecha HN del último sorteo de Súper Premio ya realizado (mié/sáb 9pm)."""
+    hn = ahora_hn()
+    for dias_atras in range(8):
+        d = hn - timedelta(days=dias_atras)
+        if d.weekday() in DIAS_SUPER_PREMIO and not (dias_atras == 0 and hn.hour < 21):
+            return d
+    return hn
+
+
 def detectar_tanda():
     hora_hn = ahora_hn().hour
 
@@ -233,13 +243,6 @@ class LotoHondurasScraper:
                     if nombre_tanda == 'bingo' and juego_key != 'bingo_con_todo':
                         continue
 
-                    # Super Premio solo miércoles y sábado
-                    if juego_key == 'super_premio':
-                        if ahora_hn().weekday() not in DIAS_SUPER_PREMIO:
-                            print(f"⏭️  Super Premio omitido (no es miércoles ni sábado)")
-                            continue
-                        print(f"🏆 Super Premio incluido")
-
                     # Bingo con Todo juega todos los días a las 4pm — antes de esa
                     # hora loto.hn todavía muestra el sorteo de ayer (la card nunca
                     # se limpia), y guardarlo estamparía fecha de hoy a números viejos
@@ -253,7 +256,22 @@ class LotoHondurasScraper:
                     if juego_key == 'bingo_con_todo' and numeros_raw and self._bingo_es_dato_viejo(numeros_raw):
                         print(f"   ⏭️  Bingo con Todo: loto.hn aún muestra los números de ayer")
                         continue
+
+                    # Súper Premio: loto.hn publica el resultado con retraso y la
+                    # card muestra el sorteo ANTERIOR mientras tanto. Se procesa
+                    # todos los días y solo se guarda cuando los números cambian
+                    if juego_key == 'super_premio' and numeros_raw and numeros_raw == self._ultimo_super_guardado():
+                        print(f"   ⏭️  Súper Premio: la card aún muestra el sorteo anterior")
+                        continue
+
                     resultado   = self._resultado_vacio(juego_key, nombre_juego, nombre_tanda)
+
+                    # El resultado del Súper Premio pertenece al último sorteo
+                    # programado (mié/sáb 9pm), no al día en que se scrapea
+                    if juego_key == 'super_premio':
+                        sorteo = fecha_ultimo_sorteo_super()
+                        resultado['fecha_sorteo']    = f"{sorteo.day:02d}-{sorteo.month:02d}"
+                        resultado['fecha_historial'] = sorteo.strftime('%Y-%m-%d')
 
                     if numeros_raw:
                         ganador, adicionales, individuales = self._formatear_numeros(numeros_raw, juego_key)
@@ -397,10 +415,25 @@ class LotoHondurasScraper:
         except Exception:
             return False
 
+    def _ultimo_super_guardado(self):
+        """Números del sorteo de Súper Premio más reciente guardado en el historial."""
+        try:
+            with open('historial.json', 'r', encoding='utf-8') as f:
+                historial = json.load(f)
+            for fecha in sorted(historial.keys(), reverse=True):
+                nums = historial[fecha].get('super_premio')
+                if nums:
+                    return nums
+        except Exception:
+            pass
+        return None
+
     def _resultado_vacio(self, juego_key: str, nombre_juego: str, nombre_tanda: str) -> dict:
         hora = HORA_TANDA.get(nombre_tanda) if juego_key not in JUEGOS_SIN_TANDA else None
         if juego_key == 'bingo_con_todo':
             hora = '4:00 PM'  # juega todos los días a las 4pm
+        if juego_key == 'super_premio':
+            hora = '9:00 PM'  # miércoles y sábado 9pm
         return {
             'juego':                juego_key,
             'nombre_juego':         nombre_juego,
@@ -462,17 +495,19 @@ class LotoHondurasScraper:
                     historial = json.load(f)
 
             fecha_hn = fecha_hn_str('%Y-%m-%d')
-            if fecha_hn not in historial:
-                historial[fecha_hn] = {}
 
             for key, data in resultados_tanda.items():
                 if data.get('estado') != 'completado':
                     continue
-                if key in historial[fecha_hn]:
+                # Algunos juegos (Súper Premio) traen la fecha real de su sorteo
+                fecha_key = data.get('fecha_historial') or fecha_hn
+                if fecha_key not in historial:
+                    historial[fecha_key] = {}
+                if key in historial[fecha_key]:
                     print(f"   📌 Historial: ya existe {key}")
                     continue
                 # Solo guardamos los números — la key ya codifica juego + tanda
-                historial[fecha_hn][key] = data['numeros_adicionales']
+                historial[fecha_key][key] = data['numeros_adicionales']
 
             with open(archivo, 'w', encoding='utf-8') as f:
                 json.dump(historial, f, ensure_ascii=False, separators=(',', ':'))
