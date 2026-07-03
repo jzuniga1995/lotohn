@@ -129,6 +129,9 @@ TANDAS = {
     'tarde': {
         'horas_hn': [15]
     },
+    'bingo': {
+        'horas_hn': [16]  # Bingo con Todo — todos los días 4pm
+    },
     'noche': {
         'horas_hn': [21]
     }
@@ -226,6 +229,10 @@ class LotoHondurasScraper:
                     if not juego_key:
                         continue
 
+                    # Tanda de las 4pm: solo interesa el bingo
+                    if nombre_tanda == 'bingo' and juego_key != 'bingo_con_todo':
+                        continue
+
                     # Super Premio solo miércoles y sábado
                     if juego_key == 'super_premio':
                         if ahora_hn().weekday() not in DIAS_SUPER_PREMIO:
@@ -233,8 +240,19 @@ class LotoHondurasScraper:
                             continue
                         print(f"🏆 Super Premio incluido")
 
+                    # Bingo con Todo juega todos los días a las 4pm — antes de esa
+                    # hora loto.hn todavía muestra el sorteo de ayer (la card nunca
+                    # se limpia), y guardarlo estamparía fecha de hoy a números viejos
+                    if juego_key == 'bingo_con_todo' and ahora_hn().hour < 16:
+                        print(f"⏭️  Bingo con Todo omitido (el sorteo de las 4pm aún no ocurre)")
+                        continue
+
                     print(f"📊 Procesando {juego_key}...")
                     numeros_raw = self._extraer_balls(card)
+
+                    if juego_key == 'bingo_con_todo' and numeros_raw and self._bingo_es_dato_viejo(numeros_raw):
+                        print(f"   ⏭️  Bingo con Todo: loto.hn aún muestra los números de ayer")
+                        continue
                     resultado   = self._resultado_vacio(juego_key, nombre_juego, nombre_tanda)
 
                     if numeros_raw:
@@ -367,8 +385,22 @@ class LotoHondurasScraper:
     # HELPERS
     # ----------------------------------------
 
+    def _bingo_es_dato_viejo(self, numeros: list) -> bool:
+        """La card del bingo en loto.hn nunca se limpia: si los números scrapeados
+        coinciden con los guardados AYER en el historial, el sorteo de hoy aún no
+        se ha publicado y no hay que guardarlos con fecha de hoy."""
+        try:
+            with open('historial.json', 'r', encoding='utf-8') as f:
+                historial = json.load(f)
+            ayer = (ahora_hn() - timedelta(days=1)).strftime('%Y-%m-%d')
+            return historial.get(ayer, {}).get('bingo_con_todo') == list(numeros)
+        except Exception:
+            return False
+
     def _resultado_vacio(self, juego_key: str, nombre_juego: str, nombre_tanda: str) -> dict:
         hora = HORA_TANDA.get(nombre_tanda) if juego_key not in JUEGOS_SIN_TANDA else None
+        if juego_key == 'bingo_con_todo':
+            hora = '4:00 PM'  # juega todos los días a las 4pm
         return {
             'juego':                juego_key,
             'nombre_juego':         nombre_juego,

@@ -186,8 +186,8 @@
       "juego": "bingo_con_todo",
       "nombre_juego": "Bingo con Todo",
       "fecha_consulta": "2026-07-03 17:21:51",
-      "fecha_sorteo": "03-07",
-      "hora_sorteo": null,
+      "fecha_sorteo": "02-07",
+      "hora_sorteo": "4:00 PM",
       "numero_ganador": "02",
       "numeros_individuales": [
         "02",
