@@ -1,36 +1,36 @@
 {
   "fecha": "2026-07-03",
-  "generado_en": "2026-07-03T21:10:46Z",
+  "generado_en": "2026-07-03T21:20:50Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 715(1v), 173(1v), 268(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 715, 173, 268 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 715(1v), 054(1v), 173(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 715, 054, 173 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "715",
-        "173",
-        "268"
+        "054",
+        "173"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 23(4v), 76(3v), 45(3v) en 90 sorteos analizados.",
+      "patrones": "Más frecuentes: 23(4v), 76(3v), 35(3v) en 90 sorteos analizados.",
       "tendencias": "Los números 23, 76 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "23-57-76",
-        "33-76-79",
-        "23-45-57"
+        "23-76-79",
+        "25-57-76",
+        "23-35-79"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 13(3v), 83(2v), 43(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 83, 43, 25 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 13(3v), 83(2v), 65(2v) en 60 sorteos analizados.",
+      "tendencias": "Los números 83, 65, 10 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "37-83",
-        "03-37",
-        "13-30"
+        "25-83",
+        "15-25",
+        "13-37"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -47,12 +47,12 @@
       "sorteos_analizados": 30
     },
     "super_premio": {
-      "patrones": "Más frecuentes: 19(10v), 31(10v), 14(9v) en 180 sorteos analizados.",
-      "tendencias": "Los números 30, 06 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 19(10v), 31(10v), 01(9v) en 180 sorteos analizados.",
+      "tendencias": "Los números 06, 01 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "01-06-14-19-30-31",
-        "07-11-18-21-24-32",
-        "02-04-10-16-20-23"
+        "07-17-20-21-24-32",
+        "02-04-10-15-18-23"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
