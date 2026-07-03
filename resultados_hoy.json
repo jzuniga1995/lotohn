@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-07-03 17:21:51",
+  "fecha_actualizacion": "2026-07-03 21:10:45",
   "total_sorteos": 18,
   "sorteos": {
     "juga3_11am": {
@@ -26,17 +26,17 @@
     "juga3_3pm": {
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-07-02 21:20:53",
-      "fecha_sorteo": "02-07",
+      "fecha_consulta": "2026-07-03 21:10:45",
+      "fecha_sorteo": "03-07",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "111",
+      "numero_ganador": "054",
       "numeros_individuales": [
-        "1",
-        "1",
-        "1"
+        "0",
+        "5",
+        "4"
       ],
       "numeros_adicionales": [
-        "111"
+        "054"
       ],
       "serie": null,
       "folio": null,
@@ -68,31 +68,32 @@
     "super_premio": {
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-07-02 03:06:31",
-      "fecha_sorteo": "27-06",
+      "fecha_consulta": "2026-07-03 21:10:45",
+      "fecha_sorteo": "01-07",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "06",
+      "numero_ganador": "01",
       "numeros_individuales": [
+        "01",
+        "04",
         "06",
-        "11",
-        "14",
+        "18",
         "19",
-        "23",
-        "26"
+        "20"
       ],
       "numeros_adicionales": [
+        "01",
+        "04",
         "06",
-        "11",
-        "14",
+        "18",
         "19",
-        "23",
-        "26"
+        "20"
       ],
       "serie": null,
       "folio": null,
       "estado": "completado",
       "logo_url": "/logos/super_premio.png",
-      "extras": {}
+      "extras": {},
+      "fecha_historial": "2026-07-01"
     },
     "diaria_11am": {
       "juego": "diaria_11am",
@@ -216,18 +217,18 @@
     "diaria_3pm": {
       "juego": "diaria_3pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-07-02 21:20:53",
-      "fecha_sorteo": "02-07",
+      "fecha_consulta": "2026-07-03 21:10:45",
+      "fecha_sorteo": "03-07",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "3 7 5",
+      "numero_ganador": "4 0 5",
       "numeros_individuales": [
-        "3",
-        "7",
+        "4",
+        "0",
         "5"
       ],
       "numeros_adicionales": [
-        "3",
-        "7",
+        "4",
+        "0",
         "5"
       ],
       "serie": null,
@@ -239,19 +240,19 @@
     "premia2_3pm": {
       "juego": "premia2_3pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-07-02 21:20:53",
-      "fecha_sorteo": "02-07",
+      "fecha_consulta": "2026-07-03 21:10:45",
+      "fecha_sorteo": "03-07",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "52",
+      "numero_ganador": "65",
       "numeros_individuales": [
+        "6",
         "5",
-        "2",
-        "0",
+        "1",
         "0"
       ],
       "numeros_adicionales": [
-        "52",
-        "00"
+        "65",
+        "10"
       ],
       "serie": null,
       "folio": null,
@@ -262,19 +263,19 @@
     "pega_3_3pm": {
       "juego": "pega_3_3pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-07-02 21:20:53",
-      "fecha_sorteo": "02-07",
+      "fecha_consulta": "2026-07-03 21:10:45",
+      "fecha_sorteo": "03-07",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "14",
+      "numero_ganador": "15",
       "numeros_individuales": [
-        "14",
-        "23",
-        "68"
+        "15",
+        "35",
+        "37"
       ],
       "numeros_adicionales": [
-        "14",
-        "23",
-        "68"
+        "15",
+        "35",
+        "37"
       ],
       "serie": null,
       "folio": null,
@@ -354,8 +355,8 @@
     "multi_x_3pm": {
       "juego": "multi_x_3pm",
       "nombre_juego": "Multi X 3:00 PM",
-      "fecha_consulta": "2026-07-02 21:20:53",
-      "fecha_sorteo": "02-07",
+      "fecha_consulta": "2026-07-03 21:10:45",
+      "fecha_sorteo": "03-07",
       "hora_sorteo": "3:00 PM",
       "numero_ganador": "5x",
       "numeros_individuales": [
