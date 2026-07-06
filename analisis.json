@@ -1,36 +1,36 @@
 {
   "fecha": "2026-07-06",
-  "generado_en": "2026-07-06T21:21:08Z",
+  "generado_en": "2026-07-06T22:20:45Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 037(1v), 151(1v), 703(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 037, 151, 703 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 037(1v), 724(1v), 151(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 037, 724, 151 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "037",
-        "151",
-        "703"
+        "724",
+        "151"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 25(3v), 39(3v), 82(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 25 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 48(3v), 25(3v), 39(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 48 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "25-39-79",
-        "39-45-72",
-        "25-79-82"
+        "25-48-79",
+        "25-45-72",
+        "39-48-79"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
       "patrones": "Más frecuentes: 13(3v), 74(2v), 27(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 54, 74, 27 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 23, 74, 27 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "65-74",
-        "10-65",
-        "13-25"
+        "54-74",
+        "54-65",
+        "10-13"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
