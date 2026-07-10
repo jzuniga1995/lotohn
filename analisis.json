@@ -1,9 +1,9 @@
 {
   "fecha": "2026-07-10",
-  "generado_en": "2026-07-10T21:21:01Z",
+  "generado_en": "2026-07-10T22:20:57Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 854(1v), 116(1v), 365(1v) en 30 sorteos analizados.",
+      "patrones": "Más frecuentes: 854(2v), 116(1v), 365(1v) en 30 sorteos analizados.",
       "tendencias": "Los números 854, 116, 365 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "854",
@@ -15,11 +15,11 @@
     },
     "pega_3": {
       "patrones": "Más frecuentes: 22(3v), 48(3v), 25(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 67, 33 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 67, 06 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "12-22-48",
-        "33-46-48",
-        "12-22-25"
+        "22-48-65",
+        "06-33-48",
+        "22-25-65"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
