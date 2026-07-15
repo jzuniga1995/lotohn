@@ -1,21 +1,21 @@
 {
-  "fecha_actualizacion": "2026-07-14 22:20:57",
+  "fecha_actualizacion": "2026-07-15 17:20:50",
   "total_sorteos": 18,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-07-14 17:20:52",
-      "fecha_sorteo": "14-07",
+      "fecha_consulta": "2026-07-15 17:20:50",
+      "fecha_sorteo": "15-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "820",
+      "numero_ganador": "937",
       "numeros_individuales": [
-        "8",
-        "2",
-        "0"
+        "9",
+        "3",
+        "7"
       ],
       "numeros_adicionales": [
-        "820"
+        "937"
       ],
       "serie": null,
       "folio": null,
@@ -98,19 +98,19 @@
     "diaria_11am": {
       "juego": "diaria_11am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-07-14 17:20:51",
-      "fecha_sorteo": "14-07",
+      "fecha_consulta": "2026-07-15 17:20:50",
+      "fecha_sorteo": "15-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "4 9 6",
+      "numero_ganador": "6 6 2",
       "numeros_individuales": [
-        "4",
-        "9",
-        "6"
+        "6",
+        "6",
+        "2"
       ],
       "numeros_adicionales": [
-        "4",
-        "9",
-        "6"
+        "6",
+        "6",
+        "2"
       ],
       "serie": null,
       "folio": null,
@@ -121,19 +121,19 @@
     "premia2_11am": {
       "juego": "premia2_11am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-07-14 17:20:52",
-      "fecha_sorteo": "14-07",
+      "fecha_consulta": "2026-07-15 17:20:50",
+      "fecha_sorteo": "15-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "40",
+      "numero_ganador": "17",
       "numeros_individuales": [
-        "4",
-        "0",
         "1",
-        "3"
+        "7",
+        "7",
+        "0"
       ],
       "numeros_adicionales": [
-        "40",
-        "13"
+        "17",
+        "70"
       ],
       "serie": null,
       "folio": null,
@@ -144,19 +144,19 @@
     "pega_3_11am": {
       "juego": "pega_3_11am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-07-14 17:20:52",
-      "fecha_sorteo": "14-07",
+      "fecha_consulta": "2026-07-15 17:20:50",
+      "fecha_sorteo": "15-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "43",
+      "numero_ganador": "21",
       "numeros_individuales": [
-        "43",
-        "57",
-        "93"
+        "21",
+        "50",
+        "54"
       ],
       "numeros_adicionales": [
-        "43",
-        "57",
-        "93"
+        "21",
+        "50",
+        "54"
       ],
       "serie": null,
       "folio": null,
@@ -393,8 +393,8 @@
     "multi_x_11am": {
       "juego": "multi_x_11am",
       "nombre_juego": "Multi X 11:00 AM",
-      "fecha_consulta": "2026-07-14 17:20:52",
-      "fecha_sorteo": "14-07",
+      "fecha_consulta": "2026-07-15 17:20:50",
+      "fecha_sorteo": "15-07",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "JG",
       "numeros_individuales": [
