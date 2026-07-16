@@ -1,21 +1,21 @@
 {
-  "fecha_actualizacion": "2026-07-15 22:20:58",
+  "fecha_actualizacion": "2026-07-16 17:20:40",
   "total_sorteos": 18,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-07-15 17:20:50",
-      "fecha_sorteo": "15-07",
+      "fecha_consulta": "2026-07-16 17:20:40",
+      "fecha_sorteo": "16-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "937",
+      "numero_ganador": "424",
       "numeros_individuales": [
-        "9",
-        "3",
-        "7"
+        "4",
+        "2",
+        "4"
       ],
       "numeros_adicionales": [
-        "937"
+        "424"
       ],
       "serie": null,
       "folio": null,
@@ -68,49 +68,49 @@
     "super_premio": {
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-07-12 17:20:49",
-      "fecha_sorteo": "11-07",
+      "fecha_consulta": "2026-07-16 17:20:40",
+      "fecha_sorteo": "15-07",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "01",
+      "numero_ganador": "08",
       "numeros_individuales": [
-        "01",
-        "04",
-        "13",
+        "08",
+        "11",
+        "15",
+        "18",
         "19",
-        "21",
-        "33"
+        "29"
       ],
       "numeros_adicionales": [
-        "01",
-        "04",
-        "13",
+        "08",
+        "11",
+        "15",
+        "18",
         "19",
-        "21",
-        "33"
+        "29"
       ],
       "serie": null,
       "folio": null,
       "estado": "completado",
       "logo_url": "/logos/super_premio.png",
       "extras": {},
-      "fecha_historial": "2026-07-11"
+      "fecha_historial": "2026-07-15"
     },
     "diaria_11am": {
       "juego": "diaria_11am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-07-15 17:20:50",
-      "fecha_sorteo": "15-07",
+      "fecha_consulta": "2026-07-16 17:20:40",
+      "fecha_sorteo": "16-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "6 6 2",
+      "numero_ganador": "7 1 3",
       "numeros_individuales": [
-        "6",
-        "6",
-        "2"
+        "7",
+        "1",
+        "3"
       ],
       "numeros_adicionales": [
-        "6",
-        "6",
-        "2"
+        "7",
+        "1",
+        "3"
       ],
       "serie": null,
       "folio": null,
@@ -121,19 +121,19 @@
     "premia2_11am": {
       "juego": "premia2_11am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-07-15 17:20:50",
-      "fecha_sorteo": "15-07",
+      "fecha_consulta": "2026-07-16 17:20:40",
+      "fecha_sorteo": "16-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "17",
+      "numero_ganador": "41",
       "numeros_individuales": [
+        "4",
         "1",
-        "7",
-        "7",
-        "0"
+        "1",
+        "2"
       ],
       "numeros_adicionales": [
-        "17",
-        "70"
+        "41",
+        "12"
       ],
       "serie": null,
       "folio": null,
@@ -144,19 +144,19 @@
     "pega_3_11am": {
       "juego": "pega_3_11am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-07-15 17:20:50",
-      "fecha_sorteo": "15-07",
+      "fecha_consulta": "2026-07-16 17:20:40",
+      "fecha_sorteo": "16-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "21",
+      "numero_ganador": "02",
       "numeros_individuales": [
-        "21",
-        "50",
-        "54"
+        "02",
+        "66",
+        "93"
       ],
       "numeros_adicionales": [
-        "21",
-        "50",
-        "54"
+        "02",
+        "66",
+        "93"
       ],
       "serie": null,
       "folio": null,
@@ -393,8 +393,8 @@
     "multi_x_11am": {
       "juego": "multi_x_11am",
       "nombre_juego": "Multi X 11:00 AM",
-      "fecha_consulta": "2026-07-15 17:20:50",
-      "fecha_sorteo": "15-07",
+      "fecha_consulta": "2026-07-16 17:20:40",
+      "fecha_sorteo": "16-07",
       "hora_sorteo": "11:00 AM",
       "numero_ganador": "JG",
       "numeros_individuales": [
