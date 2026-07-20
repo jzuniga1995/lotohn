@@ -1,36 +1,36 @@
 {
   "fecha": "2026-07-20",
-  "generado_en": "2026-07-20T17:20:40Z",
+  "generado_en": "2026-07-20T21:20:45Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 442(2v), 854(2v), 334(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 334, 396, 066 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 442(2v), 854(2v), 923(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 923, 334, 396 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "442",
         "854",
-        "334"
+        "923"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 68(4v), 48(3v), 94(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 68, 93, 48 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 68(4v), 99(3v), 48(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 99, 68 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "43-48-68",
-        "06-48-67",
-        "43-68-94"
+        "67-68-99",
+        "43-93-99",
+        "48-67-68"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
       "patrones": "Más frecuentes: 27(3v), 40(3v), 41(3v) en 60 sorteos analizados.",
-      "tendencias": "Los números 83, 27 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 47, 83 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "40-91",
-        "56-91",
-        "27-85"
+        "03-40",
+        "03-91",
+        "27-56"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
