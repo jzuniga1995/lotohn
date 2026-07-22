@@ -1,25 +1,25 @@
 {
   "fecha": "2026-07-22",
-  "generado_en": "2026-07-22T17:20:35Z",
+  "generado_en": "2026-07-22T21:20:41Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 442(2v), 854(2v), 154(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 154, 556, 923 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 442(2v), 854(2v), 258(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 258, 154, 556 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "442",
         "854",
-        "154"
+        "258"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 68(4v), 04(3v), 99(3v) en 90 sorteos analizados.",
+      "patrones": "Más frecuentes: 04(3v), 99(3v), 50(3v) en 90 sorteos analizados.",
       "tendencias": "Los números 04, 99 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "04-68-93",
-        "04-67-94",
-        "68-93-99"
+        "04-93-99",
+        "67-94-99",
+        "04-50-93"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
