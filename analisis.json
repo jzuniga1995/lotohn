@@ -1,36 +1,36 @@
 {
   "fecha": "2026-07-25",
-  "generado_en": "2026-07-25T21:20:45Z",
+  "generado_en": "2026-07-25T22:20:35Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 442(2v), 852(1v), 796(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 852, 796, 071 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 442(2v), 852(1v), 247(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 852, 247, 796 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "442",
         "852",
-        "796"
+        "247"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 68(4v), 82(3v), 79(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 82 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 79(4v), 68(4v), 82(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 82, 79 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "68-82-93",
-        "47-50-82",
-        "68-79-93"
+        "50-68-79",
+        "04-68-93",
+        "50-79-82"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
       "patrones": "Más frecuentes: 47(3v), 41(3v), 08(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 08, 66, 55 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 08, 66 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "39-41",
-        "39-76",
-        "40-47"
+        "40-41",
+        "03-40",
+        "47-91"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30

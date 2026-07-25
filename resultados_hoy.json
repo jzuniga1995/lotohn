@@ -1,5 +1,5 @@
 {
-  "fecha_actualizacion": "2026-07-25 21:20:43",
+  "fecha_actualizacion": "2026-07-25 22:20:34",
   "total_sorteos": 18,
   "sorteos": {
     "juga3_11am": {
@@ -186,26 +186,26 @@
     "bingo_con_todo": {
       "juego": "bingo_con_todo",
       "nombre_juego": "Bingo con Todo",
-      "fecha_consulta": "2026-07-24 22:20:40",
-      "fecha_sorteo": "24-07",
+      "fecha_consulta": "2026-07-25 22:20:34",
+      "fecha_sorteo": "25-07",
       "hora_sorteo": "4:00 PM",
-      "numero_ganador": "01",
+      "numero_ganador": "02",
       "numeros_individuales": [
-        "01",
-        "03",
-        "07",
-        "08",
-        "10",
-        "11",
+        "02",
+        "04",
+        "05",
+        "14",
+        "16",
+        "17",
         "19"
       ],
       "numeros_adicionales": [
-        "01",
-        "03",
-        "07",
-        "08",
-        "10",
-        "11",
+        "02",
+        "04",
+        "05",
+        "14",
+        "16",
+        "17",
         "19"
       ],
       "serie": null,
