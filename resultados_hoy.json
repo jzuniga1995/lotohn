@@ -1,21 +1,21 @@
 {
-  "fecha_actualizacion": "2026-07-29 22:21:43",
+  "fecha_actualizacion": "2026-07-30 17:20:34",
   "total_sorteos": 18,
   "sorteos": {
     "juga3_11am": {
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-07-29 17:20:30",
-      "fecha_sorteo": "29-07",
+      "fecha_consulta": "2026-07-30 17:20:34",
+      "fecha_sorteo": "30-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "008",
+      "numero_ganador": "620",
       "numeros_individuales": [
-        "0",
-        "0",
-        "8"
+        "6",
+        "2",
+        "0"
       ],
       "numeros_adicionales": [
-        "008"
+        "620"
       ],
       "serie": null,
       "folio": null,
@@ -68,49 +68,49 @@
     "super_premio": {
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-07-26 17:20:29",
-      "fecha_sorteo": "25-07",
+      "fecha_consulta": "2026-07-30 17:20:34",
+      "fecha_sorteo": "29-07",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "13",
+      "numero_ganador": "07",
       "numeros_individuales": [
-        "13",
-        "17",
-        "20",
-        "30",
-        "31",
-        "33"
+        "07",
+        "10",
+        "22",
+        "23",
+        "25",
+        "30"
       ],
       "numeros_adicionales": [
-        "13",
-        "17",
-        "20",
-        "30",
-        "31",
-        "33"
+        "07",
+        "10",
+        "22",
+        "23",
+        "25",
+        "30"
       ],
       "serie": null,
       "folio": null,
       "estado": "completado",
       "logo_url": "/logos/super_premio.png",
       "extras": {},
-      "fecha_historial": "2026-07-25"
+      "fecha_historial": "2026-07-29"
     },
     "diaria_11am": {
       "juego": "diaria_11am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-07-29 17:20:30",
-      "fecha_sorteo": "29-07",
+      "fecha_consulta": "2026-07-30 17:20:34",
+      "fecha_sorteo": "30-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "1 7 6",
+      "numero_ganador": "0 6 2",
       "numeros_individuales": [
-        "1",
-        "7",
-        "6"
+        "0",
+        "6",
+        "2"
       ],
       "numeros_adicionales": [
-        "1",
-        "7",
-        "6"
+        "0",
+        "6",
+        "2"
       ],
       "serie": null,
       "folio": null,
@@ -121,19 +121,19 @@
     "premia2_11am": {
       "juego": "premia2_11am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-07-29 17:20:30",
-      "fecha_sorteo": "29-07",
+      "fecha_consulta": "2026-07-30 17:20:34",
+      "fecha_sorteo": "30-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "82",
+      "numero_ganador": "23",
       "numeros_individuales": [
-        "8",
         "2",
+        "3",
         "1",
-        "6"
+        "1"
       ],
       "numeros_adicionales": [
-        "82",
-        "16"
+        "23",
+        "11"
       ],
       "serie": null,
       "folio": null,
@@ -144,19 +144,19 @@
     "pega_3_11am": {
       "juego": "pega_3_11am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-07-29 17:20:30",
-      "fecha_sorteo": "29-07",
+      "fecha_consulta": "2026-07-30 17:20:34",
+      "fecha_sorteo": "30-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "26",
+      "numero_ganador": "42",
       "numeros_individuales": [
-        "26",
-        "78",
-        "87"
+        "42",
+        "51",
+        "65"
       ],
       "numeros_adicionales": [
-        "26",
-        "78",
-        "87"
+        "42",
+        "51",
+        "65"
       ],
       "serie": null,
       "folio": null,
@@ -393,15 +393,15 @@
     "multi_x_11am": {
       "juego": "multi_x_11am",
       "nombre_juego": "Multi X 11:00 AM",
-      "fecha_consulta": "2026-07-29 17:20:30",
-      "fecha_sorteo": "29-07",
+      "fecha_consulta": "2026-07-30 17:20:34",
+      "fecha_sorteo": "30-07",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "3x",
+      "numero_ganador": "JG",
       "numeros_individuales": [
-        "3x"
+        "JG"
       ],
       "numeros_adicionales": [
-        "3x"
+        "JG"
       ],
       "serie": null,
       "folio": null,
