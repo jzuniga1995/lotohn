@@ -1,36 +1,36 @@
 {
   "fecha": "2026-08-03",
-  "generado_en": "2026-08-03T21:20:48Z",
+  "generado_en": "2026-08-03T22:20:37Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 633(1v), 090(1v), 227(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 633, 090, 227 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 633(1v), 401(1v), 090(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 633, 401, 090 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "633",
-        "090",
-        "227"
+        "401",
+        "090"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 99(5v), 04(4v), 87(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 87, 35, 37 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 99(5v), 04(4v), 02(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 02, 35 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "04-65-99",
-        "04-37-79",
-        "65-87-99"
+        "04-37-99",
+        "04-35-65",
+        "02-37-99"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
       "patrones": "Más frecuentes: 16(4v), 41(2v), 78(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 41, 16, 78 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 41, 78 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "02-41",
-        "02-81",
-        "16-31"
+        "41-81",
+        "31-81",
+        "16-18"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
