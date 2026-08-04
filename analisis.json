@@ -1,35 +1,35 @@
 {
   "fecha": "2026-08-04",
-  "generado_en": "2026-08-04T17:20:37Z",
+  "generado_en": "2026-08-04T21:20:46Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 633(1v), 401(1v), 090(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 633, 401, 090 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 141(1v), 633(1v), 401(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 141, 633, 401 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
+        "141",
         "633",
-        "401",
-        "090"
+        "401"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 99(5v), 04(4v), 02(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 02, 35 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 99(4v), 02(3v), 87(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 02 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "04-37-99",
-        "04-35-65",
-        "02-37-99"
+        "02-04-99",
+        "02-37-65",
+        "04-87-99"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 16(4v), 41(2v), 78(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 41, 78 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 16(4v), 31(3v), 41(2v) en 60 sorteos analizados.",
+      "tendencias": "Los números 41, 78, 31 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "41-81",
-        "31-81",
+        "02-31",
+        "02-81",
         "16-18"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
