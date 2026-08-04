@@ -1,36 +1,36 @@
 {
   "fecha": "2026-08-04",
-  "generado_en": "2026-08-04T21:20:46Z",
+  "generado_en": "2026-08-04T22:20:57Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 141(1v), 633(1v), 401(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 141, 633, 401 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 141(1v), 782(1v), 633(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 141, 782, 633 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "141",
-        "633",
-        "401"
+        "782",
+        "633"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 99(4v), 02(3v), 87(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 02 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 35(4v), 99(4v), 02(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 35, 02 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "02-04-99",
-        "02-37-65",
-        "04-87-99"
+        "04-35-99",
+        "37-65-99",
+        "02-04-35"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 16(4v), 31(3v), 41(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 41, 78, 31 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 16(4v), 31(3v), 11(2v) en 60 sorteos analizados.",
+      "tendencias": "Los números 41, 31, 11 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "02-31",
-        "02-81",
-        "16-18"
+        "23-31",
+        "02-23",
+        "16-81"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
