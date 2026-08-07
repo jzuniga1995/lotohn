@@ -1,14 +1,14 @@
 {
   "fecha": "2026-08-07",
-  "generado_en": "2026-08-07T21:20:54Z",
+  "generado_en": "2026-08-07T22:20:38Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 912(1v), 048(1v), 328(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 912, 048, 328 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 912(1v), 685(1v), 048(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 912, 685, 048 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "912",
-        "048",
-        "328"
+        "685",
+        "048"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -25,11 +25,11 @@
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 16(4v), 11(3v), 31(3v) en 60 sorteos analizados.",
-      "tendencias": "Los números 84, 11 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 16(4v), 78(3v), 11(3v) en 60 sorteos analizados.",
+      "tendencias": "Los números 84, 78 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "11-41",
-        "41-78",
+        "07-78",
+        "07-41",
         "16-23"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
