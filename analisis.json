@@ -1,25 +1,25 @@
 {
   "fecha": "2026-08-09",
-  "generado_en": "2026-08-09T21:20:40Z",
+  "generado_en": "2026-08-09T22:20:36Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 111(1v), 519(1v), 531(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 111, 519, 531 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 111(1v), 729(1v), 519(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 111, 729, 519 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "111",
-        "519",
-        "531"
+        "729",
+        "519"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 92(3v), 26(3v), 81(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 81 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 92(3v), 19(3v), 26(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 19, 81 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "02-26-92",
-        "26-35-87",
-        "02-81-92"
+        "02-19-92",
+        "19-35-87",
+        "02-26-92"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -28,8 +28,8 @@
       "patrones": "Más frecuentes: 16(4v), 84(3v), 81(3v) en 60 sorteos analizados.",
       "tendencias": "Los números 84, 81 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "31-84",
-        "31-60",
+        "51-84",
+        "51-60",
         "07-16"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
