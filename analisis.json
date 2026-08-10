@@ -1,21 +1,21 @@
 {
   "fecha": "2026-08-10",
-  "generado_en": "2026-08-10T21:20:51Z",
+  "generado_en": "2026-08-10T22:20:40Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 028(1v), 111(1v), 729(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 028, 111, 729 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 028(1v), 345(1v), 111(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 028, 345, 111 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "028",
-        "111",
-        "729"
+        "345",
+        "111"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
       "patrones": "Más frecuentes: 92(3v), 19(3v), 26(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 19, 81 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 81 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "02-19-92",
         "19-35-87",
@@ -26,7 +26,7 @@
     },
     "premia2": {
       "patrones": "Más frecuentes: 16(4v), 18(3v), 84(3v) en 60 sorteos analizados.",
-      "tendencias": "Los números 18, 84 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 18 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "11-18",
         "11-19",
