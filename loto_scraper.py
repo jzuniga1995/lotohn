@@ -169,6 +169,16 @@ DIAS_SORTEO = {'super_premio': {2, 5}}  # Super Premio: miércoles y sábado
 # que esto de hoy, es que el texto no era una fecha y hay que descartarla.
 MAX_DIAS_FECHA = 15
 
+# La fuente pinta el sorteo MÁS RECIENTE con .score-shape-circle y los anteriores
+# con .past-score-ball ("past" = pasados). Mirando solo los "past" se perdía justo
+# el resultado recién salido: al llegar la hora del sorteo su tarjeta cambia de
+# clase y se quedaba sin ninguna bola que leer, así que el juego seguía mostrando
+# el de ayer hasta que ese resultado pasara a ser "anterior".
+SELECTOR_TARJETA = 'a[href*="/loto-hn/"]'
+SELECTOR_BOLAS = '.score-shape-circle, .past-score-ball'
+SELECTOR_ESPERA = ', '.join(f'{SELECTOR_TARJETA} {s.strip()}'
+                            for s in SELECTOR_BOLAS.split(','))
+
 
 def ultimo_sorteo_esperado(juego_key: str, hora: str, ahora: datetime = None,
                            margen: int = MARGEN_PUBLICACION_MIN) -> date:
@@ -239,7 +249,7 @@ class LotoHondurasScraper:
                 self._navegar_con_reintentos(page)
 
                 try:
-                    page.wait_for_selector('a[href*="/loto-hn/"] .past-score-ball', timeout=30000)
+                    page.wait_for_selector(SELECTOR_ESPERA, timeout=30000)
                 except Exception as e:
                     print(f"⚠️  Timeout esperando los resultados: {e}")
                     browser.close()
@@ -247,7 +257,7 @@ class LotoHondurasScraper:
 
                 self._esperar_tarjetas_estables(page)
 
-                tarjetas = page.query_selector_all('a[href*="/loto-hn/"]')
+                tarjetas = page.query_selector_all(SELECTOR_TARJETA)
                 print(f"🃏 Enlaces de sorteo encontrados: {len(tarjetas)}")
 
                 for tarjeta in tarjetas:
@@ -303,7 +313,7 @@ class LotoHondurasScraper:
         leerla a medias y perder los sorteos que faltaban por renderizar."""
         previo = -1
         for _ in range(intentos):
-            actual = len(page.query_selector_all('a[href*="/loto-hn/"] .past-score-ball'))
+            actual = len(page.query_selector_all(SELECTOR_ESPERA))
             if actual and actual == previo:
                 return
             previo = actual
@@ -428,7 +438,7 @@ class LotoHondurasScraper:
 
     def _extraer_balls(self, tarjeta) -> list:
         numeros = []
-        for ball in tarjeta.query_selector_all('.past-score-ball'):
+        for ball in tarjeta.query_selector_all(SELECTOR_BOLAS):
             texto = re.sub(r'\s+', ' ', ball.inner_text()).strip()
             if texto and texto not in ['-', '?']:
                 numeros.append(texto)
