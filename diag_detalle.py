@@ -1,14 +1,26 @@
 """Temporal: la fila más reciente de la página interna no usa .past-score-ball.
-Volcamos su HTML para descubrir con qué clase se pinta."""
-import re
+Subimos hasta el contenedor que ya incluye los números para ver cómo se pintan."""
 import time
 from playwright.sync_api import sync_playwright
 
 UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
       '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
 
-SLUGS = ['juga-3-11am', 'la-diaria-10am', 'pega-3-10am']
+SLUGS = ['juga-3-11am', 'la-diaria-10am', 'pega-3-10am', 'premia2-10am']
 
+JS = """(nivel) => {
+    const et = [...document.querySelectorAll('.bg-slate-500')]
+        .find(e => e.textContent.trim().match(/^\\d{2}-\\d{2}$/));
+    if (!et) return {html: 'sin etiqueta', text: '', clases: []};
+    let n = et;
+    for (let i = 0; i < nivel && n.parentElement; i++) n = n.parentElement;
+    return {
+        html: n.outerHTML,
+        text: (n.innerText || '').replace(/\\s+/g, ' ').trim(),
+        clases: [...new Set([...n.querySelectorAll('*')]
+            .map(e => e.className).filter(c => typeof c === 'string' && c))],
+    };
+}"""
 
 with sync_playwright() as p:
     b = p.chromium.launch(headless=True)
@@ -26,31 +38,11 @@ with sync_playwright() as p:
             continue
         time.sleep(4)
 
-        # Subimos desde la etiqueta de fecha hasta la fila que la contiene
-        for nivel in (1, 2, 3):
-            html = page.evaluate("""(nivel) => {
-                const et = [...document.querySelectorAll('.bg-slate-500')]
-                    .find(e => e.textContent.trim().match(/^\\d{2}-\\d{2}$/));
-                if (!et) return 'sin etiqueta';
-                let n = et;
-                for (let i = 0; i < nivel && n.parentElement; i++) n = n.parentElement;
-                return n.outerHTML;
-            }""", nivel)
-            print(f"\n  --- ancestro nivel {nivel} ({len(html)} chars) ---")
-            print("  " + html[:1800].replace('\n', ' '))
-
-        # Todas las clases que aparecen dentro de la primera fila
-        clases = page.evaluate("""() => {
-            const et = [...document.querySelectorAll('.bg-slate-500')]
-                .find(e => e.textContent.trim().match(/^\\d{2}-\\d{2}$/));
-            if (!et) return [];
-            let fila = et;
-            for (let i = 0; i < 3 && fila.parentElement; i++) fila = fila.parentElement;
-            return [...new Set([...fila.querySelectorAll('*')]
-                .map(e => e.className).filter(c => typeof c === 'string' && c))];
-        }""")
-        print(f"\n  --- clases dentro de la fila ---")
-        for c in clases[:30]:
-            print(f"      {c[:150]}")
+        for nivel in (4, 5):
+            r = page.evaluate(JS, nivel)
+            print(f"\n  --- nivel {nivel} | texto: {r['text'][:120]!r}")
+            print(f"  HTML ({len(r['html'])} chars):")
+            print("  " + r['html'][:2200].replace('\n', ' '))
+            print(f"  clases: {r['clases'][:22]}")
 
     b.close()
