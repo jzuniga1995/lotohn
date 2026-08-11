@@ -1,6 +1,12 @@
 name: Scraper Loto Honduras
 on:
   workflow_dispatch:
+  schedule:
+    # Sorteos: 11:00 AM, 3:00 PM y 9:00 PM HN (UTC-6) => 17:00, 21:00 y 03:00 UTC.
+    # Corremos ~25 y ~55 min después de cada uno: el primero recoge el resultado
+    # y el segundo cubre tanto el retraso de la fuente al publicar como el que
+    # GitHub Actions arrastra cuando está cargado.
+    - cron: '25,55 3,17,21 * * *'
 permissions:
   contents: write
 jobs:

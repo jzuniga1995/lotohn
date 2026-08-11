@@ -151,6 +151,65 @@ KEYS_VIGENTES = {j['key'] for j in JUEGOS.values()}
 # siguiente y hay que restarle un día para obtener la fecha real del sorteo.
 DESFASE_UTC_DIAS = {'11:00 AM': 0, '3:00 PM': 0, '9:00 PM': 1}
 
+# Minuto del día (hora HN) en que se juega cada tanda
+HORA_EN_MINUTOS = {'11:00 AM': 11 * 60, '3:00 PM': 15 * 60, '9:00 PM': 21 * 60}
+
+# Cuánto le damos a la fuente para publicar un sorteo antes de darlo por atrasado
+MARGEN_PUBLICACION_MIN = 30
+
+# Para fechar una tarjeta del feed "En Directo" el margen tiene que ser corto: si
+# ya pasó la hora del sorteo y trae números, son los de ese sorteo. Con el margen
+# de publicación la fecharíamos como la de ayer justo cuando acaba de salir.
+MARGEN_SORTEO_EN_VIVO_MIN = 5
+
+# Juegos que no se sortean todos los días (weekday(): lunes=0 … domingo=6)
+DIAS_SORTEO = {'super_premio': {2, 5}}  # Super Premio: miércoles y sábado
+
+# La etiqueta de la tarjeta no trae año. Si la fecha resultante queda más lejos
+# que esto de hoy, es que el texto no era una fecha y hay que descartarla.
+MAX_DIAS_FECHA = 15
+
+
+def ultimo_sorteo_esperado(juego_key: str, hora: str, ahora: datetime = None,
+                           margen: int = MARGEN_PUBLICACION_MIN) -> date:
+    """Fecha del sorteo más reciente de este juego que ya debería estar publicado."""
+    ahora = ahora or ahora_hn()
+    dia = ahora.date()
+
+    # Antes de la hora del sorteo (+ margen) el último es el del día previo
+    if ahora.hour * 60 + ahora.minute < HORA_EN_MINUTOS[hora] + margen:
+        dia -= timedelta(days=1)
+
+    dias_validos = DIAS_SORTEO.get(juego_key)
+    if dias_validos:
+        while dia.weekday() not in dias_validos:
+            dia -= timedelta(days=1)
+    return dia
+
+
+def cargar_previos(archivo='resultados_hoy.json') -> dict:
+    """key -> numeros_adicionales ya guardados, para no re-guardar lo mismo."""
+    try:
+        if not os.path.exists(archivo):
+            return {}
+        with open(archivo, 'r', encoding='utf-8') as f:
+            sorteos = json.load(f).get('sorteos', {})
+        return {k: v.get('numeros_adicionales') for k, v in sorteos.items()}
+    except Exception as e:
+        print(f"⚠️  No se pudieron leer los resultados previos: {e}")
+        return {}
+
+
+def sorteos_atrasados(guardados: dict) -> list:
+    """Juegos cuyo último resultado guardado no es el sorteo que ya tocaba."""
+    atrasados = []
+    for juego in JUEGOS.values():
+        esperado = ultimo_sorteo_esperado(juego['key'], juego['hora']).strftime('%Y-%m-%d')
+        actual = (guardados.get(juego['key']) or {}).get('fecha_historial')
+        if actual != esperado:
+            atrasados.append((juego['nombre'], actual, esperado))
+    return atrasados
+
 
 class LotoHondurasScraper:
 
@@ -163,8 +222,10 @@ class LotoHondurasScraper:
     # ENTRADA PRINCIPAL
     # ----------------------------------------
 
-    def obtener_resultados(self) -> dict:
+    def obtener_resultados(self, previos: dict = None) -> dict:
         resultados = {}
+        descartes = []
+        previos = previos or {}
 
         print(f"🌐 Cargando {self.BASE_URL} ...")
         print("=" * 60)
@@ -184,26 +245,40 @@ class LotoHondurasScraper:
                     browser.close()
                     return resultados
 
-                time.sleep(2)
+                self._esperar_tarjetas_estables(page)
 
                 tarjetas = page.query_selector_all('a[href*="/loto-hn/"]')
                 print(f"🃏 Enlaces de sorteo encontrados: {len(tarjetas)}")
 
                 for tarjeta in tarjetas:
-                    resultado = self._procesar_tarjeta(tarjeta)
+                    resultado, motivo = self._procesar_tarjeta(tarjeta, previos)
+                    if motivo:
+                        descartes.append(motivo)
                     if not resultado:
                         continue
                     key = resultado['juego']
-                    if key in resultados:
-                        continue  # la fuente repite el sorteo en el feed "En Directo"
+                    # La fuente muestra el mismo juego varias veces (feed "En Directo"
+                    # + grilla de resultados). Nos quedamos con el sorteo más nuevo,
+                    # no con el que venga primero en el DOM.
+                    if key in resultados and not self._es_mas_reciente(resultado, resultados[key]):
+                        continue
                     resultados[key] = resultado
                     print(f"   ✅ {resultado['nombre_juego']}: {resultado['numero_ganador']} "
-                          f"| {resultado['fecha_historial']} | todos: {resultado['numeros_adicionales']}")
+                          f"| {resultado['fecha_historial']} | {resultado['origen']} "
+                          f"| todos: {resultado['numeros_adicionales']}")
 
                 browser.close()
 
         except Exception as e:
             print(f"❌ Error iniciando Playwright/browser: {e}")
+
+        if descartes:
+            # Sin esto, una tarjeta rechazada desaparece en silencio y el juego se
+            # queda con el resultado de ayer sin que nada lo indique
+            print("-" * 60)
+            print("🔍 Tarjetas descartadas:")
+            for motivo in descartes:
+                print(f"   · {motivo}")
 
         print("=" * 60)
         print(f"✨ Sorteos obtenidos: {len(resultados)}/{len(JUEGOS)}")
@@ -211,6 +286,28 @@ class LotoHondurasScraper:
         if faltantes:
             print(f"⚠️  Sin resultado en la fuente: {', '.join(sorted(faltantes))}")
         return resultados
+
+    @staticmethod
+    def _es_mas_reciente(nuevo: dict, actual: dict) -> bool:
+        if nuevo['fecha_historial'] != actual['fecha_historial']:
+            return nuevo['fecha_historial'] > actual['fecha_historial']
+        # A igual fecha manda la tarjeta que trae fecha propia sobre la del feed
+        return actual['origen'] == 'en_directo' and nuevo['origen'] == 'etiqueta'
+
+    # ----------------------------------------
+    # ESPERAR A QUE LA GRILLA TERMINE DE PINTARSE
+    # ----------------------------------------
+
+    def _esperar_tarjetas_estables(self, page, intentos: int = 8, pausa: float = 1.0):
+        """La grilla se pinta por partes: esperamos a que deje de crecer para no
+        leerla a medias y perder los sorteos que faltaban por renderizar."""
+        previo = -1
+        for _ in range(intentos):
+            actual = len(page.query_selector_all('a[href*="/loto-hn/"] .past-score-ball'))
+            if actual and actual == previo:
+                return
+            previo = actual
+            time.sleep(pausa)
 
     # ----------------------------------------
     # NAVEGACIÓN CON REINTENTOS
@@ -234,32 +331,50 @@ class LotoHondurasScraper:
     # PROCESAR UNA TARJETA DE RESULTADO
     # ----------------------------------------
 
-    def _procesar_tarjeta(self, tarjeta):
+    def _procesar_tarjeta(self, tarjeta, previos: dict = None):
         """El enlace <a href="/loto-hn/<slug>/"> envuelve toda la tarjeta del
-        sorteo: la etiqueta con la fecha, el nombre y las bolas."""
+        sorteo: la etiqueta con la fecha, el nombre y las bolas.
+
+        Retorna (resultado, motivo_descarte). El motivo solo se llena cuando la
+        tarjeta era de un juego vigente pero no se pudo usar."""
+        previos = previos or {}
         href = tarjeta.get_attribute('href') or ''
         if '/estadisticas/' in href:
-            return None  # tarjeta de "Números Calientes", no es un resultado
+            return None, None  # tarjeta de "Números Calientes", no es un resultado
 
         slug = href.strip('/').split('/')[-1]
         juego = JUEGOS.get(slug)
         if not juego:
-            return None
-
-        fecha_etiqueta = self._extraer_fecha(tarjeta)
-        if not fecha_etiqueta:
-            return None  # sin fecha propia: es el feed "En Directo", ya viene en la grilla
+            return None, None
 
         numeros = self._extraer_balls(tarjeta)
         if not numeros:
-            return None
+            return None, f"{slug}: tarjeta sin números (sorteo aún sin publicar)"
 
-        fecha_sorteo = fecha_etiqueta - timedelta(days=DESFASE_UTC_DIAS[juego['hora']])
+        fecha_etiqueta = self._extraer_fecha(tarjeta)
+        if fecha_etiqueta:
+            fecha_sorteo = fecha_etiqueta - timedelta(days=DESFASE_UTC_DIAS[juego['hora']])
+            origen = 'etiqueta'
+        else:
+            # Tarjeta del feed "En Directo": no trae fecha propia. Es la primera
+            # en mostrar el sorteo recién salido — la grilla tarda en refrescarse —
+            # así que antes se descartaba y el juego se quedaba con el de ayer.
+            # La fechamos con el calendario del juego.
+            fecha_sorteo = ultimo_sorteo_esperado(juego['key'], juego['hora'],
+                                                  margen=MARGEN_SORTEO_EN_VIVO_MIN)
+            origen = 'en_directo'
+
         ganador, adicionales, individuales, extras = self._formatear_numeros(numeros, juego['key'])
         if not ganador:
-            return None
+            return None, f"{slug}: no se pudo interpretar {numeros}"
+
+        if origen == 'en_directo' and previos.get(juego['key']) == adicionales:
+            # El feed sigue mostrando el sorteo anterior: sin fecha propia no
+            # podemos distinguirlo del nuevo, así que no lo re-fechamos como de hoy
+            return None, f"{slug}: feed En Directo repite el resultado ya guardado"
 
         return {
+            'origen':               origen,
             'juego':                juego['key'],
             'nombre_juego':         juego['nombre'],
             'fecha_consulta':       datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'),
@@ -274,7 +389,7 @@ class LotoHondurasScraper:
             'estado':               'completado',
             'logo_url':             f"/logos/{juego['key']}.png",
             'extras':               extras
-        }
+        }, None
 
     # ----------------------------------------
     # FECHA DE LA TARJETA (etiqueta "dd-mm")
@@ -300,7 +415,12 @@ class LotoHondurasScraper:
                 continue  # 29-02 en año no bisiesto
         if not candidatos:
             return None
-        return min(candidatos, key=lambda d: abs((d - hoy).days))
+        elegida = min(candidatos, key=lambda d: abs((d - hoy).days))
+        if abs((elegida - hoy).days) > MAX_DIAS_FECHA:
+            # Sin la etiqueta de fecha leemos el texto entero de la tarjeta, donde
+            # unos números como "05-10" pasan por fecha. Una fecha lejana delata eso.
+            return None
+        return elegida
 
     # ----------------------------------------
     # EXTRAER NÚMEROS DE LAS BOLAS
@@ -349,7 +469,8 @@ class LotoHondurasScraper:
     # GUARDAR JSON HOY
     # ----------------------------------------
 
-    def guardar_resultados_json(self, resultados: dict, archivo='resultados_hoy.json') -> bool:
+    def guardar_resultados_json(self, resultados: dict, archivo='resultados_hoy.json'):
+        """Retorna el diccionario de sorteos ya fusionado, o None si falló."""
         try:
             existente = {}
             if os.path.exists(archivo):
@@ -374,10 +495,10 @@ class LotoHondurasScraper:
             with open(archivo, 'w', encoding='utf-8') as f:
                 json.dump(salida, f, ensure_ascii=False, indent=2)
             print(f"💾 Guardado: {archivo}")
-            return True
+            return existente
         except Exception as e:
             print(f"❌ Error al guardar: {e}")
-            return False
+            return None
 
     # ----------------------------------------
     # GUARDAR HISTORIAL
@@ -390,11 +511,16 @@ class LotoHondurasScraper:
                 with open(archivo, 'r', encoding='utf-8') as f:
                     historial = json.load(f)
 
+            hoy = fecha_hn_str('%Y-%m-%d')
             nuevos, corregidos = 0, 0
             for key, data in resultados.items():
                 # Cada tarjeta trae su propia fecha, así que un sorteo viejo que
                 # siga en pantalla se guarda en su día y no en el de hoy
                 fecha_key = data['fecha_historial']
+                if fecha_key > hoy:
+                    # Una etiqueta mal leída no debe abrir un día en el futuro
+                    print(f"   ⏭️  Ignorado {key}: fecha futura {fecha_key}")
+                    continue
                 if fecha_key not in historial:
                     historial[fecha_key] = {}
                 anterior = historial[fecha_key].get(key)
@@ -434,13 +560,27 @@ if __name__ == "__main__":
     print(f"⏰ Hora HN: {fecha_hn_str('%Y-%m-%d %H:%M')}")
     print("=" * 60)
 
-    resultados = scraper.obtener_resultados()
+    resultados = scraper.obtener_resultados(cargar_previos('resultados_hoy.json'))
 
     if not resultados:
         alerta_error_scraping("No se obtuvo ningún resultado de loteriasdehonduras.com")
     else:
-        scraper.guardar_resultados_json(resultados, 'resultados_hoy.json')
+        guardados = scraper.guardar_resultados_json(resultados, 'resultados_hoy.json')
         scraper.guardar_historial_json(resultados, 'historial.json')
+
+        # Un juego que la fuente no devolvió conserva el resultado anterior: hay
+        # que decirlo, porque si no parece que todo se actualizó cuando no fue así
+        atrasados = sorteos_atrasados(guardados or {})
+        if atrasados:
+            print("-" * 60)
+            print(f"🕓 Juegos que siguen con el sorteo anterior ({len(atrasados)}):")
+            for nombre, actual, esperado in atrasados:
+                print(f"   · {nombre}: guardado {actual} — se esperaba {esperado}")
+            alerta_error_scraping(
+                f"{len(atrasados)} juego(s) sin actualizar: "
+                + ", ".join(f"{n} ({a} en vez de {e})" for n, a, e in atrasados)
+            )
+
         purgar_cache_cloudflare()
         resumen_telegram(resultados)
 

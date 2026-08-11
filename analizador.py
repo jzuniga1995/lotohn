@@ -21,17 +21,25 @@ SORTEOS_A_ANALIZAR = 30
 
 
 def cargar_historial() -> dict:
+    # El local manda: en el workflow el scraper acaba de escribirlo y el remoto
+    # todavía es el de la corrida anterior, así que bajarlo analizaba datos viejos
+    if os.path.exists("historial.json"):
+        try:
+            with open("historial.json", "r", encoding="utf-8") as f:
+                historial = json.load(f)
+            print(f"   📂 historial.json local: {len(historial)} días")
+            return historial
+        except Exception as e:
+            print(f"⚠️  No se pudo leer historial.json local: {e}")
+
     try:
         import requests
         resp = requests.get(HISTORIAL_URL, timeout=15)
         resp.raise_for_status()
+        print("   🌐 historial remoto (main)")
         return resp.json()
     except Exception as e:
         print(f"⚠️  No se pudo cargar historial remoto: {e}")
-
-    if os.path.exists("historial.json"):
-        with open("historial.json", "r", encoding="utf-8") as f:
-            return json.load(f)
 
     return {}
 
