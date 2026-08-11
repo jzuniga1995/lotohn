@@ -169,13 +169,18 @@ DIAS_SORTEO = {'super_premio': {2, 5}}  # Super Premio: miércoles y sábado
 # que esto de hoy, es que el texto no era una fecha y hay que descartarla.
 MAX_DIAS_FECHA = 15
 
-# La fuente pinta el sorteo MÁS RECIENTE con .score-shape-circle y los anteriores
-# con .past-score-ball ("past" = pasados). Mirando solo los "past" se perdía justo
-# el resultado recién salido: al llegar la hora del sorteo su tarjeta cambia de
-# clase y se quedaba sin ninguna bola que leer, así que el juego seguía mostrando
-# el de ayer hasta que ese resultado pasara a ser "anterior".
+# La fuente pinta el sorteo MÁS RECIENTE con .score-shape-* y los anteriores con
+# .past-score-ball ("past" = pasados). Mirando solo los "past" se perdía justo el
+# resultado recién salido: al llegar la hora del sorteo su tarjeta cambia de clase
+# y se quedaba sin ninguna bola que leer, así que el juego seguía mostrando el de
+# ayer hasta que ese resultado pasara a ser "anterior".
+#
+# El sufijo depende de la FORMA de la bola: -circle para los números de dos
+# dígitos (Pega 3, Premia 2) y -square para los compuestos (Jugá 3 con sus tres
+# dígitos, La Diaria con "59 Selva"). Por eso se busca por prefijo y no por las
+# clases exactas: así también entran las formas que la fuente agregue después.
 SELECTOR_TARJETA = 'a[href*="/loto-hn/"]'
-SELECTOR_BOLAS = '.score-shape-circle, .past-score-ball'
+SELECTOR_BOLAS = '[class*="score-shape"], .past-score-ball'
 SELECTOR_ESPERA = ', '.join(f'{SELECTOR_TARJETA} {s.strip()}'
                             for s in SELECTOR_BOLAS.split(','))
 
@@ -427,7 +432,7 @@ class LotoHondurasScraper:
             let n = et;
             for (let i = 0; i < 6 && n.parentElement; i++) {
                 n = n.parentElement;
-                const bolas = n.querySelectorAll('.score-shape-circle, .past-score-ball');
+                const bolas = n.querySelectorAll('[class*="score-shape"], .past-score-ball');
                 // Una sola etiqueta de fecha = seguimos dentro de la misma fila.
                 // Sin esto podríamos subir hasta la lista entera y mezclar sorteos.
                 if (bolas.length && n.querySelectorAll('.bg-slate-500').length === 1) {
