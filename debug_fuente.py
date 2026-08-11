@@ -1,7 +1,6 @@
 """Script temporal de diagnóstico: vuelca las llamadas de red y las tarjetas
 de resultados de loteriasdehonduras.com. Se elimina después de usarlo."""
 
-import json
 import re
 
 from playwright.sync_api import sync_playwright
@@ -10,62 +9,53 @@ URL = "https://loteriasdehonduras.com/"
 UA = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
       '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
 
+IGNORAR = ('.js', '.css', '.png', '.jpg', '.jpeg', '.webp', '.svg', '.woff',
+           '.woff2', '.ttf', '.ico', '.gif', '.mp4')
+
 
 def main():
-    capturas = []
+    urls = []
 
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_context(user_agent=UA).new_page()
 
-        def on_response(resp):
+        page.on('request', lambda r: urls.append((r.method, r.url, r.resource_type)))
+        page.goto(URL, wait_until='domcontentloaded', timeout=60000)
+        page.wait_for_timeout(8000)
+
+        print("=" * 70)
+        print(f"=== PETICIONES ({len(urls)}) — filtradas ===")
+        print("=" * 70)
+        candidatas = []
+        for metodo, u, tipo in urls:
+            if any(u.split('?')[0].endswith(ext) for ext in IGNORAR):
+                continue
+            print(f"  [{tipo:10s}] {metodo} {u}")
+            if tipo in ('xhr', 'fetch'):
+                candidatas.append(u)
+
+        print("\n" + "=" * 70)
+        print("=== CUERPOS DE LAS XHR/FETCH ===")
+        print("=" * 70)
+        for u in dict.fromkeys(candidatas):
             try:
-                ct = (resp.headers.get('content-type') or '')
-                if 'json' not in ct:
-                    return
-                capturas.append((resp.url, resp.status, resp.text()[:6000]))
+                r = page.request.get(u)
+                ct = r.headers.get('content-type', '')
+                print(f"\n----- [{r.status}] {ct} {u} -----")
+                print(r.text()[:5000])
             except Exception as e:
-                capturas.append((resp.url, -1, f"ERROR leyendo: {e}"))
-
-        page.on('response', on_response)
-        page.goto(URL, wait_until='networkidle', timeout=60000)
-        page.wait_for_timeout(4000)
-
-        print("=" * 70)
-        print(f"=== RESPUESTAS JSON CAPTURADAS: {len(capturas)} ===")
-        print("=" * 70)
-        for url, status, body in capturas:
-            print(f"\n----- [{status}] {url} -----")
-            print(body)
+                print(f"\n----- ERROR {u}: {e}")
 
         print("\n" + "=" * 70)
         print("=== TARJETAS .p-card (outerHTML) ===")
         print("=" * 70)
         cards = page.query_selector_all('.p-card')
         print(f"total .p-card = {len(cards)}")
-        for i, c in enumerate(cards[:24]):
-            html = c.evaluate('el => el.outerHTML')
+        for i, c in enumerate(cards[:20]):
             texto = re.sub(r'\s+', ' | ', c.inner_text().strip())
             print(f"\n----- CARD[{i}] texto: {texto[:200]}")
-            print(html[:2500])
-
-        # Contenedor padre de las tarjetas: revela el grid de resultados
-        print("\n" + "=" * 70)
-        print("=== PADRES DE LAS TARJETAS ===")
-        print("=" * 70)
-        vistos = set()
-        for c in cards[:24]:
-            info = c.evaluate("""el => {
-                const p = el.parentElement, g = p && p.parentElement;
-                return JSON.stringify({
-                    padre: p ? p.className : null,
-                    abuelo: g ? g.className : null,
-                    hermanos: p ? p.children.length : 0
-                });
-            }""")
-            if info not in vistos:
-                vistos.add(info)
-                print(info)
+            print(c.evaluate('el => el.outerHTML')[:2200])
 
         browser.close()
 
