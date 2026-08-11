@@ -1,6 +1,6 @@
 {
   "fecha": "2026-08-11",
-  "generado_en": "2026-08-11T20:39:56Z",
+  "generado_en": "2026-08-11T20:44:01Z",
   "juegos": {
     "juga3": {
       "patrones": "Más frecuentes: 308(1v), 457(1v), 345(1v) en 30 sorteos analizados.",
@@ -36,12 +36,12 @@
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 04(11v), 00(11v), 03(9v) en 85 sorteos analizados.",
-      "tendencias": "Los números 04, 03, 07 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 04(11v), 00(11v), 05(9v) en 86 sorteos analizados.",
+      "tendencias": "Los números 05, 04, 03 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "04",
         "00",
-        "03"
+        "05"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
