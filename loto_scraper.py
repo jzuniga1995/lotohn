@@ -202,6 +202,23 @@ def ultimo_sorteo_esperado(juego_key: str, hora: str, ahora: datetime = None,
     return dia
 
 
+# Cuántos valores trae numeros_adicionales de cada familia. Sirve para detectar
+# una tarjeta a medio pintar: la portada llegó a mostrar La Diaria como
+# ['59', 'Selva', '2X'], sin el "Más 1" que su página sí listaba.
+VALORES_ESPERADOS = {'juga3': 1, 'premia2': 2, 'pega_3': 3, 'diaria': 4, 'super_premio': 6}
+
+
+def valores_esperados(juego_key: str) -> int:
+    for prefijo, n in VALORES_ESPERADOS.items():
+        if juego_key.startswith(prefijo):
+            return n
+    return 1
+
+
+def esta_incompleto(resultado: dict, juego_key: str) -> bool:
+    return len(resultado.get('numeros_adicionales') or []) < valores_esperados(juego_key)
+
+
 def cargar_previos(archivo='resultados_hoy.json') -> dict:
     """key -> numeros_adicionales ya guardados, para no re-guardar lo mismo."""
     try:
@@ -216,14 +233,20 @@ def cargar_previos(archivo='resultados_hoy.json') -> dict:
 
 
 def sorteos_atrasados(guardados: dict) -> list:
-    """Juegos cuyo último resultado guardado no es el sorteo que ya tocaba."""
-    atrasados = []
+    """Juegos cuyo último resultado guardado no es el sorteo que ya tocaba, o que
+    quedó a medias. Retorna (nombre, motivo)."""
+    problemas = []
     for juego in JUEGOS.values():
+        guardado = guardados.get(juego['key']) or {}
         esperado = ultimo_sorteo_esperado(juego['key'], juego['hora']).strftime('%Y-%m-%d')
-        actual = (guardados.get(juego['key']) or {}).get('fecha_historial')
+        actual = guardado.get('fecha_historial')
         if actual != esperado:
-            atrasados.append((juego['nombre'], actual, esperado))
-    return atrasados
+            problemas.append((juego['nombre'], f"guardado {actual} — se esperaba {esperado}"))
+        elif esta_incompleto(guardado, juego['key']):
+            problemas.append((juego['nombre'],
+                              f"incompleto: {guardado.get('numeros_adicionales')} "
+                              f"({valores_esperados(juego['key'])} valores esperados)"))
+    return problemas
 
 
 class LotoHondurasScraper:
@@ -447,13 +470,18 @@ class LotoHondurasScraper:
     }"""
 
     def _completar_desde_paginas(self, page, resultados: dict) -> list:
-        faltantes = [(slug, j) for slug, j in JUEGOS.items() if j['key'] not in resultados]
+        # También se reintenta lo que salió a medias: una tarjeta a medio pintar
+        # es tan inservible como una ausente si le falta la mitad de los números
+        faltantes = [(slug, j) for slug, j in JUEGOS.items()
+                     if j['key'] not in resultados
+                     or esta_incompleto(resultados[j['key']], j['key'])]
         if not faltantes:
             return []
 
         notas = []
         print("-" * 60)
-        print(f"📄 Buscando en la página de cada juego los {len(faltantes)} que faltan...")
+        print(f"📄 Buscando en la página de cada juego los {len(faltantes)} "
+              f"que faltan o salieron incompletos...")
 
         for slug, juego in faltantes:
             url = f"{self.BASE_URL}loto-hn/{slug}/"
@@ -486,8 +514,20 @@ class LotoHondurasScraper:
                 notas.append(f"{slug}: no se pudo interpretar {nums} de su página")
                 continue
 
-            resultados[juego['key']] = self._armar_resultado(
-                juego, fecha_sorteo, ganador, adicionales, individuales, extras, 'pagina_juego')
+            nuevo = self._armar_resultado(juego, fecha_sorteo, ganador, adicionales,
+                                          individuales, extras, 'pagina_juego')
+            actual = resultados.get(juego['key'])
+            if actual:
+                # La página puede ir más atrasada que la portada, o traer lo mismo
+                if nuevo['fecha_historial'] < actual['fecha_historial']:
+                    notas.append(f"{slug}: su página está más atrasada que la portada")
+                    continue
+                if (nuevo['fecha_historial'] == actual['fecha_historial']
+                        and len(adicionales) <= len(actual['numeros_adicionales'])):
+                    notas.append(f"{slug}: su página tampoco trae los valores que faltan")
+                    continue
+
+            resultados[juego['key']] = nuevo
             print(f"   ✅ {juego['nombre']}: {ganador} | {fecha_sorteo:%Y-%m-%d} "
                   f"| pagina_juego | todos: {adicionales}")
 
@@ -676,15 +716,15 @@ if __name__ == "__main__":
 
         # Un juego que la fuente no devolvió conserva el resultado anterior: hay
         # que decirlo, porque si no parece que todo se actualizó cuando no fue así
-        atrasados = sorteos_atrasados(guardados or {})
-        if atrasados:
+        problemas = sorteos_atrasados(guardados or {})
+        if problemas:
             print("-" * 60)
-            print(f"🕓 Juegos que siguen con el sorteo anterior ({len(atrasados)}):")
-            for nombre, actual, esperado in atrasados:
-                print(f"   · {nombre}: guardado {actual} — se esperaba {esperado}")
+            print(f"🕓 Juegos sin el resultado que ya tocaba ({len(problemas)}):")
+            for nombre, motivo in problemas:
+                print(f"   · {nombre}: {motivo}")
             alerta_error_scraping(
-                f"{len(atrasados)} juego(s) sin actualizar: "
-                + ", ".join(f"{n} ({a} en vez de {e})" for n, a, e in atrasados)
+                f"{len(problemas)} juego(s) sin actualizar: "
+                + ", ".join(f"{n} ({m})" for n, m in problemas)
             )
 
         purgar_cache_cloudflare()
