@@ -1,0 +1,13 @@
+name: Debug pagina interna
+on:
+  workflow_dispatch:
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: pip install playwright requests && playwright install chromium --with-deps
+      - run: python diag_detalle.py
