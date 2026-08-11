@@ -338,7 +338,9 @@ class LotoHondurasScraper:
                 'multiplicador': resto[0] if len(resto) > 0 else None,
                 'adicional':     resto[1] if len(resto) > 1 else None,
             }
-            return numero, adicionales, [numero], extras
+            # individuales == adicionales: el frontend los usa para pintar
+            # número · signo · multiplicador · Más 1
+            return numero, adicionales, list(adicionales), extras
 
         # premia2, pega_3 y super_premio: una bola por número
         return numeros[0], list(numeros), list(numeros), {}
