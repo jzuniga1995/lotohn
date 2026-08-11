@@ -14,8 +14,18 @@ jobs:
       - name: 📦 Install dependencies
         run: |
           pip install --upgrade pip
-          pip install requests beautifulsoup4 playwright
+          pip install requests playwright
           playwright install chromium --with-deps
 
-      - name: 🔍 Dump estructura
-        run: python debug_fuente.py
+      - name: 🚀 Ejecutar scraper (sin commit)
+        run: python loto_scraper.py
+
+      - name: 🧠 Ejecutar analizador
+        run: python analizador.py
+
+      - name: 📄 Resultado
+        run: |
+          echo "===== resultados_hoy.json ====="
+          cat resultados_hoy.json
+          echo "===== historial (hoy y ayer) ====="
+          python -c "import json;h=json.load(open('historial.json'));[print(f,h[f]) for f in sorted(h)[-3:]]"

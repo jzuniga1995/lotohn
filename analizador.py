@@ -7,12 +7,14 @@ from datetime import datetime, timedelta, timezone
 
 HISTORIAL_URL = "https://raw.githubusercontent.com/jzuniga1995/lotohn/main/historial.json"
 
+# Cada juego lista los prefijos con los que aparece en historial.json: las
+# claves cambiaron al cambiar de fuente y el historial conserva las dos formas.
 JUEGOS = {
-    'juga3':        'Jugá 3',
-    'pega_3':       'Pega 3',
-    'premia2':      'Premia 2',
-    'la_diaria':    'La Diaria',
-    'super_premio': 'Súper Premio',
+    'juga3':        ('Jugá 3',       ('juga3',)),
+    'pega_3':       ('Pega 3',       ('pega_3', 'pega3')),
+    'premia2':      ('Premia 2',     ('premia2',)),
+    'la_diaria':    ('La Diaria',    ('diaria', 'la_diaria')),
+    'super_premio': ('Súper Premio', ('super_premio',)),
 }
 
 SORTEOS_A_ANALIZAR = 30
@@ -34,11 +36,11 @@ def cargar_historial() -> dict:
     return {}
 
 
-def extraer_sorteos_juego(historial: dict, slug: str) -> list:
+def extraer_sorteos_juego(historial: dict, prefijos: tuple) -> list:
     resultados = []
     for fecha in sorted(historial.keys(), reverse=True):
         for key, nums in historial[fecha].items():
-            if (key.startswith(slug) or key == slug) and isinstance(nums, list) and nums:
+            if key.startswith(prefijos) and isinstance(nums, list) and nums:
                 resultados.append({"fecha": fecha, "key": key, "nums": nums})
         if len(resultados) >= SORTEOS_A_ANALIZAR:
             break
@@ -177,9 +179,9 @@ def generar_analisis() -> dict | None:
         "juegos":      {}
     }
 
-    for slug, nombre in JUEGOS.items():
+    for slug, (nombre, prefijos) in JUEGOS.items():
         print(f"\n📊 Analizando {nombre} ({slug})...")
-        sorteos = extraer_sorteos_juego(historial, slug)
+        sorteos = extraer_sorteos_juego(historial, prefijos)
         print(f"   📈 {len(sorteos)} sorteos encontrados")
         analisis = analizar_juego(slug, nombre, sorteos)
         resultado["juegos"][slug] = analisis
@@ -210,7 +212,8 @@ def main():
     for slug, data in analisis["juegos"].items():
         n = data.get("sorteos_analizados", 0)
         ok = "✅" if data.get("sugerencias") else "⚠️ "
-        print(f"  {ok} {JUEGOS.get(slug, slug)}: {n} sorteos — {data['sugerencias']}")
+        nombre = JUEGOS[slug][0] if slug in JUEGOS else slug
+        print(f"  {ok} {nombre}: {n} sorteos — {data['sugerencias']}")
     print("=" * 60)
 
     return True

@@ -1,8 +1,9 @@
 import json
+import re
 import time
 import os
 import requests
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from playwright.sync_api import sync_playwright
 
 
@@ -27,10 +28,6 @@ def ahora_hn() -> datetime:
 
 def fecha_hn_str(fmt='%Y-%m-%d') -> str:
     return ahora_hn().strftime(fmt)
-
-def fecha_hn_ddmm() -> str:
-    hn = ahora_hn()
-    return f"{str(hn.day).zfill(2)}-{str(hn.month).zfill(2)}"
 
 
 # ============================================
@@ -59,10 +56,9 @@ def enviar_telegram(mensaje: str, silencioso: bool = False) -> bool:
         return False
 
 
-def alerta_error_scraping(juego_key: str, motivo: str):
+def alerta_error_scraping(motivo: str):
     msg = (
         "🚨 <b>SCRAPER — ERROR</b>\n"
-        f"🎲 Juego: <code>{juego_key}</code>\n"
         f"❌ Motivo: {motivo}\n"
         f"🕐 {fecha_hn_str('%Y-%m-%d %H:%M:%S')} HN"
     )
@@ -70,24 +66,26 @@ def alerta_error_scraping(juego_key: str, motivo: str):
     enviar_telegram(msg)
 
 
-def resumen_tanda_telegram(nombre_tanda: str, resultados: dict):
-    bloque_ok, bloque_pendiente = [], []
+def resumen_telegram(resultados: dict):
+    hoy = fecha_hn_str('%Y-%m-%d')
+    bloque_hoy, bloque_previos = [], []
 
-    for key, data in resultados.items():
-        nombre = data.get('nombre_juego', key)
-        if data.get('numero_ganador'):
-            bloque_ok.append(f"  ✅ <b>{nombre}</b>: {data['numero_ganador']}")
+    for data in resultados.values():
+        nombre = data.get('nombre_juego', data.get('juego'))
+        linea  = f"  ✅ <b>{nombre}</b>: {data['numero_ganador']}"
+        if data.get('fecha_historial') == hoy:
+            bloque_hoy.append(linea)
         else:
-            bloque_pendiente.append(f"  ⏳ <b>{nombre}</b>")
+            bloque_previos.append(f"{linea} <i>({data['fecha_sorteo']})</i>")
 
     lineas = [
-        f"📊 <b>LOTO HONDURAS — TANDA {nombre_tanda.upper()}</b>",
+        "📊 <b>LOTO HONDURAS — RESULTADOS</b>",
         f"🕐 {fecha_hn_str('%Y-%m-%d %H:%M:%S')} HN",
     ]
-    if bloque_ok:
-        lineas += ["", f"🟢 <b>COMPLETADOS ({len(bloque_ok)})</b>"] + bloque_ok
-    if bloque_pendiente:
-        lineas += ["", f"⏳ <b>PENDIENTES ({len(bloque_pendiente)})</b>"] + bloque_pendiente
+    if bloque_hoy:
+        lineas += ["", f"🟢 <b>SORTEOS DE HOY ({len(bloque_hoy)})</b>"] + bloque_hoy
+    if bloque_previos:
+        lineas += ["", f"🕓 <b>SORTEOS ANTERIORES ({len(bloque_previos)})</b>"] + bloque_previos
 
     print("📨 Enviando resumen a Telegram...")
     enviar_telegram("\n".join(lineas), silencioso=True)
@@ -119,93 +117,53 @@ def purgar_cache_cloudflare():
 
 
 # ============================================
-# TANDAS
+# CATÁLOGO DE JUEGOS — fuente: loteriasdehonduras.com
 # ============================================
+#
+# El slug es el que usa la fuente en sus enlaces (/loto-hn/<slug>/). La clave
+# es la que ya consumen resultados_hoy.json, historial.json y el frontend, así
+# que se conserva aunque el slug de la fuente se llame distinto.
+#
+# Juegos que ya no publica esta fuente y por eso se eliminan:
+# Multi X, Bingo con Todo, InstaCash, Apostemos y Ganagol.
 
-TANDAS = {
-    'manana': {
-        'horas_hn': [11]
-    },
-    'tarde': {
-        'horas_hn': [15]
-    },
-    'bingo': {
-        'horas_hn': [16]  # Bingo con Todo — todos los días 4pm
-    },
-    'noche': {
-        'horas_hn': [21]
-    }
+JUEGOS = {
+    'juga-3-11am':       {'key': 'juga3_11am',   'nombre': 'Jugá 3 11:00 AM',    'hora': '11:00 AM'},
+    'juga-3-3pm':        {'key': 'juga3_3pm',    'nombre': 'Jugá 3 3:00 PM',     'hora': '3:00 PM'},
+    'juga-3-9pm':        {'key': 'juga3_9pm',    'nombre': 'Jugá 3 9:00 PM',     'hora': '9:00 PM'},
+    'premia2-10am':      {'key': 'premia2_11am', 'nombre': 'Premia 2 11:00 AM',  'hora': '11:00 AM'},
+    'premia2-2pm':       {'key': 'premia2_3pm',  'nombre': 'Premia 2 3:00 PM',   'hora': '3:00 PM'},
+    'premia2-9pm':       {'key': 'premia2_9pm',  'nombre': 'Premia 2 9:00 PM',   'hora': '9:00 PM'},
+    'pega-3-10am':       {'key': 'pega_3_11am',  'nombre': 'Pega 3 11:00 AM',    'hora': '11:00 AM'},
+    'pega-3-2pm':        {'key': 'pega_3_3pm',   'nombre': 'Pega 3 3:00 PM',     'hora': '3:00 PM'},
+    'pega-3-9pm':        {'key': 'pega_3_9pm',   'nombre': 'Pega 3 9:00 PM',     'hora': '9:00 PM'},
+    'la-diaria-10am':    {'key': 'diaria_11am',  'nombre': 'La Diaria 11:00 AM', 'hora': '11:00 AM'},
+    'la-diaria-2pm':     {'key': 'diaria_3pm',   'nombre': 'La Diaria 3:00 PM',  'hora': '3:00 PM'},
+    'la-diaria-9pm':     {'key': 'diaria_9pm',   'nombre': 'La Diaria 9:00 PM',  'hora': '9:00 PM'},
+    'loto-super-premio': {'key': 'super_premio', 'nombre': 'Super Premio',       'hora': '9:00 PM'},
 }
 
-DIAS_SUPER_PREMIO = [2, 5]  # miércoles y sábado
+# Claves válidas: todo lo que no esté aquí se borra de resultados_hoy.json
+KEYS_VIGENTES = {j['key'] for j in JUEGOS.values()}
 
-
-def fecha_ultimo_sorteo_super() -> datetime:
-    """Fecha HN del último sorteo de Súper Premio ya realizado (mié/sáb 9pm)."""
-    hn = ahora_hn()
-    for dias_atras in range(8):
-        d = hn - timedelta(days=dias_atras)
-        if d.weekday() in DIAS_SUPER_PREMIO and not (dias_atras == 0 and hn.hour < 21):
-            return d
-    return hn
-
-
-def detectar_tanda():
-    hora_hn = ahora_hn().hour
-
-    for nombre, config in TANDAS.items():
-        if hora_hn in config['horas_hn']:
-            return nombre
-
-    print(f"⏭️  Hora HN {hora_hn}:xx no corresponde a ninguna tanda. Nada que hacer.")
-    return None
-
-
-# ============================================
-# SCRAPER — fuente: loto.hn
-# ============================================
-
-# Juegos sin tanda (resultado único, sin sufijo de hora)
-JUEGOS_SIN_TANDA = {'super_premio', 'instacash', 'apostemos', 'bingo_con_todo', 'ganagol'}
-
-# Sufijo de hora por tanda
-SUFIJO_TANDA = {
-    'manana': '_11am',
-    'tarde':  '_3pm',
-    'noche':  '_9pm',
-}
-
-# Hora legible por tanda
-HORA_TANDA = {
-    'manana': '11:00 AM',
-    'tarde':  '3:00 PM',
-    'noche':  '9:00 PM',
-}
-
-# Nombres legibles por slug
-NOMBRES_JUEGO = {
-    'diaria':         'La Diaria',
-    'super_premio':   'Super Premio',
-    'juga3':          'Jugá 3',
-    'premia2':        'Premia 2',
-    'pega_3':         'Pega 3',
-    'instacash':      'InstaCash',
-    'apostemos':      'Apostemos',
-    'bingo_con_todo': 'Bingo con Todo',
-    'multi_x':        'Multi X',
-    'ganagol':        'Ganagol',
-}
+# La fuente fecha cada tarjeta en UTC. Un sorteo de las 9:00 PM HN ocurre a las
+# 03:00 UTC del día siguiente, así que su tarjeta aparece con la fecha del día
+# siguiente y hay que restarle un día para obtener la fecha real del sorteo.
+DESFASE_UTC_DIAS = {'11:00 AM': 0, '3:00 PM': 0, '9:00 PM': 1}
 
 
 class LotoHondurasScraper:
 
-    BASE_URL = "https://loto.hn/?pag=body"
+    BASE_URL = "https://loteriasdehonduras.com/"
+
+    USER_AGENT = ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+                  '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
 
     # ----------------------------------------
     # ENTRADA PRINCIPAL
     # ----------------------------------------
 
-    def obtener_resultados_tanda(self, nombre_tanda: str) -> dict:
+    def obtener_resultados(self) -> dict:
         resultados = {}
 
         print(f"🌐 Cargando {self.BASE_URL} ...")
@@ -214,81 +172,33 @@ class LotoHondurasScraper:
         try:
             with sync_playwright() as p:
                 browser = p.chromium.launch(headless=True)
-                context = browser.new_context(
-                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
-                               '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-                )
+                context = browser.new_context(user_agent=self.USER_AGENT)
                 page = context.new_page()
 
                 self._navegar_con_reintentos(page)
 
                 try:
-                    page.wait_for_selector('.game-card', timeout=15000)
+                    page.wait_for_selector('a[href*="/loto-hn/"] .past-score-ball', timeout=30000)
                 except Exception as e:
-                    print(f"⚠️  Timeout esperando .game-card: {e}")
+                    print(f"⚠️  Timeout esperando los resultados: {e}")
                     browser.close()
                     return resultados
 
                 time.sleep(2)
 
-                cards = page.query_selector_all('.game-card')
-                print(f"🃏 Tarjetas encontradas: {len(cards)}")
+                tarjetas = page.query_selector_all('a[href*="/loto-hn/"]')
+                print(f"🃏 Enlaces de sorteo encontrados: {len(tarjetas)}")
 
-                for card in cards:
-                    juego_key, nombre_juego = self._identificar_juego(card, nombre_tanda)
-                    if not juego_key:
+                for tarjeta in tarjetas:
+                    resultado = self._procesar_tarjeta(tarjeta)
+                    if not resultado:
                         continue
-
-                    # Tanda de las 4pm: solo interesa el bingo
-                    if nombre_tanda == 'bingo' and juego_key != 'bingo_con_todo':
-                        continue
-
-                    # Bingo con Todo juega todos los días a las 4pm — antes de esa
-                    # hora loto.hn todavía muestra el sorteo de ayer (la card nunca
-                    # se limpia), y guardarlo estamparía fecha de hoy a números viejos
-                    if juego_key == 'bingo_con_todo' and ahora_hn().hour < 16:
-                        print(f"⏭️  Bingo con Todo omitido (el sorteo de las 4pm aún no ocurre)")
-                        continue
-
-                    print(f"📊 Procesando {juego_key}...")
-                    numeros_raw = self._extraer_balls(card)
-
-                    if juego_key == 'bingo_con_todo' and numeros_raw and self._bingo_es_dato_viejo(numeros_raw):
-                        print(f"   ⏭️  Bingo con Todo: loto.hn aún muestra los números de ayer")
-                        continue
-
-                    # Súper Premio: loto.hn publica el resultado con retraso y la
-                    # card muestra el sorteo ANTERIOR mientras tanto. Se procesa
-                    # todos los días y solo se guarda cuando los números cambian
-                    if juego_key == 'super_premio' and numeros_raw and numeros_raw == self._ultimo_super_guardado():
-                        print(f"   ⏭️  Súper Premio: la card aún muestra el sorteo anterior")
-                        continue
-
-                    resultado   = self._resultado_vacio(juego_key, nombre_juego, nombre_tanda)
-
-                    # El resultado del Súper Premio pertenece al último sorteo
-                    # programado (mié/sáb 9pm), no al día en que se scrapea
-                    if juego_key == 'super_premio':
-                        sorteo = fecha_ultimo_sorteo_super()
-                        resultado['fecha_sorteo']    = f"{sorteo.day:02d}-{sorteo.month:02d}"
-                        resultado['fecha_historial'] = sorteo.strftime('%Y-%m-%d')
-
-                    if numeros_raw:
-                        ganador, adicionales, individuales = self._formatear_numeros(numeros_raw, juego_key)
-                        if ganador:
-                            resultado['numero_ganador']       = ganador
-                            resultado['numeros_adicionales']  = adicionales
-                            resultado['numeros_individuales'] = individuales
-                            resultado['estado']               = 'completado'
-                            print(f"   ✅ Ganador: {ganador} | Todos: {adicionales}")
-                        else:
-                            resultado['estado'] = 'pendiente'
-                            print(f"   ⏳ Sin resultado aún")
-                    else:
-                        resultado['estado'] = 'pendiente'
-                        print(f"   ⏳ Sin números en la tarjeta")
-
-                    resultados[juego_key] = resultado
+                    key = resultado['juego']
+                    if key in resultados:
+                        continue  # la fuente repite el sorteo en el feed "En Directo"
+                    resultados[key] = resultado
+                    print(f"   ✅ {resultado['nombre_juego']}: {resultado['numero_ganador']} "
+                          f"| {resultado['fecha_historial']} | todos: {resultado['numeros_adicionales']}")
 
                 browser.close()
 
@@ -296,8 +206,10 @@ class LotoHondurasScraper:
             print(f"❌ Error iniciando Playwright/browser: {e}")
 
         print("=" * 60)
-        completados = sum(1 for r in resultados.values() if r.get('estado') == 'completado')
-        print(f"✨ Completados: {completados}/{len(resultados)}")
+        print(f"✨ Sorteos obtenidos: {len(resultados)}/{len(JUEGOS)}")
+        faltantes = KEYS_VIGENTES - set(resultados)
+        if faltantes:
+            print(f"⚠️  Sin resultado en la fuente: {', '.join(sorted(faltantes))}")
         return resultados
 
     # ----------------------------------------
@@ -308,7 +220,8 @@ class LotoHondurasScraper:
         ultimo_error = None
         for intento in range(MAX_REINTENTOS):
             try:
-                page.goto(self.BASE_URL, wait_until='networkidle', timeout=60000)
+                # 'networkidle' no sirve: la publicidad del sitio mantiene la red ocupada
+                page.goto(self.BASE_URL, wait_until='domcontentloaded', timeout=60000)
                 return
             except Exception as e:
                 ultimo_error = e
@@ -318,50 +231,86 @@ class LotoHondurasScraper:
         raise ultimo_error
 
     # ----------------------------------------
-    # IDENTIFICAR JUEGO — dinámico por href "CONOCE MÁS"
+    # PROCESAR UNA TARJETA DE RESULTADO
     # ----------------------------------------
 
-    def _identificar_juego(self, card, nombre_tanda: str):
-        """
-        Lee el href del botón 'CONOCE MÁS' para extraer ?pag=<slug>.
-        Juegos con tanda reciben sufijo (_11am / _3pm / _9pm).
-        Juegos sin tanda usan el slug directo.
-        Retorna (juego_key, nombre_juego) o (None, None).
-        """
-        slug = None
-        for enlace in card.query_selector_all('a'):
-            href = (enlace.get_attribute('href') or '')
-            if 'pag=' in href:
-                slug = href.split('pag=')[-1].strip().rstrip('/').replace('-', '_').lower()
-                break
+    def _procesar_tarjeta(self, tarjeta):
+        """El enlace <a href="/loto-hn/<slug>/"> envuelve toda la tarjeta del
+        sorteo: la etiqueta con la fecha, el nombre y las bolas."""
+        href = tarjeta.get_attribute('href') or ''
+        if '/estadisticas/' in href:
+            return None  # tarjeta de "Números Calientes", no es un resultado
 
-        if not slug:
-            return None, None
+        slug = href.strip('/').split('/')[-1]
+        juego = JUEGOS.get(slug)
+        if not juego:
+            return None
 
-        nombre_base = NOMBRES_JUEGO.get(slug, slug.replace('_', ' ').title())
+        fecha_etiqueta = self._extraer_fecha(tarjeta)
+        if not fecha_etiqueta:
+            return None  # sin fecha propia: es el feed "En Directo", ya viene en la grilla
 
-        if slug in JUEGOS_SIN_TANDA:
-            return slug, nombre_base
+        numeros = self._extraer_balls(tarjeta)
+        if not numeros:
+            return None
 
-        sufijo       = SUFIJO_TANDA.get(nombre_tanda, '')
-        hora         = HORA_TANDA.get(nombre_tanda, '')
-        juego_key    = f"{slug}{sufijo}"
-        nombre_juego = f"{nombre_base} {hora}".strip()
-        return juego_key, nombre_juego
+        fecha_sorteo = fecha_etiqueta - timedelta(days=DESFASE_UTC_DIAS[juego['hora']])
+        ganador, adicionales, individuales, extras = self._formatear_numeros(numeros, juego['key'])
+        if not ganador:
+            return None
+
+        return {
+            'juego':                juego['key'],
+            'nombre_juego':         juego['nombre'],
+            'fecha_consulta':       datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'),
+            'fecha_sorteo':         fecha_sorteo.strftime('%d-%m'),
+            'fecha_historial':      fecha_sorteo.strftime('%Y-%m-%d'),
+            'hora_sorteo':          juego['hora'],
+            'numero_ganador':       ganador,
+            'numeros_individuales': individuales,
+            'numeros_adicionales':  adicionales,
+            'serie':                None,
+            'folio':                None,
+            'estado':               'completado',
+            'logo_url':             f"/logos/{juego['key']}.png",
+            'extras':               extras
+        }
+
+    # ----------------------------------------
+    # FECHA DE LA TARJETA (etiqueta "dd-mm")
+    # ----------------------------------------
+
+    def _extraer_fecha(self, tarjeta):
+        etiqueta = tarjeta.query_selector('.bg-slate-500')
+        texto = etiqueta.inner_text().strip() if etiqueta else (tarjeta.inner_text() or '')
+        m = re.search(r'\b(\d{2})-(\d{2})\b', texto)
+        if not m:
+            return None
+
+        dia, mes = int(m.group(1)), int(m.group(2))
+        hoy = ahora_hn().date()
+
+        # La etiqueta no trae año: se elige el que deje la fecha más cerca de hoy,
+        # para que el cambio de año no mande los resultados a un año equivocado.
+        candidatos = []
+        for anio in (hoy.year - 1, hoy.year, hoy.year + 1):
+            try:
+                candidatos.append(date(anio, mes, dia))
+            except ValueError:
+                continue  # 29-02 en año no bisiesto
+        if not candidatos:
+            return None
+        return min(candidatos, key=lambda d: abs((d - hoy).days))
 
     # ----------------------------------------
     # EXTRAER NÚMEROS DE LAS BOLAS
     # ----------------------------------------
 
-    def _extraer_balls(self, card) -> list:
-        balls = card.query_selector_all('.ball')
+    def _extraer_balls(self, tarjeta) -> list:
         numeros = []
-        for ball in balls:
-            clases = ball.get_attribute('class') or ''
-            if 'mas1' in clases:
-                continue  # bola multiplicadora, no es número
-            texto = ball.inner_text().strip()
-            if texto and texto not in ['-', '?', '']:
+        for ball in tarjeta.query_selector_all('.past-score-ball'):
+            texto = re.sub(r'\s+', ' ', ball.inner_text()).strip()
+            if texto and texto not in ['-', '?']:
                 numeros.append(texto)
         return numeros
 
@@ -370,105 +319,50 @@ class LotoHondurasScraper:
     # ----------------------------------------
 
     def _formatear_numeros(self, numeros: list, juego_key: str):
-        """Retorna (numero_ganador, numeros_adicionales, numeros_individuales)."""
+        """Retorna (numero_ganador, numeros_adicionales, numeros_individuales, extras)."""
         if not numeros:
-            return None, [], []
+            return None, [], [], {}
 
-        if 'juga3' in juego_key:
-            # 3 dígitos → unir "031"
-            ganador = ''.join(numeros)
-            return ganador, [ganador], list(numeros)
+        if juego_key.startswith('juga3'):
+            # una sola bola con los 3 dígitos: "457"
+            ganador = numeros[0]
+            return ganador, [ganador], list(ganador), {}
 
-        elif 'premia2' in juego_key:
-            # 4 dígitos agrupados en pares: "65" y "31"
-            if len(numeros) >= 4:
-                n1 = numeros[0] + numeros[1]
-                n2 = numeros[2] + numeros[3]
-                return n1, [n1, n2], numeros
-            elif len(numeros) == 2:
-                return numeros[0], numeros, numeros
-            ganador = ''.join(numeros)
-            return ganador, [ganador], numeros
+        if juego_key.startswith('diaria'):
+            # bolas: "87 León" (número + figura), multiplicador ("JG"/"2X") y adicional
+            numero, _, figura = numeros[0].partition(' ')
+            resto = numeros[1:]
+            adicionales = [numero] + ([figura] if figura else []) + resto
+            extras = {
+                'figura':        figura or None,
+                'multiplicador': resto[0] if len(resto) > 0 else None,
+                'adicional':     resto[1] if len(resto) > 1 else None,
+            }
+            return numero, adicionales, [numero], extras
 
-        elif 'diaria' in juego_key:
-            # 3 números individuales 0-9
-            ganador = ' '.join(numeros)
-            return ganador, list(numeros), list(numeros)
-
-        else:
-            # pega_3, super_premio, bingo_con_todo, multi_x, etc.
-            return numeros[0], list(numeros), list(numeros)
-
-    # ----------------------------------------
-    # HELPERS
-    # ----------------------------------------
-
-    def _bingo_es_dato_viejo(self, numeros: list) -> bool:
-        """La card del bingo en loto.hn nunca se limpia: si los números scrapeados
-        coinciden con los guardados AYER en el historial, el sorteo de hoy aún no
-        se ha publicado y no hay que guardarlos con fecha de hoy."""
-        try:
-            with open('historial.json', 'r', encoding='utf-8') as f:
-                historial = json.load(f)
-            ayer = (ahora_hn() - timedelta(days=1)).strftime('%Y-%m-%d')
-            return historial.get(ayer, {}).get('bingo_con_todo') == list(numeros)
-        except Exception:
-            return False
-
-    def _ultimo_super_guardado(self):
-        """Números del sorteo de Súper Premio más reciente guardado en el historial."""
-        try:
-            with open('historial.json', 'r', encoding='utf-8') as f:
-                historial = json.load(f)
-            for fecha in sorted(historial.keys(), reverse=True):
-                nums = historial[fecha].get('super_premio')
-                if nums:
-                    return nums
-        except Exception:
-            pass
-        return None
-
-    def _resultado_vacio(self, juego_key: str, nombre_juego: str, nombre_tanda: str) -> dict:
-        hora = HORA_TANDA.get(nombre_tanda) if juego_key not in JUEGOS_SIN_TANDA else None
-        if juego_key == 'bingo_con_todo':
-            hora = '4:00 PM'  # juega todos los días a las 4pm
-        if juego_key == 'super_premio':
-            hora = '9:00 PM'  # miércoles y sábado 9pm
-        return {
-            'juego':                juego_key,
-            'nombre_juego':         nombre_juego,
-            'fecha_consulta':       datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'),
-            'fecha_sorteo':         fecha_hn_ddmm(),
-            'hora_sorteo':          hora,
-            'numero_ganador':       None,
-            'numeros_individuales': [],
-            'numeros_adicionales':  [],
-            'serie':                None,
-            'folio':                None,
-            'estado':               None,
-            'logo_url':             f'/logos/{juego_key}.png',
-            'extras':               {}
-        }
+        # premia2, pega_3 y super_premio: una bola por número
+        return numeros[0], list(numeros), list(numeros), {}
 
     # ----------------------------------------
     # GUARDAR JSON HOY
     # ----------------------------------------
 
-    def guardar_resultados_json(self, resultados_tanda: dict, archivo='resultados_hoy.json') -> bool:
+    def guardar_resultados_json(self, resultados: dict, archivo='resultados_hoy.json') -> bool:
         try:
             existente = {}
             if os.path.exists(archivo):
                 with open(archivo, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    existente = data.get('sorteos', {})
+                    existente = json.load(f).get('sorteos', {})
 
-            for key, nuevo in resultados_tanda.items():
-                anterior = existente.get(key, {})
-                if nuevo.get('numero_ganador') is None and anterior.get('numero_ganador') is not None:
-                    print(f"   💾 Conservando dato previo de {key}: {anterior.get('numero_ganador')}")
-                    existente[key] = anterior
-                else:
-                    existente[key] = nuevo
+            # Se descartan los juegos que la fuente ya no publica
+            eliminados = [k for k in existente if k not in KEYS_VIGENTES]
+            for k in eliminados:
+                del existente[k]
+            if eliminados:
+                print(f"   🗑️  Juegos eliminados (ya no existen en la fuente): {', '.join(eliminados)}")
+
+            for key, nuevo in resultados.items():
+                existente[key] = nuevo
 
             salida = {
                 'fecha_actualizacion': datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S'),
@@ -487,61 +381,36 @@ class LotoHondurasScraper:
     # GUARDAR HISTORIAL
     # ----------------------------------------
 
-    def guardar_historial_json(self, resultados_tanda: dict, archivo='historial.json') -> bool:
+    def guardar_historial_json(self, resultados: dict, archivo='historial.json') -> bool:
         try:
             historial = {}
             if os.path.exists(archivo):
                 with open(archivo, 'r', encoding='utf-8') as f:
                     historial = json.load(f)
 
-            fecha_hn = fecha_hn_str('%Y-%m-%d')
-
-            for key, data in resultados_tanda.items():
-                if data.get('estado') != 'completado':
-                    continue
-                # Algunos juegos (Súper Premio) traen la fecha real de su sorteo
-                fecha_key = data.get('fecha_historial') or fecha_hn
+            nuevos = 0
+            for key, data in resultados.items():
+                # Cada tarjeta trae su propia fecha, así que un sorteo viejo que
+                # siga en pantalla se guarda en su día y no en el de hoy
+                fecha_key = data['fecha_historial']
                 if fecha_key not in historial:
                     historial[fecha_key] = {}
                 if key in historial[fecha_key]:
-                    print(f"   📌 Historial: ya existe {key}")
                     continue
                 # Solo guardamos los números — la key ya codifica juego + tanda
                 historial[fecha_key][key] = data['numeros_adicionales']
+                nuevos += 1
 
             with open(archivo, 'w', encoding='utf-8') as f:
                 json.dump(historial, f, ensure_ascii=False, separators=(',', ':'))
 
-            total = len(historial.get(fecha_hn, {}))
-            print(f"📚 Historial guardado: {archivo} | {fecha_hn}: {total} sorteos")
+            fecha_hn = fecha_hn_str('%Y-%m-%d')
+            print(f"📚 Historial guardado: {archivo} | {nuevos} sorteos nuevos "
+                  f"| {fecha_hn}: {len(historial.get(fecha_hn, {}))} sorteos")
             return True
         except Exception as e:
             print(f"❌ Error al guardar historial: {e}")
             return False
-
-    # ----------------------------------------
-    # DEBUG
-    # ----------------------------------------
-
-    def debug_estructura(self):
-        """Imprime todos los juegos detectados en loto.hn con sus números."""
-        with sync_playwright() as p:
-            browser = p.chromium.launch(headless=True)
-            context = browser.new_context(
-                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
-                           '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-            )
-            page = context.new_page()
-            page.goto(self.BASE_URL, wait_until='networkidle', timeout=60000)
-            time.sleep(3)
-
-            cards = page.query_selector_all('.game-card')
-            print(f"=== {len(cards)} tarjetas encontradas ===")
-            for i, card in enumerate(cards):
-                key, nombre = self._identificar_juego(card, 'manana')
-                balls = self._extraer_balls(card)
-                print(f"[{i}] key={key} | nombre={nombre} | balls={balls}")
-            browser.close()
 
 
 # ============================================
@@ -551,31 +420,25 @@ class LotoHondurasScraper:
 if __name__ == "__main__":
     scraper = LotoHondurasScraper()
 
-    print("🎲 LOTO HONDURAS SCRAPER — fuente: loto.hn")
+    print("🎲 LOTO HONDURAS SCRAPER — fuente: loteriasdehonduras.com")
+    print("=" * 60)
+    print(f"⏰ Hora HN: {fecha_hn_str('%Y-%m-%d %H:%M')}")
     print("=" * 60)
 
-    nombre_tanda = detectar_tanda()
+    resultados = scraper.obtener_resultados()
 
-    if not nombre_tanda:
-        print("✅ Sin tanda que procesar. Finalizando.")
-        exit(0)
-
-    print(f"⏰ Hora HN: {fecha_hn_str('%H:%M')} | Tanda: {nombre_tanda.upper()}")
-    print("=" * 60)
-
-    resultados_tanda = scraper.obtener_resultados_tanda(nombre_tanda)
-    scraper.guardar_resultados_json(resultados_tanda, 'resultados_hoy.json')
-    scraper.guardar_historial_json(resultados_tanda, 'historial.json')
-    purgar_cache_cloudflare()
-    resumen_tanda_telegram(nombre_tanda, resultados_tanda)
+    if not resultados:
+        alerta_error_scraping("No se obtuvo ningún resultado de loteriasdehonduras.com")
+    else:
+        scraper.guardar_resultados_json(resultados, 'resultados_hoy.json')
+        scraper.guardar_historial_json(resultados, 'historial.json')
+        purgar_cache_cloudflare()
+        resumen_telegram(resultados)
 
     print("\n" + "=" * 60)
     print("📊 RESUMEN:")
     print("=" * 60)
-    for key, data in resultados_tanda.items():
-        estado = data.get('estado', '?')
-        if data.get('numero_ganador'):
-            print(f"✅ [{estado}] {data['nombre_juego']}: {data['numero_ganador']} | {data['fecha_sorteo']} | {data['hora_sorteo']}")
-        else:
-            print(f"⏳ {data['nombre_juego']}: Pendiente")
+    for key, data in sorted(resultados.items()):
+        print(f"✅ {data['nombre_juego']}: {data['numero_ganador']} "
+              f"| {data['fecha_sorteo']} | {data['hora_sorteo']}")
     print("=" * 60)
