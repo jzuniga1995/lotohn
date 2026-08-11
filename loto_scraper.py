@@ -388,24 +388,31 @@ class LotoHondurasScraper:
                 with open(archivo, 'r', encoding='utf-8') as f:
                     historial = json.load(f)
 
-            nuevos = 0
+            nuevos, corregidos = 0, 0
             for key, data in resultados.items():
                 # Cada tarjeta trae su propia fecha, así que un sorteo viejo que
                 # siga en pantalla se guarda en su día y no en el de hoy
                 fecha_key = data['fecha_historial']
                 if fecha_key not in historial:
                     historial[fecha_key] = {}
-                if key in historial[fecha_key]:
-                    continue
+                anterior = historial[fecha_key].get(key)
                 # Solo guardamos los números — la key ya codifica juego + tanda
-                historial[fecha_key][key] = data['numeros_adicionales']
-                nuevos += 1
+                nums = data['numeros_adicionales']
+                if anterior == nums:
+                    continue
+                if anterior is None:
+                    nuevos += 1
+                else:
+                    # La fuente manda: si lo guardado no coincide, estaba mal
+                    print(f"   ♻️  Corregido {fecha_key}/{key}: {anterior} → {nums}")
+                    corregidos += 1
+                historial[fecha_key][key] = nums
 
             with open(archivo, 'w', encoding='utf-8') as f:
                 json.dump(historial, f, ensure_ascii=False, separators=(',', ':'))
 
             fecha_hn = fecha_hn_str('%Y-%m-%d')
-            print(f"📚 Historial guardado: {archivo} | {nuevos} sorteos nuevos "
+            print(f"📚 Historial guardado: {archivo} | {nuevos} nuevos | {corregidos} corregidos "
                   f"| {fecha_hn}: {len(historial.get(fecha_hn, {}))} sorteos")
             return True
         except Exception as e:
