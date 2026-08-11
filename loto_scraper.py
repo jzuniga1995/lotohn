@@ -277,6 +277,10 @@ class LotoHondurasScraper:
                           f"| {resultado['fecha_historial']} | {resultado['origen']} "
                           f"| todos: {resultado['numeros_adicionales']}")
 
+                # Ojo: esto navega fuera de la portada, así que va después de
+                # recorrer las tarjetas (sus handles quedan inválidos al salir)
+                descartes += self._completar_desde_paginas(page, resultados)
+
                 browser.close()
 
         except Exception as e:
@@ -308,12 +312,13 @@ class LotoHondurasScraper:
     # ESPERAR A QUE LA GRILLA TERMINE DE PINTARSE
     # ----------------------------------------
 
-    def _esperar_tarjetas_estables(self, page, intentos: int = 8, pausa: float = 1.0):
+    def _esperar_tarjetas_estables(self, page, intentos: int = 8, pausa: float = 1.0,
+                                   selector: str = SELECTOR_ESPERA):
         """La grilla se pinta por partes: esperamos a que deje de crecer para no
         leerla a medias y perder los sorteos que faltaban por renderizar."""
         previo = -1
         for _ in range(intentos):
-            actual = len(page.query_selector_all(SELECTOR_ESPERA))
+            actual = len(page.query_selector_all(selector))
             if actual and actual == previo:
                 return
             previo = actual
@@ -383,6 +388,12 @@ class LotoHondurasScraper:
             # podemos distinguirlo del nuevo, así que no lo re-fechamos como de hoy
             return None, f"{slug}: feed En Directo repite el resultado ya guardado"
 
+        return self._armar_resultado(juego, fecha_sorteo, ganador, adicionales,
+                                     individuales, extras, origen), None
+
+    @staticmethod
+    def _armar_resultado(juego, fecha_sorteo, ganador, adicionales, individuales,
+                         extras, origen) -> dict:
         return {
             'origen':               origen,
             'juego':                juego['key'],
@@ -399,7 +410,83 @@ class LotoHondurasScraper:
             'estado':               'completado',
             'logo_url':             f"/logos/{juego['key']}.png",
             'extras':               extras
-        }, None
+        }
+
+    # ----------------------------------------
+    # RESPALDO: PÁGINA INTERNA DEL JUEGO
+    # ----------------------------------------
+
+    # La portada se atrasa de forma despareja: puede tener el sorteo de las 11 de
+    # Pega 3 y Premia 2 y dejar vacías las tarjetas de Jugá 3 y La Diaria horas
+    # después. La página del juego ya lo lista, así que se usa de respaldo.
+    JS_FILAS = """() => {
+        const filas = [];
+        for (const et of document.querySelectorAll('.bg-slate-500')) {
+            const fecha = et.textContent.trim();
+            if (!/^\\d{2}-\\d{2}$/.test(fecha)) continue;
+            let n = et;
+            for (let i = 0; i < 6 && n.parentElement; i++) {
+                n = n.parentElement;
+                const bolas = n.querySelectorAll('.score-shape-circle, .past-score-ball');
+                // Una sola etiqueta de fecha = seguimos dentro de la misma fila.
+                // Sin esto podríamos subir hasta la lista entera y mezclar sorteos.
+                if (bolas.length && n.querySelectorAll('.bg-slate-500').length === 1) {
+                    filas.push({fecha: fecha, nums: [...bolas]
+                        .map(b => b.innerText.replace(/\\s+/g, ' ').trim())
+                        .filter(t => t && t !== '-' && t !== '?')});
+                    break;
+                }
+            }
+        }
+        return filas;
+    }"""
+
+    def _completar_desde_paginas(self, page, resultados: dict) -> list:
+        faltantes = [(slug, j) for slug, j in JUEGOS.items() if j['key'] not in resultados]
+        if not faltantes:
+            return []
+
+        notas = []
+        print("-" * 60)
+        print(f"📄 Buscando en la página de cada juego los {len(faltantes)} que faltan...")
+
+        for slug, juego in faltantes:
+            url = f"{self.BASE_URL}loto-hn/{slug}/"
+            try:
+                page.goto(url, wait_until='domcontentloaded', timeout=60000)
+                page.wait_for_selector(SELECTOR_BOLAS, timeout=20000)
+                self._esperar_tarjetas_estables(page, selector=SELECTOR_BOLAS)
+                filas = page.evaluate(self.JS_FILAS)
+            except Exception as e:
+                notas.append(f"{slug}: no se pudo leer su página ({type(e).__name__})")
+                continue
+
+            mejor = None
+            for fila in filas:
+                fecha = self._fecha_desde_texto(fila['fecha'])
+                if not fecha or not fila['nums']:
+                    continue
+                # La fuente fecha en UTC también acá: mismo desfase que la portada
+                sorteo = fecha - timedelta(days=DESFASE_UTC_DIAS[juego['hora']])
+                if mejor is None or sorteo > mejor[0]:
+                    mejor = (sorteo, fila['nums'])
+
+            if not mejor:
+                notas.append(f"{slug}: su página no trae ninguna fila utilizable")
+                continue
+
+            fecha_sorteo, nums = mejor
+            ganador, adicionales, individuales, extras = self._formatear_numeros(nums, juego['key'])
+            if not ganador:
+                notas.append(f"{slug}: no se pudo interpretar {nums} de su página")
+                continue
+
+            resultados[juego['key']] = self._armar_resultado(
+                juego, fecha_sorteo, ganador, adicionales, individuales, extras, 'pagina_juego')
+            print(f"   ✅ {juego['nombre']}: {ganador} | {fecha_sorteo:%Y-%m-%d} "
+                  f"| pagina_juego | todos: {adicionales}")
+
+        return notas
 
     # ----------------------------------------
     # FECHA DE LA TARJETA (etiqueta "dd-mm")
@@ -408,7 +495,11 @@ class LotoHondurasScraper:
     def _extraer_fecha(self, tarjeta):
         etiqueta = tarjeta.query_selector('.bg-slate-500')
         texto = etiqueta.inner_text().strip() if etiqueta else (tarjeta.inner_text() or '')
-        m = re.search(r'\b(\d{2})-(\d{2})\b', texto)
+        return self._fecha_desde_texto(texto)
+
+    @staticmethod
+    def _fecha_desde_texto(texto: str):
+        m = re.search(r'\b(\d{2})-(\d{2})\b', texto or '')
         if not m:
             return None
 
