@@ -1,12 +1,12 @@
 {
-  "fecha_actualizacion": "2026-08-13 17:09:50",
+  "fecha_actualizacion": "2026-08-13 21:09:38",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "origen": "etiqueta",
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-08-13 17:09:47",
+      "fecha_consulta": "2026-08-13 21:09:36",
       "fecha_sorteo": "13-08",
       "fecha_historial": "2026-08-13",
       "hora_sorteo": "11:00 AM",
@@ -29,18 +29,18 @@
       "origen": "etiqueta",
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-08-13 17:09:47",
-      "fecha_sorteo": "12-08",
-      "fecha_historial": "2026-08-12",
+      "fecha_consulta": "2026-08-13 21:09:36",
+      "fecha_sorteo": "13-08",
+      "fecha_historial": "2026-08-13",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "478",
+      "numero_ganador": "202",
       "numeros_individuales": [
-        "4",
-        "7",
-        "8"
+        "2",
+        "0",
+        "2"
       ],
       "numeros_adicionales": [
-        "478"
+        "202"
       ],
       "serie": null,
       "folio": null,
@@ -52,7 +52,7 @@
       "origen": "etiqueta",
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-08-13 17:09:47",
+      "fecha_consulta": "2026-08-13 21:09:36",
       "fecha_sorteo": "12-08",
       "fecha_historial": "2026-08-12",
       "hora_sorteo": "9:00 PM",
@@ -75,7 +75,7 @@
       "origen": "etiqueta",
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-08-13 17:09:48",
+      "fecha_consulta": "2026-08-13 21:09:37",
       "fecha_sorteo": "12-08",
       "fecha_historial": "2026-08-12",
       "hora_sorteo": "9:00 PM",
@@ -103,10 +103,10 @@
       "extras": {}
     },
     "diaria_11am": {
-      "origen": "pagina_juego",
+      "origen": "etiqueta",
       "juego": "diaria_11am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-08-13 17:09:50",
+      "fecha_consulta": "2026-08-13 21:09:36",
       "fecha_sorteo": "13-08",
       "fecha_historial": "2026-08-13",
       "hora_sorteo": "11:00 AM",
@@ -137,7 +137,7 @@
       "origen": "etiqueta",
       "juego": "premia2_11am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-08-13 17:09:47",
+      "fecha_consulta": "2026-08-13 21:09:36",
       "fecha_sorteo": "13-08",
       "fecha_historial": "2026-08-13",
       "hora_sorteo": "11:00 AM",
@@ -160,7 +160,7 @@
       "origen": "etiqueta",
       "juego": "pega_3_11am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-08-13 17:09:47",
+      "fecha_consulta": "2026-08-13 21:09:36",
       "fecha_sorteo": "13-08",
       "fecha_historial": "2026-08-13",
       "hora_sorteo": "11:00 AM",
@@ -182,52 +182,52 @@
       "extras": {}
     },
     "diaria_3pm": {
-      "origen": "etiqueta",
+      "origen": "pagina_juego",
       "juego": "diaria_3pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-08-13 17:09:47",
-      "fecha_sorteo": "12-08",
-      "fecha_historial": "2026-08-12",
+      "fecha_consulta": "2026-08-13 21:09:38",
+      "fecha_sorteo": "13-08",
+      "fecha_historial": "2026-08-13",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "34",
+      "numero_ganador": "66",
       "numeros_individuales": [
-        "34",
-        "Música",
-        "3X",
-        "8"
+        "66",
+        "Diablo",
+        "JG",
+        "0"
       ],
       "numeros_adicionales": [
-        "34",
-        "Música",
-        "3X",
-        "8"
+        "66",
+        "Diablo",
+        "JG",
+        "0"
       ],
       "serie": null,
       "folio": null,
       "estado": "completado",
       "logo_url": "/logos/diaria_3pm.png",
       "extras": {
-        "figura": "Música",
-        "multiplicador": "3X",
-        "adicional": "8"
+        "figura": "Diablo",
+        "multiplicador": "JG",
+        "adicional": "0"
       }
     },
     "premia2_3pm": {
       "origen": "etiqueta",
       "juego": "premia2_3pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-08-13 17:09:47",
-      "fecha_sorteo": "12-08",
-      "fecha_historial": "2026-08-12",
+      "fecha_consulta": "2026-08-13 21:09:36",
+      "fecha_sorteo": "13-08",
+      "fecha_historial": "2026-08-13",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "06",
+      "numero_ganador": "76",
       "numeros_individuales": [
-        "06",
-        "84"
+        "76",
+        "16"
       ],
       "numeros_adicionales": [
-        "06",
-        "84"
+        "76",
+        "16"
       ],
       "serie": null,
       "folio": null,
@@ -239,20 +239,20 @@
       "origen": "etiqueta",
       "juego": "pega_3_3pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-08-13 17:09:47",
-      "fecha_sorteo": "12-08",
-      "fecha_historial": "2026-08-12",
+      "fecha_consulta": "2026-08-13 21:09:36",
+      "fecha_sorteo": "13-08",
+      "fecha_historial": "2026-08-13",
       "hora_sorteo": "3:00 PM",
-      "numero_ganador": "40",
+      "numero_ganador": "83",
       "numeros_individuales": [
-        "40",
-        "52",
-        "14"
+        "83",
+        "25",
+        "20"
       ],
       "numeros_adicionales": [
-        "40",
-        "52",
-        "14"
+        "83",
+        "25",
+        "20"
       ],
       "serie": null,
       "folio": null,
@@ -264,7 +264,7 @@
       "origen": "etiqueta",
       "juego": "diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-08-13 17:09:47",
+      "fecha_consulta": "2026-08-13 21:09:36",
       "fecha_sorteo": "12-08",
       "fecha_historial": "2026-08-12",
       "hora_sorteo": "9:00 PM",
@@ -295,7 +295,7 @@
       "origen": "etiqueta",
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-08-13 17:09:47",
+      "fecha_consulta": "2026-08-13 21:09:36",
       "fecha_sorteo": "12-08",
       "fecha_historial": "2026-08-12",
       "hora_sorteo": "9:00 PM",
@@ -318,7 +318,7 @@
       "origen": "etiqueta",
       "juego": "pega_3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-08-13 17:09:47",
+      "fecha_consulta": "2026-08-13 21:09:36",
       "fecha_sorteo": "12-08",
       "fecha_historial": "2026-08-12",
       "hora_sorteo": "9:00 PM",
