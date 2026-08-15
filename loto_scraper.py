@@ -1,5 +1,6 @@
 import json
 import re
+import sys
 import time
 import os
 import requests
@@ -699,6 +700,15 @@ class LotoHondurasScraper:
 # ============================================
 
 if __name__ == "__main__":
+    # Modo aparte que el workflow invoca DESPUÉS del git push. El purgado no
+    # puede ir dentro de la corrida del scraper: en ese momento los JSON nuevos
+    # solo existen en el runner, así que vaciar el borde mientras el origen
+    # todavía sirve los resultados de ayer hace que la primera visita vuelva a
+    # cachear justo lo viejo, y ahí se queda hasta que expire el TTL.
+    if "--purgar-cache" in sys.argv:
+        purgar_cache_cloudflare()
+        sys.exit(0)
+
     scraper = LotoHondurasScraper()
 
     print("🎲 LOTO HONDURAS SCRAPER — fuente: loteriasdehonduras.com")
@@ -727,7 +737,8 @@ if __name__ == "__main__":
                 + ", ".join(f"{n} ({m})" for n, m in problemas)
             )
 
-        purgar_cache_cloudflare()
+        # El purgado de Cloudflare NO va acá: corre como paso propio del
+        # workflow, ya publicados los JSON (ver --purgar-cache arriba).
         resumen_telegram(resultados)
 
     print("\n" + "=" * 60)

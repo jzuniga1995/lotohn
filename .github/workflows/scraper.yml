@@ -69,6 +69,16 @@ jobs:
           git commit -m "🧠 Análisis + resultados - $(date +'%Y-%m-%d %H:%M:%S')"
           git push
 
+      # Va después del push a propósito: los JSON tienen que estar publicados
+      # antes de vaciar el borde. Al revés, el borde se rellena con el resultado
+      # viejo en el hueco entre el purgado y el push y se queda pegado ahí.
+      - name: 🧹 Purgar caché de Cloudflare
+        if: steps.verify_diff.outputs.changed == 'true'
+        env:
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+          CF_TOKEN:   ${{ secrets.CF_TOKEN }}
+        run: python loto_scraper.py --purgar-cache
+
       - name: ℹ️ No changes detected
         if: steps.verify_diff.outputs.changed != 'true'
         run: echo "ℹ️ No se detectaron cambios"
