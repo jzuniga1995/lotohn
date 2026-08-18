@@ -8,11 +8,17 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    env:
+      NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔖 Huella de los resultados actuales
+        id: firma_antes
+        run: echo "valor=$(python3 firma_resultados.py)" >> $GITHUB_OUTPUT
 
       - name: 🐍 Setup Python
         uses: actions/setup-python@v4
@@ -51,6 +57,10 @@ jobs:
           python analizador.py
           echo "✅ Analizador ejecutado - $(date +'%Y-%m-%d %H:%M:%S UTC')"
 
+      - name: 🔖 Huella de los resultados nuevos
+        id: firma_despues
+        run: echo "valor=$(python3 firma_resultados.py)" >> $GITHUB_OUTPUT
+
       - name: 📊 Check for changes
         id: verify_diff
         run: |
@@ -78,6 +88,27 @@ jobs:
           CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
           CF_TOKEN:   ${{ secrets.CF_TOKEN }}
         run: python loto_scraper.py --purgar-cache
+
+      # lotohn.com incrusta el último resultado en el HTML durante su build, así
+      # que un sorteo nuevo necesita un despliegue nuevo: sin esto el visitante
+      # lo ve igual (lo pide por JS) pero el bot que no ejecuta JS se queda con
+      # el sorteo del despliegue anterior.
+      #
+      # Se dispara por la huella y no por el `git diff`: el diff nunca está
+      # vacío porque los sellos de tiempo cambian en cada corrida, y hookear eso
+      # sería reconstruir el sitio cada pocos minutos sin motivo.
+      #
+      # Va después del purgado para que el build lea el dato nuevo y no la copia
+      # vieja que todavía tenga el borde.
+      - name: 🚀 Reconstruir el frontend (Netlify)
+        if: steps.firma_antes.outputs.valor != steps.firma_despues.outputs.valor && env.NETLIFY_BUILD_HOOK != ''
+        run: |
+          curl -fsS -X POST -d '{}' "$NETLIFY_BUILD_HOOK"
+          echo "✅ Despliegue de lotohn.com disparado"
+
+      - name: ⏭️ Sin sorteo nuevo
+        if: steps.firma_antes.outputs.valor == steps.firma_despues.outputs.valor
+        run: echo "ℹ️ Los números no cambiaron; no se reconstruye el sitio"
 
       - name: ℹ️ No changes detected
         if: steps.verify_diff.outputs.changed != 'true'
