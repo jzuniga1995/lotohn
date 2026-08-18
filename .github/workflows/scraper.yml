@@ -9,7 +9,7 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     env:
-      NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+      CF_PAGES_DEPLOY_HOOK: ${{ secrets.CF_PAGES_DEPLOY_HOOK }}
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
@@ -100,10 +100,14 @@ jobs:
       #
       # Va después del purgado para que el build lea el dato nuevo y no la copia
       # vieja que todavía tenga el borde.
-      - name: 🚀 Reconstruir el frontend (Netlify)
-        if: steps.firma_antes.outputs.valor != steps.firma_despues.outputs.valor && env.NETLIFY_BUILD_HOOK != ''
+      #
+      # El hook es un deploy hook de Cloudflare Pages (Settings → Builds &
+      # deployments → Deploy hooks). La URL ya lleva el token, así que es el
+      # secret entero: no hace falta cabecera de autenticación.
+      - name: 🚀 Reconstruir el frontend (Cloudflare Pages)
+        if: steps.firma_antes.outputs.valor != steps.firma_despues.outputs.valor && env.CF_PAGES_DEPLOY_HOOK != ''
         run: |
-          curl -fsS -X POST -d '{}' "$NETLIFY_BUILD_HOOK"
+          curl -fsS -X POST "$CF_PAGES_DEPLOY_HOOK"
           echo "✅ Despliegue de lotohn.com disparado"
 
       - name: ⏭️ Sin sorteo nuevo
