@@ -1,12 +1,12 @@
 {
-  "fecha_actualizacion": "2026-08-18 21:09:38",
+  "fecha_actualizacion": "2026-08-19 03:09:29",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "origen": "etiqueta",
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-08-18 21:09:35",
+      "fecha_consulta": "2026-08-19 03:09:29",
       "fecha_sorteo": "18-08",
       "fecha_historial": "2026-08-18",
       "hora_sorteo": "11:00 AM",
@@ -29,7 +29,7 @@
       "origen": "etiqueta",
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-08-18 21:09:35",
+      "fecha_consulta": "2026-08-19 03:09:29",
       "fecha_sorteo": "18-08",
       "fecha_historial": "2026-08-18",
       "hora_sorteo": "3:00 PM",
@@ -52,18 +52,18 @@
       "origen": "etiqueta",
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-08-18 21:09:35",
-      "fecha_sorteo": "17-08",
-      "fecha_historial": "2026-08-17",
+      "fecha_consulta": "2026-08-19 03:09:29",
+      "fecha_sorteo": "18-08",
+      "fecha_historial": "2026-08-18",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "880",
+      "numero_ganador": "536",
       "numeros_individuales": [
-        "8",
-        "8",
-        "0"
+        "5",
+        "3",
+        "6"
       ],
       "numeros_adicionales": [
-        "880"
+        "536"
       ],
       "serie": null,
       "folio": null,
@@ -75,7 +75,7 @@
       "origen": "etiqueta",
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-08-18 21:09:35",
+      "fecha_consulta": "2026-08-19 03:09:29",
       "fecha_sorteo": "15-08",
       "fecha_historial": "2026-08-15",
       "hora_sorteo": "9:00 PM",
@@ -106,7 +106,7 @@
       "origen": "etiqueta",
       "juego": "diaria_11am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-08-18 21:09:35",
+      "fecha_consulta": "2026-08-19 03:09:29",
       "fecha_sorteo": "18-08",
       "fecha_historial": "2026-08-18",
       "hora_sorteo": "11:00 AM",
@@ -137,7 +137,7 @@
       "origen": "etiqueta",
       "juego": "premia2_11am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-08-18 21:09:35",
+      "fecha_consulta": "2026-08-19 03:09:29",
       "fecha_sorteo": "18-08",
       "fecha_historial": "2026-08-18",
       "hora_sorteo": "11:00 AM",
@@ -160,7 +160,7 @@
       "origen": "etiqueta",
       "juego": "pega_3_11am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-08-18 21:09:35",
+      "fecha_consulta": "2026-08-19 03:09:29",
       "fecha_sorteo": "18-08",
       "fecha_historial": "2026-08-18",
       "hora_sorteo": "11:00 AM",
@@ -182,10 +182,10 @@
       "extras": {}
     },
     "diaria_3pm": {
-      "origen": "pagina_juego",
+      "origen": "etiqueta",
       "juego": "diaria_3pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-08-18 21:09:38",
+      "fecha_consulta": "2026-08-19 03:09:29",
       "fecha_sorteo": "18-08",
       "fecha_historial": "2026-08-18",
       "hora_sorteo": "3:00 PM",
@@ -216,7 +216,7 @@
       "origen": "etiqueta",
       "juego": "premia2_3pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-08-18 21:09:35",
+      "fecha_consulta": "2026-08-19 03:09:29",
       "fecha_sorteo": "18-08",
       "fecha_historial": "2026-08-18",
       "hora_sorteo": "3:00 PM",
@@ -239,7 +239,7 @@
       "origen": "etiqueta",
       "juego": "pega_3_3pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-08-18 21:09:35",
+      "fecha_consulta": "2026-08-19 03:09:29",
       "fecha_sorteo": "18-08",
       "fecha_historial": "2026-08-18",
       "hora_sorteo": "3:00 PM",
@@ -261,52 +261,52 @@
       "extras": {}
     },
     "diaria_9pm": {
-      "origen": "etiqueta",
+      "origen": "en_directo",
       "juego": "diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-08-18 21:09:35",
-      "fecha_sorteo": "17-08",
-      "fecha_historial": "2026-08-17",
+      "fecha_consulta": "2026-08-19 03:09:29",
+      "fecha_sorteo": "18-08",
+      "fecha_historial": "2026-08-18",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "91",
+      "numero_ganador": "54",
       "numeros_individuales": [
-        "91",
-        "Tortuga",
+        "54",
+        "Licor",
         "3X",
-        "4"
+        "2"
       ],
       "numeros_adicionales": [
-        "91",
-        "Tortuga",
+        "54",
+        "Licor",
         "3X",
-        "4"
+        "2"
       ],
       "serie": null,
       "folio": null,
       "estado": "completado",
       "logo_url": "/logos/diaria_9pm.png",
       "extras": {
-        "figura": "Tortuga",
+        "figura": "Licor",
         "multiplicador": "3X",
-        "adicional": "4"
+        "adicional": "2"
       }
     },
     "premia2_9pm": {
       "origen": "etiqueta",
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-08-18 21:09:35",
-      "fecha_sorteo": "17-08",
-      "fecha_historial": "2026-08-17",
+      "fecha_consulta": "2026-08-19 03:09:29",
+      "fecha_sorteo": "18-08",
+      "fecha_historial": "2026-08-18",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "20",
+      "numero_ganador": "31",
       "numeros_individuales": [
-        "20",
-        "46"
+        "31",
+        "02"
       ],
       "numeros_adicionales": [
-        "20",
-        "46"
+        "31",
+        "02"
       ],
       "serie": null,
       "folio": null,
@@ -318,20 +318,20 @@
       "origen": "etiqueta",
       "juego": "pega_3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-08-18 21:09:35",
-      "fecha_sorteo": "17-08",
-      "fecha_historial": "2026-08-17",
+      "fecha_consulta": "2026-08-19 03:09:29",
+      "fecha_sorteo": "18-08",
+      "fecha_historial": "2026-08-18",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "61",
+      "numero_ganador": "50",
       "numeros_individuales": [
-        "61",
-        "62",
-        "21"
+        "50",
+        "81",
+        "60"
       ],
       "numeros_adicionales": [
-        "61",
-        "62",
-        "21"
+        "50",
+        "81",
+        "60"
       ],
       "serie": null,
       "folio": null,
