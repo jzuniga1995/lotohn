@@ -1,43 +1,43 @@
 {
   "fecha": "2026-08-24",
-  "generado_en": "2026-08-24T17:09:30Z",
+  "generado_en": "2026-08-24T21:09:28Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 002(1v), 517(1v), 408(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 002, 517, 408 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 002(1v), 825(1v), 517(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 002, 825, 517 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "002",
-        "517",
-        "408"
+        "825",
+        "517"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 36(3v), 28(3v), 60(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 63, 36 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 03(3v), 36(3v), 28(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 63 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "28-36-71",
-        "01-28-63",
-        "36-60-71"
+        "03-19-36",
+        "36-63-71",
+        "03-19-28"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 27(4v), 86(3v), 26(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 86, 26, 14 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 86(3v), 27(3v), 26(2v) en 60 sorteos analizados.",
+      "tendencias": "Los números 86, 26 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "54-86",
+        "27-54",
         "46-54",
-        "20-27"
+        "20-86"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "la_diaria": {
       "patrones": "Más frecuentes: 03(8v), 04(7v), 06(5v) en 60 sorteos analizados.",
-      "tendencias": "Los números 03, 06, 04 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 03, 06 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "03",
         "04",
