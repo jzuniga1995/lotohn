@@ -1,25 +1,25 @@
 {
   "fecha": "2026-08-28",
-  "generado_en": "2026-08-28T21:09:48Z",
+  "generado_en": "2026-08-29T03:09:41Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 200(1v), 087(1v), 005(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 200, 087, 005 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 200(1v), 087(1v), 164(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 200, 087, 164 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "200",
         "087",
-        "005"
+        "164"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 01(3v), 36(3v), 50(2v) en 90 sorteos analizados.",
+      "patrones": "Más frecuentes: 01(4v), 50(2v), 10(2v) en 90 sorteos analizados.",
       "tendencias": "Los números 50, 10 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "01-36-84",
-        "36-52-78",
-        "01-50-84"
+        "01-08-50",
+        "12-50-84",
+        "01-08-10"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
