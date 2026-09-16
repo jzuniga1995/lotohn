@@ -1,14 +1,14 @@
 {
   "fecha": "2026-09-15",
-  "generado_en": "2026-09-15T21:10:12Z",
+  "generado_en": "2026-09-16T03:09:29Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 803(2v), 443(1v), 330(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 803, 443, 330 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 803(2v), 443(1v), 987(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 803, 443, 987 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "803",
         "443",
-        "330"
+        "987"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -18,25 +18,25 @@
       "tendencias": "Los números 47, 96, 60 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "00-47-65",
-        "00-56-60",
+        "00-60-82",
         "11-47-65"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 24(3v), 78(3v), 32(3v) en 60 sorteos analizados.",
-      "tendencias": "Los números 70, 02 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 24(3v), 32(3v), 70(2v) en 60 sorteos analizados.",
+      "tendencias": "Los números 70 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "14-78",
+        "14-32",
         "14-23",
-        "24-56"
+        "24-78"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 08(7v), 04(6v), 00(5v) en 60 sorteos analizados.",
+      "patrones": "Más frecuentes: 08(7v), 04(6v), 00(6v) en 60 sorteos analizados.",
       "tendencias": "Los números 08, 04, 00 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "08",
