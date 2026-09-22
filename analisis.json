@@ -1,25 +1,25 @@
 {
   "fecha": "2026-09-22",
-  "generado_en": "2026-09-22T17:09:39Z",
+  "generado_en": "2026-09-22T21:09:35Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 321(1v), 147(1v), 543(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 321, 147, 543 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 321(1v), 957(1v), 147(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 321, 957, 147 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "321",
-        "147",
-        "543"
+        "957",
+        "147"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 58(4v), 96(3v), 11(3v) en 90 sorteos analizados.",
+      "patrones": "Más frecuentes: 94(4v), 58(4v), 96(3v) en 90 sorteos analizados.",
       "tendencias": "Los números 96 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "43-58-96",
-        "51-56-96",
-        "11-43-58"
+        "56-58-94",
+        "43-58-76",
+        "56-94-96"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -37,7 +37,7 @@
     },
     "la_diaria": {
       "patrones": "Más frecuentes: 07(8v), 04(7v), 00(6v) en 60 sorteos analizados.",
-      "tendencias": "Los números 04, 07, 02 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 07, 04 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "07",
         "04",
