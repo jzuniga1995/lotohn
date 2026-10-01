@@ -1,10 +1,10 @@
 {
   "fecha": "2026-09-30",
-  "generado_en": "2026-09-30T21:09:26Z",
+  "generado_en": "2026-10-01T03:09:25Z",
   "juegos": {
     "juga3": {
       "patrones": "Más frecuentes: 775(2v), 543(2v), 313(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 313, 495, 317 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 313, 495, 480 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "775",
         "543",
@@ -25,30 +25,30 @@
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 40(3v), 92(2v), 31(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 95, 92 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 40(3v), 92(2v), 02(2v) en 60 sorteos analizados.",
+      "tendencias": "Los números 92, 02 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "50-92",
-        "38-50",
-        "12-40"
+        "26-92",
+        "26-50",
+        "38-40"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 06(7v), 04(4v), 02(4v) en 60 sorteos analizados.",
+      "patrones": "Más frecuentes: 06(7v), 05(4v), 07(4v) en 60 sorteos analizados.",
       "tendencias": "Los números 04, 06, 81 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "06",
-        "04",
-        "02"
+        "05",
+        "07"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "super_premio": {
-      "patrones": "Más frecuentes: 10(10v), 30(9v), 13(9v) en 180 sorteos analizados.",
-      "tendencias": "Los números 10, 13 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 10(10v), 20(9v), 13(9v) en 180 sorteos analizados.",
+      "tendencias": "Los números 10, 13, 20 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "08-10-13-18-20-30",
         "05-11-19-22-25-32",
