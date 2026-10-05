@@ -1,6 +1,6 @@
 {
-  "fecha": "2026-10-04",
-  "generado_en": "2026-10-05T03:09:28Z",
+  "fecha": "2026-10-05",
+  "generado_en": "2026-10-05T17:10:18Z",
   "juegos": {
     "juga3": {
       "patrones": "Más frecuentes: 480(2v), 775(2v), 921(1v) en 30 sorteos analizados.",
@@ -14,30 +14,30 @@
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 04(4v), 61(3v), 44(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 04, 61, 44 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 04(4v), 44(3v), 76(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 04, 69 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "04-12-61",
-        "61-76-86",
-        "04-12-44"
+        "04-24-44",
+        "44-47-69",
+        "04-24-76"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 40(4v), 26(3v), 74(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 74, 40, 50 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 40(4v), 53(3v), 26(3v) en 60 sorteos analizados.",
+      "tendencias": "Los números 53, 74, 40 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "26-38",
-        "38-62",
+        "53-70",
+        "38-70",
         "16-40"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 06(7v), 02(4v), 05(4v) en 60 sorteos analizados.",
-      "tendencias": "Los números 04 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 06(7v), 02(5v), 05(4v) en 60 sorteos analizados.",
+      "tendencias": "Los números 02 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "06",
         "02",
