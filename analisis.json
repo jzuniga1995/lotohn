@@ -1,6 +1,6 @@
 {
-  "fecha": "2026-10-06",
-  "generado_en": "2026-10-07T03:09:28Z",
+  "fecha": "2026-10-07",
+  "generado_en": "2026-10-07T17:10:46Z",
   "juegos": {
     "juga3": {
       "patrones": "Más frecuentes: 480(2v), 775(2v), 779(1v) en 30 sorteos analizados.",
@@ -14,34 +14,34 @@
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 04(4v), 08(3v), 98(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 08 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 04(4v), 38(3v), 08(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 38 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "04-08-47",
-        "08-12-94",
-        "04-47-98"
+        "04-38-47",
+        "12-38-94",
+        "04-08-47"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 53(3v), 40(3v), 22(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 53, 22 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 74(3v), 53(3v), 40(3v) en 60 sorteos analizados.",
+      "tendencias": "Los números 80, 53, 74 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "40-74",
-        "50-74",
-        "53-70"
+        "32-53",
+        "32-88",
+        "50-74"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 06(8v), 03(4v), 05(3v) en 60 sorteos analizados.",
-      "tendencias": "Los números 06, 05 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 06(7v), 04(4v), 03(4v) en 60 sorteos analizados.",
+      "tendencias": "Los números 04, 06 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "06",
-        "03",
-        "05"
+        "04",
+        "03"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
