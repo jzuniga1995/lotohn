@@ -1,14 +1,14 @@
 {
   "fecha": "2026-10-18",
-  "generado_en": "2026-10-18T21:09:45Z",
+  "generado_en": "2026-10-19T03:09:37Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 732(2v), 112(2v), 800(2v) en 30 sorteos analizados.",
-      "tendencias": "Los números 732, 665, 112 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 732(2v), 800(2v), 665(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 732, 665, 858 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "732",
-        "112",
-        "800"
+        "800",
+        "665"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -26,7 +26,7 @@
     },
     "premia2": {
       "patrones": "Más frecuentes: 47(4v), 00(4v), 70(3v) en 60 sorteos analizados.",
-      "tendencias": "Los números 00 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 00, 04 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "00-55",
         "21-55",
@@ -36,7 +36,7 @@
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 07(6v), 05(4v), 00(3v) en 60 sorteos analizados.",
+      "patrones": "Más frecuentes: 07(5v), 05(4v), 00(3v) en 60 sorteos analizados.",
       "tendencias": "Los números 00, 07, 06 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "07",
