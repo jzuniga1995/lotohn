@@ -1,10 +1,10 @@
 {
   "fecha": "2026-10-20",
-  "generado_en": "2026-10-20T21:09:43Z",
+  "generado_en": "2026-10-21T03:09:51Z",
   "juegos": {
     "juga3": {
       "patrones": "Más frecuentes: 732(2v), 800(2v), 791(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 791, 703, 369 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 791, 703, 754 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "732",
         "800",
@@ -14,12 +14,12 @@
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 20(4v), 90(3v), 83(3v) en 90 sorteos analizados.",
-      "tendencias": "Últimos sorteos muestran números distintos al patrón histórico: 70, 42, 23.",
+      "patrones": "Más frecuentes: 90(4v), 20(4v), 83(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 90 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "20-36-90",
-        "51-70-90",
-        "20-36-83"
+        "20-51-70",
+        "36-83-90"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
