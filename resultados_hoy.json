@@ -1,12 +1,12 @@
 {
-  "fecha_actualizacion": "2026-10-24 21:09:47",
+  "fecha_actualizacion": "2026-10-25 03:09:39",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "origen": "etiqueta",
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-10-24 21:09:46",
+      "fecha_consulta": "2026-10-25 03:09:38",
       "fecha_sorteo": "24-10",
       "fecha_historial": "2026-10-24",
       "hora_sorteo": "11:00 AM",
@@ -29,7 +29,7 @@
       "origen": "etiqueta",
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-10-24 21:09:46",
+      "fecha_consulta": "2026-10-25 03:09:38",
       "fecha_sorteo": "24-10",
       "fecha_historial": "2026-10-24",
       "hora_sorteo": "3:00 PM",
@@ -52,18 +52,18 @@
       "origen": "etiqueta",
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-10-24 21:09:46",
-      "fecha_sorteo": "23-10",
-      "fecha_historial": "2026-10-23",
+      "fecha_consulta": "2026-10-25 03:09:38",
+      "fecha_sorteo": "24-10",
+      "fecha_historial": "2026-10-24",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "418",
+      "numero_ganador": "057",
       "numeros_individuales": [
-        "4",
-        "1",
-        "8"
+        "0",
+        "5",
+        "7"
       ],
       "numeros_adicionales": [
-        "418"
+        "057"
       ],
       "serie": null,
       "folio": null,
@@ -75,26 +75,26 @@
       "origen": "etiqueta",
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-10-24 21:09:47",
-      "fecha_sorteo": "21-10",
-      "fecha_historial": "2026-10-21",
+      "fecha_consulta": "2026-10-25 03:09:38",
+      "fecha_sorteo": "24-10",
+      "fecha_historial": "2026-10-24",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "07",
+      "numero_ganador": "02",
       "numeros_individuales": [
-        "07",
-        "16",
-        "20",
-        "26",
-        "29",
-        "31"
+        "02",
+        "05",
+        "08",
+        "23",
+        "25",
+        "30"
       ],
       "numeros_adicionales": [
-        "07",
-        "16",
-        "20",
-        "26",
-        "29",
-        "31"
+        "02",
+        "05",
+        "08",
+        "23",
+        "25",
+        "30"
       ],
       "serie": null,
       "folio": null,
@@ -106,7 +106,7 @@
       "origen": "etiqueta",
       "juego": "diaria_11am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-10-24 21:09:46",
+      "fecha_consulta": "2026-10-25 03:09:38",
       "fecha_sorteo": "24-10",
       "fecha_historial": "2026-10-24",
       "hora_sorteo": "11:00 AM",
@@ -137,7 +137,7 @@
       "origen": "etiqueta",
       "juego": "premia2_11am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-10-24 21:09:46",
+      "fecha_consulta": "2026-10-25 03:09:38",
       "fecha_sorteo": "24-10",
       "fecha_historial": "2026-10-24",
       "hora_sorteo": "11:00 AM",
@@ -160,7 +160,7 @@
       "origen": "etiqueta",
       "juego": "pega_3_11am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-10-24 21:09:46",
+      "fecha_consulta": "2026-10-25 03:09:38",
       "fecha_sorteo": "24-10",
       "fecha_historial": "2026-10-24",
       "hora_sorteo": "11:00 AM",
@@ -185,7 +185,7 @@
       "origen": "etiqueta",
       "juego": "diaria_3pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-10-24 21:09:46",
+      "fecha_consulta": "2026-10-25 03:09:38",
       "fecha_sorteo": "24-10",
       "fecha_historial": "2026-10-24",
       "hora_sorteo": "3:00 PM",
@@ -216,7 +216,7 @@
       "origen": "etiqueta",
       "juego": "premia2_3pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-10-24 21:09:46",
+      "fecha_consulta": "2026-10-25 03:09:38",
       "fecha_sorteo": "24-10",
       "fecha_historial": "2026-10-24",
       "hora_sorteo": "3:00 PM",
@@ -239,7 +239,7 @@
       "origen": "etiqueta",
       "juego": "pega_3_3pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-10-24 21:09:46",
+      "fecha_consulta": "2026-10-25 03:09:38",
       "fecha_sorteo": "24-10",
       "fecha_historial": "2026-10-24",
       "hora_sorteo": "3:00 PM",
@@ -264,49 +264,49 @@
       "origen": "etiqueta",
       "juego": "diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-10-24 21:09:46",
-      "fecha_sorteo": "23-10",
-      "fecha_historial": "2026-10-23",
+      "fecha_consulta": "2026-10-25 03:09:38",
+      "fecha_sorteo": "24-10",
+      "fecha_historial": "2026-10-24",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "31",
+      "numero_ganador": "97",
       "numeros_individuales": [
-        "31",
-        "Alacrán",
-        "2X",
-        "6"
+        "97",
+        "Viejito",
+        "JG",
+        "9"
       ],
       "numeros_adicionales": [
-        "31",
-        "Alacrán",
-        "2X",
-        "6"
+        "97",
+        "Viejito",
+        "JG",
+        "9"
       ],
       "serie": null,
       "folio": null,
       "estado": "completado",
       "logo_url": "/logos/diaria_9pm.png",
       "extras": {
-        "figura": "Alacrán",
-        "multiplicador": "2X",
-        "adicional": "6"
+        "figura": "Viejito",
+        "multiplicador": "JG",
+        "adicional": "9"
       }
     },
     "premia2_9pm": {
       "origen": "etiqueta",
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-10-24 21:09:46",
-      "fecha_sorteo": "23-10",
-      "fecha_historial": "2026-10-23",
+      "fecha_consulta": "2026-10-25 03:09:38",
+      "fecha_sorteo": "24-10",
+      "fecha_historial": "2026-10-24",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "46",
+      "numero_ganador": "54",
       "numeros_individuales": [
-        "46",
-        "45"
+        "54",
+        "20"
       ],
       "numeros_adicionales": [
-        "46",
-        "45"
+        "54",
+        "20"
       ],
       "serie": null,
       "folio": null,
@@ -318,20 +318,20 @@
       "origen": "etiqueta",
       "juego": "pega_3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-10-24 21:09:46",
-      "fecha_sorteo": "23-10",
-      "fecha_historial": "2026-10-23",
+      "fecha_consulta": "2026-10-25 03:09:38",
+      "fecha_sorteo": "24-10",
+      "fecha_historial": "2026-10-24",
       "hora_sorteo": "9:00 PM",
-      "numero_ganador": "69",
+      "numero_ganador": "67",
       "numeros_individuales": [
+        "67",
         "69",
-        "33",
-        "65"
+        "84"
       ],
       "numeros_adicionales": [
+        "67",
         "69",
-        "33",
-        "65"
+        "84"
       ],
       "serie": null,
       "folio": null,
