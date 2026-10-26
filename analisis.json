@@ -1,25 +1,25 @@
 {
   "fecha": "2026-10-25",
-  "generado_en": "2026-10-25T21:09:47Z",
+  "generado_en": "2026-10-26T03:09:44Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 629(1v), 779(1v), 651(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 629, 779, 651 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 629(1v), 779(1v), 622(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 629, 779, 622 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "629",
         "779",
-        "651"
+        "622"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 17(3v), 33(3v), 84(3v) en 90 sorteos analizados.",
-      "tendencias": "Los números 17, 84, 73 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 17(3v), 69(3v), 33(3v) en 90 sorteos analizados.",
+      "tendencias": "Los números 69, 84 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "17-33-44",
-        "33-73-92",
-        "17-44-84"
+        "17-69-73",
+        "44-69-90",
+        "17-33-73"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -28,16 +28,16 @@
       "patrones": "Más frecuentes: 46(3v), 64(3v), 70(2v) en 60 sorteos analizados.",
       "tendencias": "Los números 70, 46, 21 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "53-64",
-        "14-53",
-        "46-85"
+        "43-64",
+        "43-85",
+        "46-87"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "la_diaria": {
       "patrones": "Más frecuentes: 00(6v), 04(5v), 09(5v) en 60 sorteos analizados.",
-      "tendencias": "Los números 09, 04, 02 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 04, 09, 02 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "00",
         "04",
