@@ -1,14 +1,14 @@
 {
   "fecha": "2026-11-01",
-  "generado_en": "2026-11-01T21:09:49Z",
+  "generado_en": "2026-11-02T03:09:37Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 780(1v), 467(1v), 108(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 780, 467, 108 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 780(1v), 467(1v), 611(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 780, 467, 611 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "780",
         "467",
-        "108"
+        "611"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -36,12 +36,12 @@
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 09(6v), 03(5v), 00(4v) en 60 sorteos analizados.",
+      "patrones": "Más frecuentes: 09(6v), 06(5v), 03(5v) en 60 sorteos analizados.",
       "tendencias": "Los números 03, 00, 09 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "09",
-        "03",
-        "00"
+        "06",
+        "03"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
