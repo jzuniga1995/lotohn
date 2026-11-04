@@ -1,46 +1,46 @@
 {
   "fecha": "2026-11-04",
-  "generado_en": "2026-11-04T17:09:47Z",
+  "generado_en": "2026-11-04T21:09:49Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 465(1v), 781(1v), 904(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 465, 781, 904 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 465(1v), 646(1v), 781(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 465, 646, 781 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "465",
-        "781",
-        "904"
+        "646",
+        "781"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
       "patrones": "Más frecuentes: 91(4v), 38(4v), 93(4v) en 90 sorteos analizados.",
-      "tendencias": "Los números 38, 31, 91 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 05, 38, 31 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "24-38-91",
-        "05-19-38",
-        "24-91-93"
+        "19-38-91",
+        "24-31-38",
+        "19-91-93"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 47(3v), 66(3v), 58(3v) en 60 sorteos analizados.",
-      "tendencias": "Los números 47, 06 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 47(3v), 66(3v), 06(2v) en 60 sorteos analizados.",
+      "tendencias": "Los números 65 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "65-66",
-        "65-68",
-        "02-47"
+        "66-68",
+        "02-68",
+        "47-58"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 03(6v), 02(4v), 00(4v) en 60 sorteos analizados.",
-      "tendencias": "Los números 02, 05, 00 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 03(6v), 04(4v), 00(4v) en 60 sorteos analizados.",
+      "tendencias": "Los números 02, 04 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "03",
-        "02",
+        "04",
         "00"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
