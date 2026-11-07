@@ -1,14 +1,14 @@
 {
   "fecha": "2026-11-06",
-  "generado_en": "2026-11-06T21:09:39Z",
+  "generado_en": "2026-11-07T03:09:50Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 244(1v), 653(1v), 440(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 244, 653, 440 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 244(1v), 653(1v), 520(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 244, 653, 520 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "244",
         "653",
-        "440"
+        "520"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -25,23 +25,23 @@
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 66(4v), 84(3v), 47(3v) en 60 sorteos analizados.",
-      "tendencias": "Los números 46, 66, 21 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 66(4v), 84(3v), 46(2v) en 60 sorteos analizados.",
+      "tendencias": "Los números 46, 66 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "84-91",
-        "65-91",
-        "66-68"
+        "47-91",
+        "65-66"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 05(5v), 00(5v), 03(5v) en 60 sorteos analizados.",
-      "tendencias": "Los números 04, 05 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 05(5v), 03(5v), 04(4v) en 60 sorteos analizados.",
+      "tendencias": "Los números 02, 05, 04 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "05",
-        "00",
-        "03"
+        "03",
+        "04"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
