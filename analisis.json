@@ -1,6 +1,6 @@
 {
-  "fecha": "2026-11-10",
-  "generado_en": "2026-11-11T03:09:44Z",
+  "fecha": "2026-11-11",
+  "generado_en": "2026-11-11T17:10:33Z",
   "juegos": {
     "juga3": {
       "patrones": "Más frecuentes: 494(1v), 621(1v), 176(1v) en 30 sorteos analizados.",
@@ -25,18 +25,18 @@
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 46(3v), 41(2v), 97(2v) en 60 sorteos analizados.",
-      "tendencias": "Los números 41, 97 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 46(3v), 51(2v), 41(2v) en 60 sorteos analizados.",
+      "tendencias": "Los números 51, 41, 97 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "41-84",
-        "35-84",
-        "46-77"
+        "39-51",
+        "39-84",
+        "35-46"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 04(5v), 02(5v), 62(4v) en 60 sorteos analizados.",
+      "patrones": "Más frecuentes: 04(6v), 02(5v), 62(4v) en 60 sorteos analizados.",
       "tendencias": "Los números 04, 02 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "04",
