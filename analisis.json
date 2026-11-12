@@ -1,14 +1,14 @@
 {
-  "fecha": "2026-11-11",
-  "generado_en": "2026-11-12T03:09:41Z",
+  "fecha": "2026-11-12",
+  "generado_en": "2026-11-12T17:10:07Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 090(1v), 184(1v), 019(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 090, 184, 019 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 819(1v), 090(1v), 184(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 819, 090, 184 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
+        "819",
         "090",
-        "184",
-        "019"
+        "184"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
@@ -18,25 +18,25 @@
       "tendencias": "Los números 10 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "05-31-38",
-        "38-50-94",
+        "38-46-94",
         "05-10-31"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
-      "patrones": "Más frecuentes: 77(3v), 46(3v), 51(2v) en 60 sorteos analizados.",
+      "patrones": "Más frecuentes: 46(3v), 29(2v), 51(2v) en 60 sorteos analizados.",
       "tendencias": "Los números 51, 37, 80 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "41-46",
-        "41-97",
-        "53-77"
+        "29-77",
+        "41-77",
+        "46-97"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "la_diaria": {
-      "patrones": "Más frecuentes: 04(6v), 02(5v), 06(4v) en 60 sorteos analizados.",
+      "patrones": "Más frecuentes: 04(7v), 02(5v), 06(4v) en 60 sorteos analizados.",
       "tendencias": "Los números 04, 06 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "04",
