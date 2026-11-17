@@ -1,32 +1,32 @@
 {
   "fecha": "2026-11-17",
-  "generado_en": "2026-11-17T17:09:47Z",
+  "generado_en": "2026-11-17T21:09:34Z",
   "juegos": {
     "juga3": {
-      "patrones": "Más frecuentes: 447(1v), 339(1v), 588(1v) en 30 sorteos analizados.",
-      "tendencias": "Los números 447, 339, 588 son frecuentes tanto en el historial como en sorteos recientes.",
+      "patrones": "Más frecuentes: 447(1v), 831(1v), 339(1v) en 30 sorteos analizados.",
+      "tendencias": "Los números 447, 831, 339 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "447",
-        "339",
-        "588"
+        "831",
+        "339"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "pega_3": {
-      "patrones": "Más frecuentes: 10(4v), 86(4v), 27(3v) en 90 sorteos analizados.",
+      "patrones": "Más frecuentes: 10(4v), 86(4v), 19(3v) en 90 sorteos analizados.",
       "tendencias": "Los números 27 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
-        "10-15-86",
-        "17-63-86",
-        "10-15-27"
+        "10-31-86",
+        "32-86-87",
+        "10-19-31"
       ],
       "advertencia": "La lotería es un juego de azar. Juega con responsabilidad.",
       "sorteos_analizados": 30
     },
     "premia2": {
       "patrones": "Más frecuentes: 51(4v), 37(4v), 91(3v) en 60 sorteos analizados.",
-      "tendencias": "Los números 91, 29, 97 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 91, 29 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "37-53",
         "53-84",
@@ -37,7 +37,7 @@
     },
     "la_diaria": {
       "patrones": "Más frecuentes: 04(10v), 02(6v), 06(5v) en 60 sorteos analizados.",
-      "tendencias": "Los números 02, 36, 06 son frecuentes tanto en el historial como en sorteos recientes.",
+      "tendencias": "Los números 36, 02 son frecuentes tanto en el historial como en sorteos recientes.",
       "sugerencias": [
         "04",
         "02",
