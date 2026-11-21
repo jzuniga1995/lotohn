@@ -1,23 +1,23 @@
 {
-  "fecha_actualizacion": "2026-11-21 03:09:31",
+  "fecha_actualizacion": "2026-11-21 17:09:29",
   "total_sorteos": 13,
   "sorteos": {
     "juga3_11am": {
       "origen": "etiqueta",
       "juego": "juga3_11am",
       "nombre_juego": "Jugá 3 11:00 AM",
-      "fecha_consulta": "2026-11-21 03:09:31",
-      "fecha_sorteo": "20-11",
-      "fecha_historial": "2026-11-20",
+      "fecha_consulta": "2026-11-21 17:09:29",
+      "fecha_sorteo": "21-11",
+      "fecha_historial": "2026-11-21",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "885",
+      "numero_ganador": "550",
       "numeros_individuales": [
-        "8",
-        "8",
-        "5"
+        "5",
+        "5",
+        "0"
       ],
       "numeros_adicionales": [
-        "885"
+        "550"
       ],
       "serie": null,
       "folio": null,
@@ -29,7 +29,7 @@
       "origen": "etiqueta",
       "juego": "juga3_3pm",
       "nombre_juego": "Jugá 3 3:00 PM",
-      "fecha_consulta": "2026-11-21 03:09:31",
+      "fecha_consulta": "2026-11-21 17:09:29",
       "fecha_sorteo": "20-11",
       "fecha_historial": "2026-11-20",
       "hora_sorteo": "3:00 PM",
@@ -52,7 +52,7 @@
       "origen": "etiqueta",
       "juego": "juga3_9pm",
       "nombre_juego": "Jugá 3 9:00 PM",
-      "fecha_consulta": "2026-11-21 03:09:31",
+      "fecha_consulta": "2026-11-21 17:09:29",
       "fecha_sorteo": "20-11",
       "fecha_historial": "2026-11-20",
       "hora_sorteo": "9:00 PM",
@@ -75,7 +75,7 @@
       "origen": "etiqueta",
       "juego": "super_premio",
       "nombre_juego": "Super Premio",
-      "fecha_consulta": "2026-11-21 03:09:31",
+      "fecha_consulta": "2026-11-21 17:09:29",
       "fecha_sorteo": "18-11",
       "fecha_historial": "2026-11-18",
       "hora_sorteo": "9:00 PM",
@@ -106,49 +106,49 @@
       "origen": "etiqueta",
       "juego": "diaria_11am",
       "nombre_juego": "La Diaria 11:00 AM",
-      "fecha_consulta": "2026-11-21 03:09:31",
-      "fecha_sorteo": "20-11",
-      "fecha_historial": "2026-11-20",
+      "fecha_consulta": "2026-11-21 17:09:29",
+      "fecha_sorteo": "21-11",
+      "fecha_historial": "2026-11-21",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "86",
+      "numero_ganador": "84",
       "numeros_individuales": [
-        "86",
-        "Reloj",
-        "2X",
-        "8"
+        "84",
+        "Coronas",
+        "3X",
+        "6"
       ],
       "numeros_adicionales": [
-        "86",
-        "Reloj",
-        "2X",
-        "8"
+        "84",
+        "Coronas",
+        "3X",
+        "6"
       ],
       "serie": null,
       "folio": null,
       "estado": "completado",
       "logo_url": "/logos/diaria_11am.png",
       "extras": {
-        "figura": "Reloj",
-        "multiplicador": "2X",
-        "adicional": "8"
+        "figura": "Coronas",
+        "multiplicador": "3X",
+        "adicional": "6"
       }
     },
     "premia2_11am": {
       "origen": "etiqueta",
       "juego": "premia2_11am",
       "nombre_juego": "Premia 2 11:00 AM",
-      "fecha_consulta": "2026-11-21 03:09:31",
-      "fecha_sorteo": "20-11",
-      "fecha_historial": "2026-11-20",
+      "fecha_consulta": "2026-11-21 17:09:29",
+      "fecha_sorteo": "21-11",
+      "fecha_historial": "2026-11-21",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "99",
+      "numero_ganador": "67",
       "numeros_individuales": [
-        "99",
-        "18"
+        "67",
+        "96"
       ],
       "numeros_adicionales": [
-        "99",
-        "18"
+        "67",
+        "96"
       ],
       "serie": null,
       "folio": null,
@@ -160,20 +160,20 @@
       "origen": "etiqueta",
       "juego": "pega_3_11am",
       "nombre_juego": "Pega 3 11:00 AM",
-      "fecha_consulta": "2026-11-21 03:09:31",
-      "fecha_sorteo": "20-11",
-      "fecha_historial": "2026-11-20",
+      "fecha_consulta": "2026-11-21 17:09:29",
+      "fecha_sorteo": "21-11",
+      "fecha_historial": "2026-11-21",
       "hora_sorteo": "11:00 AM",
-      "numero_ganador": "50",
+      "numero_ganador": "46",
       "numeros_individuales": [
-        "50",
-        "81",
-        "25"
+        "46",
+        "54",
+        "83"
       ],
       "numeros_adicionales": [
-        "50",
-        "81",
-        "25"
+        "46",
+        "54",
+        "83"
       ],
       "serie": null,
       "folio": null,
@@ -185,7 +185,7 @@
       "origen": "etiqueta",
       "juego": "diaria_3pm",
       "nombre_juego": "La Diaria 3:00 PM",
-      "fecha_consulta": "2026-11-21 03:09:31",
+      "fecha_consulta": "2026-11-21 17:09:29",
       "fecha_sorteo": "20-11",
       "fecha_historial": "2026-11-20",
       "hora_sorteo": "3:00 PM",
@@ -216,7 +216,7 @@
       "origen": "etiqueta",
       "juego": "premia2_3pm",
       "nombre_juego": "Premia 2 3:00 PM",
-      "fecha_consulta": "2026-11-21 03:09:31",
+      "fecha_consulta": "2026-11-21 17:09:29",
       "fecha_sorteo": "20-11",
       "fecha_historial": "2026-11-20",
       "hora_sorteo": "3:00 PM",
@@ -239,7 +239,7 @@
       "origen": "etiqueta",
       "juego": "pega_3_3pm",
       "nombre_juego": "Pega 3 3:00 PM",
-      "fecha_consulta": "2026-11-21 03:09:31",
+      "fecha_consulta": "2026-11-21 17:09:29",
       "fecha_sorteo": "20-11",
       "fecha_historial": "2026-11-20",
       "hora_sorteo": "3:00 PM",
@@ -264,7 +264,7 @@
       "origen": "etiqueta",
       "juego": "diaria_9pm",
       "nombre_juego": "La Diaria 9:00 PM",
-      "fecha_consulta": "2026-11-21 03:09:31",
+      "fecha_consulta": "2026-11-21 17:09:29",
       "fecha_sorteo": "20-11",
       "fecha_historial": "2026-11-20",
       "hora_sorteo": "9:00 PM",
@@ -295,7 +295,7 @@
       "origen": "etiqueta",
       "juego": "premia2_9pm",
       "nombre_juego": "Premia 2 9:00 PM",
-      "fecha_consulta": "2026-11-21 03:09:31",
+      "fecha_consulta": "2026-11-21 17:09:29",
       "fecha_sorteo": "20-11",
       "fecha_historial": "2026-11-20",
       "hora_sorteo": "9:00 PM",
@@ -318,7 +318,7 @@
       "origen": "etiqueta",
       "juego": "pega_3_9pm",
       "nombre_juego": "Pega 3 9:00 PM",
-      "fecha_consulta": "2026-11-21 03:09:31",
+      "fecha_consulta": "2026-11-21 17:09:29",
       "fecha_sorteo": "20-11",
       "fecha_historial": "2026-11-20",
       "hora_sorteo": "9:00 PM",
